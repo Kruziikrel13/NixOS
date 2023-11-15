@@ -1,0 +1,57 @@
+BRANCH?=unstable # Or Unstable
+
+StableHome=https://github.com/nix-community/home-manager/archive/release-23.05.tar.gz
+MasterHome=https://github.com/nix-community/home-manager/archive/master.tar.gz
+StableOS=https://channels.nixos.org/nixos-23.05
+MasterOS=https://channels.nixos.org/nixos-unstable
+MasterHardware=https://github.com/NixOS/nixos-hardware/archive/master.tar.gz
+
+ifeq ($(BRANCH),stable)
+	HomeBranch=$(StableHome)
+	OsBranch=$(StableOS)
+else
+	HomeBranch=$(MasterHome)
+	OsBranch=$(MasterOS)
+endif
+
+build:
+	sudo nixos-rebuild switch
+
+upgrade:
+	sudo nixos-rebuild switch --upgrade-all
+
+clean:
+	sudo nix-collect-garbage --delete-old
+
+init: channels update-channels build
+
+channels: channel-home channel-os channel-hardware
+
+channel-home:
+	sudo nix-channel --add $(HomeBranch) home-manager
+
+channel-os:
+	sudo nix-channel --add $(OsBranch) nixos
+
+channel-hardware:
+	sudo nix-channel --add $(MasterHardware) nixos-hardware
+
+update-channels:
+	sudo nix-channel --update
+
+clean-channels:
+	-for channel in $$(sudo nix-channel --list); do \
+		sudo nix-channel --remove $$channel; \
+	done
+
+x-stable:
+	$(MAKE) -s clean-channels
+	$(MAKE) channels update-channels BRANCH=stable
+
+x-unstable:
+	$(MAKE) -s clean-channels
+	$(MAKE) channels update-channels BRANCH=unstable
+
+x-dry-build:
+	sudo nixos-rebuild dry-build
+
