@@ -3,7 +3,9 @@ let
   configDir = "/home/${osConfig.opts.Username}/.config";
 in
 {
+  home.packages = with pkgs; [ walker pulsemixer protonmail-desktop discord spotify dust brightnessctl via ];
   services.playerctld.enable = true;
+  programs.ranger.enable = true;
   programs.btop.enable = true;
   programs.bat.enable = true;
   programs.feh.enable = true;
