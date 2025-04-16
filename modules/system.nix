@@ -33,7 +33,7 @@ let cfg = config.opts; in
         name = cfg.Username;
         isNormalUser = true;
         group = "users";
-        extraGroups = [ "wheel" "audio" "video" "power" "disk" "optical" "storage" "tty" "networkmanager" "network" "seat" "greeter" "polkitd" ];
+        extraGroups = [ "wheel" "audio" "video" "power" "disk" "optical" "storage" "tty" "networkmanager" "network" "seat" "greeter" "polkitd" "pipewire" ];
         hashedPassword = cfg.HashedPassword;
         packages = with pkgs; [
           walker ranger pulsemixer protonmail-desktop discord spotify heroic dust brightnessctl via
