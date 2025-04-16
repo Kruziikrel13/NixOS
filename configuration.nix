@@ -1,16 +1,24 @@
+{ config, lib, pkgs, ... }:
+
 {
-  imports = [/etc/nixos/hardware-configuration.nix ./config];
+  imports =
+    [ # Include the results of the hardware scan.
+      ./hardware-configuration.nix
+      ./modules/system.nix
+      ./modules/gaming.nix
+      ./modules/home
+    ];
 
   opts = {
-    System = {
-      Version = "23.11";
-      Hostname = "Alternate-Solutions";
-      Username = "O5-1";
-      HashedPassword = "$6$nBLGdGnAVE654oku$62zGzmYbwTa15QgtalCmSlud8OqVll07ur/FmVj/WXKr.py9ORaG1pkIFxfQPFEGuQKo1mbJgrbDKRkMXWgs//"; # Generate through mkpasswd -m sha512
-      Modules = {
-        EnableBluetooth = false;
-        EnableAudio = false;
-      };
+    Username = "kruziikrel13";
+    HashedPassword = "$y$j9T$jNol.ZCkUDYYlHn5EhnqA0$kRrwM1KZQKRiG8ZPlKcRQNw10cKNOHYGhwyUsdSwNU0";
+    Hostname = "lethal-devotion";
+    gaming = {
+      enable = true;
+     diskUuid= "4bfedbcc-6059-4ff5-aa86-c5d49ee1a9d0";
     };
   };
+
+  system.copySystemConfiguration = true;
+  system.stateVersion = "24.11";
 }
