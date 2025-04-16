@@ -26,7 +26,6 @@ let cfg = config.opts; in
 
   config = {
     security.pam.services.hyprlock = {};
-    users.groups.seat.name = "seat";
     users.users = {
       ${cfg.Username} = {
         uid = 1001;
@@ -182,19 +181,6 @@ let cfg = config.opts; in
       ];
       fontDir.decompressFonts = true;
       fontconfig.defaultFonts.monospace = [ "JetBrains Nerd Font Mono"];
-    };
-
-    systemd.services.seatd = {
-      enable = true;
-      path = [ pkgs.seatd ];
-      description = "Seat Management Daemon";
-      wantedBy = [ "multi-user.target" ];
-      serviceConfig = {
-        Type = "simple";
-        ExecStart = "${pkgs.seatd}/bin/seatd -g seat";
-        Restart = "always";
-        RestartSec = 1;
-      };
     };
 
     boot = {
