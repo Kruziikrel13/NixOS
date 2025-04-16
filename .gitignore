@@ -3,3 +3,4 @@
 **.cert
 x_*/
 config
+hardware-configuration.nix
