@@ -5,26 +5,32 @@ let cfg = config.opts; in
   options = with types; {
     opts.gaming = {
       enable = mkEnableOption null;
-     diskUuid = mkOption {
-       type = str;
-     };
+      diskUuid = mkOption {
+        type = str;
+      };
     };
   };
 
   config = mkIf cfg.gaming.enable {
     services.libinput.enable = true;
+    users.users = {
+      ${cfg.Username} = {
+        extraGroups = [ "gamemode" ];
+      };
+    };
+
     ## Set the below when using a Keychron keyboard to ensure that steam doesn't think it's a controller.
     ### I used this specifically to fix input bugs with Metal Gear Solid 5
     services.udev.extraRules = ''
       SUBSYSTEM=="input", ATTRS{idVendor}=="3434", ATTRS{idProduct}=="0161", ENV{ID_INPUT_JOYSTICK}="" 
     '';
 
-   fileSystems = {
-     ${"/home/" + cfg.Username + "/games"} = {
-       device = "/dev/disk/by-uuid/${cfg.gaming.diskUuid}";
-       fsType = "ext4";
-       options = [ "defaults" "noatime" "barrier=1" "nofail" ];
-     };
+    fileSystems = {
+      ${"/home/" + cfg.Username + "/games"} = {
+        device = "/dev/disk/by-uuid/${cfg.gaming.diskUuid}";
+        fsType = "ext4";
+        options = [ "defaults" "noatime" "barrier=1" "nofail" ];
+      };
     };
 
     programs = {
