@@ -28,7 +28,6 @@ let cfg = config.opts; in
     security.pam.services.hyprlock = {};
     users.users = {
       ${cfg.Username} = {
-        uid = 1001;
         name = cfg.Username;
         isNormalUser = true;
         group = "users";
