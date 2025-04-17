@@ -7,6 +7,9 @@ in
     enable = true;
     package = null;
     portalPackage = null;
+    plugins = with pkgs.hyprlandPlugins; [
+      hyprbars hyprtrails hypr-dynamic-cursors hy3
+    ];
 
     systemd = {
       enable = true;
