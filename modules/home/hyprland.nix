@@ -5,11 +5,11 @@ in
   {
   wayland.windowManager.hyprland = {
     enable = true;
-    package = null;
-    portalPackage = null;
-    plugins = with pkgs.hyprlandPlugins; [
-      hyprbars hyprtrails hypr-dynamic-cursors hy3
-    ];
+    # package = null;
+    # portalPackage = null;
+    # plugins = with pkgs.hyprlandPlugins; [
+    #   hyprbars hyprtrails hypr-dynamic-cursors hy3
+    # ];
 
     systemd = {
       enable = true;
