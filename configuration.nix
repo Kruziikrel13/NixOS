@@ -15,7 +15,7 @@
     Hostname = "lethal-devotion";
     gaming = {
       enable = true;
-     diskUuid= "4bfedbcc-6059-4ff5-aa86-c5d49ee1a9d0";
+      diskUuid= "4bfedbcc-6059-4ff5-aa86-c5d49ee1a9d0";
     };
   };
 
