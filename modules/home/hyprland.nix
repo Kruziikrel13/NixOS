@@ -88,8 +88,6 @@ in
         ", XF86AudioMute, exec, wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"
         ", XF86AudioLowerVolume, exec, wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%- --limit 1"
         ", XF86AudioRaiseVolume, exec, wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%+ --limit 1"
-        ", XF86MonBrightnessUp, exec, brightnessctl s 10%+"
-        ", XF86MonBrightnessDown, exec, brightnessctl s 10%-"
       ];
 
       bindtm = [
@@ -226,7 +224,6 @@ in
 
             rounding = 22;
             fade_on_empty = true;
-            placeholder_text = "<i>Password...</i>" ;
 
             position = "0, 120";
             halign = "center";
@@ -281,7 +278,6 @@ in
   };
 
   services = {
-    swayosd.enable = true;
     swaync.enable = true;
     hyprpolkitagent.enable = true;
     hyprpaper = {
@@ -297,19 +293,12 @@ in
       enable = true;
       settings = {
         general = {
-          ignore_dbus_inhibit = false;
           lock_cmd = "pidof hyprlock || hyprlock";
           before_sleep_cmd = "loginctl lock-session";
           after_sleep_cmd = "hyprctl dispatch dpms on";
         };
 
         listener = [
-          {
-            timeout = 150;
-            on-timeout = "brightnessctl -s set 10";
-            on-resume = "brightnessctl -r";
-          }
-
           {
             timeout = 360;
             on-timeout = "loginctl lock-session";
@@ -318,7 +307,7 @@ in
           {
             timeout = 390;
             on-timeout = "hyprctl dispatch dpms off";
-            on-resume = "hyprctl dispatch dpms on && brightnessctl -r";
+            on-resume = "hyprctl dispatch dpms on";
           }
 
           {

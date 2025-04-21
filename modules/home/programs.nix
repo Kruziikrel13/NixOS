@@ -3,7 +3,7 @@ let
   configDir = "/home/${osConfig.opts.Username}/.config";
 in
 {
-  home.packages = with pkgs; [ walker pulsemixer protonmail-desktop discord spotify dust brightnessctl via ];
+  home.packages = with pkgs; [ walker pulsemixer protonmail-desktop discord spotify dust via ];
   services.playerctld.enable = true;
   programs.ranger.enable = true;
   programs.btop.enable = true;
@@ -30,5 +30,9 @@ in
     enableBashIntegration = true;
     git = true;
     icons = "auto";
+  };
+  programs.eww = {
+    enable = true;
+    enableBashIntegration = true;
   };
 }
