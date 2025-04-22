@@ -135,7 +135,6 @@ in
   };
 
   programs = {
-    wlogout.enable = true;
     waybar = {
       enable = true;
       systemd = {
