@@ -5,9 +5,7 @@
   home-manager.users = {
     ${config.opts.Username} = { ... }: {
       home.stateVersion = "24.11";
-      programs.bash.enable = true;
-      home.shell.enableBashIntegration = true;
-      imports = [ ./hyprland.nix ./nvim.nix ./programs.nix ];
+      imports = [ ./hyprland.nix ./nvim.nix ./programs.nix ./shell.nix ];
     };
   };
 }
