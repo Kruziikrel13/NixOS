@@ -237,10 +237,15 @@ in
     walker = {
       Unit = {
         Description = "Walker Service";
+        PartOf = [ config.wayland.systemd.target ];
+        After = [ config.wayland.systemd.target ];
+      };
+
+      Install = {
+        WantedBy = [ config.wayland.systemd.target ];
       };
 
       Service = {
-        Type = "simple";
         ExecStart = "walker --gapplication-service";
       };
     };
