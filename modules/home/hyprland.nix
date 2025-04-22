@@ -299,7 +299,7 @@ in
         general = {
           lock_cmd = "pidof hyprlock || hyprlock";
           before_sleep_cmd = "loginctl lock-session";
-          after_sleep_cmd = "hyprctl dispatch dpms on";
+          after_sleep_cmd = "hyprctl dispatch dpms on; hyprctl keyword source ${configDir}/monitors.conf";
         };
 
         listener = [
@@ -309,9 +309,9 @@ in
           }
 
           {
-            timeout = 390;
-            on-timeout = "hyprctl dispatch dpms off";
-            on-resume = "hyprctl dispatch dpms on";
+            timeout = 420;
+            on-timeout = "hyprctl dispatch dpms off; hyprctl keyword monitor DP-2,disable";
+            on-resume = "hyprctl dispatch dpms on; hyprctl keyword source ${configDir}/monitors.conf";
           }
 
           {
