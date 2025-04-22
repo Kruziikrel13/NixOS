@@ -87,7 +87,13 @@ let cfg = config.opts; in
       git.enable = true;
       neovim.enable = true;
       firefox.enable = true;
-      hyprland.enable = true;
+
+      uwsm.enable = true;
+      hyprland = {
+        enable = true;
+        xwayland.enable = true;
+        withUWSM = true;
+      };
     };
     hardware = {
       enableAllHardware = true;

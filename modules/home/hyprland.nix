@@ -3,18 +3,16 @@ let
   configDir = "/home/${osConfig.opts.Username}/.config/hypr";
 in
   {
+  programs.bash.profileExtra = ''
+    if uwsm check may-start; then
+      exec uwsm start hyprland-uwsm.desktop
+    fi
+  '';
   wayland.windowManager.hyprland = {
     enable = true;
-    # package = null;
-    # portalPackage = null;
-    # plugins = with pkgs.hyprlandPlugins; [
-    #   hyprbars hyprtrails hypr-dynamic-cursors hy3
-    # ];
-
-    systemd = {
-      enable = true;
-      enableXdgAutostart = true;
-    };
+    package = null;
+    portalPackage = null;
+    systemd.enable = false;
 
     settings = {
       source = [
@@ -38,7 +36,7 @@ in
         "$mainMod, Q, Kill active window, killactive"
         "$mainMod, F, Fullscreen active window, fullscreen"
         "$mainMod, P, Toggle pseudotile, pseudo"
-        "CTRL ALT, DELETE, Exit Hyprland, exit"
+        "CTRL ALT, DELETE, Exit Hyprland, exec, uwsm stop"
         "CTRL ALT, L, Lock Hyprland, exec, loginctl lock-session"
         "CTRL ALT, R, Reboot, exec, systemctl reboot"
         "CTRL ALT, M, Shutdown, exec, systemctl -i poweroff"
