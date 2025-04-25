@@ -5,7 +5,7 @@
   home-manager.users = {
     ${config.opts.Username} = { ... }: {
       home.stateVersion = "24.11";
-      imports = [ ./hyprland.nix ./nvim.nix ./programs.nix ./shell.nix ];
+      imports = [ ./hyprland ./nvim.nix ./programs.nix ./shell.nix ];
     };
   };
 }

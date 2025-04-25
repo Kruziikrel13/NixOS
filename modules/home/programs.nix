@@ -3,15 +3,24 @@ let
   configDir = "/home/${osConfig.opts.Username}/.config";
 in
 {
-  home.packages = with pkgs; [ walker pulsemixer protonmail-desktop discord spotify dust via ];
+  home.packages = with pkgs; [ walker pulsemixer protonmail-desktop discord spotify via nwg-displays ];
   services.playerctld.enable = true;
   programs.ranger.enable = true;
   programs.btop.enable = true;
   programs.bat.enable = true;
   programs.feh.enable = true;
   programs.fastfetch.enable = true;
-  programs.alacritty = {
+  programs.ghostty = {
     enable = true;
+    enableBashIntegration = true;
+    installBatSyntax = true;
+    installVimSyntax = true;
+    settings = {
+      theme = "GitHub Dark";
+    };
+  };
+  programs.alacritty = {
+    enable = false;
     theme = "github_dark";
     settings = {
       general = {
