@@ -62,16 +62,21 @@ let cfg = config.opts; in
       config.checkMeta = true;
       config.allowUnfree = true;
     };
+    security.rtkit.enable = true;
+    services.pipewire = {
+      enable = true;
+      audio.enable = true;
+      pulse.enable = true;
+      wireplumber.enable = true;
+      alsa = {
+        enable = true;
+        support32Bit = true;
+      };
+    };
     services = {
       auto-cpufreq.enable = true;
       fstrim.enable = true;
       gvfs.enable = true;
-      pipewire = {
-        enable = true;
-        audio.enable = true;
-        pulse.enable = true;
-        jack.enable = true;
-      };
     };
     environment.sessionVariables.NIXOS_OZONE_WL = "1";
     environment.localBinInPath = true;
