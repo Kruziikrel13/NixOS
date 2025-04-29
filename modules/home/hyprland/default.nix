@@ -3,7 +3,7 @@ let
   configDir = "/home/${osConfig.opts.Username}/.config/hypr";
 in
 
-{
+  {
   imports = [ ./waybar.nix ./services.nix ];
 
   home.sessionVariables.NIXOS_OZONE_WL = "1";
@@ -117,9 +117,10 @@ in
       };
 
       dwindle = {
-        smart_split = true;
+        force_split = 2;
         preserve_split = true;
       };
+
       input = {
         kb_variant = ",qwerty";
         kb_options = "grp:alt_shift_toggle";
@@ -139,10 +140,12 @@ in
       windowrule = [
         "workspace 8, class:(Proton Mail)"
         "workspace 9, class:(discord)"
+        "workspace 9, class:(vesktop)"
         "workspace 10, class:(spotify)"
       ];
 
       windowrulev2 = [
+        "center, floating:1"
         "suppressevent maximize, class:.*"
         "idleinhibit fullscreen, class:^steam_app_*"
         "idleinhibit fullscreen, class:firefox"
