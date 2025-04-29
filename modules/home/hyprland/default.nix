@@ -6,6 +6,7 @@ in
 {
   imports = [ ./waybar.nix ./services.nix ];
 
+  home.sessionVariables.NIXOS_OZONE_WL = "1";
   programs.bash.profileExtra = ''
     if uwsm check may-start; then
       exec uwsm start hyprland-uwsm.desktop

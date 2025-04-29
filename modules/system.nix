@@ -79,7 +79,6 @@ let cfg = config.opts; in
       gvfs.enable = true;
       ratbagd.enable = true;
     };
-    environment.sessionVariables.NIXOS_OZONE_WL = "1";
     environment.localBinInPath = true;
     time = {
       timeZone = cfg.Timezone;
