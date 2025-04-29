@@ -3,7 +3,7 @@ let
   configDir = "/home/${osConfig.opts.Username}/.config";
 in
 {
-  home.packages = with pkgs; [ walker pulsemixer protonmail-desktop discord spotify via nwg-displays ];
+  home.packages = with pkgs; [ walker pulsemixer protonmail-desktop vesktop spotify via nwg-displays tomato-c obsidian heroic ];
   services.playerctld.enable = true;
   programs.btop.enable = true;
   programs.bat.enable = true;
