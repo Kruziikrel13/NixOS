@@ -77,6 +77,7 @@ let cfg = config.opts; in
       auto-cpufreq.enable = true;
       fstrim.enable = true;
       gvfs.enable = true;
+      ratbagd.enable = true;
     };
     environment.sessionVariables.NIXOS_OZONE_WL = "1";
     environment.localBinInPath = true;
@@ -105,6 +106,8 @@ let cfg = config.opts; in
       enableAllFirmware = true;
       graphics.enable = true;
       graphics.enable32Bit = true;
+      logitech.wireless.enable = true;
+      logitech.wireless.enableGraphical = true;
       keyboard.qmk.enable =  true;
       cpu.amd = {
         updateMicrocode = true;
