@@ -195,6 +195,7 @@ let cfg = config.opts; in
     };
 
     boot = {
+      plymouth.enable = true;
       readOnlyNixStore = true;
       loader = {
         systemd-boot.enable = true;
