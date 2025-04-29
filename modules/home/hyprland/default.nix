@@ -7,6 +7,17 @@ in
   imports = [ ./waybar.nix ./services.nix ];
 
   home.sessionVariables.NIXOS_OZONE_WL = "1";
+
+  home.pointerCursor = {
+    gtk.enable = true;
+    enable = true;
+    package = pkgs.rose-pine-hyprcursor;
+    name = "rose-pine-hyprcursor";
+    size = 32;
+    hyprcursor.enable = true;
+  };
+  gtk.enable = true;
+
   programs.bash.profileExtra = ''
     if uwsm check may-start; then
       exec uwsm start hyprland-uwsm.desktop
@@ -17,6 +28,7 @@ in
     package = null;
     portalPackage = null;
     systemd.enable = false;
+    systemd.variables = [ "--all" ];
 
     settings = {
       source = [
@@ -29,8 +41,9 @@ in
       "$mainMod" = "SUPER";
 
       env = [
-        "XCURSOR_SIZE,24"
-        "HYPRCURSOR_SIZE,24"
+        "XCURSOR_SIZE,32"
+        "HYPRCURSOR_SIZE,32"
+        "HYPRCURSOR_THEME,rose-pine-hyprcursor"
       ];
 
       bindtd = [
