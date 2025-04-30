@@ -1,7 +1,7 @@
 { config, pkgs, lib, ... }:
+with lib;
 {
-  security.pam.services.hyprlock = {};
-  options = {
+  options = with types; {
     opts.timeZone = mkOption {
       default = "Australia/Brisbane";
       type = str;
@@ -14,6 +14,7 @@
       hardwareClockInLocalTime = true;
     };
     i18n.defaultLocale = "en_AU.UTF-8";
+    security.pam.services.hyprlock = {};
     programs = {
       nix-ld.enable = true;
       git.enable = true;

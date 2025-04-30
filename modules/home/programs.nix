@@ -1,6 +1,6 @@
 { osConfig, config, lib, pkgs, ... }:
 let
-  configDir = "/home/${osConfig.opts.Username}/.config";
+  configDir = "/home/${osConfig.opts.primaryUser.username}/.config";
 in
 {
   home.packages = with pkgs; [ walker pulsemixer protonmail-desktop spotify via nwg-displays tomato-c obsidian heroic ];
@@ -8,7 +8,6 @@ in
   programs.btop.enable = true;
   programs.bat.enable = true;
   programs.feh.enable = true;
-  programs.fastfetch.enable = true;
   programs.ghostty = {
     enable = true;
     enableBashIntegration = true;
@@ -47,6 +46,7 @@ in
     enable = true;
     enableBashIntegration = true;
   };
+  programs.superfile.enable = false;
   programs.vesktop = {
     enable = true;
     vencord.useSystem = true;

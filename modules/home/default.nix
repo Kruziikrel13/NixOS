@@ -3,7 +3,7 @@
   imports = [ <home-manager/nixos> ];
   home-manager.useGlobalPkgs = true;
   home-manager.users = {
-    ${config.opts.Username} = { ... }: {
+    ${config.opts.primaryUser.username} = { ... }: {
       home.stateVersion = "24.11";
       imports = [ ./hyprland ./nvim.nix ./programs.nix ./shell.nix ];
     };

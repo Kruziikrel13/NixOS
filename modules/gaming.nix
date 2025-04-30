@@ -1,6 +1,6 @@
 { config, lib, pkgs, ... }:
 with lib;
-let cfg = config.opts; in
+let cfg = config.opts.primaryUser; in
   {
   options = with types; {
     opts.gaming = {
@@ -14,10 +14,10 @@ let cfg = config.opts; in
     };
   };
 
-  config = mkIf cfg.gaming.enable {
+  config = mkIf config.opts.gaming.enable {
     services.libinput.enable = true;
     users.users = {
-      ${cfg.Username} = {
+      ${cfg.username} = {
         extraGroups = [ "gamemode" ];
       };
     };
@@ -29,8 +29,8 @@ let cfg = config.opts; in
     '';
 
     fileSystems = {
-      ${"/home/" + cfg.Username + "/games"} = {
-        device = "/dev/disk/by-uuid/${cfg.gaming.diskUuid}";
+      ${"/home/" + cfg.username + "/games"} = {
+        device = "/dev/disk/by-uuid/${config.opts.gaming.diskUuid}";
         fsType = "ext4";
         options = [ "defaults" "noatime" "barrier=1" "nofail" ];
       };

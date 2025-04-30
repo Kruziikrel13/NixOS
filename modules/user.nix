@@ -4,13 +4,15 @@ with lib;
 let cfg = config.opts.primaryUser; in
   {
   options = with types; {
-    username = mkOption {
-      type = str;
-      default = "usr";
-    };
-    hashedPassword = mkOption {
-      type = nullOr (passwdEntry str);
-      default = null;
+    opts.primaryUser = {
+      username = mkOption {
+        type = str;
+        default = "usr";
+      };
+      hashedPassword = mkOption {
+        type = nullOr (passwdEntry str);
+        default = null;
+      };
     };
   };
   config = {
