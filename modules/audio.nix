@@ -5,7 +5,7 @@ let cfg = config.opts.audio; in
   {
   options = with types; {
     opts.audio = {
-      enable = mkEnableOption null;
+      enable = mkEnableOption false;
     };
   };
   config = mkIf cfg.enable {
