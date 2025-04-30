@@ -6,6 +6,7 @@
       ./hardware-configuration.nix
       ./modules/user.nix
       ./modules/networking.nix
+      ./modules/audio.nix
       ./modules/system.nix
       ./modules/gaming.nix
       ./modules/home
@@ -22,6 +23,7 @@
       ssh.enable = false;
       bluetooth.enable = false;
     };
+    audio.enable = true;
     gaming = {
       enable = true;
       diskUuid= "4bfedbcc-6059-4ff5-aa86-c5d49ee1a9d0";
