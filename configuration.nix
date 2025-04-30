@@ -8,6 +8,7 @@
       ./modules/user.nix
       ./modules/networking.nix
       ./modules/audio.nix
+      ./modules/environment.nix
       ./modules/system.nix
       ./modules/gaming.nix
       ./modules/home
@@ -16,6 +17,7 @@
   opts = {
     audio.enable = true;
     hardware.supportLogitechMouse = true;
+    timeZone = "Australia/Brisbane";
     primaryUser = {
       username = "kruziikrel13";
       hashedPassword = "$y$j9T$jNol.ZCkUDYYlHn5EhnqA0$kRrwM1KZQKRiG8ZPlKcRQNw10cKNOHYGhwyUsdSwNU0";
