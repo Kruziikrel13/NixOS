@@ -75,19 +75,6 @@ let cfg = config.opts; in
         withUWSM = true;
       };
     };
-    hardware = {
-      enableAllHardware = true;
-      enableAllFirmware = true;
-      graphics.enable = true;
-      graphics.enable32Bit = true;
-      logitech.wireless.enable = true;
-      logitech.wireless.enableGraphical = true;
-      keyboard.qmk.enable =  true;
-      cpu.amd = {
-        updateMicrocode = true;
-        sev.enable = true;
-      };
-    };
     fonts = {
       packages = with pkgs; [ nerd-fonts.jetbrains-mono nerd-fonts.noto ];
       fontDir.decompressFonts = true;
