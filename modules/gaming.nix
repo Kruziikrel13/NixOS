@@ -22,8 +22,7 @@ let cfg = config.opts.primaryUser; in
       };
     };
 
-    ## Set the below when using a Keychron keyboard to ensure that steam doesn't think it's a controller.
-    # This specifically fixes a major input bug when playing MGSV however it's likely it'll have benefits elsewhere when gaming.
+    # See MGSV.md
     services.udev.extraRules = ''
       SUBSYSTEM=="input", ATTRS{idVendor}=="3434", ATTRS{idProduct}=="0161", ENV{ID_INPUT_JOYSTICK}="" 
     '';
