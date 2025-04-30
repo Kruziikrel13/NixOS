@@ -26,8 +26,20 @@
     plymouth.enable = true;
     readOnlyNixStore = true;
     loader = {
-      systemd-boot.enable = true;
       timeout = 5;
+      systemd-boot = {
+        enable = true;
+        editor = false;
+        consoleMode = "max";
+        configurationLimit = 20;
+        windows = {
+          "10-pro" = {
+            title = "Windows 11 Pro";
+            efiDeviceHandle = "HD0b";
+            sortKey = "a_windows";
+          };
+        };
+      };
       efi = {
         canTouchEfiVariables = true;
         efiSysMountPoint = "/boot";
