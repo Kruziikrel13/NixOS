@@ -9,6 +9,12 @@ let cfg = config.opts.hardware; in
     };
   };
   config = {
+    services = {
+      auto-cpufreq.enable = true;
+      fstrim.enable = true;
+      gvfs.enable = true;
+      ratbagd.enable = cfg.supportLogitechMouse;
+    };
     hardware = {
       enableAllHardware = true;
       enableAllFirmware = true;

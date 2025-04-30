@@ -48,12 +48,6 @@ let cfg = config.opts; in
       config.checkMeta = true;
       config.allowUnfree = true;
     };
-    services = {
-      auto-cpufreq.enable = true;
-      fstrim.enable = true;
-      gvfs.enable = true;
-      ratbagd.enable = true;
-    };
     environment.localBinInPath = true;
     time = {
       timeZone = cfg.Timezone;
