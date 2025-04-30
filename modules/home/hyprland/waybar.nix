@@ -11,7 +11,7 @@
       fixed-center = true;
       reload_on_style_change = true;
       modules-left = [ "custom/os" "custom/separator" "hyprland/workspaces" "custom/separator" "hyprland/window" ];
-      modules-center = [ "tray" "custom/notifications" "custom/separator" "clock" "custom/separator" "custom/spotify" ];
+      modules-center = [ "tray" "custom/notifications" "custom/separator" "clock" "custom/separator" "custom/spotify-icon" "custom/spotify" ];
       modules-right = [ "cpu" "memory" "disk" "network" "group/pulseaudio" "custom/separator" "custom/power" ];
       "hyprland/workspaces" = {
         format = "{icon}";
@@ -95,8 +95,12 @@
         format = "";
         tooltip = false;
       };
+      "custom/spotify-icon" = {
+        format = " ";
+        tooltip = false;
+      };
       "custom/spotify" = {
-        format = "<span></span>{}";
+        format = "{}";
         exec = "~/.config/waybar/scripts/mediaplayer.sh";
         exec-if = "pgrep spotify";
         interval = 1;
@@ -222,14 +226,13 @@ window#waybar {
   transition: all .3s ease;
 }
 
-#custom-spotify > span {
+#custom-spotify-icon {
   padding: 0px 5px;
   margin-left: 5px;
   background-image: url('../waybar/icons/spotify.svg');
   background-position: center;
   background-repeat: no-repeat;
   background-size: contain;
-
 }
 
 #custom-power {
