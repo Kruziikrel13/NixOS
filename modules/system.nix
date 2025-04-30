@@ -35,11 +35,6 @@ let cfg = config.opts; in
         hashedPassword = cfg.HashedPassword;
       };
     };
-    networking = {
-      hostName = cfg.Hostname;
-      networkmanager.enable = true;
-      firewall.enable = true;
-    };
     nix = {
       settings = {
         keep-outputs = false;
