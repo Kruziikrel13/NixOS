@@ -26,15 +26,6 @@ let cfg = config.opts; in
 
   config = {
     security.pam.services.hyprlock = {};
-    users.users = {
-      ${cfg.Username} = {
-        name = cfg.Username;
-        isNormalUser = true;
-        group = "users";
-        extraGroups = [ "wheel" "audio" "video" "power" "disk" "optical" "storage" "tty" "networkmanager" "network" "seat" "greeter" "polkitd" "pipewire" ];
-        hashedPassword = cfg.HashedPassword;
-      };
-    };
     nix = {
       settings = {
         keep-outputs = false;

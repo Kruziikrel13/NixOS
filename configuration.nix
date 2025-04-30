@@ -4,6 +4,7 @@
   imports =
     [ # Include the results of the hardware scan.
       ./hardware-configuration.nix
+      ./modules/user.nix
       ./modules/networking.nix
       ./modules/system.nix
       ./modules/gaming.nix
@@ -11,8 +12,11 @@
     ];
 
   opts = {
-    Username = "kruziikrel13";
-    HashedPassword = "$y$j9T$jNol.ZCkUDYYlHn5EhnqA0$kRrwM1KZQKRiG8ZPlKcRQNw10cKNOHYGhwyUsdSwNU0";
+    primaryUser = {
+      username = "kruziikrel13";
+      hashedPassword = "$y$j9T$jNol.ZCkUDYYlHn5EhnqA0$kRrwM1KZQKRiG8ZPlKcRQNw10cKNOHYGhwyUsdSwNU0";
+
+    };
     networking = {
       hostName = "lethal-devotion";
       ssh.enable = false;
