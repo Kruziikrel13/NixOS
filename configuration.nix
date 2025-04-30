@@ -14,6 +14,7 @@
     ];
 
   opts = {
+    audio.enable = true;
     hardware.supportLogitechMouse = true;
     primaryUser = {
       username = "kruziikrel13";
@@ -25,7 +26,6 @@
       ssh.enable = false;
       bluetooth.enable = false;
     };
-    audio.enable = true;
     gaming = {
       enable = true;
       diskUuid= "4bfedbcc-6059-4ff5-aa86-c5d49ee1a9d0";
