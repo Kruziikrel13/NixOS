@@ -1,6 +1,6 @@
-{ config, osConfig, pkgs, ... }:
+{ config, ... }:
 let
-  configDir = "/home/${osConfig.opts.primaryUser.username}/.config/hypr";
+  configDir = "/home/${config.home.username}/.config/hypr";
 in
 
 {

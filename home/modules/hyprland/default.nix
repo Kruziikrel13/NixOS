@@ -1,8 +1,7 @@
-{config, osConfig, pkgs, ... }:
+{ config, pkgs, ... }:
 let
-  configDir = "/home/${osConfig.opts.primaryUser.username}/.config/hypr";
+  configDir = "${config.home.homeDirectory}/.config/hypr";
 in
-
   {
   imports = [ ./waybar.nix ./eww.nix ./services.nix ];
 

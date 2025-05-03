@@ -1,4 +1,4 @@
-{ osConfig, config, pkgs, ... }:
+{ pkgs, ... }:
 {
   programs.neovim = {
     enable = true;
@@ -6,7 +6,6 @@
     viAlias = true;
     vimAlias = true;
     vimdiffAlias = true;
-    package = osConfig.programs.neovim.package;
     extraPackages = with pkgs; [ gcc lazygit ripgrep ];
   };
 }

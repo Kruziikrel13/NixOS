@@ -1,7 +1,4 @@
-{ osConfig, config, lib, pkgs, ... }:
-let
-  configDir = "/home/${osConfig.opts.primaryUser.username}/.config";
-in
+{ pkgs, ... }:
 {
   home.packages = with pkgs; [ walker pulsemixer protonmail-desktop spotify via nwg-displays tomato-c obsidian heroic ];
   services.playerctld.enable = true;
