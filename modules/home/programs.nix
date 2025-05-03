@@ -15,6 +15,7 @@ in
     installVimSyntax = true;
     settings = {
       theme = "GitHub Dark";
+      title = "Ghostty";
     };
   };
   programs.alacritty = {
@@ -37,10 +38,6 @@ in
     enableBashIntegration = true;
     git = true;
     icons = "auto";
-  };
-  programs.eww = {
-    enable = true;
-    enableBashIntegration = true;
   };
   programs.yazi = {
     enable = true;

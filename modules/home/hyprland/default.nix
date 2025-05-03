@@ -4,7 +4,7 @@ let
 in
 
   {
-  imports = [ ./waybar.nix ./services.nix ];
+  imports = [ ./waybar.nix ./eww.nix ./services.nix ];
 
   home.sessionVariables.NIXOS_OZONE_WL = "1";
 
