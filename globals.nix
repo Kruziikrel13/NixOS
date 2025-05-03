@@ -23,4 +23,5 @@
     };
   };
   desktop.enable = true;
+  gaming.enable = true;
 }

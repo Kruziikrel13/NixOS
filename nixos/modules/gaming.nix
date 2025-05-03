@@ -1,23 +1,10 @@
-{ config, lib, pkgs, ... }:
+{ globals, lib, pkgs, ... }:
 with lib;
-let cfg = config.opts.primaryUser; in
-  {
-  options = with types; {
-    opts.gaming = {
-      enable = mkEnableOption null;
-      diskUuid = mkOption {
-        type = str;
-        description = ''
-          Gaming Drive Disk UUID to mount
-        '';
-      };
-    };
-  };
-
-  config = mkIf config.opts.gaming.enable {
+{
+  config = mkIf globals.gaming.enable {
     services.libinput.enable = true;
     users.users = {
-      ${cfg.username} = {
+      ${globals.user.name} = {
         extraGroups = [ "gamemode" ];
       };
     };
@@ -28,7 +15,7 @@ let cfg = config.opts.primaryUser; in
     '';
 
     fileSystems = {
-      ${"/home/" + cfg.username + "/games"} = {
+      ${"/home/${globals.user.name}/games"} = {
         options = [ "defaults" "noatime" "nodiratime" "discard" "barrier=1" "nofail" ];
       };
     };

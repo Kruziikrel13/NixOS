@@ -1,4 +1,4 @@
-{ config, lib, pkgs, ... }:
+{ globals, config, lib, pkgs, ... }:
 
 with lib;
 let cfg = config.opts.audio; in
@@ -36,7 +36,7 @@ let cfg = config.opts.audio; in
       };
     };
     users.users = {
-      ${config.opts.primaryUser.username} = {
+      ${globals.user.name} = {
         extraGroups = [ "audio" "pipewire" ];
       };
     };

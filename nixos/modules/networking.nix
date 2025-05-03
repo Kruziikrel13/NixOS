@@ -1,4 +1,4 @@
-{ config, lib, pkgs, ... }:
+{ globals, config, lib, pkgs, ... }:
 with lib;
 let cfg = config.opts.networking; in
 {
@@ -24,7 +24,7 @@ let cfg = config.opts.networking; in
       };
     };
     users.users = {
-      ${config.opts.primaryUser.username} = {
+      ${globals.user.name} = {
         extraGroups = [ "networkmanager" "network"];
       };
     };
