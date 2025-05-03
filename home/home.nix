@@ -1,5 +1,8 @@
-{ config, lib, pkgs, ... }:
+{ config, lib, pkgs, home-manager, ... }:
 {
-  home.stateVersion = "24.11";
-  imports = [ ./modules ];
+  home-manager.useGlobalPkgs = true;
+  home-manager.users."kruziikrel13" = { pkgs, ... }: {
+    home.stateVersion = "24.11";
+    imports = [ ./modules ];
+  };
 }
