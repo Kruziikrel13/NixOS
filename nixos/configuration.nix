@@ -17,11 +17,6 @@
     audio.enable = true;
     hardware.supportLogitechMouse = true;
     timeZone = "Australia/Brisbane";
-    networking = {
-      hostName = "lethal-devotion";
-      ssh.enable = false;
-      bluetooth.enable = false;
-    };
     boot = {
       windows = {
         enable = true;
