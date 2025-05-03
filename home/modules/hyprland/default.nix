@@ -144,7 +144,6 @@ in
       ];
 
       windowrulev2 = [
-        "center, floating:1"
         "suppressevent maximize, class:.*"
         "idleinhibit fullscreen, class:^steam_app_*"
         "idleinhibit fullscreen, class:firefox"
