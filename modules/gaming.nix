@@ -29,8 +29,6 @@ let cfg = config.opts.primaryUser; in
 
     fileSystems = {
       ${"/home/" + cfg.username + "/games"} = {
-        device = "/dev/disk/by-uuid/${config.opts.gaming.diskUuid}";
-        fsType = "ext4";
         options = [ "defaults" "noatime" "barrier=1" "nofail" ];
       };
     };
