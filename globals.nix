@@ -26,5 +26,5 @@
   optimiseStore = true;
   audio.enable = true;
   desktopEnable = true;
-  gaming.enable = true;
+  gamingEnable = true;
 }

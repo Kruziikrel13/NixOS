@@ -1,5 +1,8 @@
-{ globals, lib, ... }:
-{
+{ 
+globals, 
+lib, 
+... 
+}: {
   services.sshd.enable = globals.networking.ssh.enable;
   networking = {
     hostName = globals.networking.hostName;

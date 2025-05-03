@@ -1,4 +1,8 @@
-{globals}: {
+{ 
+globals, 
+pkgs,
+...
+}: {
   time = {
     timeZone = globals.localeinfo.timeZone;
     hardwareClockInLocalTime = true;

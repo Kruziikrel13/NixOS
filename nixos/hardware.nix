@@ -1,5 +1,8 @@
-{ globals, lib, ... }:
 {
+globals,
+lib,
+...
+}: {
   services = {
     auto-cpufreq.enable = true;
     fstrim.enable = true;
