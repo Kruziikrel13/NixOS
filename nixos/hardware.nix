@@ -3,7 +3,6 @@
   services = {
     auto-cpufreq.enable = true;
     fstrim.enable = true;
-    gvfs.enable = true;
   };
 
   hardware = {
