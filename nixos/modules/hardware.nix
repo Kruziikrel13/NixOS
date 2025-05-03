@@ -1,35 +1,28 @@
-{ config, lib, ... }:
+{ globals, lib, ... }:
 
 with lib;
-let cfg = config.opts.hardware; in
 {
-  options = {
-    opts.hardware = {
-      supportLogitechMouse = mkEnableOption false;
+  services = {
+    auto-cpufreq.enable = true;
+    fstrim.enable = true;
+    gvfs.enable = true;
+  };
+
+  hardware = {
+    enableAllHardware = true;
+    enableAllFirmware = true;
+    graphics = {
+      enable = true;
+      enable32Bit = true;
+    };
+    cpu.amd = {
+      updateMicrocode = true;
+      sev.enable = true;
     };
   };
-  config = {
-    services = {
-      auto-cpufreq.enable = true;
-      fstrim.enable = true;
-      gvfs.enable = true;
-      ratbagd.enable = cfg.supportLogitechMouse;
-    };
-    hardware = {
-      enableAllHardware = true;
-      enableAllFirmware = true;
-      graphics = {
-        enable = true;
-        enable32Bit = true;
-      };
-      cpu.amd = {
-        updateMicrocode = true;
-        sev.enable = true;
-      };
-      logitech = mkIf cfg.supportLogitechMouse {
-        wireless.enable = true;
-        wireless.enableGraphical = true;
-      };
-    };
+  services.ratbagd.enable = globals.hardware.supportLogitechMouse;
+  hardware.logitech = lib.mkIf globals.hardware.supportLogitechMouse {
+    wireless.enable = true;
+    wireless.enableGraphical = true;
   };
 }

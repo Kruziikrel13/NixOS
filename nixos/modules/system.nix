@@ -1,64 +1,36 @@
-{ config, lib, ... }:
+{ globals, lib, ... }:
 with lib;
-let cfg = config.opts.boot; in
-  {
-  options = with types; {
-    opts.boot = {
-      windows = {
-        enable = mkEnableOption false;
-        efiDeviceHandle = mkOption {
-          type = str;
-        };
-      };
-    };
+{
+  documentation.nixos.enable = false;
+  nixpkgs.config.allowUnfree = true;
+  nix.settings = {
+    experimental-features = "nix-command flakes";
+    auto-optimise-store = true;
+    warn-dirty = false;
   };
-  config = {
-    nix = {
-      settings = {
-        keep-outputs = false;
-        keep-derivations = false;
-        show-trace = false;
-        auto-optimise-store = true;
-        sandbox = true;
+
+  boot = {
+    plymouth.enable = true;
+    tmp.cleanOnBoot = true;
+    loader = {
+      timeout = 2;
+      efi = {
+        canTouchEfiVariables = true;
+        efiSysMountPoint = "/boot";
       };
-      gc = {
-        automatic = false;
-        dates = "weekly";
-        options = "--delete-old";
-      };
-      optimise = {
-        automatic = true;
-        dates = [ "monday" ];
-      };
-    };
-    nixpkgs = {
-      config.checkMeta = true;
-      config.allowUnfree = true;
-    };
-    boot = {
-      plymouth.enable = true;
-      readOnlyNixStore = true;
-      loader = {
-        timeout = 5;
-        systemd-boot = {
-          enable = true;
-          editor = false;
-          consoleMode = "max";
-          configurationLimit = 20;
-          windows = mkIf cfg.windows.enable {
-            "10-pro" = {
-              title = "Windows 11 Pro";
-              efiDeviceHandle = cfg.windows.efiDeviceHandle;
-              sortKey = "a_windows";
-            };
+      systemd-boot = {
+        enable = true;
+        editor = false;
+        consoleMode = "max";
+        configurationLimit = 10;
+        windows = mkIf globals.boot.windows.enable {
+          "10-pro" = {
+            title = "Windows 11 Pro";
+            efiDeviceHandle = globals.boot.windows.efiDeviceHandle;
+            sortKey = "a_windows";
           };
         };
-        efi = {
-          canTouchEfiVariables = true;
-          efiSysMountPoint = "/boot";
-        };
       };
     };
-
   };
 }

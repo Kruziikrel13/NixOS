@@ -16,12 +16,15 @@
     ssh.enable = false;
     bluetooth.enable = false;
   };
+  hardware.supportLogitechMouse = true;
   boot = {
     windows = {
       enable = true;
       efiDeviceHandle = "HD0b";
     };
   };
+  optimiseStore = true;
+  audio.enable = true;
   desktop.enable = true;
   gaming.enable = true;
 }
