@@ -29,7 +29,7 @@ let cfg = config.opts.primaryUser; in
 
     fileSystems = {
       ${"/home/" + cfg.username + "/games"} = {
-        options = [ "defaults" "noatime" "barrier=1" "nofail" ];
+        options = [ "defaults" "noatime" "nodiratime" "discard" "barrier=1" "nofail" ];
       };
     };
 
