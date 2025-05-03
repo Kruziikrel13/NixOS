@@ -1,6 +1,4 @@
 { globals, lib, ... }:
-
-with lib;
 {
   services = {
     auto-cpufreq.enable = true;

@@ -13,10 +13,5 @@
       ./modules/gaming.nix
     ];
 
-  opts = {
-    audio.enable = true;
-    timeZone = "Australia/Brisbane";
-  };
-
   system.stateVersion = "24.11";
 }

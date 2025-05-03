@@ -1,7 +1,6 @@
 { globals, lib, pkgs, ... }:
-with lib;
 {
-  config = mkIf globals.gaming.enable {
+  config = lib.mkIf globals.gaming.enable {
     services.libinput.enable = true;
     users.users = {
       ${globals.user.name} = {
