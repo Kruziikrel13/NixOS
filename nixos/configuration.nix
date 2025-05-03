@@ -11,7 +11,6 @@
       ./modules/environment.nix
       ./modules/system.nix
       ./modules/gaming.nix
-      ./modules/home
     ];
 
   opts = {
@@ -40,7 +39,6 @@
     };
   };
 
-  system.copySystemConfiguration = true;
   system.stateVersion = "24.11";
 
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
