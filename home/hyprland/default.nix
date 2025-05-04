@@ -8,7 +8,6 @@ customLib,
 else {
   imports = customLib.scanPaths ./.;
   home.sessionVariables.NIXOS_OZONE_WL = "1";
-
   home.pointerCursor = {
     gtk.enable = true;
     enable = true;

@@ -1,6 +1,7 @@
 {
 home-manager,
 globals,
+inputs,
 customLib,
 ...
 }: {
@@ -8,7 +9,7 @@ customLib,
   home-manager = {
     useGlobalPkgs = true;
     useUserPackages = true;
-    extraSpecialArgs = { inherit customLib; };
+    extraSpecialArgs = { inherit customLib; inherit globals; inherit inputs; };
     users.${globals.user.name} = {config, ... }: {
       home.username = globals.user.name;
       home.homeDirectory = "/home/${config.home.username}";
