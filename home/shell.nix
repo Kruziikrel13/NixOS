@@ -1,4 +1,3 @@
-{ ... }:
 {
   home.shell.enableBashIntegration = true;
   programs.bash = {
