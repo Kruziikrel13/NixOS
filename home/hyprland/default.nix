@@ -1,9 +1,10 @@
-{ config, pkgs, ... }:
-let
-  configDir = "${config.home.homeDirectory}/.config/hypr";
-in
-  {
-  imports = [ ./waybar.nix ./eww.nix ./services.nix ];
+{ 
+config, 
+pkgs, 
+customLib, 
+... 
+}: let configDir = "${config.home.homeDirectory}/.config/hypr"; in {
+  imports = [ ./eww.nix ./waybar.nix ./services.nix ];
 
   home.sessionVariables.NIXOS_OZONE_WL = "1";
 
