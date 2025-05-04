@@ -1,9 +1,10 @@
 {
-  pkgs,
-  lib,
-  globals,
-  ...
-}: lib.mkIf globals.desktopEnable {
+pkgs,
+lib,
+globals,
+...
+}: if ! globals.desktopEnable then {}
+else {
   programs.uwsm.enable = true;
   programs.hyprland = {
     enable = true;

@@ -2,7 +2,8 @@
 globals,
 lib,
 ...
-}: lib.mkIf globals.audio.enable {
+}: if ! globals.audio.enable then {}
+else {
   security.rtkit.enable = true;
   services.pipewire = {
     enable = true;
