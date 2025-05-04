@@ -33,4 +33,5 @@ globals,
     gamemode.enable = true;
   };
   hardware.steam-hardware.enable = true;
+  boot.kernelPackages = pkgs.linuxPackages_xanmod;
 }
