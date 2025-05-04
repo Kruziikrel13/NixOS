@@ -4,8 +4,7 @@ pkgs,
 customLib, 
 ... 
 }: let configDir = "${config.home.homeDirectory}/.config/hypr"; in {
-  imports = [ ./eww.nix ./waybar.nix ./services.nix ];
-
+  imports = customLib.scanPaths ./.;
   home.sessionVariables.NIXOS_OZONE_WL = "1";
 
   home.pointerCursor = {

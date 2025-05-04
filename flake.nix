@@ -11,15 +11,15 @@
     };
   };
 
-  outputs = { self, nixpkgs, home-manager, ... } @inputs: let
-    inherit (inputs.nixpkgs) lib;
+  outputs = { nixpkgs, home-manager, ... } @inputs: let
+    inherit (nixpkgs) lib;
     globals = import ./globals.nix;
     customLib = import ./lib {inherit lib;};
   in {
     nixosConfigurations = {
       "lethal-devotion" = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
-        specialArgs = { 
+        specialArgs = {
           inherit inputs;
           inherit globals; 
           inherit home-manager;
