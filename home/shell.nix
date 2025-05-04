@@ -1,15 +1,28 @@
 {
-  home.shell.enableBashIntegration = true;
+  home.shell = {
+    enableBashIntegration = true;
+    enableNushellIntegration = true;
+  };
   programs.bash = {
     enable = true;
     enableCompletion = true;
     enableVteIntegration = true;
     shellAliases = {
-      home-edit = "cd /etc/nixos/modules/home && nvim && cd -";
-      nix-edit = "cd /etc/nixos && nvim && cd -";
-      gc = "nix-collect-garbage -d";
-      sgc = "sudo nix-collect-garbage -d";
-      srb = "sudo nixos-rebuild switch";
+      nixos-edit = "cd /etc/nixos && nvim && cd -";
+      nixos-build = "sudo nixos-rebuild switch";
+      nixos-upgrade = "sudo nix flake update --flake /etc/nixos && sudo nixos-rebuild switch";
+      nixos-clean = "sudo nix-collect-garbage -d";
+      nixos-local-clean = "nix-collect-garbage -d";
+    };
+  };
+  programs.nushell = {
+    enable = true;
+    shellAliases = {
+      nixos-edit = "cd /etc/nixos and nvim and cd -";
+      nixos-build = "sudo nixos-rebuild switch";
+      nixos-upgrade = "sudo nix flake update --flake /etc/nixos and sudo nixos-rebuild switch";
+      nixos-clean = "sudo nix-collect-garbage -d";
+      nixos-local-clean = "nix-collect-garbage -d";
     };
   };
   programs.direnv = {
