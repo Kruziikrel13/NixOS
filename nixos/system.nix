@@ -1,9 +1,10 @@
-{ globals, lib, ... }:
+{ globals, lib, inputs, ... }:
 with lib;
 {
   imports = [ ../hardware-configuration.nix ];
   documentation.nixos.enable = false;
   nixpkgs.config.allowUnfree = true;
+  nix.nixPath=["nixpkgs=${inputs.nixpkgs}"];
   nix.settings = {
     experimental-features = "nix-command flakes";
     auto-optimise-store = true;
