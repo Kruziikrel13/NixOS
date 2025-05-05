@@ -1,0 +1,11 @@
+#!/usr/bin/env bash
+
+declare -x GH_VERSION='2.59.0'
+declare -x GH_PKG="gh_${GH_VERSION}_linux_amd64"
+
+wget "https://github.com/cli/cli/releases/download/v${GH_VERSION}/${GH_PKG}.tar.gz"
+tar -xvf "${GH_PKG}.tar.gz"
+sudo cp --recursive --force ${GH_PKG}/{share,bin} /usr/local
+
+rm --recursive --force "${GH_PKG}"
+rm --force "${GH_PKG}.tar.gz"
