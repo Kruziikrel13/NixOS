@@ -21,6 +21,11 @@
     inputs.nixpkgs.follows = "nixpkgs";
   };
 
+  inputs.umu = {
+    url = "github:Open-Wine-Components/umu-launcher?dir=packaging/nix";
+    inputs.nixpkgs.follows = "nixpkgs";
+  };
+
   inputs.zen-browser = {
     url = "github:youwen5/zen-browser-flake";
     inputs.nixpkgs.follows = "nixpkgs";

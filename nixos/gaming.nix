@@ -7,7 +7,7 @@ inputs,
 else {
   imports = [ inputs.nix-gaming.nixosModules.platformOptimizations ];
   environment.systemPackages = with inputs.nix-gaming.packages.${pkgs.system};
-    [ mo2installer ];
+    [ mo2installer inputs.umu.packages.${pkgs.system}.default ];
   services.libinput.enable = true;
   users.users = {
     ${globals.user.name} = {

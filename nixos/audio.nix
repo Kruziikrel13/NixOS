@@ -1,6 +1,5 @@
 {
 globals,
-lib,
 ...
 }: if ! globals.audio.enable then {}
 else {
