@@ -21,6 +21,11 @@
     inputs.nixpkgs.follows = "nixpkgs";
   };
 
+  inputs.zen-browser = {
+    url = "github:youwen5/zen-browser-flake";
+    inputs.nixpkgs.follows = "nixpkgs";
+  };
+
   outputs = { nixpkgs, home-manager, ... } @inputs: let
     inherit (nixpkgs) lib;
     globals = import ./globals.nix;

@@ -15,7 +15,6 @@ with lib;
   programs = {
     neovim.enable = true;
     git.enable = true;
-    firefox.enable = true;
   };
 
   boot = {
