@@ -9,6 +9,7 @@ customLib,
   home-manager = {
     useGlobalPkgs = true;
     useUserPackages = true;
+    backupFileExtension = "HMmanager";
     extraSpecialArgs = { inherit customLib; inherit globals; inherit inputs; };
     users.${globals.user.name} = {config, ... }: {
       home.username = globals.user.name;
