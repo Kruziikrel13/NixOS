@@ -7,13 +7,6 @@
     enable = true;
     enableCompletion = true;
     enableVteIntegration = true;
-    shellAliases = {
-      nixos-edit = "cd /etc/nixos && nvim && cd -";
-      nixos-build = "sudo nixos-rebuild switch";
-      nixos-upgrade = "sudo nix flake update --flake /etc/nixos && sudo nixos-rebuild switch";
-      nixos-clean = "sudo nix-collect-garbage -d";
-      nixos-local-clean = "nix-collect-garbage -d";
-    };
   };
   programs.nushell = {
     enable = true;

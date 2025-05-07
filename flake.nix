@@ -31,7 +31,12 @@
     inputs.nixpkgs.follows = "nixpkgs";
   };
 
-  outputs = { nixpkgs, home-manager, ... } @inputs: let
+  inputs.lix-module = {
+    url = "https://git.lix.systems/lix-project/nixos-module/archive/2.92.0-3.tar.gz";
+    inputs.nixpkgs.follows = "nixpkgs";
+  };
+
+  outputs = { nixpkgs, home-manager, lix-module, ... } @inputs: let
     inherit (nixpkgs) lib;
     globals = import ./globals.nix;
     customLib = import ./lib {inherit lib;};
@@ -46,6 +51,7 @@
           inherit customLib;
         };
         modules = [ 
+          lix-module.nixosModules.default
           ./nixos
           ./home
         ];
