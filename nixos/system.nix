@@ -1,4 +1,10 @@
-{ globals, lib, inputs, ... }:
+{ 
+  globals, 
+  lib, 
+  inputs, 
+  config, 
+  ... 
+}:
 with lib;
 {
   imports = [ ../hardware-configuration.nix ];
@@ -16,6 +22,12 @@ with lib;
     settings = {
       experimental-features = "nix-command flakes";
       auto-optimise-store = true;
+
+      # Prevents direnv results getting cleaned up
+      keep-derivations = true;
+      keep-outputs = true;
+
+      trusted-users = [ "root" "@wheel" ];
       warn-dirty = false;
     };
   };
@@ -23,7 +35,6 @@ with lib;
   programs.dconf.enable = true;
   programs = {
     neovim.enable = true;
-    git.enable = true;
   };
 
   boot = {
