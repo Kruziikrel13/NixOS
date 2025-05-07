@@ -36,6 +36,8 @@
     inputs.nixpkgs.follows = "nixpkgs";
   };
 
+  inputs.neovim-nightly.url = "github:nix-community/neovim-nightly-overlay";
+
   outputs = { nixpkgs, home-manager, lix-module, ... } @inputs: let
     inherit (nixpkgs) lib;
     globals = import ./globals.nix;

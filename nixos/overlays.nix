@@ -1,5 +1,6 @@
-{ ... }: {
+{ inputs, ... }: {
   nixpkgs.overlays = [
+    inputs.neovim-nightly.overlays.default
     (self: super: {
       limo = super.limo.overrideAttrs {
         version = "1.2.2";
