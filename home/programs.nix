@@ -5,6 +5,7 @@
   programs.btop.enable = true;
   programs.bat.enable = true;
   programs.feh.enable = true;
+  programs.nix-init.enable = true;
   programs.ghostty = {
     enable = true;
     enableBashIntegration = true;
