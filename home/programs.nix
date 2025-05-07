@@ -1,6 +1,6 @@
 { pkgs, inputs, ... }:
 {
-  home.packages = with pkgs; [ walker pulsemixer protonmail-desktop spotify via nwg-displays tomato-c obsidian wine inputs.zen-browser.packages.${pkgs.system}.default ];
+  home.packages = with pkgs; [ walker pulsemixer protonmail-desktop spotify via nwg-displays tomato-c obsidian wine inputs.zen-browser.packages.${pkgs.system}.default limo ];
   services.playerctld.enable = true;
   programs.btop.enable = true;
   programs.bat.enable = true;
