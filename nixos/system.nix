@@ -16,6 +16,7 @@ with lib;
   nixpkgs.config.allowUnfree = true;
 
   nix = {
+    channel.enable = false;
     # Map all flake inputs as attributes to nix registry and add them to nix path
     registry = mapAttrs(_: v: {flake = v;}) (filterAttrs (_: v: isType "flake" v) inputs);
     nixPath = mapAttrsToList (key: _: "${key}=flake:${key}") config.nix.registry;
