@@ -2,13 +2,22 @@
 with lib;
 {
   imports = [ ../hardware-configuration.nix ];
+
+  # Required for flakes
+  programs.git.enable = true;
   documentation.nixos.enable = false;
+
   nixpkgs.config.allowUnfree = true;
-  nix.nixPath=["nixpkgs=${inputs.nixpkgs}"];
-  nix.settings = {
-    experimental-features = "nix-command flakes";
-    auto-optimise-store = true;
-    warn-dirty = false;
+
+  nix = {
+    # Map all flake inputs as attributes to nix registry and add them to nix path
+    registry = mapAttrs(_: v: {flake = v;}) (filterAttrs (_: v: isType "flake" v) inputs);
+    nixPath = mapAttrsToList (key: _: "${key}=flake:${key}") config.nix.registry;
+    settings = {
+      experimental-features = "nix-command flakes";
+      auto-optimise-store = true;
+      warn-dirty = false;
+    };
   };
 
   programs.dconf.enable = true;
