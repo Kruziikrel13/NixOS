@@ -7,6 +7,6 @@
     viAlias = true;
     vimAlias = true;
     vimdiffAlias = true;
-    extraPackages = with pkgs; [ gcc lazygit ripgrep nixd lua-language-server copilot-language-server-fhs ];
+    extraPackages = with pkgs; [ gcc lazygit ripgrep nixd lua-language-server copilot-language-server-fhs vtsls typescript-language-server ];
   };
 }
