@@ -3,6 +3,7 @@ config,
 pkgs,
 ...}: {
   imports = [ inputs.ags.homeManagerModules.default ];
+  # xdg.configFile."ags".source = config.lib.file.mkOutOfStoreSymlink ../.config/ags;
   home.packages = [ 
     pkgs.gjs 
     inputs.ags.packages.${pkgs.system}.io
