@@ -48,6 +48,7 @@ else {
           "HYPRCURSOR_THEME,rose-pine-hyprcursor"
         ];
 
+
         bindtd = [
           "$mainMod, RETURN, Open terminal, exec, $terminal"
           "$mainMod, SPACE, Toggle floating window, togglefloating"
@@ -90,8 +91,18 @@ else {
           "$mainMod SHIFT, 8, movetoworkspace, 8"
           "$mainMod SHIFT, 9, movetoworkspace, 9"
           "$mainMod SHIFT, 0, movetoworkspace, 10"
-          "$mainMod, mouse_right, focusmonitor, e+1"
-          "$mainMod, mouse_left, focusmonitor, e-1"
+        ];
+
+        bind = [
+          "$mainMod, TAB, cyclenext"
+        ];
+
+        bindtp = [
+          "$mainMod, mouse_up, focusmonitor, +1"
+          "$mainMod, mouse_down, focusmonitor, -1"
+          "ALT, 1, focusmonitor, HDMI-A-1"
+          "ALT, 2, focusmonitor, DP-1"
+          "ALT, 3, focusmonitor, DP-2"
         ];
 
         bindtl = [
@@ -121,6 +132,10 @@ else {
         dwindle = {
           force_split = 2;
           preserve_split = true;
+        };
+
+        binds = {
+          scroll_event_delay = 10;
         };
 
         input = {
