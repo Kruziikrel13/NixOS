@@ -1,6 +1,10 @@
 { pkgs, config, ... }:
 {
-  xdg.configFile."nvim".source = config.lib.file.mkOutOfStoreSymlink ./.config/nvim;
+  xdg.configFile.nvim = {
+    enable = true;
+    recursive = true;
+    source = config.lib.file.mkOutOfStoreSymlink ./.config/nvim;
+  };
   programs.neovim = {
     enable = true;
     defaultEditor = true;
