@@ -2,6 +2,7 @@
 config,
 ...
 }: {
+  programs.nix-ld.enable = true;
   programs.bash.shellAliases = if config.programs.nh.enable then {
     nixos-edit = "cd /etc/nixos && nvim && cd -";
     nixos-build = "${config.programs.nh.package}/bin/nh os switch /etc/nixos";
