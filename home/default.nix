@@ -6,6 +6,7 @@ customLib,
 ...
 }: {
   imports = [ home-manager.nixosModules.home-manager ];
+  environment.pathsToLink = [ "/share/xdg-desktop-portal" "/share/applications" ];
   home-manager = {
     useGlobalPkgs = true;
     useUserPackages = true;
