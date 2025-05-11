@@ -12,6 +12,7 @@ with lib;
   # Required for flakes
   programs.git.enable = true;
   documentation.nixos.enable = false;
+  environment.stub-ld.enable = true;
 
   nixpkgs.config.allowUnfree = true;
 
