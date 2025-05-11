@@ -23,6 +23,11 @@
       efiDeviceHandle = "HD0b";
     };
   };
+  experimental = {
+    enable = true;
+    nix.enable = true;
+    oxidation.enable = true;
+  };
   optimiseStore = true;
   audio.enable = true;
   desktopEnable = true;
