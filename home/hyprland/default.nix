@@ -8,6 +8,7 @@ customLib,
 else {
   imports = customLib.scanPaths ./.;
   home.sessionVariables.NIXOS_OZONE_WL = "1";
+  home.packages = with pkgs; [ playerctl ];
   home.pointerCursor = {
     gtk.enable = true;
     enable = true;
@@ -16,7 +17,6 @@ else {
     size = 32;
     hyprcursor.enable = true;
   };
-  gtk.enable = true;
 
   programs.bash.profileExtra = ''
     if uwsm check may-start; then

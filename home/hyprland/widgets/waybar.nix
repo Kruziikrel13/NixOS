@@ -1,4 +1,8 @@
 {
+globals,
+...
+}: if globals.desktop.widgets != "waybar" then {}
+else {
   programs.waybar = {
     enable = true;
     systemd.enable = true;
@@ -259,4 +263,5 @@ window#waybar {
 }
     '';
   };
+
 }

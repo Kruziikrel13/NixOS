@@ -23,6 +23,10 @@
       efiDeviceHandle = "HD0b";
     };
   };
+  desktop = {
+    enable = true;
+    widgets = "ags"; # "waybar | ags | quickshell | fabric"
+  };
   experimental = {
     enable = true;
     nix.enable = true;
@@ -30,6 +34,5 @@
   };
   optimiseStore = true;
   audio.enable = true;
-  desktopEnable = true;
   gamingEnable = true;
 }

@@ -1,9 +1,12 @@
 { pkgs, config, ... }:
 {
-  xdg.configFile.nvim = {
+  xdg.configFile."nvim/lua" = {
     enable = true;
     recursive = true;
-    source = config.lib.file.mkOutOfStoreSymlink ./.config/nvim;
+    source = config.lib.file.mkOutOfStoreSymlink ./.config/nvim/lua;
+  };
+  xdg.configFile."nvim/init.lua" = {
+    source = config.lib.file.mkOutOfStoreSymlink ./.config/nvim/init.lua;
   };
   programs.neovim = {
     enable = true;

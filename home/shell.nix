@@ -1,4 +1,7 @@
 {
+  programs.bat.enable = true;
+  programs.bottom.enable = true;
+  programs.feh.enable = true;
   home.shell = {
     enableBashIntegration = true;
     enableNushellIntegration = true;
@@ -8,6 +11,17 @@
     enableCompletion = true;
     enableVteIntegration = true;
   };
+  programs.eza = {
+    enable = true;
+    enableBashIntegration = true;
+    git = true;
+    icons = "auto";
+  };
+  programs.yazi = {
+    enable = true;
+    enableBashIntegration = true;
+  };
+
   programs.nushell = {
     enable = true;
     shellAliases = {

@@ -3,7 +3,7 @@ pkgs,
 lib,
 globals,
 ...
-}: if ! globals.desktopEnable then {}
+}: if ! globals.desktop.enable then {}
 else {
   programs.uwsm.enable = true;
   programs.hyprland = {

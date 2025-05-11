@@ -1,10 +1,9 @@
 { pkgs, inputs, ... }:
 {
-  home.packages = with pkgs; [ walker pulsemixer protonmail-desktop spotify via nwg-displays tomato-c obsidian wine inputs.zen-browser.packages.${pkgs.system}.default limo nexusmods-app heroic ];
-  services.playerctld.enable = true;
-  programs.btop.enable = true;
-  programs.bat.enable = true;
-  programs.feh.enable = true;
+  home.packages = with pkgs; [ walker pulsemixer protonmail-desktop spotify via nwg-displays tomato-c obsidian wine inputs.zen-browser.packages.${pkgs.system}.default limo nexusmods-app heroic nixos-icons ];
+  services.mpd-mpris = {
+    enable = true;
+  };
   programs.nix-init.enable = true;
   programs.ghostty = {
     enable = true;
@@ -31,17 +30,6 @@
       };
     };
   };
-  programs.eza = {
-    enable = true;
-    enableBashIntegration = true;
-    git = true;
-    icons = "auto";
-  };
-  programs.yazi = {
-    enable = true;
-    enableBashIntegration = true;
-  };
-  programs.superfile.enable = false;
   programs.vesktop = {
     enable = true;
     vencord.useSystem = true;

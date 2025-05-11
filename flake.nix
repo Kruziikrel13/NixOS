@@ -17,12 +17,12 @@
   };
 
   inputs.ags = {
-    url = "github:aylur/ags";
+    url = "github:aylur/ags/v3";
     inputs.nixpkgs.follows = "nixpkgs";
   };
 
-  inputs.umu = {
-    url = "github:Open-Wine-Components/umu-launcher?dir=packaging/nix";
+  inputs.quickshell = {
+    url = "git+https://git.outfoxxed.me/outfoxxed/quickshell";
     inputs.nixpkgs.follows = "nixpkgs";
   };
 
