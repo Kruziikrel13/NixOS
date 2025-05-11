@@ -34,9 +34,7 @@ with lib;
   };
 
   programs.dconf.enable = true;
-  programs = {
-    neovim.enable = true;
-  };
+  programs.neovim.enable = true;
 
   boot = {
     plymouth.enable = true;
