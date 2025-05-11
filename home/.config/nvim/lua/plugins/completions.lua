@@ -22,7 +22,7 @@ return {
         [ '<A-j>' ] = { 'select_next' },
       },
       sources = {
-        default = { 'copilot', 'lazydev', 'lsp', 'path', 'snippets' },
+        default = { 'lazydev', 'lsp', 'path', 'snippets', 'copilot' },
         providers = {
           lazydev = {
             name = 'LazyDev',
