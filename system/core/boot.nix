@@ -1,0 +1,25 @@
+{ ...}: {
+  boot = {
+    plymouth.enable = true;
+    tmp.cleanOnBoot = true;
+    kernelParams = [
+      "quiet"
+      "systemd.show_status=auto"
+    ];
+    loader = {
+      timeout = 2;
+      efi = {
+        canTouchEfiVariables = true;
+        efiSysMountPoint = "/boot";
+      };
+      systemd-boot = {
+        enable = true;
+        editor = false;
+        consoleMode = "max";
+        configurationLimit = 10;
+      };
+    };
+  };
+
+  # TODO Support CPU Power Here? Or Kernel Specific CPU Power Support in Hosts
+}

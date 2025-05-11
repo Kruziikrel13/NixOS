@@ -1,3 +1,3 @@
-{ pathLib, ... }: {
+{pathLib}: {
   imports = pathLib.scanPaths ./.;
 }
