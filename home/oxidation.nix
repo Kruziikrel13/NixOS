@@ -1,7 +1,7 @@
 { pkgs, globals, ... }: if ! globals.experimental.oxidation.enable then {}
 else {
   home.packages = with pkgs; [
-    hyperfine procs sd du-dust tokei bandwhich grex fclones rm-improved
+    hyperfine procs sd du-dust tokei bandwhich grex fclones rm-improved ripgrep
   ];
 
   programs.git.delta.enable = true;
