@@ -13,18 +13,10 @@
       url = "github:hercules-ci/flake-parts";
     };
 
-    agenix = {
-      url = "github:ryantm/agenix";
-      inputs.nixpkgs.follows = "nixpkgs";
-      inputs.darwin.follows = "";
-    };
-
     # Extra Inputs
     ags = {
       url = "github:aylur/ags/v3";
-      inputs = {
-        nixpkgs.follows = "nixpkgs";
-      };
+      inputs.nixpkgs.follows = "nixpkgs";
     };
     astal = {
       url = "github:aylur/astal";
@@ -36,7 +28,7 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    hm = {
+    home-manager = {
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
@@ -93,7 +85,11 @@
       url = "https://git.lix.systems/lix-project/nixos-module/archive/2.93.0.tar.gz";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    flake-compat.url = "git+https://git.lix.systems/lix-project/flake-compat";
+
+    flake-compat = {
+      url = "git+https://git.lix.systems/lix-project/flake-compat";
+      flake = false;
+    };
 
     neovim-nightly.url = "github:nix-community/neovim-nightly-overlay";
 
@@ -103,31 +99,36 @@
     };
   };
 
-  outputs = { flake-parts, ... } @inputs: flake-parts.lib.mkFlake {inherit inputs;} {
-    systems = ["x86_64-linux"];
-    imports = [
-      inputs.hm.nixosModules.default
-      ./hosts
-      ./pkgs
-    ];
-    perSystem = {
-      pkgs,
-      system,
-      ...
-      }: {
-        devShells.default = pkgs.mkShell {
-          inherit system;
-          packages = [
-            pkgs.alejandra
-            pkgs.git
-            pkgs.nodePackages.prettier
-          ];
-          name = "dots";
-          DIRENV_LOG_FORMAT = "";
+  outputs = { flake-parts, ... } @inputs: 
+    flake-parts.lib.mkFlake {inherit inputs;} {
+      systems = ["x86_64-linux"];
+
+      imports = [
+        ./hosts
+        ./pkgs
+        ./pre-commit-hooks.nix
+      ];
+      perSystem = {
+        config,
+        pkgs,
+        system,
+        ...
+        }: {
+          devShells.default = pkgs.mkShell {
+            inherit system;
+            packages = [
+              pkgs.alejandra
+              pkgs.git
+              pkgs.nodePackages.prettier
+            ];
+            name = "dots";
+            DIRENV_LOG_FORMAT = "";
+            shellHook = ''
+              ${config.pre-commit.installationScript}
+            '';
+          };
+
+          formatter = pkgs.alejandra;
         };
-
-        formatter = pkgs.alejandra;
-      };
-  };
-
+    };
 }
