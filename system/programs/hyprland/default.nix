@@ -9,6 +9,7 @@
     inputs.hyprland-contrib.packages.${pkgs.system}.grimblast
     inputs.self.packages.${pkgs.system}.bibata-hyprcursor
   ];
+  services.gvfs.enable = true;
   environment.pathsToLink = ["/share/icons"];
   xdg.portal.config = {
     hyprland.default = ["gtk" "hyprland"];
