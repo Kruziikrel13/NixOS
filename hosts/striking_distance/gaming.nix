@@ -36,15 +36,5 @@ inputs,
     };
   };
 
-  home-manager.users.kruziikrel13 = {
-    home.packages = with pkgs; [ 
-      wineWowPackages.wayland 
-      gamescope
-      prismlauncher
-      winetricks
-      protontricks
-    ];
-  };
-
-  imports = [ inputs.nix-gaming.nixosModules.platformOptimizations ];
+  imports = [inputs.nix-gaming.nixosModules.platformOptimizations];
 }
