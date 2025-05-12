@@ -14,6 +14,12 @@
         "10,monitor:desc:AOC 24G1WG4 0x0004A33C"
         "9,monitor:desc:ViewSonic Corporation VX2758-C-MH V9M184500179"
       ];
+
+      render = {
+        direct_scanout = true;
+        explicit_sync = 0;
+        explicit_sync_kms = 0;
+      };
     };
   };
 }

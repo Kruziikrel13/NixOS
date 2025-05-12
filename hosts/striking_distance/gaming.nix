@@ -9,7 +9,6 @@ inputs,
   SUBSYSTEM=="input", ATTRS{idVendor}=="3434", ATTRS{idProduct}=="0161", ENV{ID_INPUT_JOYSTICK}="" 
   '';
   # TODO Verify this is necessary
-  hardware.steam-hardware.enable = true;
   programs = {
     gamescope = {
       enable = true;
@@ -28,7 +27,6 @@ inputs,
         };
       };
     };
-
 
     steam = {
       enable = true;
