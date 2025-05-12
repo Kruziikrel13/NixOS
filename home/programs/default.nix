@@ -3,12 +3,10 @@
 
   home.packages = with pkgs; [
     walker pulsemixer protonmail-desktop via tomato-c inputs.zen-browser.packages.${pkgs.system}.default
-    limo heroic nixos-icons obsidian
+    limo heroic nixos-icons obsidian spotify 
   ];
 
-  services.mpd-mpris = {
-    enable = true;
-  };
+  services.playerctld.enable = true;
   programs = {
     nix-init.enable = true;
     ghostty = {
