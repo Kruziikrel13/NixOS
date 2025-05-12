@@ -1,5 +1,5 @@
-{pathLib, lib, inputs, pkgs, config, ...}: {
-  imports = [ (pathLib.scanPaths ./.) inputs.lix-module.nixosModules.default ];
+{paths, lib, inputs, pkgs, config, ...}: {
+  imports = [ (paths.scanPaths ./.) inputs.lix-module.nixosModules.default ];
 
   # Git explicitly required for flakes
   programs.git.enable = true;

@@ -1,7 +1,7 @@
 {
 specialArgs,
 inputs,
-pathLib,
+paths,
 ...
 }: {
   imports = [ inputs.hm.nixosModules.default ];
@@ -21,7 +21,7 @@ pathLib,
         json.enable = false;
         manpages.enable = false;
       };
-      imports = pathLib.scanPaths ./.;
+      imports = paths.scanPaths ./.;
     };
   };
 }

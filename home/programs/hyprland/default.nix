@@ -1,8 +1,8 @@
-{pathLib, config, lib, inputs, pkgs, ...}: let
+{paths, config, lib, inputs, pkgs, ...}: let
   cursor = "Bibata-Modern-Classic-Hyprcursor";
   cursorPackage = inputs.self.packages.${pkgs.system}.bibata-hyprcursor;
 in {
-  imports = pathLib.scanPaths ./.;
+  imports = paths.scanPaths ./.;
 
   home.packages = [
     inputs.hyprland-contrib.packages.${pkgs.system}.grimblast pkgs.playerctl

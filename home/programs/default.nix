@@ -1,5 +1,5 @@
-{pathLib, pkgs, inputs, ...}: {
-  imports = pathLib.scanPaths ./.;
+{paths, pkgs, inputs, ...}: {
+  imports = paths.scanPaths ./.;
 
   home.packages = with pkgs; [
     walker pulsemixer protonmail-desktop via tomato-c inputs.zen-browser.packages.${pkgs.system}.default

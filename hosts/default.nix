@@ -9,7 +9,10 @@ inputs,
     system = "${self}/system";
     home = "${self}/home";
 
-    specialArgs = { inherit inputs self; };
+    specialArgs = { 
+      inherit inputs self; 
+      paths = import "${self}/lib/paths";
+    };
   in {
     striking-distance = nixosSystem {
       inherit specialArgs;

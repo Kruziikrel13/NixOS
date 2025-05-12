@@ -1,5 +1,5 @@
-{lib, pathLib, ...}: {
-  imports = pathLib.scanPaths ./.;
+{lib, paths, ...}: {
+  imports = paths.scanPaths ./.;
 
   programs.nix-ld.enable = true;
   environment.stub-ld.enable = true;

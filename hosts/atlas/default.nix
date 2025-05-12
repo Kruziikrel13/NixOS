@@ -1,9 +1,9 @@
 {
   pkgs,
-  pathLib,
+  paths,
   ...
 }: {
-  imports = pathLib.scanPaths ./.;
+  imports = paths.scanPaths ./.;
   networking.hostName = "atlas";
 
   services.libinput.enable = true;

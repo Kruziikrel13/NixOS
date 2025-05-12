@@ -1,8 +1,8 @@
 {
-pathLib,
+paths,
 ...
 }: {
-  imports = pathLib.scanPaths ./.;
+  imports = paths.scanPaths ./.;
 
   networking.hostName = "striking-distance";
 
