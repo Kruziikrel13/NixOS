@@ -17,6 +17,7 @@ inputs,
       "processor.max_cstate=5"
       "idle=nomwait"
       "pcie_aspm=off"
+      "usbcore.autosuspend=-1"
     ];
   };
   powerManagement.cpuFreqGovernor = "performance";
