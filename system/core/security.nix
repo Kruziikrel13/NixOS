@@ -43,6 +43,7 @@
   };
 
   boot.kernelModules = ["tcp_bbr"];
+  boot.loader.systemd-boot.memtest86.enable = true;
 
   security = {
     rtkit.enable = true;
