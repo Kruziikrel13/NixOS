@@ -4,32 +4,6 @@
     as a flake.
   '';
 
-  outputs = { flake-parts, ... } @inputs: flake-parts.lib.mkFlake {inherit inputs;} {
-    systems = ["x86_64-linux"];
-    imports = [
-      inputs.hm.nixosModules.default
-      ./hosts
-      ./pkgs
-    ];
-    perSystem = {
-      pkgs,
-      system,
-      ...
-      }: {
-        devShells.default = pkgs.mkShell {
-          inherit system;
-          packages = [
-            pkgs.alejandra
-            pkgs.git
-            pkgs.nodePackages.prettier
-          ];
-          name = "dots";
-          DIRENV_LOG_FORMAT = "";
-        };
-
-        formatter = pkgs.alejandra;
-      };
-  };
   inputs = {
     # Global / System Inputs
     systems.url = "github:nix-systems/default-linux";
@@ -128,4 +102,32 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
   };
+
+  outputs = { flake-parts, ... } @inputs: flake-parts.lib.mkFlake {inherit inputs;} {
+    systems = ["x86_64-linux"];
+    imports = [
+      inputs.hm.nixosModules.default
+      ./hosts
+      ./pkgs
+    ];
+    perSystem = {
+      pkgs,
+      system,
+      ...
+      }: {
+        devShells.default = pkgs.mkShell {
+          inherit system;
+          packages = [
+            pkgs.alejandra
+            pkgs.git
+            pkgs.nodePackages.prettier
+          ];
+          name = "dots";
+          DIRENV_LOG_FORMAT = "";
+        };
+
+        formatter = pkgs.alejandra;
+      };
+  };
+
 }
