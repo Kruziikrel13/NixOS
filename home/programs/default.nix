@@ -7,6 +7,7 @@
   ];
 
   services.playerctld.enable = true;
+  services.udiskie.enable = true;
   programs = {
     nix-init.enable = true;
     ghostty = {

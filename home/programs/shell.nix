@@ -10,11 +10,9 @@
     enableNushellIntegration = true;
   };
   home.shellAliases = {
-    cat = "bat --plain";
     top = "btm";
     ps = "procs";
     du = "dust";
-    grep = "rg";
     fzf = "sk";
   };
   programs.bash = {
