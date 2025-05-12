@@ -3,12 +3,31 @@ pkgs,
 inputs,
 ...
 }: {
-  boot.kernelPackages = pkgs.linuxPackages_xanmod;
+  # Performance
+  ## Xanmod may handle commented out boot kernel opts
+  boot = {
+    kernelPackages = pkgs.linuxPackages_xanmod;
+    # kernelPatches = [{
+    #   name = "preempt_rt";
+    #   patch = null;
+    # }];
+    kernelParams = [ 
+      "threadirqs"
+      "amdgpu.ppfeaturemask=0xffffffff"
+      "processor.max_cstate=5"
+      "idle=nomwait"
+      "pcie_aspm=off"
+    ];
+  };
+  powerManagement.cpuFreqGovernor = "performance";
+
   # See Keychron Support on Wiki https://github.com/Kruziikrel13/NixOS/wiki/Hardware-Fixes#keychron-keyboards
   services.udev.extraRules = ''
   SUBSYSTEM=="input", ATTRS{idVendor}=="3434", ATTRS{idProduct}=="0161", ENV{ID_INPUT_JOYSTICK}="" 
+  ACTION=="add", SUBSYSTEM=="usb", TEST=="power/control", ATTR{power/control}="on"
   '';
-  # TODO Verify this is necessary
+
+  # Gaming Support
   programs = {
     gamescope = {
       enable = true;
