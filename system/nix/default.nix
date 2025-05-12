@@ -16,7 +16,6 @@
     nixPath = lib.mapAttrsToList (key: _: "${key}=flake:${key}") config.nix.registry;
     
     settings = {
-      builders-use-subtitutes = true;
       auto-optimise-store = true;
       experimental-features = ["nix-command" "flakes"];
 
@@ -25,7 +24,7 @@
 
       trusted-users = [ "root" "@wheel" ];
 
-      accept-flake-config = false;
+      accept-flake-config = true;
     };
   };
 }
