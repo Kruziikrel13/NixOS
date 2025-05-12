@@ -1,6 +1,5 @@
 {
   paths,
-  pkgs,
   ...
 }: {
   imports = paths.scanPaths ./.;
