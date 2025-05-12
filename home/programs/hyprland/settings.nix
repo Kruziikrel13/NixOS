@@ -1,28 +1,22 @@
-{
+let cursorName = "Bibata-Modern-Classic-Hyprcursor";
+in {
   wayland.windowManager.hyprland = {
     settings = {
       "$terminal" = "ghostty";
       "$dmenu" = "walker --modules applications";
       "$mainMod" = "SUPER";
-      
-      monitor = [
-	      "desc:GIGA-BYTE TECHNOLOGY CO. LTD. AORUS FI32U 21440B000115,3840x2160@144.0,1920x0,1.0"
-      "desc:ViewSonic Corporation VX2758-C-MH V9M184500179,1920x1080@60.0,5760x849,1.0"
-      "desc:AOC 24G1WG4 0x0004A33C,1920x1080@144.0,0x344,1.0"
-      ];
 
-      workspace = [
-      "1,monitor:desc:AOC 24G1WG4 0x0004A33C,default:true"
-"2,monitor:desc:GIGA-BYTE TECHNOLOGY CO. LTD. AORUS FI32U 21440B000115,default:true"
-"3,monitor:desc:ViewSonic Corporation VX2758-C-MH V9M184500179,default:true"
-"10,monitor:desc:AOC 24G1WG4 0x0004A33C"
-"9,monitor:desc:ViewSonic Corporation VX2758-C-MH V9M184500179"
+      exec-once = [
+        "uwsm finalize"
+        "hyprctl setcursor ${cursorName } ${toString 16}"
       ];
 
       env = [
-        "XCURSOR_SIZE,32"
-        "HYPRCURSOR_SIZE,32"
-        "HYPRCURSOR_THEME,rose-pine-hyprcursor"
+        "QT_WAYLAND_DISABLE_WINDOWDECORATION,1"
+        "HYPRCURSOR_THEME,${cursorName}"
+        "HYPRCURSOR_SIZE,${toString 16}"
+        # See https://github.com/hyprwm/contrib/issues/142
+        "GRIMBLAST_NO_CURSOR,0"
       ];
 
 
