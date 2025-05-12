@@ -1,4 +1,4 @@
-{config, ...}: let
+{config, inputs, pkgs, ...}: let
   configDir = "/home/${config.home.username}/.config/hypr";
 in
 {
@@ -55,6 +55,7 @@ in
     hyprpolkitagent.enable = true;
     hyprpaper = {
       enable = true;
+      package = inputs.hyprpaper.packages.${pkgs.system}.default;
       settings = {
         ipc = "on";
         splash = false;
@@ -64,11 +65,12 @@ in
     };
     hypridle = {
       enable = true;
+      package = inputs.hypridle.packages.${pkgs.system}.hypridle;
       settings = {
         general = {
           lock_cmd = "pidof hyprlock || hyprlock";
           before_sleep_cmd = "loginctl lock-session";
-          after_sleep_cmd = "hyprctl dispatch dpms on; hyprctl keyword source ${configDir}/monitors.conf";
+          after_sleep_cmd = "hyprctl dispatch dpms on;";
         };
 
         listener = [
