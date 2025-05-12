@@ -16,7 +16,8 @@ paths,
    programs.hyprland = {
     enable = true;
     withUWSM = true;
-    package = inputs.hyprland.packages.${pkgs.system}.default;
+    package = inputs.hyprland.packages.${pkgs.system}.hyprland;
+    portalPackage = inputs.hyprland.packages.${pkgs.system}.xdg-desktop-portal-hyprland;
   };
 
   environment.variables.NIXOS_OZONE_WL = "1";
