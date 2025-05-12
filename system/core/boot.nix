@@ -1,9 +1,12 @@
-{...}: {
+{pkgs, ...}: {
   boot = {
-    plymouth.enable = true;
+    plymouth = {
+      enable = true;
+      theme = "hexagon_dots_alt";
+      themePackages = [ pkgs.adi1090x-plymouth-themes ];
+    };
     tmp.cleanOnBoot = true;
     kernelParams = [
-      "quiet"
       "systemd.show_status=auto"
       "amd_pstate=active"
     ];
