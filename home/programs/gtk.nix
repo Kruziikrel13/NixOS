@@ -1,9 +1,10 @@
 { 
-  pkgs,
-  config,
-  }: {
+pkgs,
+config,
+...
+}: {
   home.pointerCursor = {
-    package = pkgs.bibata-cursor;
+    package = pkgs.bibata-cursors;
     name = "Bibata-Modern-Classic";
     size = 16;
     hyprcursor.enable = true;

@@ -1,7 +1,7 @@
 {
   qt = {
     enable = true;
-    platformTheme.name = "gtk2";
+    platformTheme = "gtk2";
     style = "gtk2";
   };
 }

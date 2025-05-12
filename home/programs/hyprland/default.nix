@@ -9,6 +9,11 @@ in {
   ];
   xdg.dataFile."icons/${cursor}".source = "${cursorPackage}/share/icons/${cursor}";
 
+  programs.bash.profileExtra = ''
+    if uswm check may-start; then
+      exec uwsm start hyprland-uwsm.destkop
+    fi
+  '';
   wayland.windowManager.hyprland = {
     enable = true;
     package = null;

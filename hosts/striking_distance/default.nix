@@ -8,7 +8,7 @@ paths,
 
   time.hardwareClockInLocalTime = true;
   boot = {
-    systemd-boot = {
+    loader.systemd-boot = {
       windows = {
         "10-pro" = {
           title = "Windows 11 Pro";

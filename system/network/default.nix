@@ -1,11 +1,11 @@
 {pkgs, ...}: {
-  networking = {
+  networking.networkmanager = {
     enable = true;
     dns = "systemd-resolved";
   };
 
   # TODO Verify
-  resolved = {
+  services.resolved = {
     enable = true;
     dnsovertls = "opportunistic";
   };

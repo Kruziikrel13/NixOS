@@ -21,7 +21,7 @@
         title = "Ghostty";
       };
     };
-    programs.vesktop = {
+    vesktop = {
       enable = true;
       vencord.useSystem = true;
     };

@@ -6,7 +6,7 @@
       common.default = ["gtk"];
     };
 
-    extraPortal = [
+    extraPortals = [
       pkgs.xdg-desktop-portal-gtk
     ];
   };
