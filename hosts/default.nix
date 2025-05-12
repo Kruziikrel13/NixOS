@@ -15,15 +15,6 @@ inputs,
       paths = import "${self}/lib/paths" lib;
     };
   in {
-    lethal-devotion = nixosSystem {
-      inherit specialArgs;
-      modules = [
-        ./striking_distance
-        system
-        home
-      ];
-    };
-
     striking-distance = nixosSystem {
       inherit specialArgs;
       modules = [
