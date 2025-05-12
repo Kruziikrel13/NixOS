@@ -4,6 +4,9 @@
     dns = "systemd-resolved";
   };
 
+  ## For Spotify Sync
+  networking.firewall.allowedTCPPorts = [57621];
+
   # TODO Verify
   services.resolved = {
     enable = true;
