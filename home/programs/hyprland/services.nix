@@ -1,5 +1,5 @@
 {config, inputs, pkgs, ...}: let
-  configDir = "/home/${config.home.username}/.config/hypr";
+  cfg_directory = "${config.xdg.configHome}/hypr";
 in
 {
   systemd.user.services = {
@@ -27,7 +27,7 @@ in
 
       Service = {
         Type = "oneshot";
-        ExecStart = "${configDir}/scripts/shuffle_wallpapers.sh";
+        ExecStart = "${cfg_directory}/scripts/shuffle_wallpapers.sh";
       };
     };
   };
@@ -59,8 +59,8 @@ in
       settings = {
         ipc = "on";
         splash = false;
-        preload = [ "${configDir}/wallpapers/wallpaper.jpeg" ];
-        wallpaper = [" , ${configDir}/wallpapers/wallpaper.jpeg"];
+        preload = [ "${cfg_directory}/wallpapers/wallpaper.jpeg" ];
+        wallpaper = [" , ${cfg_directory}/wallpapers/wallpaper.jpeg"];
       };
     };
     hypridle = {
@@ -70,7 +70,7 @@ in
         general = {
           lock_cmd = "pidof hyprlock || hyprlock";
           before_sleep_cmd = "loginctl lock-session";
-          after_sleep_cmd = "hyprctl dispatch dpms on;";
+          after_sleep_cmd = "hyprctl dispatch dpms on; hyprctl keyword source ${cfg_directory}/hyprland.conf";
         };
 
         listener = [
@@ -82,7 +82,7 @@ in
           {
             timeout = 480;
             on-timeout = "hyprctl dispatch dpms off; hyprctl keyword monitor DP-2,disable";
-            on-resume = "hyprctl dispatch dpms on; hyprctl keyword source ${configDir}/monitors.conf";
+            on-resume = "hyprctl dispatch dpms on; hyprctl keyword source ${cfg_directory}/hyprland.conf";
           }
 
           {
@@ -153,11 +153,11 @@ in
         };
         background = [
           {
-            path = "${configDir}/wallpapers/lockscreen.jpeg";
+            path = "${cfg_directory}/wallpapers/lockscreen.jpeg";
             blur_passes = 1;
             blur_size = 2;
             reload_time = 300;
-            reload_cmd = "find ${configDir}/wallpapers -maxdepth 1 -type f ! -name '*wallpaper.jpeg' ! -name '*lockscreen.jpeg' | shuf -n 1";
+            reload_cmd = "find ${cfg_directory}/wallpapers -maxdepth 1 -type f ! -name '*wallpaper.jpeg' ! -name '*lockscreen.jpeg' | shuf -n 1";
           }
         ];
         input-field = [
