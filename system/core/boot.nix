@@ -5,6 +5,7 @@
     kernelParams = [
       "quiet"
       "systemd.show_status=auto"
+      "amd_pstate=active"
     ];
     loader = {
       timeout = 2;
