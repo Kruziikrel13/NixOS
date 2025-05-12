@@ -96,16 +96,7 @@
       };
     };
 
-    # Lix
-    lix-module = {
-      url = "https://git.lix.systems/lix-project/nixos-module/archive/2.93.0.tar.gz";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-
-    flake-compat = {
-      url = "git+https://git.lix.systems/lix-project/flake-compat";
-      flake = false;
-    };
+    flake-compat.url = "github:edolstra/flake-compat";
 
     pre-commit-hooks = {
       url = "github:cachix/pre-commit-hooks.nix";
