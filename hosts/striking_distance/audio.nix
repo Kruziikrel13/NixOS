@@ -1,6 +1,7 @@
 {lib, ...}: {
   services.pipewire = {
     enable = true;
+    audio.enable = true;
     alsa.enable = true;
     alsa.support32Bit = true;
     jack.enable = true;
@@ -8,11 +9,11 @@
     extraConfig.pipewire = {
       "10-clock-rate" = {
         "context.properties" = {
-          "default.clock.rate" = 96000;
-          "default.clock.allowed-rates" = [44100 48000 96000];
-          "default.clock.quantum" = 512;
-          "default.clock.min-quantum" = 512;
-          "default.clock.max-quantum" = 512;
+          "default.clock.rate" = 384000;
+          "default.clock.allowed-rates" = [44100 48000 96000 176400 192000 352800 384000];
+          "default.clock.quantum" = 1024;
+          "default.clock.min-quantum" = 32;
+          "default.clock.max-quantum" = 2048;
         };
       };
     };
@@ -57,4 +58,5 @@
   ];
 
   services.pulseaudio.enable = lib.mkForce false;
+
 }
