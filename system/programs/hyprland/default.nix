@@ -9,11 +9,11 @@ paths,
     inputs.hyprland-contrib.packages.${pkgs.system}.grimblast
     inputs.self.packages.${pkgs.system}.bibata-hyprcursor
   ];
-  environment.pathsToLink= ["/share/icons"];
+  environment.pathsToLink = ["/share/icons"];
   xdg.portal.config = {
     hyprland.default = ["gtk" "hyprland"];
   };
-   programs.hyprland = {
+  programs.hyprland = {
     enable = true;
     withUWSM = true;
     package = inputs.hyprland.packages.${pkgs.system}.hyprland;
