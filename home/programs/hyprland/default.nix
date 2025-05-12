@@ -5,7 +5,7 @@ in {
   imports = paths.scanPaths ./.;
 
   home.packages = [
-    inputs.hyprland-contrib.packages.${pkgs.system}.grimblast pkgs.playerctl
+    inputs.hyprland-contrib.packages.${pkgs.system}.grimblast
   ];
   xdg.dataFile."icons/${cursor}".source = "${cursorPackage}/share/icons/${cursor}";
 

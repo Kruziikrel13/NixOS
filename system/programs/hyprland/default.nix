@@ -1,10 +1,10 @@
 {
-inputs,
-pkgs,
-paths,
-...
+  inputs,
+  pkgs,
+  paths,
+  ...
 }: {
-  imports =  (paths.scanPaths ./.) ++ [ inputs.hyprland.nixosModules.default ];
+  imports = (paths.scanPaths ./.) ++ [inputs.hyprland.nixosModules.default];
   environment.systemPackages = [
     inputs.hyprland-contrib.packages.${pkgs.system}.grimblast
     inputs.self.packages.${pkgs.system}.bibata-hyprcursor

@@ -1,4 +1,4 @@
-{ inputs, ... }: {
+{inputs, ...}: {
   nixpkgs.overlays = [
     inputs.neovim-nightly.overlays.default
     (self: super: {

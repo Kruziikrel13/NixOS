@@ -9,7 +9,7 @@
       noto-fonts-emoji
       roboto
       (google-fonts.override {fonts = ["Inter"];})
-      
+
       jetbrains-mono
 
       nerd-fonts.jetbrains-mono

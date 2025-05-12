@@ -9,7 +9,7 @@
       "10-clock-rate" = {
         "context.properties" = {
           "default.clock.rate" = 96000;
-          "default.clock.allowed-rates" = [ 44100 48000 96000 ];
+          "default.clock.allowed-rates" = [44100 48000 96000];
           "default.clock.quantum" = 512;
           "default.clock.min-quantum" = 512;
           "default.clock.max-quantum" = 512;
