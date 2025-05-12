@@ -1,4 +1,4 @@
-{ ...}: {
+{...}: {
   boot = {
     plymouth.enable = true;
     tmp.cleanOnBoot = true;

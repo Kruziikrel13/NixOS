@@ -32,7 +32,9 @@
     # Extra Inputs
     ags = {
       url = "github:aylur/ags/v3";
-      inputs.nixpkgs.follows = "nixpkgs";
+      inputs = {
+        nixpkgs.follows = "nixpkgs";
+      };
     };
     astal = {
       url = "github:aylur/astal";

@@ -1,3 +1,3 @@
-{ paths, ... }: {
+{paths, ...}: {
   imports = paths.scanPaths ./.;
 }

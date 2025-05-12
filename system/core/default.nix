@@ -1,4 +1,8 @@
-{lib, paths, ...}: {
+{
+  lib,
+  paths,
+  ...
+}: {
   imports = paths.scanPaths ./.;
 
   programs.nix-ld.enable = true;

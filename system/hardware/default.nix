@@ -1,6 +1,6 @@
 {...}: {
   services = {
-    fwupd.enable = true; 
+    fwupd.enable = true;
     fstrim.enable = true;
     auto-cpufreq.enable = true;
   };
