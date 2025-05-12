@@ -1,6 +1,6 @@
 {pkgs, ...}: {
   home.packages = with pkgs; [
-    hyperfine procs sd du-dust bandwhich grex fclones rm-improved tokei
+    hyperfine procs sd du-dust bandwhich grex fclones rm-improved tokei cyme
   ];
   programs.bat.enable = true;
   programs.bottom.enable = true;
