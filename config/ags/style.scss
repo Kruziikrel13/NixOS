@@ -1,0 +1,93 @@
+// https://gitlab.gnome.org/GNOME/gtk/-/blob/gtk-3-24/gtk/theme/Adwaita/_colors-public.scss
+// $fg-color: #{"@theme_fg_color"};
+// $bg-color: #{"@theme_bg_color"};
+
+$bg-color: #171717;
+$font-color: #C4C4C4;
+$font-secondary: #525252;
+$font-tertiary: #414141;
+
+* {
+  font-size: 15px;
+  font-family: "NotoSans Nerd Font Propo";
+}
+
+window#Bar {
+  all:unset;
+  background-color: $bg-color;
+  box-shadow: 0 4px 3px rgba(0,0,0,0.1);
+
+  #modules-left, #modules-right, #modules-center {
+    padding: 7px;
+  }
+
+  #modules-left {
+    margin: 10px 10px 5px 0px;
+  }
+
+  #modules-center {
+    margin: 10px 0px 5px 0px;
+  }
+
+  #modules-right {
+    margin: 10px 10px 5px 0px;
+  }
+
+  button { 
+    all:unset;
+  }
+
+  .widget {
+    padding: 0px 5px;
+  }
+
+  #workspaces > button {
+    all: unset;
+    padding: 0px 5px;
+    color: $font-secondary;
+    transition: all .2s ease;
+  }
+
+  // Prevents padding from adding on to already existing widget padding
+  #workspaces > button:last-child {
+    padding-right: 0px;
+  }
+
+  #workspaces > button:first-child {
+    padding-left: 0px;
+  }
+
+  #workspaces > button.active {
+    color: $font-color;
+  }
+
+  .separator {
+    all: unset;
+    color: $font-tertiary;
+  }
+
+  #spotify .menu {
+    background-color: $bg-color;
+
+    .banner-icon {
+      box-shadow: 2px 2px 2px 0 rgba(0,0,0,0.2);
+      opacity: 0.9;
+      border-radius: 25%;
+      margin-left: 10px;
+      margin-top: 10px;
+    }
+
+    .banner-info {
+      padding: 10px;
+      color: white;
+    }
+
+    .banner-info * {
+      font-size: 26px;
+    }
+
+    label {
+      color: rgb(255,255,255)
+    }
+  }
+}
