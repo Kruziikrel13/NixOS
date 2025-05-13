@@ -8,7 +8,7 @@
   services.playerctld.enable = true;
   services.udiskie.enable = true;
   services.activitywatch = {
-    enable = true;
+    enable = false;
     package = pkgs.aw-server-rust;
     settings = {
       host = "127.0.0.1";
