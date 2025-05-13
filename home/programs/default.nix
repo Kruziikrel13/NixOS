@@ -3,9 +3,8 @@
 
   home.packages = with pkgs; [
     walker pulsemixer protonmail-desktop via tomato-c inputs.zen-browser.packages.${pkgs.system}.default
-    limo heroic obsidian spotify 
+    limo heroic obsidian spotify
   ];
-
   services.playerctld.enable = true;
   services.udiskie.enable = true;
    programs = {
