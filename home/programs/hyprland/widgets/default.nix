@@ -74,7 +74,7 @@ config,
   programs.ags = {
     enable = true;
     systemd.enable = false;
-    configDir = null;
+    configDir = config.lib.file.mkOutOfStoreSymlink /etc/nixos/config/ags;
 
     extraPackages = with inputs.ags.packages.${pkgs.system}; [
       notifd
