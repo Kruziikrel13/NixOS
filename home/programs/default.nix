@@ -8,20 +8,7 @@
 
   services.playerctld.enable = true;
   services.udiskie.enable = true;
-  services.activitywatch = {
-    enable = true;
-    package = pkgs.aw-server-rust;
-    settings = {
-      host = "127.0.0.1";
-      port = 5600;
-    };
-    watchers = {
-      aw-watcher = {
-        package = pkgs.awatcher;
-      };
-    };
-  };
-  programs = {
+   programs = {
     nix-init.enable = true;
     ghostty = {
       enable = true;
