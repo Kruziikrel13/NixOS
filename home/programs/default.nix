@@ -2,27 +2,10 @@
   imports = paths.scanPaths ./.;
 
   home.packages = with pkgs; [
-    walker pulsemixer protonmail-desktop via tomato-c inputs.zen-browser.packages.${pkgs.system}.default
-    limo heroic obsidian spotify
+    pulsemixer protonmail-desktop via tomato-c inputs.zen-browser.packages.${pkgs.system}.default
+    limo heroic obsidian playerctl spotify
   ];
-  services.playerctld.enable = true;
-  services.udiskie.enable = true;
-  services.activitywatch = {
-    enable = false;
-    package = pkgs.aw-server-rust;
-    settings = {
-      host = "127.0.0.1";
-      port = 5600;
-    };
-    watchers.aw-watcher = {
-      package = pkgs.awatcher;
-      executable = "awatcher";
-      settings = {
-        timeout = 180;
-        poll_time = 2;
-      };
-    };
-  };
+
   programs = {
     nix-init.enable = true;
     ghostty = {
@@ -37,7 +20,39 @@
     };
     vesktop = {
       enable = true;
-      vencord.useSystem = true;
+      settings = {
+        appBadge = true;
+        checkUpdates = false;
+        tray = true;
+        hardwareAcceleration = true;
+        discordBranch = "stable";
+        splashTheming = true;
+        staticTitle = true;
+      };
+      vencord = {
+        useSystem = true;
+        settings= {
+          audoUpdate = false;
+          useQuickCss = false;
+          notifyAboutUpdates = false;
+        };
+      };
+    };
+    uv.enable = true;
+    anyrun = {
+      enable = true;
+      package = inputs.anyrun.packages.${pkgs.system}.default;
+      config = {
+        width.fraction = 0.25;
+        y.fraction = 0.3;
+        hidePluginInfo = true;
+        closeOnClick = true;
+        layer = "overlay";
+        plugins = with inputs.anyrun.packages.${pkgs.system}; [
+          applications
+          rink
+        ];
+      };
     };
   };
 }

@@ -3,7 +3,7 @@ in {
   wayland.windowManager.hyprland = {
     settings = {
       "$terminal" = "ghostty";
-      "$dmenu" = "walker --modules applications";
+      "$dmenu" = "anyrun";
       "$mainMod" = "SUPER";
 
       exec-once = [
