@@ -21,6 +21,7 @@ inputs,
     ];
   };
   powerManagement.cpuFreqGovernor = "performance";
+  environment.systemPackages = with pkgs; [ steam-devices-udev-rules ];
 
   # See Keychron Support on Wiki https://github.com/Kruziikrel13/NixOS/wiki/Hardware-Fixes#keychron-keyboards
   services.udev.extraRules = ''
