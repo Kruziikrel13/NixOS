@@ -36,9 +36,12 @@ inputs,
       supportExperimental.enable = true;
     };
   };
+  chaotic.mesa-git.enable = true;
+
   # Gaming Support
   programs = {
     gamescope = {
+      package = pkgs.gamescope_git;
       enable = true;
       capSysNice = true;
       args = [
@@ -55,14 +58,14 @@ inputs,
         };
       };
     };
-
     steam = {
       enable = true;
       gamescopeSession.enable = true;
       platformOptimizations.enable = true;
-      extraCompatPackages = [ pkgs.proton-ge-bin ];
+      protontricks.enable = true;
+      extraPackages = with pkgs; [ gamemode ];
+      extraCompatPackages = [ pkgs.proton-ge-bin pkgs.gamescope_git ];
     };
   };
-
-  imports = [inputs.nix-gaming.nixosModules.platformOptimizations];
+  imports = [ inputs.nix-gaming.nixosModules.platformOptimizations inputs.chaotic.nixosModules.default ];
 }
