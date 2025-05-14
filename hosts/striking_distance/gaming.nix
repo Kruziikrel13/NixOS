@@ -29,6 +29,13 @@ inputs,
   ACTION=="add", SUBSYSTEM=="usb", TEST=="power/control", ATTR{power/control}="on"
   '';
 
+  hardware.amdgpu = {
+    amdvlk = {
+      enable = true;
+      support32Bit.enable = true;
+      supportExperimental.enable = true;
+    };
+  };
   # Gaming Support
   programs = {
     gamescope = {
