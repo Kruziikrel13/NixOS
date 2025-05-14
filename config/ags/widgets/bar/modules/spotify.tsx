@@ -12,7 +12,7 @@ export default function Spotify() {
       <With value={spotifyState}>
         {(spotify) => spotify && (
           <box spacing={5} cssClasses={["info"]}>
-            <image iconName="spotify-client"/>
+            <image iconName="spotify-symbolic"/>
             <label visible={bind(spotify, "artist").as(Boolean)} label={bind(spotify, "artist").as(String)}/>
             <label visible={bind(spotify, "artist").as(Boolean)} label="-"/>
             <label visible={bind(spotify,"title").as(Boolean)} label={bind(spotify, "title").as(String)}/>
