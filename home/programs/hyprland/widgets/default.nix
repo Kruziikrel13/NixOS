@@ -3,7 +3,7 @@
 
   programs = {
     agsCustom = {
-      enable = true;
+      enable = false;
       systemd.enable = true;
     };
     quickshell = {
