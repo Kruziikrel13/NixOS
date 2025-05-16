@@ -1,14 +1,9 @@
 {pkgs, self, config, ...}: {
   xdg.configFile.nvim = {
    enable = true;
-   target = "nvim/lua";
+   target = "nvim";
    recursive = true;
-   source = config.lib.file.mkOutOfStoreSymlink /etc/nixos/config/sentinel.nvim/lua;
-  };
-  xdg.configFile.nvimInit = {
-   enable = true;
-   target = "nvim/init.lua";
-   source = config.lib.file.mkOutOfStoreSymlink /etc/nixos/config/sentinel.nvim/init.lua;
+   source = config.lib.file.mkOutOfStoreSymlink /etc/nixos/config/sentinel.nvim;
   };
   programs.neovim = {
     enable = true;
