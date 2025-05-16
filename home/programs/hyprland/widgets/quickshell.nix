@@ -15,12 +15,12 @@ in {
   };
 
   config = lib.mkIf cfg.enable {
-    assertions = [
-      {
-        assertion = !config.programs.agsCustom.enable || !config.programs.ags.enable;
-        message = "Quickshell widget conflicts with AGS widget. Only enable one.";
-      }
-    ];
+      assertions = [
+        {
+          assertion = !config.programs.agsCustom.systemd.enable || !config.programs.ags.systemd.enable;
+          message = "Service conflicts between AGS and Quickshell.";
+        }
+      ];
     home.packages = [ inputs.quickshell.packages.${pkgs.system}.default ];
     xdg.configFile.quickshell = {
       enable = true;

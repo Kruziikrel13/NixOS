@@ -17,8 +17,8 @@ in {
   config = lib.mkIf cfg.enable {
     assertions = [ 
       { 
-        assertion = !config.programs.quickshell.enable;
-        message = "AGS Widget conflicts with Quickshell Widget, only enable One!";
+        assertion = !config.programs.quickshell.systemd.enable;
+        message = "Service conflicts between AGS and Quickshell.";
       }
     ];
     home.packages = [ 
