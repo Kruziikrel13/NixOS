@@ -1,90 +1,56 @@
-import "root:/widgets"
-import "./modules"
-import QtQuick
-import QtQuick.Controls
-import QtQuick.Layouts
 import Quickshell
-import Quickshell.Wayland
+import QtQuick
+import QtQuick.Layouts
 
 Scope {
   id: bar
   readonly property int barHeight: 32
+  readonly property string bgColor: "#171717"
 
   Variants {
     model: Quickshell.screens
 
-    PanelWindow {
-      id: barRoot
-
-      property var modelData
-
+    PanelWindow{
+      id: barPanel
+      property ShellScreen modelData
       screen: modelData
-      WlrLayershell.namespace: "quickshell:bar"
-      exclusiveZone: barHeight  - 1
-      height: barHeight
-      mask: Region {
-        item: barContent
-      }
-      color: 'transparent'
-
+      implicitHeight: barHeight
+      color: bgColor
       anchors {
         top: true
         left: true
         right: true
       }
 
-      Rectangle { // Bar BG
-        id: barContent
-        anchors.right: parent.right
-        anchors.left: parent.left
+      RowLayout {
+        id: modulesLeft
         anchors.top: parent.top
-        color: "#171717"
-        height: barHeight
+        anchors.left: parent.left
+        anchors.bottom: parent.bottom
+        Text {
+          color: "white"
+          text: "Left"
+        }
+      }
 
-        RowLayout {
-          id: modules_left
-          anchors.left: parent.left
-          implicitHeight: barHeight
-          width: (barRoot.width - modules_center.width) / 2
-          spacing: 10
-
-          Rectangle {
-            Layout.alignment: Qt.AlignLeft | Qt.AlignVCenter
-            Layout.leftMargin: 10
-
-            color: 'transparent'
-            implicitWidth: distroIcon.width + 5*2
-            implicitHeight: distroIcon.height + 5*2
-
-            CustomIcon {
-              id: distroIcon
-              anchors.centerIn: parent
-              width:24
-              height: 24
-              source: "nixos"
-            }
-          }
-
-          ActiveWindow {
-            Layout.fillWidth: true;
-            bar: barRoot
-          }
-
+      RowLayout {
+        id: modulesCenter
+        anchors.centerIn: parent
+        Text {
+          color: "white"
+          text: "Center"
         }
 
-        RowLayout {
-          id: modules_center
-          anchors.centerIn: parent
-          spacing: 8
-        }
+      }
 
-        RowLayout {
-          id: modules_right
-          anchors.right: parent.right
-          implicitHeight: barHeight
-          width: (barRoot.width - modules_center.width) / 2
-          spacing: 5
-          layoutDirection: Qt.RightToLeft
+      RowLayout {
+        id: modulesRight
+        anchors.top: parent.top
+        anchors.right: parent.right
+        anchors.bottom: parent.bottom
+        Text {
+          color: "white"
+          text: "Right"
         }
       }
     }
