@@ -2,12 +2,14 @@
   imports = paths.scanPaths ./.;
 
   home.packages = with pkgs; [
-    pulsemixer protonmail-desktop via tomato-c inputs.zen-browser.packages.${pkgs.system}.default
-    limo heroic obsidian playerctl spotify
+    pulsemixer protonmail-desktop via
+    inputs.zen-browser.packages.${pkgs.system}.default
+    limo heroic obsidian playerctl spotify radeontop
   ];
 
   programs = {
     nix-init.enable = true;
+    zathura.enable = true;
     ghostty = {
       enable = true;
       enableBashIntegration = true;
@@ -32,7 +34,7 @@
       vencord = {
         useSystem = true;
         settings= {
-          audoUpdate = false;
+          autoUpdate = false;
           useQuickCss = false;
           notifyAboutUpdates = false;
         };
