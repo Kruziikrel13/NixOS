@@ -1,5 +1,6 @@
 {config, inputs, pkgs, ...}: let
   cfg_directory = "${config.xdg.configHome}/hypr";
+  monitors = "${cfg_directory}/monitors.conf";
 in
 {
   systemd.user.services = {
@@ -55,7 +56,7 @@ in
         general = {
           lock_cmd = "pidof hyprlock || hyprlock";
           before_sleep_cmd = "loginctl lock-session";
-          after_sleep_cmd = "hyprctl dispatch dpms on; hyprctl keyword source ${cfg_directory}/hyprland.conf";
+          after_sleep_cmd = "hyprctl dispatch dpms on; hyprctl keyword source ${monitors}";
         };
 
         listener = [
@@ -67,7 +68,7 @@ in
           {
             timeout = 480;
             on-timeout = "hyprctl dispatch dpms off; hyprctl keyword monitor DP-2,disable";
-            on-resume = "hyprctl dispatch dpms on; hyprctl keyword source ${cfg_directory}/hyprland.conf";
+            on-resume = "hyprctl dispatch dpms on; hyprctl keyword source ${monitors}";
           }
 
           {
