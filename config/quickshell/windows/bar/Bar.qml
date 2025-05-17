@@ -1,3 +1,4 @@
+import "./modules"
 import Quickshell
 import QtQuick
 import QtQuick.Layouts
@@ -6,6 +7,9 @@ Scope {
   id: bar
   readonly property int barHeight: 32
   readonly property string bgColor: "#171717"
+  readonly property string fontColor: "#C4C4C4"
+  readonly property string fontSecondary: "#525252"
+  readonly property string fontTertiary: "#414141"
 
   Variants {
     model: Quickshell.screens
@@ -27,10 +31,7 @@ Scope {
         anchors.top: parent.top
         anchors.left: parent.left
         anchors.bottom: parent.bottom
-        Text {
-          color: "white"
-          text: "Left"
-        }
+        Workspaces {}
       }
 
       RowLayout {
