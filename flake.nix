@@ -6,15 +6,15 @@
 
   nixConfig = {
     extra-substituters = [
-      "https://hyprland.cachix.org"
       "https://nix-community.cachix.org"
+      "https://hyprland.cachix.org"
       "https://nix-gaming.cachix.org"
       "https://yazi.cachix.org"
     ];
 
     extra-trusted-public-keys = [
-      "hyprland.cachix.org-1:a7pgxzMz7+chwVL3/pzj6jIBMioiJM7ypFP8PwtkuGc="
       "nix-community.cachix.org-1:mB9FSh9qf2dCimDSUo8Zy7bkq5CX+/rkCWyvRCYg3Fs="
+      "hyprland.cachix.org-1:a7pgxzMz7+chwVL3/pzj6jIBMioiJM7ypFP8PwtkuGc="
       "nix-gaming.cachix.org-1:nbjlureqMbRAxR1gJ/f3hxemL9svXaZF/Ees8vCUUs4="
       "yazi.cachix.org-1:Dcdz63NZKfvUCbDGngQDAZq6kOroIrFoyO064uvLh8k="
     ];
@@ -24,10 +24,7 @@
     # Global / System Inputs
     systems.url = "github:nix-systems/default-linux";
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
-
-    flake-parts = {
-      url = "github:hercules-ci/flake-parts";
-    };
+    flake-parts.url = "github:hercules-ci/flake-parts";
 
     # Extra Inputs
     ags = {
