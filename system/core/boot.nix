@@ -3,13 +3,10 @@
     plymouth = {
       enable = true;
       theme = "hexagon_dots_alt";
-      themePackages = [ pkgs.adi1090x-plymouth-themes ];
+      themePackages = [pkgs.adi1090x-plymouth-themes];
     };
     tmp.cleanOnBoot = true;
-    kernelParams = [
-      "systemd.show_status=auto"
-      "amd_pstate=active"
-    ];
+    kernelParams = ["systemd.show_status=auto" "amd_pstate=active"];
     loader = {
       timeout = 2;
       efi = {

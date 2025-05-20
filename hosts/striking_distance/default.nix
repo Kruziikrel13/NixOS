@@ -1,7 +1,4 @@
-{
-  paths,
-  ...
-}: {
+{paths, ...}: {
   imports = paths.scanPaths ./.;
 
   networking.hostName = "striking-distance";

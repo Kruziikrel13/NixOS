@@ -1,8 +1,12 @@
-{config, inputs, pkgs, ...}: let
+{
+  config,
+  inputs,
+  pkgs,
+  ...
+}: let
   cfg_directory = "${config.xdg.configHome}/hypr";
   monitors = "${cfg_directory}/monitors.conf";
-in
-{
+in {
   systemd.user.services = {
     randomize-wallpaper = {
       Unit = {
@@ -20,9 +24,7 @@ in
 
   systemd.user.timers = {
     randomize-wallpaper = {
-      Unit = {
-        Description = "Randomize Wallpaper - Hourly";
-      };
+      Unit = {Description = "Randomize Wallpaper - Hourly";};
 
       Timer = {
         OnCalendar = "hourly";
@@ -30,9 +32,7 @@ in
         Unit = "randomize-wallpaper.service";
       };
 
-      Install = {
-        WantedBy = [ "timers.target" ];
-      };
+      Install = {WantedBy = ["timers.target"];};
     };
   };
 
@@ -45,7 +45,7 @@ in
       settings = {
         ipc = "on";
         splash = false;
-        preload = [ "${cfg_directory}/wallpapers/wallpaper.jpeg" ];
+        preload = ["${cfg_directory}/wallpapers/wallpaper.jpeg"];
         wallpaper = [" , ${cfg_directory}/wallpapers/wallpaper.jpeg"];
       };
     };
@@ -84,59 +84,57 @@ in
     hyprlock = {
       enable = true;
       extraConfig = ''
-          # Hours
-          label {
-            monitor = DP-1
-            font_size = 112
-            text = cmd[update:1000] echo "<b><big> $(date +"%H") </big></b>"
-            shadow_passes = 3
-            shadow_size = 4
-            halign = center
-            valign = center
-            position = 0, 220
-          }
+        # Hours
+        label {
+          monitor = DP-1
+          font_size = 112
+          text = cmd[update:1000] echo "<b><big> $(date +"%H") </big></b>"
+          shadow_passes = 3
+          shadow_size = 4
+          halign = center
+          valign = center
+          position = 0, 220
+        }
 
-          # Minutes
-          label {
-            monitor = DP-1
-            text = cmd[update:1000] echo "<b><big> $(date +"%M") </big></b>"
-            font_size = 112
-            shadow_passes = 3
-            shadow_size = 4
+        # Minutes
+        label {
+          monitor = DP-1
+          text = cmd[update:1000] echo "<b><big> $(date +"%M") </big></b>"
+          font_size = 112
+          shadow_passes = 3
+          shadow_size = 4
 
-            position = 0, 80
-            halign = center
-            valign = center
-          }
+          position = 0, 80
+          halign = center
+          valign = center
+        }
 
-          # Day
-          label {
-            monitor = DP-1
-            text = cmd[update:18000000] echo "<b><big> "$(date +'%A')" </big></b>"
-            font_size = 22
-            font_family = JetBrainsMono Nerd Font 10
+        # Day
+        label {
+          monitor = DP-1
+          text = cmd[update:18000000] echo "<b><big> "$(date +'%A')" </big></b>"
+          font_size = 22
+          font_family = JetBrainsMono Nerd Font 10
 
-            position = 0, -20
-            halign = center
-            valign = center
-          }
+          position = 0, -20
+          halign = center
+          valign = center
+        }
 
-          # Week
-          label {
-            monitor = DP-1
-            text = cmd[update:18000000] echo "<b> "$(date +'%d %b')" </b>"
-            font_size = 18
-            font_family = JetBrainsMono Nerd Font 10
+        # Week
+        label {
+          monitor = DP-1
+          text = cmd[update:18000000] echo "<b> "$(date +'%d %b')" </b>"
+          font_size = 18
+          font_family = JetBrainsMono Nerd Font 10
 
-            position = 0, -60
-            halign = center
-            valign = center
-          }
+          position = 0, -60
+          halign = center
+          valign = center
+        }
       '';
       settings = {
-        general = {
-          hide_cursor = true;
-        };
+        general = {hide_cursor = true;};
         background = [
           {
             path = "${cfg_directory}/wallpapers/lockscreen.jpeg";
@@ -171,5 +169,4 @@ in
       };
     };
   };
-
 }

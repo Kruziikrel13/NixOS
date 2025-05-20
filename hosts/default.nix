@@ -1,9 +1,9 @@
 {
-self,
-nixpkgs,
-inputs,
-...
-}: let 
+  self,
+  nixpkgs,
+  inputs,
+  ...
+}: let
   inherit (nixpkgs) lib;
   inherit (lib) nixosSystem;
 
@@ -19,11 +19,7 @@ in {
   striking-distance = nixosSystem {
     system = "x86_64-linux";
     specialArgs = makeSpecialArgs "kruziikrel13";
-    modules = [
-      ./striking_distance
-      system
-      home
-    ];
+    modules = [./striking_distance system home];
   };
 
   # atlas = nixosSystem {

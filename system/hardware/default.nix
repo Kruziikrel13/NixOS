@@ -1,5 +1,5 @@
 {pkgs, ...}: {
-  hardware.firmware = [ pkgs.linux-firmware ];
+  hardware.firmware = [pkgs.linux-firmware];
   services = {
     fwupd.enable = true;
     fstrim.enable = true;

@@ -1,12 +1,18 @@
-{paths, config, lib, inputs, pkgs, self, ...}: let
+{
+  paths,
+  config,
+  lib,
+  inputs,
+  pkgs,
+  self,
+  ...
+}: let
   cursor = "Bibata-Modern-Classic-Hyprcursor";
   cursorPackage = self.packages.${pkgs.system}.bibata-hyprcursor;
 in {
   imports = paths.scanPaths ./.;
 
-  home.packages = [
-    inputs.hyprland-contrib.packages.${pkgs.system}.grimblast
-  ];
+  home.packages = [inputs.hyprland-contrib.packages.${pkgs.system}.grimblast];
   xdg.dataFile."icons/${cursor}".source = "${cursorPackage}/share/icons/${cursor}";
 
   programs.bash.profileExtra = ''
@@ -19,7 +25,7 @@ in {
     package = null;
     portalPackage = null;
     systemd.enable = false;
-    systemd.variables = [ "--all" ];
+    systemd.variables = ["--all"];
   };
 
   home.sessionVariables = {
@@ -28,5 +34,6 @@ in {
     XDG_SESSION_TYPE = "wayland";
   };
 
-  systemd.user.targets.tray.Unit.Requires = lib.mkForce [ config.wayland.systemd.target ];
+  systemd.user.targets.tray.Unit.Requires =
+    lib.mkForce [config.wayland.systemd.target];
 }

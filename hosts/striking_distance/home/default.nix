@@ -1,5 +1,7 @@
-{paths, username, ...}: {
-  home-manager.users.${username} = {
-    imports = paths.scanPaths ./.;
-  };
+{
+  paths,
+  username,
+  ...
+}: {
+  home-manager.users.${username} = {imports = paths.scanPaths ./.;};
 }

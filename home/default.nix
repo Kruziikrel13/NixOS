@@ -1,18 +1,18 @@
 {
-specialArgs,
-inputs,
-username,
-paths,
-...
+  specialArgs,
+  inputs,
+  username,
+  paths,
+  ...
 }: {
-  imports = [ inputs.home-manager.nixosModules.home-manager ];
-  environment.pathsToLink = [ "/share/xdg-desktop-portal" "/share/applications" ];
+  imports = [inputs.home-manager.nixosModules.home-manager];
+  environment.pathsToLink = ["/share/xdg-desktop-portal" "/share/applications"];
   home-manager = {
     useGlobalPkgs = true;
     useUserPackages = true;
     backupFileExtension = ".hm-backup";
     extraSpecialArgs = specialArgs;
-    users.${username} = { ... }: {
+    users.${username} = {...}: {
       home = {
         inherit username;
         homeDirectory = "/home/${username}";

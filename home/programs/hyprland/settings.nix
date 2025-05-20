@@ -1,4 +1,5 @@
-let cursorName = "Bibata-Modern-Classic-Hyprcursor";
+let
+  cursorName = "Bibata-Modern-Classic-Hyprcursor";
 in {
   wayland.windowManager.hyprland = {
     settings = {
@@ -6,10 +7,7 @@ in {
       "$dmenu" = "anyrun";
       "$mainMod" = "SUPER";
 
-      exec-once = [
-        "uwsm finalize"
-        "hyprctl setcursor ${cursorName } ${toString 16}"
-      ];
+      exec-once = ["uwsm finalize" "hyprctl setcursor ${cursorName} ${toString 16}"];
 
       env = [
         "QT_WAYLAND_DISABLE_WINDOWDECORATION,1"
@@ -18,7 +16,6 @@ in {
         # See https://github.com/hyprwm/contrib/issues/142
         "GRIMBLAST_NO_CURSOR,0"
       ];
-
 
       bindtd = [
         "$mainMod, RETURN, Open terminal, exec, $terminal"
@@ -64,9 +61,7 @@ in {
         "$mainMod SHIFT, 0, movetoworkspace, 10"
       ];
 
-      bind = [
-        "$mainMod, TAB, cyclenext"
-      ];
+      bind = ["$mainMod, TAB, cyclenext"];
 
       bindtp = [
         "$mainMod, mouse_up, focusmonitor, +1"
@@ -105,9 +100,7 @@ in {
         preserve_split = true;
       };
 
-      binds = {
-        scroll_event_delay = 10;
-      };
+      binds = {scroll_event_delay = 10;};
 
       input = {
         kb_variant = ",qwerty";
@@ -118,12 +111,8 @@ in {
         disable_hyprland_logo = true;
         disable_splash_rendering = true;
       };
-      cursor = {
-        default_monitor = "DP-1";
-      };
-      experimental = {
-        xx_color_management_v4 = true;
-      };
+      cursor = {default_monitor = "DP-1";};
+      experimental = {xx_color_management_v4 = true;};
 
       windowrule = [
         "workspace 8, class:(Proton Mail)"

@@ -1,4 +1,8 @@
-{config, root, ...}: {
+{
+  config,
+  root,
+  ...
+}: {
   programs.nh = {
     enable = true;
     clean = {

@@ -1,10 +1,10 @@
-{ 
-  lib, 
-  config, 
-  inputs, 
+{
+  lib,
+  config,
+  inputs,
   pkgs,
   self,
-  ... 
+  ...
 }: let
   cfg = config.programs.quickshell;
 in {
@@ -16,13 +16,15 @@ in {
   };
 
   config = lib.mkIf cfg.enable {
-      assertions = [
-        {
-          assertion = !config.programs.agsCustom.systemd.enable || !config.programs.ags.systemd.enable;
-          message = "Service conflicts between AGS and Quickshell.";
-        }
-      ];
-    home.packages = [ inputs.quickshell.packages.${pkgs.system}.default ];
+    assertions = [
+      {
+        assertion =
+          !config.programs.agsCustom.systemd.enable
+          || !config.programs.ags.systemd.enable;
+        message = "Service conflicts between AGS and Quickshell.";
+      }
+    ];
+    home.packages = [inputs.quickshell.packages.${pkgs.system}.default];
     xdg.configFile.quickshell = {
       enable = true;
       source = config.lib.file.mkOutOfStoreSymlink "${self}/.config/quickshell";
@@ -31,18 +33,20 @@ in {
       quickshell = {
         Unit = {
           Description = "Quickshell Desktop Widget";
-          PartOf = [ config.wayland.systemd.target ];
-          Requires = [ config.wayland.systemd.target ];
-          After = [ config.wayland.systemd.target "tray.target" ];
+          PartOf = [config.wayland.systemd.target];
+          Requires = [config.wayland.systemd.target];
+          After = [config.wayland.systemd.target "tray.target"];
         };
 
         Service = {
-          ExecStart = "${inputs.quickshell.packages.${pkgs.system}.default}/bin/quickshell";
+          ExecStart = "${
+            inputs.quickshell.packages.${pkgs.system}.default
+          }/bin/quickshell";
           Restart = "on-failure";
           KillMode = "mixed";
         };
 
-        Install.WantedBy = [ config.wayland.systemd.target ];
+        Install.WantedBy = [config.wayland.systemd.target];
       };
     };
   };

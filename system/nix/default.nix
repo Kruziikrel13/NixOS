@@ -18,9 +18,12 @@
 
     channel.enable = false;
     # pin the registry to avoid downloading and evaling a new nixpkgs version every time
-    registry = lib.mapAttrs (_: v: {flake = v;}) (lib.filterAttrs (_: v: lib.isType "flake" v) inputs);
+    registry =
+      lib.mapAttrs (_: v: {flake = v;})
+      (lib.filterAttrs (_: v: lib.isType "flake" v) inputs);
     # set the path for channels compat
-    nixPath = lib.mapAttrsToList (key: _: "${key}=flake:${key}") config.nix.registry;
+    nixPath =
+      lib.mapAttrsToList (key: _: "${key}=flake:${key}") config.nix.registry;
 
     settings = {
       auto-optimise-store = true;

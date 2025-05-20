@@ -1,7 +1,16 @@
 {pkgs, ...}: {
   home = {
     packages = with pkgs; [
-      hyperfine procs sd du-dust bandwhich grex fclones rm-improved tokei cyme
+      hyperfine
+      procs
+      sd
+      du-dust
+      bandwhich
+      grex
+      fclones
+      rm-improved
+      tokei
+      cyme
     ];
     shell = {
       enableBashIntegration = true;
@@ -34,9 +43,7 @@
       enableBashIntegration = true;
     };
 
-    nushell = {
-      enable = true;
-    };
+    nushell = {enable = true;};
     direnv = {
       enable = true;
       enableBashIntegration = true;
@@ -45,9 +52,7 @@
     zoxide = {
       enable = true;
       enableBashIntegration = true;
-      options = [
-        "--cmd cd"
-      ];
+      options = ["--cmd cd"];
     };
   };
 }

@@ -1,14 +1,14 @@
 {
-inputs,
-pkgs,
-config,
-lib,
-self,
-...
+  inputs,
+  pkgs,
+  config,
+  lib,
+  self,
+  ...
 }: let
   cfg = config.programs.agsCustom;
 in {
-  imports = [ inputs.ags.homeManagerModules.default ];
+  imports = [inputs.ags.homeManagerModules.default];
   options = {
     programs.agsCustom = {
       enable = lib.mkEnableOption null;
@@ -16,13 +16,13 @@ in {
     };
   };
   config = lib.mkIf cfg.enable {
-    assertions = [ 
-      { 
+    assertions = [
+      {
         assertion = !config.programs.quickshell.systemd.enable;
         message = "Service conflicts between AGS and Quickshell.";
       }
     ];
-    home.packages = [ 
+    home.packages = [
       inputs.ags.packages.${pkgs.system}.io
       inputs.ags.packages.${pkgs.system}.notifd
       inputs.ags.packages.${pkgs.system}.tray
@@ -52,57 +52,63 @@ in {
       ags-tray = {
         Unit = {
           Description = "AGS Tray Daemon";
-          PartOf = [ "tray.target" ];
+          PartOf = ["tray.target"];
         };
         Service = {
-          ExecStart = "${inputs.ags.packages.${pkgs.system}.tray
-        }/bin/astal-tray --daemonize";
+          ExecStart = "${
+            inputs.ags.packages.${pkgs.system}.tray
+          }/bin/astal-tray --daemonize";
           Restart = "on-failure";
           KillMode = "mixed";
         };
-        Install.WantedBy = [ "tray.target" ];
+        Install.WantedBy = ["tray.target"];
       };
       ags-mpris = {
         Unit = {
           Description = "AGS MPRIS Daemon";
-          PartOf = [ config.wayland.systemd.target ];
+          PartOf = [config.wayland.systemd.target];
         };
         Service = {
-          ExecStart = "${inputs.ags.packages.${pkgs.system}.mpris}/bin/astal-mpris monitor";
+          ExecStart = "${
+            inputs.ags.packages.${pkgs.system}.mpris
+          }/bin/astal-mpris monitor";
           Restart = "on-failure";
           KillMode = "mixed";
         };
-        Install.WantedBy = [ config.wayland.systemd.target ];
+        Install.WantedBy = [config.wayland.systemd.target];
       };
       ags-hyprland = {
         Unit = {
           Description = "AGS Hyprland Daemon";
-          PartOf = [ config.wayland.systemd.target ];
+          PartOf = [config.wayland.systemd.target];
         };
         Service = {
           ExecStart = "${inputs.ags.packages.${pkgs.system}.hyprland}/bin/astal-hyprland";
           Restart = "on-failure";
           KillMode = "mixed";
         };
-        Install.WantedBy = [ config.wayland.systemd.target ];
+        Install.WantedBy = [config.wayland.systemd.target];
       };
       ags = {
         Unit = {
           Description = "AGS Status Bar";
           Documentation = "https://github.com/Aylur/ags";
-          PartOf = [ config.wayland.systemd.target ];
-          Requires = [ "ags-tray.service" "ags-mpris.service" "ags-hyprland.service" ];
-          After = [ config.wayland.systemd.target "ags-tray.service" "ags-mpris.service" "ags-hyprland.service" ];
+          PartOf = [config.wayland.systemd.target];
+          Requires = ["ags-tray.service" "ags-mpris.service" "ags-hyprland.service"];
+          After = [
+            config.wayland.systemd.target
+            "ags-tray.service"
+            "ags-mpris.service"
+            "ags-hyprland.service"
+          ];
         };
         Service = {
           ExecStart = "${config.programs.ags.finalPackage}/bin/ags run";
           Restart = "on-failure";
           KillMode = "mixed";
         };
-        Install.WantedBy = [ config.wayland.systemd.target ];
+        Install.WantedBy = [config.wayland.systemd.target];
       };
     };
-
-
   };
 }

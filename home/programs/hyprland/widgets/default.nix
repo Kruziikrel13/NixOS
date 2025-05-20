@@ -1,4 +1,4 @@
-{paths, ... }: {
+{paths, ...}: {
   imports = paths.scanPaths ./.;
 
   programs = {

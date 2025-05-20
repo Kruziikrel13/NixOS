@@ -1,10 +1,23 @@
-{paths, pkgs, inputs, ...}: {
+{
+  paths,
+  pkgs,
+  inputs,
+  ...
+}: {
   imports = paths.scanPaths ./.;
 
   home.packages = with pkgs; [
-    pulsemixer protonmail-desktop via
+    pulsemixer
+    protonmail-desktop
+    via
     inputs.zen-browser.packages.${pkgs.system}.default
-    heroic obsidian playerctl spotify radeontop libreoffice-qt6 logseq
+    heroic
+    obsidian
+    playerctl
+    spotify
+    radeontop
+    libreoffice-qt6
+    logseq
     # limo
     # grayjay
   ];
@@ -33,7 +46,7 @@
       };
       vencord = {
         useSystem = true;
-        settings= {
+        settings = {
           autoUpdate = false;
           useQuickCss = false;
           notifyAboutUpdates = false;
@@ -49,9 +62,7 @@
         hidePluginInfo = true;
         closeOnClick = true;
         layer = "overlay";
-        plugins = with inputs.anyrun.packages.${pkgs.system}; [
-          applications
-        ];
+        plugins = with inputs.anyrun.packages.${pkgs.system}; [applications];
       };
     };
   };

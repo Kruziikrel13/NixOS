@@ -1,7 +1,7 @@
 {
-pkgs,
-inputs,
-...
+  pkgs,
+  inputs,
+  ...
 }: {
   # Performance
   ## Xanmod may handle commented out boot kernel opts
@@ -11,7 +11,7 @@ inputs,
     #   name = "preempt_rt";
     #   patch = null;
     # }];
-    kernelParams = [ 
+    kernelParams = [
       "threadirqs"
       "amdgpu.ppfeaturemask=0xffffffff"
       "processor.max_cstate=5"
@@ -21,12 +21,12 @@ inputs,
     ];
   };
   powerManagement.cpuFreqGovernor = "performance";
-  environment.systemPackages = with pkgs; [ steam-devices-udev-rules ];
+  environment.systemPackages = with pkgs; [steam-devices-udev-rules];
 
   # See Keychron Support on Wiki https://github.com/Kruziikrel13/NixOS/wiki/Hardware-Fixes#keychron-keyboards
   services.udev.extraRules = ''
-  SUBSYSTEM=="input", ATTRS{idVendor}=="3434", ATTRS{idProduct}=="0161", ENV{ID_INPUT_JOYSTICK}="" 
-  ACTION=="add", SUBSYSTEM=="usb", TEST=="power/control", ATTR{power/control}="on"
+    SUBSYSTEM=="input", ATTRS{idVendor}=="3434", ATTRS{idProduct}=="0161", ENV{ID_INPUT_JOYSTICK}=""
+    ACTION=="add", SUBSYSTEM=="usb", TEST=="power/control", ATTR{power/control}="on"
   '';
 
   hardware.amdgpu = {
@@ -44,10 +44,7 @@ inputs,
       # package = pkgs.gamescope_git;
       enable = true;
       capSysNice = true;
-      args = [
-        "--rt"
-        "--expose-wayland"
-      ];
+      args = ["--rt" "--expose-wayland"];
     };
     gamemode = {
       enable = true;
@@ -63,11 +60,12 @@ inputs,
       gamescopeSession.enable = true;
       platformOptimizations.enable = true;
       protontricks.enable = true;
-      extraPackages = with pkgs; [ gamemode ];
-      extraCompatPackages = [ pkgs.proton-ge-bin ];
+      extraPackages = with pkgs; [gamemode];
+      extraCompatPackages = [pkgs.proton-ge-bin];
     };
   };
-  imports = [ inputs.nix-gaming.nixosModules.platformOptimizations 
-    # inputs.chaotic.nixosModules.default 
+  imports = [
+    inputs.nix-gaming.nixosModules.platformOptimizations
+    # inputs.chaotic.nixosModules.default
   ];
 }
