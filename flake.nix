@@ -27,6 +27,11 @@
   in {
     nixosConfigurations = import ./hosts {inherit self nixpkgs inputs;};
     packages = forAllSystems (system: import ./packages nixpkgs.legacyPackages.${system} );
+    devShells = forAllSystems (system: let
+      pkgs = nixpkgs.legacyPackages.${system};
+    in 
+      import ./shell.nix {inherit pkgs;});
+    formatter = forAllSystems (system: nixpkgs.legacyPackages.${system}.alejandra);
     templates = {
       shell = {
         path = ./templates/shell;
