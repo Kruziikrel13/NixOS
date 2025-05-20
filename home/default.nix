@@ -13,10 +13,12 @@ paths,
     backupFileExtension = ".hm-backup";
     extraSpecialArgs = specialArgs;
     users.${username} = { ... }: {
-      home.username = username;
-      home.homeDirectory = "/home/${username}";
-      home.preferXdgDirectories = true;
-      home.stateVersion = "24.11";
+      home = {
+        inherit username;
+        homeDirectory = "/home/${username}";
+        preferXdgDirectories = true;
+        stateVersion = "24.11";
+      };
       manual = {
         html.enable = false;
         json.enable = false;

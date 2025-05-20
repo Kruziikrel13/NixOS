@@ -1,9 +1,9 @@
-{pkgs, self, config, ...}: {
+{pkgs, root, config, ...}: {
   xdg.configFile.nvim = {
    enable = true;
    target = "nvim";
    recursive = true;
-   source = config.lib.file.mkOutOfStoreSymlink "${self}/.config/sentinel.nvim";
+   source = config.lib.file.mkOutOfStoreSymlink "${root}/.config/sentinel.nvim";
   };
   programs.neovim = {
     enable = true;

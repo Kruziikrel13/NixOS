@@ -1,19 +1,23 @@
 {pkgs, ...}: {
-  home.packages = with pkgs; [
-    hyperfine procs sd du-dust bandwhich grex fclones rm-improved tokei cyme
-  ];
-  programs.bat.enable = true;
-  programs.bottom.enable = true;
-  programs.feh.enable = true;
-  home.shell = {
-    enableBashIntegration = true;
-    enableNushellIntegration = true;
+  home = {
+    packages = with pkgs; [
+      hyperfine procs sd du-dust bandwhich grex fclones rm-improved tokei cyme
+    ];
+    shell = {
+      enableBashIntegration = true;
+      enableNushellIntegration = true;
+    };
+    shellAliases = {
+      top = "btm";
+      ps = "procs";
+      du = "dust";
+      fzf = "sk";
+    };
   };
-  home.shellAliases = {
-    top = "btm";
-    ps = "procs";
-    du = "dust";
-    fzf = "sk";
+  programs = {
+    bat.enable = true;
+    bottom.enable = true;
+    feh.enable = true;
   };
   programs.bash = {
     enable = true;
