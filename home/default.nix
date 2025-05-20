@@ -12,9 +12,9 @@ paths,
     useUserPackages = true;
     backupFileExtension = ".hm-backup";
     extraSpecialArgs = specialArgs;
-    users.${username} = {config, ... }: {
+    users.${username} = { osConfig, ... }: {
       home.username = username;
-      home.homeDirectory = "/home/${config.home.username}";
+      home.homeDirectory = "${osConfig.users.users.${username}.home}";
       home.preferXdgDirectories = true;
       home.stateVersion = "24.11";
       manual = {
