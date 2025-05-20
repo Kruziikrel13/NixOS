@@ -10,6 +10,7 @@
 
 ## Kruziikrel13 NixOS Configurations
 ### Striking Distance
+Primary Workstation
 |Arch          |CPU                |GPU                |
 |--------------|-------------------|-------------------|
 |`x86_64-linux`|`AMD Ryzen 9 5900X`|`AMD Radeon 6800XT`|
