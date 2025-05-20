@@ -18,37 +18,36 @@
     bat.enable = true;
     bottom.enable = true;
     feh.enable = true;
-  };
-  programs.bash = {
-    enable = true;
-    enableCompletion = true;
-    enableVteIntegration = true;
-  };
-  programs.eza = {
-    enable = true;
-    enableBashIntegration = true;
-    git = true;
-    icons = "auto";
-  };
-  programs.yazi = {
-    enable = true;
-    enableBashIntegration = true;
-  };
+    bash = {
+      enable = true;
+      enableCompletion = true;
+      enableVteIntegration = true;
+    };
+    eza = {
+      enable = true;
+      enableBashIntegration = true;
+      git = true;
+      icons = "auto";
+    };
+    yazi = {
+      enable = true;
+      enableBashIntegration = true;
+    };
 
-  programs.nushell = {
-    enable = true;
+    nushell = {
+      enable = true;
+    };
+    direnv = {
+      enable = true;
+      enableBashIntegration = true;
+      nix-direnv.enable = true;
+    };
+    zoxide = {
+      enable = true;
+      enableBashIntegration = true;
+      options = [
+        "--cmd cd"
+      ];
+    };
   };
-  programs.direnv = {
-    enable = true;
-    enableBashIntegration = true;
-    nix-direnv.enable = true;
-  };
-  programs.zoxide = {
-    enable = true;
-    enableBashIntegration = true;
-    options = [
-      "--cmd cd"
-    ];
-  };
-
 }
