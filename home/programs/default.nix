@@ -4,12 +4,13 @@
   home.packages = with pkgs; [
     pulsemixer protonmail-desktop via
     inputs.zen-browser.packages.${pkgs.system}.default
-    heroic obsidian playerctl spotify radeontop libreoffice-qt6
+    heroic obsidian playerctl spotify radeontop libreoffice-qt6 logseq
     # limo
     # grayjay
   ];
 
   programs = {
+    mpv.enable = true;
     nix-init.enable = true;
     ghostty = {
       enable = true;
@@ -24,13 +25,11 @@
     vesktop = {
       enable = true;
       settings = {
-        appBadge = true;
-        checkUpdates = false;
-        tray = true;
-        hardwareAcceleration = true;
-        discordBranch = "stable";
-        splashTheming = true;
+        discordBranch = "canary";
+        tray = false;
+        minimizeToTray = false;
         staticTitle = true;
+        splashTheming = false;
       };
       vencord = {
         useSystem = true;
