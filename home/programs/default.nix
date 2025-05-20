@@ -4,12 +4,13 @@
   home.packages = with pkgs; [
     pulsemixer protonmail-desktop via
     inputs.zen-browser.packages.${pkgs.system}.default
-    limo heroic obsidian playerctl spotify radeontop
+    heroic obsidian playerctl spotify radeontop libreoffice-qt6
+    # limo
+    # grayjay
   ];
 
   programs = {
     nix-init.enable = true;
-    zathura.enable = true;
     ghostty = {
       enable = true;
       enableBashIntegration = true;
@@ -40,7 +41,6 @@
         };
       };
     };
-    uv.enable = true;
     anyrun = {
       enable = true;
       package = inputs.anyrun.packages.${pkgs.system}.default;
@@ -52,7 +52,6 @@
         layer = "overlay";
         plugins = with inputs.anyrun.packages.${pkgs.system}; [
           applications
-          rink
         ];
       };
     };
