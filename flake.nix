@@ -20,11 +20,18 @@
     ];
   };
 
+  outputs = { self, nixpkgs, ...} @inputs: let
+    forAllSystems = nixpkgs.lib.genAttrs [
+      "x86_64-linux"
+    ];
+  in {
+    nixosConfigurations = import ./hosts {inherit self nixpkgs inputs;};
+    packages = forAllSystems (system: import ./pkgs nixpkgs.legacyPackages.${system} );
+  };
   inputs = {
     # Global / System Inputs
     systems.url = "github:nix-systems/default-linux";
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
-    flake-parts.url = "github:hercules-ci/flake-parts";
 
     # Extra Inputs
     ags = {
@@ -37,8 +44,6 @@
       url = "github:aylur/astal";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-
-    chaotic.url = "github:chaotic-cx/nyx/nyxpkgs-unstable";
 
     quickshell = {
       url = "git+https://git.outfoxxed.me/outfoxxed/quickshell";
@@ -102,54 +107,9 @@
       };
     };
 
-    flake-compat.url = "github:edolstra/flake-compat";
-
-    pre-commit-hooks = {
-      url = "github:cachix/pre-commit-hooks.nix";
-      inputs = {
-        nixpkgs.follows = "nixpkgs";
-        flake-compat.follows = "flake-compat";
-      };
-    };
-
-    neovim-nightly.url = "github:nix-community/neovim-nightly-overlay";
-
     zen-browser = {
       url = "github:youwen5/zen-browser-flake";
       inputs.nixpkgs.follows = "nixpkgs";
     };
   };
-
-  outputs = { flake-parts, ... } @inputs: 
-    flake-parts.lib.mkFlake {inherit inputs;} {
-      systems = ["x86_64-linux"];
-
-      imports = [
-        ./hosts
-        ./pkgs
-        ./pre-commit-hooks.nix
-      ];
-      perSystem = {
-        config,
-        pkgs,
-        system,
-        ...
-        }: {
-          devShells.default = pkgs.mkShell {
-            inherit system;
-            packages = [
-              pkgs.alejandra
-              pkgs.git
-              pkgs.nodePackages.prettier
-            ];
-            name = "dots";
-            DIRENV_LOG_FORMAT = "";
-            shellHook = ''
-              ${config.pre-commit.installationScript}
-            '';
-          };
-
-          formatter = pkgs.alejandra;
-        };
-    };
 }
