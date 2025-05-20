@@ -33,13 +33,6 @@
 
   programs.nushell = {
     enable = true;
-    shellAliases = {
-      nixos-edit = "cd /etc/nixos and nvim and cd -";
-      nixos-build = "sudo nixos-rebuild switch";
-      nixos-upgrade = "sudo nix flake update --flake /etc/nixos and sudo nixos-rebuild switch";
-      nixos-clean = "sudo nix-collect-garbage -d";
-      nixos-local-clean = "nix-collect-garbage -d";
-    };
   };
   programs.direnv = {
     enable = true;
