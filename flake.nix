@@ -26,7 +26,7 @@
     ];
   in {
     nixosConfigurations = import ./hosts {inherit self nixpkgs inputs;};
-    packages = forAllSystems (system: import ./pkgs nixpkgs.legacyPackages.${system} );
+    packages = forAllSystems (system: import ./packages nixpkgs.legacyPackages.${system} );
     templates = {
       shell = {
         path = ./templates/shell;
