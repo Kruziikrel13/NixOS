@@ -1,6 +1,6 @@
-{paths, config, lib, inputs, pkgs, ...}: let
+{paths, config, lib, inputs, pkgs, self, ...}: let
   cursor = "Bibata-Modern-Classic-Hyprcursor";
-  cursorPackage = inputs.self.packages.${pkgs.system}.bibata-hyprcursor;
+  cursorPackage = self.packages.${pkgs.system}.bibata-hyprcursor;
 in {
   imports = paths.scanPaths ./.;
 

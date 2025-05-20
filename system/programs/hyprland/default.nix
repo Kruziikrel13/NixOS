@@ -1,13 +1,14 @@
 {
   inputs,
   pkgs,
+  self,
   paths,
   ...
 }: {
   imports = (paths.scanPaths ./.) ++ [inputs.hyprland.nixosModules.default];
   environment.systemPackages = [
     inputs.hyprland-contrib.packages.${pkgs.system}.grimblast
-    inputs.self.packages.${pkgs.system}.bibata-hyprcursor
+    self.packages.${pkgs.system}.bibata-hyprcursor
   ];
   services.gvfs.enable = true;
   environment.pathsToLink = ["/share/icons"];

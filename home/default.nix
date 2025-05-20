@@ -1,6 +1,7 @@
 {
 specialArgs,
 inputs,
+username,
 paths,
 ...
 }: {
@@ -11,8 +12,8 @@ paths,
     useUserPackages = true;
     backupFileExtension = ".hm-backup";
     extraSpecialArgs = specialArgs;
-    users.kruziikrel13 = {config, ... }: {
-      home.username = "kruziikrel13";
+    users.${username} = {config, ... }: {
+      home.username = username;
       home.homeDirectory = "/home/${config.home.username}";
       home.preferXdgDirectories = true;
       home.stateVersion = "24.11";
