@@ -13,6 +13,7 @@ inputs,
   makeSpecialArgs = username: {
     inherit self inputs username;
     paths = import "${self}/lib/paths" lib;
+    root = "/etc/nixos";
   };
 in {
   striking-distance = nixosSystem {

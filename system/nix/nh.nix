@@ -1,4 +1,4 @@
-{config, ...}: {
+{config, root, ...}: {
   programs.nh = {
     enable = true;
     clean = {
@@ -8,9 +8,9 @@
   };
 
   environment.shellAliases = {
-    nixos-edit = "cd /etc/nixos && nvim && cd -";
-    nixos-build = "${config.programs.nh.package}/bin/nh os switch /etc/nixos";
-    nixos-upgrade = "${config.programs.nh.package}/bin/nh os switch /etc/nixos --update";
+    nixos-edit = "cd ${root} && nvim && cd -";
+    nixos-build = "${config.programs.nh.package}/bin/nh os switch ${root}";
+    nixos-upgrade = "${config.programs.nh.package}/bin/nh os switch ${root} --update";
     nixos-clean = "${config.programs.nh.package}/bin/nh clean all";
   };
 }
