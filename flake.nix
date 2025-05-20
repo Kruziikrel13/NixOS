@@ -27,6 +27,12 @@
   in {
     nixosConfigurations = import ./hosts {inherit self nixpkgs inputs;};
     packages = forAllSystems (system: import ./pkgs nixpkgs.legacyPackages.${system} );
+    templates = {
+      shell = {
+        path = ./templates/shell;
+        description = "Minimal Flake Based Developer Shell";
+      };
+    };
   };
   inputs = {
     # Global / System Inputs
