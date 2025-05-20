@@ -3,6 +3,7 @@ inputs,
 pkgs,
 config,
 lib,
+self,
 ...
 }: let
   cfg = config.programs.agsCustom;
@@ -33,7 +34,7 @@ in {
     programs.ags = {
       enable = true;
       systemd.enable = false;
-      configDir = config.lib.file.mkOutOfStoreSymlink /etc/nixos/config/ags;
+      configDir = config.lib.file.mkOutOfStoreSymlink "${self}/.config/ags";
 
       extraPackages = with inputs.ags.packages.${pkgs.system}; [
         notifd

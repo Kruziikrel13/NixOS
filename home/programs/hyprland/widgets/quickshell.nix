@@ -2,7 +2,8 @@
   lib, 
   config, 
   inputs, 
-  pkgs, 
+  pkgs,
+  self,
   ... 
 }: let
   cfg = config.programs.quickshell;
@@ -24,7 +25,7 @@ in {
     home.packages = [ inputs.quickshell.packages.${pkgs.system}.default ];
     xdg.configFile.quickshell = {
       enable = true;
-      source = config.lib.file.mkOutOfStoreSymlink /etc/nixos/config/quickshell;
+      source = config.lib.file.mkOutOfStoreSymlink "${self}/.config/quickshell";
     };
     systemd.user.services = lib.mkIf cfg.systemd.enable {
       quickshell = {

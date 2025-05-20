@@ -3,7 +3,7 @@
    enable = true;
    target = "nvim";
    recursive = true;
-   source = config.lib.file.mkOutOfStoreSymlink /etc/nixos/config/sentinel.nvim;
+   source = config.lib.file.mkOutOfStoreSymlink "${self}/.config/sentinel.nvim";
   };
   programs.neovim = {
     enable = true;
