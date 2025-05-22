@@ -5,6 +5,6 @@
   };
 
   nixos = pkgs.mkShell {
-    packages = with pkgs; [nixd cachix statix vulnix nixfmt-classic alejandra];
+    packages = with pkgs; [nixd cachix statix vulnix alejandra];
   };
 }
