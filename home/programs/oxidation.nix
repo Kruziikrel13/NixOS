@@ -1,36 +1,36 @@
-{pkgs, ...}: {
+{pkgs,...}: {
   home = {
     packages = with pkgs; [
-      hyperfine
+      uutils-coreutils-noprefix
       procs
-      sd
+      hyperfine
       du-dust
-      bandwhich
-      grex
       fclones
-      rm-improved
       tokei
-      cyme
+      bandwhich
+      xh
+      just
+      mask
+      mprocs
     ];
-    shell = {
-      enableBashIntegration = true;
-      enableNushellIntegration = true;
-    };
     shellAliases = {
-      top = "btm";
       ps = "procs";
       du = "dust";
-      fzf = "sk";
     };
   };
   programs = {
+    fd.enable = true;
     bat.enable = true;
     bottom.enable = true;
-    feh.enable = true;
-    bash = {
+    nushell.enable = true;
+    gitui.enable = true;
+    zellij = {
       enable = true;
-      enableCompletion = true;
-      enableVteIntegration = true;
+      enableBashIntegration = true;
+    };
+    helix = {
+      enable = true;
+      package = pkgs.evil-helix;
     };
     eza = {
       enable = true;
@@ -41,13 +41,6 @@
     yazi = {
       enable = true;
       enableBashIntegration = true;
-    };
-
-    nushell = {enable = true;};
-    direnv = {
-      enable = true;
-      enableBashIntegration = true;
-      nix-direnv.enable = true;
     };
     zoxide = {
       enable = true;

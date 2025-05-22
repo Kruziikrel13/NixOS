@@ -5,7 +5,10 @@
   ...
 }: {
   imports = paths.scanPaths ./.;
-
+  home.shell = {
+    enableBashIntegration = true;
+    enableNushellIntegration = true;
+  };
   home.packages = with pkgs; [
     pulsemixer
     protonmail-desktop
@@ -15,14 +18,24 @@
     obsidian
     playerctl
     spotify
-    radeontop
-    libreoffice-qt6
-    logseq
+    appflowy
+   
     # limo
     # grayjay
   ];
 
   programs = {
+    feh.enable = true;
+    bash = {
+      enable = true;
+      enableCompletion = true;
+      enableVteIntegration = true;
+    };
+    direnv = {
+      enable = true;
+      enableBashIntegration = true;
+      nix-direnv.enable = true;
+    };
     mpv.enable = true;
     nix-init.enable = true;
     ghostty = {
