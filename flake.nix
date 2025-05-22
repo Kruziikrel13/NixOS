@@ -24,30 +24,30 @@
     self,
     nixpkgs,
     ...
-  } @ inputs: let
-    forAllSystems = nixpkgs.lib.genAttrs ["x86_64-linux"];
-  in {
-    nixosConfigurations = import ./hosts {inherit self nixpkgs inputs;};
-    packages =
-      forAllSystems
-      (system: import ./packages nixpkgs.legacyPackages.${system});
-    devShells = forAllSystems (system: let
-      pkgs = nixpkgs.legacyPackages.${system};
-    in
-      import ./shell.nix {inherit pkgs;});
-    formatter =
-      forAllSystems (system: nixpkgs.legacyPackages.${system}.alejandra);
-    templates = {
-      shell = {
-        path = ./templates/shell;
-        description = "Minimal Flake Based Developer Shell";
+    } @inputs: let
+      forAllSystems = nixpkgs.lib.genAttrs ["x86_64-linux"];
+    in {
+      nixosConfigurations = import ./hosts {inherit self nixpkgs inputs;};
+      packages =
+        forAllSystems
+        (system: import ./packages nixpkgs.legacyPackages.${system});
+      devShells = forAllSystems (system: let
+        pkgs = nixpkgs.legacyPackages.${system};
+      in
+        import ./shell.nix {inherit pkgs;});
+      formatter =
+        forAllSystems (system: nixpkgs.legacyPackages.${system}.alejandra);
+      templates = {
+        shell = {
+          path = ./templates/shell;
+          description = "Minimal Flake Based Developer Shell";
+        };
       };
     };
-  };
   inputs = {
     # Global / System Inputs
     systems.url = "github:nix-systems/default-linux";
-    nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
+    nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
 
     # Extra Inputs
     ags = {
