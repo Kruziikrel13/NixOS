@@ -1,3 +1,2 @@
-vim.lsp.enable("nixd")
-vim.lsp.enable('nil_ls')
+vim.lsp.enable({'nixd', "statix"})
 return {}
