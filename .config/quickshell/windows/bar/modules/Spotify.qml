@@ -26,15 +26,10 @@ WrapperItem {
     }
     Text {
       Layout.alignment: Qt.AlignVCenter
+      visible: (spotify.playbackState == MprisPlaybackState.Playing) && (spotify.trackArtist && spotify.trackTitle)
       font.pixelSize: 15
       color: "white"
-      text: {
-        if (spotify.playbackState != MprisPlaybackState.Playing) {
-          return ""
-        }
-
-        return (spotify.trackArtist && spotify.trackTitle) ? spotify.trackArtist + " - " + spotify.trackTitle : ""
-      }
+      text: spotify.trackArtist + " - " + spotify.trackTitle
     }
   }
 }
