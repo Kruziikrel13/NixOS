@@ -33,37 +33,85 @@ Scope {
       }
 
       RowLayout {
-        id: modulesLeft
-        anchors.left: parent.left
-        anchors.verticalCenter: parent.verticalCenter
-        anchors.leftMargin: 10
-        
-        Text {
-          color: "white"
-          text: "Left"
+        anchors.fill: parent
+        spacing: 0
+
+        Item {
+          Layout.fillWidth: true
+          Layout.preferredWidth: 1
+          height: parent.height
+
+          Row {
+            anchors.verticalCenter: parent.verticalCenter
+            anchors.left: parent.left
+            spacing: 10
+
+            Text {
+              color: "white"
+              text: "Left"
+            }
+
+            Text {
+              color: "white"
+              text: "Center"
+            }
+
+            Text {
+              color: "white"
+              text: "Right"
+            }
+          }
         }
-      }
 
-      RowLayout {
-        id: modulesCenter
-        anchors.horizontalCenter: parent.horizontalCenter
-        anchors.verticalCenter: parent.verticalCenter
+        Item { // Center
+          Layout.fillWidth: true
+          Layout.preferredWidth: 1
+          height: parent.height
 
-        Text {
-          color: "white"
-          text: "Center"
+          Row {
+            anchors.centerIn: parent
+            spacing: 5
+
+            Text {
+              color: "white"
+              text: "Left"
+            }
+
+            Clock {}
+
+            Text {
+              color: "white"
+              text: "Right"
+            }
+          }
         }
-      }
 
-      RowLayout {
-        id: modulesRight
-        anchors.right: parent.right
-        anchors.verticalCenter: parent.verticalCenter
-        anchors.rightMargin: 10
+        Item {
+          Layout.fillWidth: true
+          Layout.preferredWidth: 1
+          height: parent.height
 
-        Text {
-          color: "white"
-          text: "Right"
+          Row {
+            anchors.verticalCenter: parent.verticalCenter
+            anchors.right: parent.right
+            spacing: 10
+
+            Text {
+              color: "white"
+              text: "Left"
+            }
+
+            Text {
+              color: "white"
+              text: "Center"
+            }
+
+            Text {
+              color: "white"
+              text: "Right"
+            }
+
+          }
         }
       }
     }
