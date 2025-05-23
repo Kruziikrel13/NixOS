@@ -6,7 +6,7 @@ import "root:/services"
 
 
 WrapperItem {
-  id: workspaces
+  id: root
   anchors.verticalCenter: parent.verticalCenter
 
   Connections {

@@ -5,10 +5,9 @@ import QtQuick
 import QtQuick.Layouts
 
 
-
 WrapperItem {
   id: root
-  readonly property MprisPlayer spotify: Mpris.players.values.find(player => player.identity == "Spotify")
+  readonly property var spotify: Mpris.players.values.find(player => player.identity == "Spotify")
   visible: !!spotify
 
   // Timer {
@@ -24,12 +23,13 @@ WrapperItem {
       implicitSize: 15
       source: "root:/assets/icons/spotify.svg"
     }
+
     Text {
       Layout.alignment: Qt.AlignVCenter
-      visible: (spotify.playbackState == MprisPlaybackState.Playing) && (spotify.trackArtist && spotify.trackTitle)
+      visible: (spotify?.playbackState == MprisPlaybackState.Playing) && (!!spotify?.trackArtist && !!spotify?.trackTitle)
       font.pixelSize: 15
       color: "white"
-      text: spotify.trackArtist + " - " + spotify.trackTitle
+      text: spotify?.trackArtist + " - " + spotify?.trackTitle
     }
   }
 }

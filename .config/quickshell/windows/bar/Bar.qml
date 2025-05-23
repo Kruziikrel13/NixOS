@@ -69,7 +69,6 @@ Scope {
           Layout.fillWidth: true
           Layout.preferredWidth: 1
           height: parent.height
-
           Row {
             padding: 5
             anchors.verticalCenter: parent.verticalCenter
