@@ -1,5 +1,5 @@
 import "./windows/bar"
-import "./windows/osd"
+import "./windows"
 import Quickshell
 
 ShellRoot {

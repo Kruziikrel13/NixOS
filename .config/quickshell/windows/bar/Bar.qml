@@ -61,6 +61,7 @@ Scope {
             anchors.centerIn: parent
             spacing: 5
             Clock {}
+            Spotify {}
           }
         }
 
