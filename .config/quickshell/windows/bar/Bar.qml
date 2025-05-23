@@ -2,6 +2,7 @@ import "./modules"
 import Quickshell
 import QtQuick
 import QtQuick.Layouts
+import Quickshell.Wayland
 
 Scope {
   id: bar
@@ -15,11 +16,16 @@ Scope {
     model: Quickshell.screens
 
     PanelWindow{
-      id: barPanel
+      id: barRoot
+
       property ShellScreen modelData
       screen: modelData
+
+      WlrLayershell.namespace: "quickshell:bar"
+      exclusiveZone: barHeight - 1
       implicitHeight: barHeight
       color: bgColor
+
       anchors {
         top: true
         left: true
@@ -28,27 +34,33 @@ Scope {
 
       RowLayout {
         id: modulesLeft
-        anchors.top: parent.top
         anchors.left: parent.left
-        anchors.bottom: parent.bottom
-        Workspaces {}
+        anchors.verticalCenter: parent.verticalCenter
+        anchors.leftMargin: 10
+        
+        Text {
+          color: "white"
+          text: "Left"
+        }
       }
 
       RowLayout {
         id: modulesCenter
-        anchors.centerIn: parent
+        anchors.horizontalCenter: parent.horizontalCenter
+        anchors.verticalCenter: parent.verticalCenter
+
         Text {
           color: "white"
           text: "Center"
         }
-
       }
 
       RowLayout {
         id: modulesRight
-        anchors.top: parent.top
         anchors.right: parent.right
-        anchors.bottom: parent.bottom
+        anchors.verticalCenter: parent.verticalCenter
+        anchors.rightMargin: 10
+
         Text {
           color: "white"
           text: "Right"
