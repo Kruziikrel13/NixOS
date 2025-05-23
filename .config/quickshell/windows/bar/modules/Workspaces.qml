@@ -1,27 +1,47 @@
-import Quickshell
+import Quickshell.Widgets
 import QtQuick
-import QtQuick.Controls
 import QtQuick.Layouts
 import Quickshell.Hyprland
+import "root:/services"
 
-RowLayout {
+
+WrapperItem {
   id: workspaces
-  z: 1
-  spacing: 2.5
+  anchors.verticalCenter: parent.verticalCenter
 
-  Repeater {
-    model: Hyprland.workspaces
+  Connections {
+    target: Hyprland
 
-    Button {
-      property HyprlandWorkspace modelData
-      implicitWidth: 25
-      implicitHeight: 25
-      onClicked: modelData.activate()
-      background: null
+    function onRawEvent(event) {
+      if (event in [
+        "activewindow", "focusedmon", "monitoradded", 
+        "createworkspace", "destroyworkspace", "moveworkspace", 
+        "activespecial", "movewindow", "windowtitle"
+      ]) return;
+      Hyprland.refreshWorkspaces()
+    }
+  }
+
+  RowLayout {
+    spacing: 5
+
+    Repeater {
+      model: Hyprland.workspaces
+
       Text {
-        color: modelData.focused ? "white" : "red"
-        text: modelData.lastIpcObject.workspaces > 0 ? "pres" : "empt"
+        required property HyprlandWorkspace modelData
+        font.pixelSize: 15
+        text: modelData.lastIpcObject.windows > 0 ? "" : ""
+        color: modelData.focused ? "#C4C4C4" : "#525252"
       }
+      // Rectangle {
+      //   required property HyprlandWorkspace modelData
+      //   property int iconSize: modelData.lastIpcObject.windows > 0 ? 15 : 10
+      //   width: iconSize
+      //   height: iconSize
+      //   radius: 10
+      //   color: modelData.focused ? 
+      // }
     }
   }
 }

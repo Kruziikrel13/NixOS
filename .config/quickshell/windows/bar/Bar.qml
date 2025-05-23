@@ -42,24 +42,12 @@ Scope {
           height: parent.height
 
           Row {
+            padding: 10
             anchors.verticalCenter: parent.verticalCenter
             anchors.left: parent.left
             spacing: 10
-
-            Text {
-              color: "white"
-              text: "Left"
-            }
-
-            Text {
-              color: "white"
-              text: "Center"
-            }
-
-            Text {
-              color: "white"
-              text: "Right"
-            }
+            OsIcon { os: "nixos" }
+            Workspaces {}
           }
         }
 
@@ -71,18 +59,7 @@ Scope {
           Row {
             anchors.centerIn: parent
             spacing: 5
-
-            Text {
-              color: "white"
-              text: "Left"
-            }
-
             Clock {}
-
-            Text {
-              color: "white"
-              text: "Right"
-            }
           }
         }
 
@@ -95,22 +72,6 @@ Scope {
             anchors.verticalCenter: parent.verticalCenter
             anchors.right: parent.right
             spacing: 10
-
-            Text {
-              color: "white"
-              text: "Left"
-            }
-
-            Text {
-              color: "white"
-              text: "Center"
-            }
-
-            Text {
-              color: "white"
-              text: "Right"
-            }
-
           }
         }
       }

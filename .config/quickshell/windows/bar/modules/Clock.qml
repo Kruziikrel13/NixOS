@@ -1,13 +1,18 @@
 import Quickshell
+import Quickshell.Widgets
 import QtQuick
 
-Text {
-  color: "white"
 
+WrapperItem {
+  id: clock
   SystemClock {
     id: time
     precision: SystemClock.Seconds
   }
 
-  text: Qt.formatDateTime(time.date, "hh:mm - dddd dd")
+  Text {
+    color: "white"
+    font.pixelSize: 15
+    text: Qt.formatDateTime(time.date, "hh:mm - dddd dd")
+  }
 }
