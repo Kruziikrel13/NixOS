@@ -48,6 +48,7 @@ Scope {
             spacing: 10
             OsIcon { os: "nixos" }
             Workspaces {}
+            ActiveClient {}
           }
         }
 
