@@ -34,14 +34,6 @@ WrapperItem {
         text: modelData.lastIpcObject.windows > 0 ? "" : ""
         color: modelData.focused ? "#C4C4C4" : "#525252"
       }
-      // Rectangle {
-      //   required property HyprlandWorkspace modelData
-      //   property int iconSize: modelData.lastIpcObject.windows > 0 ? 15 : 10
-      //   width: iconSize
-      //   height: iconSize
-      //   radius: 10
-      //   color: modelData.focused ? 
-      // }
     }
   }
 }
