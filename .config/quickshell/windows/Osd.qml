@@ -81,7 +81,7 @@ Scope {
 
           Rectangle {
             Layout.fillWidth: true
-            anchors.verticalCenter: parent.verticalCenter
+            Layout.alignment: Qt.AlignVCenter
 
             implicitHeight: 10
             radius: 20
