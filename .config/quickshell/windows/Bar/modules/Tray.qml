@@ -1,8 +1,9 @@
+import "root:/state"
 import Quickshell
 import Quickshell.Widgets
-import Quickshell.Services.SystemTray
 import QtQuick
 import QtQuick.Layouts
+import Quickshell.Services.SystemTray
 
 WrapperItem {
   id: root
@@ -42,10 +43,10 @@ WrapperItem {
 
         Image {
           id: trayIcon
-          source: modelData.title == "spotify" ? "root:/assets/icons/spotify.svg" : modelData.icon
+          source: modelData.title == "spotify" ? Appearance.iconFolder + "spotify" : modelData.icon
           asynchronous: true
-          sourceSize.width: 20
-          sourceSize.height: 20
+          sourceSize.width: Appearance.sizes.icons.normal
+          sourceSize.height: Appearance.sizes.icons.normal
         }
       }
     }

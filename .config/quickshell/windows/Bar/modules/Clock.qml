@@ -1,9 +1,9 @@
+import "root:/widgets"
 import Quickshell
 import Quickshell.Widgets
 import QtQuick
 
 WrapperItem {
-  id: root
   anchors.verticalCenter: parent.verticalCenter
 
   SystemClock {
@@ -11,9 +11,7 @@ WrapperItem {
     precision: SystemClock.Seconds
   }
 
-  Text {
-    color: "white"
-    font.pixelSize: 15
+  StyledText {
     text: Qt.formatDateTime(time.date, "hh:mm - dddd dd.")
   }
 }

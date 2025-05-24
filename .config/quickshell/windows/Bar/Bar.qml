@@ -1,3 +1,4 @@
+import "root:/state"
 import "./components"
 import "./modules"
 import Quickshell
@@ -7,25 +8,21 @@ import Quickshell.Wayland
 
 Scope {
   id: bar
-  readonly property int barHeight: 38
-  readonly property string bgColor: "#171717"
-  readonly property string fontColor: "#C4C4C4"
-  readonly property string fontSecondary: "#525252"
-  readonly property string fontTertiary: "#414141"
+  readonly property int barHeight: Appearance.sizes.barHeight
 
   Variants {
     model: Quickshell.screens
 
     PanelWindow {
       id: barRoot
+      screen: modelData
 
       property ShellScreen modelData
-      screen: modelData
 
       WlrLayershell.namespace: "quickshell:bar"
       exclusiveZone: barHeight - 1
       implicitHeight: barHeight
-      color: bgColor
+      color: Appearance.paletteColours.background
 
       anchors {
         top: true
@@ -43,7 +40,7 @@ Scope {
             anchors.verticalCenter: parent.verticalCenter
             anchors.left: parent.left
             spacing: 7.5
-            OsIcon { os: "nixos" }
+            OsIcon {}
             Separator {}
             Workspaces {}
             Separator {}

@@ -1,3 +1,4 @@
+import "root:/widgets"
 import Quickshell
 import Quickshell.Widgets
 import QtQuick
@@ -32,9 +33,7 @@ WrapperItem {
     }
   }
 
-  Text {
-    color: "white"
-    font.pixelSize: 15
+  StyledText {
     text: activeWindow
   }
 

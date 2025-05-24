@@ -1,3 +1,4 @@
+import "root:/state"
 import Quickshell
 import Quickshell.Widgets
 import QtQuick
@@ -5,16 +6,11 @@ import QtQuick
 WrapperItem {
   id: root
   anchors.verticalCenter: parent.verticalCenter
-  property string os: "generic"
-  property string osIconFolder: "root:/assets/icons/os"
+  readonly property string osIcon: Appearance.iconFolder + "os/" + ConfigOptions.operatingSystem + ".svg"
 
   IconImage {
     anchors.centerIn: parent
-    implicitSize: 20
-    source: {
-      if (osIconFolder && osIconFolder + "/" + root.os + ".svg") {
-        return osIconFolder + "/" + root.os + ".svg"
-      }
-    }
+    implicitSize: Appearance.sizes.icons.normal
+    source: osIcon
   }
 }

@@ -4,7 +4,6 @@ import QtQuick
 import QtQuick.Layouts
 
 WrapperItem {
-  id: root
   anchors.verticalCenter: parent.verticalCenter
 
   RowLayout {

@@ -1,3 +1,5 @@
+import "root:/widgets"
+import "root:/state"
 import Quickshell.Widgets
 import Quickshell.Services.Mpris
 import QtQuick
@@ -7,8 +9,19 @@ import QtQuick.Layouts
 WrapperItem {
   id: root
   anchors.verticalCenter: parent.verticalCenter
+  visible: spotifyRunning
   readonly property var spotify: Mpris.players.values.find(player => player.identity == "Spotify")
-  visible: !!spotify
+  property bool spotifyRunning: !!spotify
+  property bool spotifyPlaying: spotify?.playbackState == MprisPlaybackState.Playing
+  readonly property string trackInfoStr: {
+    if (!spotifyRunning || !spotifyPlaying) {
+      return ""
+    }
+    if (!spotify.trackArtist || !spotify.trackTitle) {
+      return ""
+    }
+    return spotify.trackArtist + " - " + spotify.trackTitle
+  }
 
   // Timer {
   //   running: player?.playbackStatus == MprisPlaybackStatus.Playing
@@ -16,17 +29,15 @@ WrapperItem {
   //   repeat: true
   //   onTriggered: player.positionChanged()
   // }
-
+  
   RowLayout {
     IconImage {
-      implicitSize: 15
-      source: "root:/assets/icons/spotify.svg"
+      implicitSize: Appearance.sizes.icons.normal
+      source: Appearance.iconFolder + "spotify"
     }
-    Text {
-      visible: (spotify?.playbackState == MprisPlaybackState.Playing) && (!!spotify?.trackArtist && !!spotify?.trackTitle)
-      font.pixelSize: 15
-      color: "white"
-      text: spotify?.trackArtist + " - " + spotify?.trackTitle
+    StyledText {
+      id: trackInfo
+      text: trackInfoStr.length > 30 ? trackInfoStr.slice(0, 30) + "..." : trackInfoStr
     }
   }
 }

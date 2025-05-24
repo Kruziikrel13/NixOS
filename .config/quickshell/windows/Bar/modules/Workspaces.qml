@@ -1,8 +1,8 @@
-import Quickshell.Widgets
+import "root:/state"
 import QtQuick
 import QtQuick.Layouts
+import Quickshell.Widgets
 import Quickshell.Hyprland
-import "root:/services"
 
 
 WrapperItem {
@@ -32,18 +32,18 @@ WrapperItem {
         onClicked: modelData.activate()
         Rectangle {
           implicitHeight: {
-            if (modelData.focused || modelData.lastIpcObject.windows > 0) return 15
-            return 10
+            if (modelData.focused || modelData.lastIpcObject.windows > 0) return Appearance.sizes.icons.normal
+            return Appearance.sizes.icons.normal - (Appearance.sizes.icons.normal / 4)
           }
           implicitWidth: {
-            if (modelData.focused && modelData.lastIpcObject.windows > 0) return 30
-            if (modelData.lastIpcObject.windows > 0) return 15
-            return 10
+            if (modelData.focused && modelData.lastIpcObject.windows > 0) return Appearance.sizes.icons.normal * 2
+            if (modelData.lastIpcObject.windows > 0) return Appearance.sizes.icons.normal
+            return Appearance.sizes.icons.normal - (Appearance.sizes.icons.normal / 4)
           }
           color: {
-            if (modelData.focused) return "#51A4E7"
-            if (modelData.lastIpcObject.windows > 0) return "#C4C4C4"
-            return "#525252"
+            if (modelData.focused) return Appearance.paletteColours.primary
+            if (modelData.lastIpcObject.windows > 0) return Appearance.paletteColours.onbackground 
+            return Appearance.paletteColours.secondary
           }
           radius: modelData.focused ? 2.5 : 10
           Behavior on implicitWidth {
