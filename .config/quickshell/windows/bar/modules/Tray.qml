@@ -43,6 +43,7 @@ WrapperItem {
         Image {
           id: trayIcon
           source: modelData.title == "spotify" ? "root:/assets/icons/spotify.svg" : modelData.icon
+          asynchronous: true
           sourceSize.width: 20
           sourceSize.height: 20
         }
