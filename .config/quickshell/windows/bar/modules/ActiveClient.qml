@@ -9,7 +9,8 @@ import Quickshell.Io
 WrapperItem {
   id: root
   anchors.verticalCenter: parent.verticalCenter
-  property var activeWindow: ""
+  property string activeWindow: ""
+  visible: !!activeWindow
 
   Component.onCompleted: {
     getClient.running = true;
@@ -43,7 +44,7 @@ WrapperItem {
     stdout: SplitParser {
       onRead: (data) => {
         let client = JSON.parse(data)
-        root.activeWindow = client.initialTitle
+        root.activeWindow = client?.initialTitle ?? ""
       }
     }
   }
