@@ -71,6 +71,9 @@ Scope {
         anchors.fill: parent
         radius: height / 4
         color: Appearance.paletteColours.background
+        border {
+          color: Appearance.paletteColours.primary
+        }
 
         Rectangle {
           anchors {
@@ -81,6 +84,14 @@ Scope {
           color: Appearance.paletteColours.primary
           implicitWidth: parent.width * (Audio.sink?.audio.volume ?? 0)
           radius: parent.radius
+
+          Behavior on implicitWidth {
+            NumberAnimation {
+              duration: 50
+              easing.type: Easing.Linear
+            }
+          }
+
           StyledText {
             anchors.verticalCenter: parent.verticalCenter
             padding: 20
