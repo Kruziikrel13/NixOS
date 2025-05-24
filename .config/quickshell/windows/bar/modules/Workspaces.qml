@@ -27,12 +27,14 @@ WrapperItem {
 
     Repeater {
       model: Hyprland.workspaces
-
-      Text {
+      WrapperMouseArea {
         required property HyprlandWorkspace modelData
-        font.pixelSize: 15
-        text: modelData.lastIpcObject.windows > 0 ? "" : ""
-        color: modelData.focused ? "#C4C4C4" : "#525252"
+        onClicked: modelData.activate()
+        Text {
+          font.pixelSize: 15
+          text: modelData.lastIpcObject.windows > 0 ? "" : ""
+          color: modelData.focused ? "#C4C4C4" : "#525252"
+        }
       }
     }
   }
