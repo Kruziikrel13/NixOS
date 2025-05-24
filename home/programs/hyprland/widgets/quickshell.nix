@@ -1,10 +1,10 @@
 {
-  lib,
-  config,
-  inputs,
-  pkgs,
-  self,
-  ...
+lib,
+config,
+inputs,
+pkgs,
+root,
+...
 }: let
   cfg = config.programs.quickshell;
 in {
@@ -18,16 +18,15 @@ in {
   config = lib.mkIf cfg.enable {
     assertions = [
       {
-        assertion =
-          !config.programs.agsCustom.systemd.enable
-          || !config.programs.ags.systemd.enable;
-        message = "Service conflicts between AGS and Quickshell.";
+        assertion = cfg.systemd.enable && (!config.programs.agsCustom.systemd.enable || !config.programs.ags.systemd.enable);
+        message = "Service conflicts between Quickshell and AGS";
       }
     ];
     home.packages = [inputs.quickshell.packages.${pkgs.system}.default];
+    programs.jq.enable = true;
     xdg.configFile.quickshell = {
       enable = true;
-      source = config.lib.file.mkOutOfStoreSymlink "${self}/.config/quickshell";
+      source = config.lib.file.mkOutOfStoreSymlink "${root}/.config/quickshell";
     };
     systemd.user.services = lib.mkIf cfg.systemd.enable {
       quickshell = {
@@ -40,8 +39,8 @@ in {
 
         Service = {
           ExecStart = "${
-            inputs.quickshell.packages.${pkgs.system}.default
-          }/bin/quickshell";
+          inputs.quickshell.packages.${pkgs.system}.default
+        }/bin/quickshell";
           Restart = "on-failure";
           KillMode = "mixed";
         };

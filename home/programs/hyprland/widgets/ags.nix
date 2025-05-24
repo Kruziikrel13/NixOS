@@ -18,7 +18,7 @@ in {
   config = lib.mkIf cfg.enable {
     assertions = [
       {
-        assertion = !config.programs.quickshell.systemd.enable;
+        assertion = cfg.systemd.enable && !config.programs.quickshell.systemd.enable;
         message = "Service conflicts between AGS and Quickshell.";
       }
     ];
