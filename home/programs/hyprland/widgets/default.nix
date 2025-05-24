@@ -3,12 +3,12 @@
 
   programs = {
     agsCustom = {
-      enable = true;
-      systemd.enable = true;
+      enable = false;
+      systemd.enable = false;
     };
     quickshell = {
       enable = true;
-      systemd.enable = false;
+      systemd.enable = true;
     };
     waybar = {
       enable = false;
