@@ -1,3 +1,4 @@
+import "./components"
 import "./modules"
 import Quickshell
 import QtQuick
@@ -37,31 +38,19 @@ Scope {
         anchors.fill: parent
         spacing: 0
 
-        Item { // Left
-          Layout.fillWidth: true
-          Layout.preferredWidth: 1
-          height: parent.height
-
+        ModuleGroup {
           Row {
             padding: 5
             anchors.verticalCenter: parent.verticalCenter
             anchors.left: parent.left
             spacing: 10
-            OsIcon { 
-              os: "nixos"
-              bar: barRoot
-              screen: modelData
-            }
+            OsIcon { os: "nixos" }
             Workspaces {}
             ActiveClient {}
           }
         }
 
-        Item { // Center
-          Layout.fillWidth: true
-          Layout.preferredWidth: 1
-          height: parent.height
-
+        ModuleGroup {
           Row {
             anchors.centerIn: parent
             spacing: 10
@@ -70,11 +59,7 @@ Scope {
           }
         }
 
-        Item { // Right
-          Layout.fillWidth: true
-          Layout.preferredWidth: 1
-          height: parent.height
-
+        ModuleGroup {
           Row {
             padding: 5
             anchors.verticalCenter: parent.verticalCenter
