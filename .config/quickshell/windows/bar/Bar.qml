@@ -3,6 +3,7 @@ import Quickshell
 import QtQuick
 import QtQuick.Layouts
 import Quickshell.Wayland
+import Quickshell.Widgets
 
 Scope {
   id: bar
@@ -36,7 +37,7 @@ Scope {
         anchors.fill: parent
         spacing: 0
 
-        Item {
+        Item { // Left
           Layout.fillWidth: true
           Layout.preferredWidth: 1
           height: parent.height
@@ -59,21 +60,26 @@ Scope {
 
           Row {
             anchors.centerIn: parent
-            spacing: 5
+            spacing: 10
             Clock {}
             Spotify {}
           }
         }
 
-        Item {
+        Item { // Right
           Layout.fillWidth: true
           Layout.preferredWidth: 1
           height: parent.height
+
           Row {
             padding: 5
             anchors.verticalCenter: parent.verticalCenter
             anchors.right: parent.right
+            layoutDirection: Qt.RightToLeft
             spacing: 10
+            Tray {
+              bar: barRoot
+            }
           }
         }
       }
