@@ -43,8 +43,19 @@ WrapperItem {
     command: ["bash", "-c", "hyprctl activewindow -j | jq -c"]
     stdout: SplitParser {
       onRead: (data) => {
-        let client = JSON.parse(data)
-        root.activeWindow = client?.initialTitle ?? ""
+        const client = JSON.parse(data)
+        if (client.initialClass == "spotify") { // Spotify behaves very poorly on linux
+          root.activeWindow = "Spotify"
+          return
+        }
+
+        const initialTitle = client?.initialTitle
+        if (initialTitle && !initialTitle.trim()) {
+          root.activeWindow = client.initialClass
+          return
+        }
+
+        root.activeWindow = initialTitle ?? ""
       }
     }
   }
