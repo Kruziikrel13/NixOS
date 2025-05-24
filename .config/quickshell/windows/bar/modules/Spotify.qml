@@ -18,14 +18,11 @@ WrapperItem {
   // }
 
   RowLayout {
-    anchors.fill: parent
     IconImage {
       implicitSize: 15
       source: "root:/assets/icons/spotify.svg"
     }
-
     Text {
-      Layout.alignment: Qt.AlignVCenter
       visible: (spotify?.playbackState == MprisPlaybackState.Playing) && (!!spotify?.trackArtist && !!spotify?.trackTitle)
       font.pixelSize: 15
       color: "white"
