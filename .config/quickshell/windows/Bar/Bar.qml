@@ -16,7 +16,7 @@ Scope {
   Variants {
     model: Quickshell.screens
 
-    PanelWindow{
+    PanelWindow {
       id: barRoot
 
       property ShellScreen modelData
@@ -47,7 +47,11 @@ Scope {
             anchors.verticalCenter: parent.verticalCenter
             anchors.left: parent.left
             spacing: 10
-            OsIcon { os: "nixos" }
+            OsIcon { 
+              os: "nixos"
+              bar: barRoot
+              screen: modelData
+            }
             Workspaces {}
             ActiveClient {}
           }
