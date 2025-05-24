@@ -36,7 +36,7 @@ WrapperItem {
             return 10
           }
           implicitWidth: {
-            if (modelData.focused) return 30
+            if (modelData.focused && modelData.lastIpcObject.windows > 0) return 30
             if (modelData.lastIpcObject.windows > 0) return 15
             return 10
           }
@@ -46,6 +46,18 @@ WrapperItem {
             return "#525252"
           }
           radius: modelData.focused ? 2.5 : 10
+          Behavior on implicitWidth {
+            NumberAnimation {
+              duration: 100
+              easing.type: Easing.Linear
+            }
+          }
+          Behavior on implicitHeight {
+            NumberAnimation {
+              duration: 100
+              easing.type: Easing.Linear
+            }
+          }
         }
       }
     }
