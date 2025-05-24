@@ -9,7 +9,7 @@ WrapperItem {
   property string osIconFolder: "root:/assets/icons/os"
 
   IconImage {
-    anchors.fill: parent
+    anchors.centerIn: parent
     implicitSize: 20
     source: {
       if (osIconFolder && osIconFolder + "/" + root.os + ".svg") {

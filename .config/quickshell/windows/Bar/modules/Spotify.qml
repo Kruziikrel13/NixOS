@@ -7,6 +7,7 @@ import QtQuick.Layouts
 
 WrapperItem {
   id: root
+  anchors.verticalCenter: parent.verticalCenter
   readonly property var spotify: Mpris.players.values.find(player => player.identity == "Spotify")
   visible: !!spotify
 

@@ -40,12 +40,14 @@ Scope {
 
         ModuleGroup {
           Row {
-            padding: 5
+            padding: 12.5
             anchors.verticalCenter: parent.verticalCenter
             anchors.left: parent.left
-            spacing: 10
+            spacing: 7.5
             OsIcon { os: "nixos" }
+            Separator {}
             Workspaces {}
+            Separator {}
             ActiveClient {}
           }
         }
@@ -54,21 +56,27 @@ Scope {
           Row {
             anchors.centerIn: parent
             spacing: 10
+            Notifications {}
+            Separator {}
             Clock {}
+            Separator {}
             Spotify {}
           }
         }
 
         ModuleGroup {
           Row {
-            padding: 5
+            padding: 12.5
             anchors.verticalCenter: parent.verticalCenter
             anchors.right: parent.right
             layoutDirection: Qt.RightToLeft
             spacing: 10
-            Tray {
-              bar: barRoot
-            }
+            PowerMenu {}
+            Separator {}
+            Network {}
+            Pipewire {}
+            Separator {}
+            Tray { bar: barRoot }
           }
         }
       }

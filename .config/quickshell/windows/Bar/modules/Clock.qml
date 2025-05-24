@@ -2,9 +2,10 @@ import Quickshell
 import Quickshell.Widgets
 import QtQuick
 
-
 WrapperItem {
   id: root
+  anchors.verticalCenter: parent.verticalCenter
+
   SystemClock {
     id: time
     precision: SystemClock.Seconds

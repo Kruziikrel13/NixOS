@@ -30,10 +30,22 @@ WrapperItem {
       WrapperMouseArea {
         required property HyprlandWorkspace modelData
         onClicked: modelData.activate()
-        Text {
-          font.pixelSize: 15
-          text: modelData.lastIpcObject.windows > 0 ? "" : ""
-          color: modelData.focused ? "#C4C4C4" : "#525252"
+        Rectangle {
+          implicitHeight: {
+            if (modelData.focused || modelData.lastIpcObject.windows > 0) return 15
+            return 10
+          }
+          implicitWidth: {
+            if (modelData.focused) return 30
+            if (modelData.lastIpcObject.windows > 0) return 15
+            return 10
+          }
+          color: {
+            if (modelData.focused) return "#51A4E7"
+            if (modelData.lastIpcObject.windows > 0) return "#C4C4C4"
+            return "#525252"
+          }
+          radius: modelData.focused ? 2.5 : 10
         }
       }
     }
