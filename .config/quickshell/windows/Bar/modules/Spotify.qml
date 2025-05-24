@@ -1,4 +1,3 @@
-import Quickshell
 import Quickshell.Widgets
 import Quickshell.Services.Mpris
 import QtQuick
