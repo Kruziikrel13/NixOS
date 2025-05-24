@@ -14,6 +14,6 @@ WrapperItem {
   Text {
     color: "white"
     font.pixelSize: 15
-    text: Qt.formatDateTime(time.date, "hh:mm - dddd dd")
+    text: Qt.formatDateTime(time.date, "hh:mm - dddd dd.")
   }
 }
