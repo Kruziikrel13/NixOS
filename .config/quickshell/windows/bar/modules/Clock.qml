@@ -4,7 +4,7 @@ import QtQuick
 
 
 WrapperItem {
-  id: clock
+  id: root
   SystemClock {
     id: time
     precision: SystemClock.Seconds
