@@ -1,7 +1,5 @@
 {
   config,
-  inputs,
-  pkgs,
   ...
 }: let
   cfg_directory = "${config.xdg.configHome}/hypr";
@@ -41,7 +39,6 @@ in {
     hyprpolkitagent.enable = true;
     hyprpaper = {
       enable = true;
-      package = inputs.hyprpaper.packages.${pkgs.system}.default;
       settings = {
         ipc = "on";
         splash = false;
@@ -51,7 +48,6 @@ in {
     };
     hypridle = {
       enable = true;
-      package = inputs.hypridle.packages.${pkgs.system}.hypridle;
       settings = {
         general = {
           lock_cmd = "pidof hyprlock || hyprlock";

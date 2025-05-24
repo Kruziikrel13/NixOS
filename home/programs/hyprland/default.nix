@@ -2,7 +2,6 @@
   paths,
   config,
   lib,
-  inputs,
   pkgs,
   self,
   ...
@@ -12,7 +11,6 @@
 in {
   imports = paths.scanPaths ./.;
 
-  home.packages = [inputs.hyprland-contrib.packages.${pkgs.system}.grimblast];
   xdg.dataFile."icons/${cursor}".source = "${cursorPackage}/share/icons/${cursor}";
 
   programs.bash.profileExtra = ''
