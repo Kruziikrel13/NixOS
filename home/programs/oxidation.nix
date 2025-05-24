@@ -24,10 +24,7 @@
     bottom.enable = true;
     nushell.enable = true;
     gitui.enable = true;
-    zellij = {
-      enable = true;
-      enableBashIntegration = true;
-    };
+    zellij.enable = true;
     helix = {
       enable = true;
       package = pkgs.evil-helix;
