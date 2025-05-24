@@ -36,6 +36,11 @@
       enableBashIntegration = true;
       nix-direnv.enable = true;
     };
+    git = {
+      enable = true;
+      lfs.enable = true;
+      delta.enable = true;
+    };
     mpv.enable = true;
     nix-init.enable = true;
     ghostty = {
