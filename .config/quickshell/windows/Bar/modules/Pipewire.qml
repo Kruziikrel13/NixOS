@@ -33,8 +33,9 @@ WrapperItem {
   WrapperMouseArea {
     id: mouseArea
     acceptedButtons: Qt.LeftButton | Qt.RightButton
+    hoverEnabled: true
     onClicked: (event) => {
-      switch(event.button) {
+      switch (event.button) {
         case Qt.LeftButton:
         mute.running = true
         break;
@@ -42,10 +43,11 @@ WrapperItem {
         pulsemixer.running = true
         break;
       }
+      event.accepted = true
     }
 
     StyledText {
-      id: text
+      color: mouseArea.containsMouse ? Appearance.paletteColours.primary : defaultColor
       text: {
         const volume = Audio.sink?.audio.volume
         if (Audio.sink?.audio.muted || volume <= 0) {
@@ -58,6 +60,8 @@ WrapperItem {
         } else if (volume > 0.45) {
           return ""
         }
+        // Failed to get audio info, show error
+        return ""
       }
     }
   }
