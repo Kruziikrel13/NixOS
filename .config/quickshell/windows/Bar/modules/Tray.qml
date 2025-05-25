@@ -29,6 +29,7 @@ WrapperItem {
               if (modelData.hasMenu) menu.open()
               break;
           }
+          event.accepted = true
         }
 
         QsMenuAnchor {
