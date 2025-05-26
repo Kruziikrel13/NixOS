@@ -1,10 +1,10 @@
 {
-lib,
-config,
-inputs,
-pkgs,
-root,
-...
+  lib,
+  config,
+  inputs,
+  pkgs,
+  root,
+  ...
 }: let
   cfg = config.programs.quickshell;
 in {
@@ -39,8 +39,8 @@ in {
 
         Service = {
           ExecStart = "${
-          inputs.quickshell.packages.${pkgs.system}.default
-        }/bin/quickshell";
+            inputs.quickshell.packages.${pkgs.system}.default
+          }/bin/quickshell";
           Restart = "on-failure";
           KillMode = "mixed";
         };

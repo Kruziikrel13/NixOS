@@ -1,7 +1,4 @@
-{
-  config,
-  ...
-}: let
+{config, ...}: let
   cfg_directory = "${config.xdg.configHome}/hypr";
   monitors = "${cfg_directory}/monitors.conf";
 in {

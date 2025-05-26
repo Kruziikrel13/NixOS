@@ -19,7 +19,7 @@
     playerctl
     spotify
     appflowy
-   
+
     # limo
     # grayjay
   ];
