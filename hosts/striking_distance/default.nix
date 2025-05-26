@@ -31,6 +31,7 @@
       wireless.enable = true;
       wireless.enableGraphical = true;
     };
+    keyboard.qmk.enable = true;
   };
   services.ratbagd.enable = true;
 }
