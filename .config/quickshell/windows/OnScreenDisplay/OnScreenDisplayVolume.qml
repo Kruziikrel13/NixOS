@@ -5,13 +5,13 @@ import QtQuick
 import QtQuick.Layouts
 import Quickshell
 import Quickshell.Widgets
+import Quickshell.Io
 import Quickshell.Hyprland
 import Quickshell.Wayland
 
 Scope {
   id: root
   property bool showOsdValues: false
-  property var focusedScreen: Quickshell.screens.find(s => s.name === Hyprland.focusedMonitor?.name)
 
   function triggerOsd() {
     showOsdValues = true
@@ -47,23 +47,18 @@ Scope {
     PanelWindow {
       id: osdRoot
 
-      Connections {
-        target: root
-        function onFocusedScreenChanged() {
-          osdRoot.screen = root.focusedScreen
-        }
-      }
-
       exclusionMode: ExclusionMode.Normal
       WlrLayershell.namespace: "quickshell:onScreenDisplay"
       WlrLayershell.layer: WlrLayer.Overlay
       anchors.bottom: true
-      margins.bottom: osdRoot.screen.height / 3
+      // margins.bottom: osdRoot.screen.height / 3
+      margins.bottom: 300
       color: "transparent"
 
       mask: Region {}
 
-      implicitWidth: osdRoot.screen.width / 3
+      // implicitWidth: osdRoot.screen.width / 3
+      implicitWidth: 600
       implicitHeight: 90
       visible: osdLoader.active
 
@@ -98,7 +93,6 @@ Scope {
             font.pixelSize: 48
             text: {
               const volume = Audio.sink?.audio.volume
-              let icon = ""
               if (Audio.sink?.audio.muted || volume <= 0) {
                 return ""
               }
@@ -109,6 +103,7 @@ Scope {
               } else if (volume > 0.45) {
                 return ""
               }
+              return " "
             }
           }
         }
