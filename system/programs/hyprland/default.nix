@@ -4,7 +4,7 @@
   paths,
   ...
 }: {
-  imports = (paths.scanPaths ./.);
+  imports = paths.scanPaths ./.;
   environment = {
     systemPackages = [
       self.packages.${pkgs.system}.bibata-hyprcursor
