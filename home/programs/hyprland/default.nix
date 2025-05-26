@@ -1,10 +1,10 @@
 {
-  paths,
-  config,
-  lib,
-  pkgs,
-  self,
-  ...
+paths,
+config,
+lib,
+pkgs,
+self,
+...
 }: let
   cursor = "Bibata-Modern-Classic-Hyprcursor";
   cursorPackage = self.packages.${pkgs.system}.bibata-hyprcursor;
@@ -22,9 +22,20 @@ in {
     enable = true;
     package = null;
     portalPackage = null;
-    systemd.enable = false;
-    systemd.variables = ["--all"];
+    systemd = {
+      enable = false;
+      variables = ["--all"];
+      extraCommands = [
+        "systemctl --user stop graphical-session.target"
+        "systemctl --user start hyprland-session.target"
+      ];
+    };
   };
+
+  home.packages = with pkgs; [
+    wl-clipboard
+    wlr-randr
+  ];
 
   home.sessionVariables = {
     QT_QPA_PLATFORM = "wayland";
