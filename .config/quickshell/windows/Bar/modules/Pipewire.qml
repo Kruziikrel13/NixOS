@@ -10,16 +10,6 @@ WrapperItem {
   id: root
   anchors.verticalCenter: parent.verticalCenter
 
-  Connections {
-    target: Audio.sink?.audio ?? null
-    function onVolumeChanged() {
-      if (!Audio.ready) return
-    }
-    function onMutedChanged() {
-      if (!Audio.ready) return
-    }
-  }
-
   Process {
     id: pulsemixer
     command: ["ghostty", "-e", "pulsemixer"]
@@ -27,7 +17,7 @@ WrapperItem {
 
   Process {
     id: mute
-    command: ["bash", "-c", "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"]
+    command: ["bash", "-c", `wpctl set-mute ${Audio.sink?.id} toggle`]
   }
 
   WrapperMouseArea {
@@ -49,6 +39,7 @@ WrapperItem {
     StyledText {
       color: mouseArea.containsMouse ? Appearance.paletteColours.primary : defaultColor
       text: {
+        if (!Audio.ready) return ""
         const volume = Audio.sink?.audio.volume
         if (Audio.sink?.audio.muted || volume <= 0) {
           return ""
