@@ -6,7 +6,6 @@ pragma Singleton
 Singleton {
   id: root
   property int updateInterval: 1000
-  property int networkStrength
   property int networkType: 0
   function update() {
     updateNetworkType.running = true
