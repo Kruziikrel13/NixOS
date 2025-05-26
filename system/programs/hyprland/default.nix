@@ -2,6 +2,7 @@
   pkgs,
   self,
   paths,
+  inputs,
   ...
 }: {
   imports = paths.scanPaths ./.;
@@ -17,5 +18,7 @@
   programs.hyprland = {
     enable = true;
     withUWSM = true;
+    package = inputs.hyprland.packages.${pkgs.system}.hyprland;
+    portalPackage = inputs.hyprland.packages.${pkgs.system}.xdg-desktop-portal-hyprland;
   };
 }
