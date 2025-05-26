@@ -1,3 +1,5 @@
+import "root:/widgets"
+import "root:/state"
 import Quickshell
 import Quickshell.Widgets
 import QtQuick
@@ -7,9 +9,11 @@ WrapperItem {
   anchors.verticalCenter: parent.verticalCenter
 
   WrapperMouseArea {
+    id: mouseArea
     anchors.fill: parent
-    Text {
-      color: "white"
+    hoverEnabled: true
+    StyledText {
+      color: mouseArea.containsMouse ? Appearance.paletteColours.warning :Appearance.paletteColours.urgent
       font.pixelSize: 24
       text: "󰐥"
     }
