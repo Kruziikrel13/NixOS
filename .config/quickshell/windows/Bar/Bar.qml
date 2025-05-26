@@ -69,8 +69,8 @@ Scope {
             spacing: 10
             PowerMenu {}
             Separator {}
-            Network {}
             Pipewire {}
+            Network {}
             Separator {}
             Tray { bar: barRoot }
           }
