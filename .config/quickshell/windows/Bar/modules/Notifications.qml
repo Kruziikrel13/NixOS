@@ -1,3 +1,4 @@
+import "root:/widgets"
 import Quickshell
 import Quickshell.Widgets
 import QtQuick
@@ -9,14 +10,12 @@ WrapperItem {
   RowLayout {
     anchors.fill: parent
     spacing: 2.5
-    Text {
-      color: "white"
+    StyledText {
       font.pixelSize: 12
       text: "4"
     }
 
-    Text {
-      color: "white"
+    StyledText {
       font.pixelSize: 16
       text: "󰂚"
     }
