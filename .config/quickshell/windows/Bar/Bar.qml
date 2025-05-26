@@ -52,10 +52,10 @@ Scope {
           Row {
             anchors.centerIn: parent
             spacing: 10
-            Notifications {}
-            Separator {}
+            // Notifications {}
+            // Separator {}
             Clock {}
-            Separator {}
+            // Separator {}
             Spotify {}
           }
         }
