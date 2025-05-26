@@ -8,16 +8,31 @@
 
       "workspace special silent, title:^(Zen — Sharing Indicator)$"
       "workspace special silent, title:^(.*is sharing (your screen|a window)\.)$"
-      
-      "tag +steam_game, class:^(steam_app)"
-      "content game, class:^(steam_app)"
-      "workspace 2 silent, content:game"
+
+      "content game, class:^(steam_app_.*)$"
+      "content game, title:.*\.exe"
+      "workspace 2, content:game"
       "idleinhibit always, content:game"
       "immediate, content:game"
+      "fullscreen, content:game"
 
-      "workspace 9 silent, title:^(Proton Mail)$"
-      "workspace 9 silent, title:^(Vesktop)$"
-      "workspace 10 silent, title:^(Spotify ( Premium)?)$"
+      "center, title:^(Open File)(.*)$"
+      "center, title:^(Select a File)(.*)$"
+      "center, title:^(Choose wallpaper)(.*)$"
+      "center, title:^(Save As)(.*)$"
+      "center, title:^(Library)(.*)$"
+      "center, title:^(File Upload)(.*)$"
+      "float, title:^(Open File)(.*)$"
+      "float, title:^(Select a File)(.*)$"
+      "float, title:^(Choose wallpaper)(.*)$"
+      "float, title:^(Open Folder)(.*)$"
+      "float, title:^(Save As)(.*)$"
+      "float, title:^(Library)(.*)$"
+      "float, title:^(File Upload)(.*)$"
+
+      "workspace 8 silent, title:^(Proton Mail)$"
+      "workspace 9 silent, class:^(vesktop)$"
+      "workspace 10 silent, class:^(spotify)$"
 
       "idleinhibit focus, class:^(mpv)$"
       "idleinhibit focus, class:^(zen)$, title:^(.*YouTube.*)$"

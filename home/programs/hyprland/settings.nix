@@ -24,6 +24,7 @@ in {
       gaps_out = 5;
       border_size = 1;
       allow_tearing = true;
+      "col.active_border" = "rgb(51A4E7)";
     };
 
     decoration = {
@@ -98,8 +99,10 @@ in {
       force_default_wallpaper = 0;
       # disable_autoreload = true;
       animate_mouse_windowdragging = false;
-      # vrr = 1;
+      vrr = 3;
     };
+
+    debug.disable_logs = false;
 
     xwayland.force_zero_scaling = true;
 
