@@ -16,6 +16,9 @@ Singleton {
     property color onbackground: "#C4C4C4"
     property color secondary: "#525252"
     property color tertiary: "#414141"
+    property color urgent: "#95435B"
+    property color warning: "#EBFF71"
+    property color green: "#1ED760"
   }
 
   font: QtObject {
