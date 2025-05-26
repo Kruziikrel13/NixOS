@@ -7,8 +7,8 @@ WrapperItem {
 
   Rectangle {
     color: "#414141"
-    radius: 5
-    implicitHeight: 7.5
-    implicitWidth: 7.5
+    radius: 2.5
+    implicitHeight: 5
+    implicitWidth: 5
   }
 }
