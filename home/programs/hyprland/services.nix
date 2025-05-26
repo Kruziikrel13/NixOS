@@ -35,7 +35,7 @@ in {
   };
 
   services = {
-    swaync.enable = true;
+    swaync.enable = false;
     hyprpolkitagent.enable = true;
     hyprpaper = {
       enable = true;
