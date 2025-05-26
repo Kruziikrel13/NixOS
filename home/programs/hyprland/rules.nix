@@ -1,6 +1,6 @@
 {
   wayland.windowManager.hyprland.settings = {
-    windowrulev2 = [
+    windowrule = [
       "float, title:^(.*Bitwarden Password Manager.*)$"
 
       "float, title:^(Picture-in-Picture)$"
