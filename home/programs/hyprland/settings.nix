@@ -1,4 +1,4 @@
-let
+{config, ...}: let
   cursorName = "Bibata-Modern-Classic-Hyprcursor";
 in {
   wayland.windowManager.hyprland = {
@@ -7,12 +7,12 @@ in {
       "$dmenu" = "anyrun";
       "$mainMod" = "SUPER";
 
-      exec-once = ["uwsm finalize" "hyprctl setcursor ${cursorName} ${toString 16}"];
+      exec-once = ["uwsm finalize" "hyprctl setcursor ${cursorName} ${toString config.home.pointerCursor.size}"];
 
       env = [
         "QT_WAYLAND_DISABLE_WINDOWDECORATION,1"
         "HYPRCURSOR_THEME,${cursorName}"
-        "HYPRCURSOR_SIZE,${toString 16}"
+        "HYPRCURSOR_SIZE,${toString config.home.pointerCursor.size}"
         # See https://github.com/hyprwm/contrib/issues/142
         "GRIMBLAST_NO_CURSOR,0"
       ];
