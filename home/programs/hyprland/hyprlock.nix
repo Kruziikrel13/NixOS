@@ -1,8 +1,7 @@
 {config, ...}: let
   cfg_directory = "${config.xdg.configHome}/hypr";
-in
-{
-  programs.hyprlock ={
+in {
+  programs.hyprlock = {
     enable = true;
     extraConfig = ''
       # Hours
