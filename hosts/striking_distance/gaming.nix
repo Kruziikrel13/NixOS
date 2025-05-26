@@ -1,7 +1,7 @@
 {
-  pkgs,
-  inputs,
-  ...
+pkgs,
+inputs,
+...
 }: {
   # Performance
   ## Xanmod may handle commented out boot kernel opts
@@ -29,23 +29,18 @@
     ACTION=="add", SUBSYSTEM=="usb", TEST=="power/control", ATTR{power/control}="on"
   '';
 
-  hardware.amdgpu = {
-    amdvlk = {
-      enable = true;
-      support32Bit.enable = true;
-      supportExperimental.enable = true;
-    };
+  hardware.amdgpu.amdvlk = {
+    enable = true;
+    support32Bit.enable = true;
   };
-  # chaotic.mesa-git.enable = true;
 
   # Gaming Support
   programs = {
-    gamescope = {
-      # package = pkgs.gamescope_git;
-      enable = true;
-      capSysNice = true;
-      args = ["--rt" "--expose-wayland"];
-    };
+    # gamescope = {
+    #   enable = true;
+    #   capSysNice = true;
+    #   args = ["--rt" "--expose-wayland"];
+    # };
     gamemode = {
       enable = true;
       settings = {
@@ -55,12 +50,11 @@
         };
       };
     };
+
     steam = {
       enable = true;
-      gamescopeSession.enable = true;
       platformOptimizations.enable = true;
       protontricks.enable = true;
-      extraPackages = with pkgs; [gamemode];
       extraCompatPackages = [pkgs.proton-ge-bin];
     };
   };
