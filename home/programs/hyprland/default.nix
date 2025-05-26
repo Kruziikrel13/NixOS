@@ -32,6 +32,8 @@ in {
     XDG_SESSION_TYPE = "wayland";
   };
 
+  services.hyprpolkitagent.enable = true;
+
   systemd.user.targets.tray.Unit.Requires =
     lib.mkForce [config.wayland.systemd.target];
 }
