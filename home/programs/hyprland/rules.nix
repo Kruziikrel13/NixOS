@@ -36,6 +36,11 @@
       "float, title:^(Library)(.*)$"
       "float, title:^(File Upload)(.*)$"
 
+      "float, class:ghostty.tui"
+      "move onscreen 100%-30px 50px, class:ghostty.tui"
+      "stayfocused, class:ghostty.tui"
+      "dimaround, class:ghostty.tui"
+
       "workspace 8 silent, title:^(Proton Mail)$"
       "workspace 9 silent, class:^(vesktop)$"
       "workspace 10 silent, class:^(spotify)$"
