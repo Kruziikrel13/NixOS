@@ -9,12 +9,18 @@
       "workspace special silent, title:^(Zen — Sharing Indicator)$"
       "workspace special silent, title:^(.*is sharing (your screen|a window)\.)$"
 
-      "content game, class:^(steam_app_.*)$"
-      "content game, title:.*\.exe"
-      "workspace 2, content:game"
-      "idleinhibit always, content:game"
-      "immediate, content:game"
-      "fullscreen, content:game"
+      # "content game, class:^(steam_app_.*)$"
+      # "content game, title:.*\.exe"
+      # "workspace 2, content: game"
+      # "idleinhibit always, content: game"
+      # "immediate, content: game"
+      # "fullscreen, content: game"
+
+      # Temp while the above doesn't work
+      "workspace 2, class:^(steam_app_.*)$"
+      "idleinhibit class:^(steam_app_.*)$"
+      "immediate, class:^(steam_app_.*)$"
+      "fullscreen, class:^(steam_app_.*)$"
 
       "center, title:^(Open File)(.*)$"
       "center, title:^(Select a File)(.*)$"
