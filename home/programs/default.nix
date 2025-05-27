@@ -57,10 +57,12 @@
       enable = true;
       settings = {
         discordBranch = "canary";
-        tray = false;
-        minimizeToTray = false;
+        tray = true;
+        appBadge = true;
+        arRPC = true;
         staticTitle = true;
         splashTheming = false;
+        hardwareAcceleration = true;
       };
       vencord = {
         useSystem = true;
