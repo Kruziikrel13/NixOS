@@ -99,7 +99,6 @@ in {
       force_default_wallpaper = 0;
       # disable_autoreload = true;
       animate_mouse_windowdragging = false;
-      vrr = 3;
     };
 
     debug.disable_logs = false;
