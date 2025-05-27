@@ -11,7 +11,7 @@ WrapperItem {
 
   Process {
     id: network
-    command: ["ghostty", "-e", "nmtui"]
+    command: ["ghostty","--class=ghostty.tui", "-e", "sleep 0.5; nmtui"]
   }
   WrapperMouseArea {
     id: mouseArea

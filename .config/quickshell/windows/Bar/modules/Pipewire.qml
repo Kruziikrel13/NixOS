@@ -12,7 +12,7 @@ WrapperItem {
 
   Process {
     id: pulsemixer
-    command: ["ghostty", "-e", "pulsemixer"]
+    command: ["ghostty", "--class=ghostty.tui", "-e", "pulsemixer"]
   }
 
   Process {
