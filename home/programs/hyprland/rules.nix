@@ -37,7 +37,7 @@
       "float, title:^(File Upload)(.*)$"
 
       "float, class:ghostty.tui"
-      "move onscreen 100%-30px 50px, class:ghostty.tui"
+      "move onscreen 100%-w-50 50, class:ghostty.tui"
       "stayfocused, class:ghostty.tui"
       "dimaround, class:ghostty.tui"
 
