@@ -15,6 +15,7 @@ Singleton {
     readonly property string icon: Appearance.iconFolder + "spotify"
     readonly property bool active: !!player
     readonly property bool playing: player?.playbackState == MprisPlaybackState.Playing
+    readonly property string trackIcon: player.trackArtUrl
     readonly property string trackInfoStr: {
       if (!active || !playing) return "";
       if (!player.trackArtist || !player.trackTitle) return ""
