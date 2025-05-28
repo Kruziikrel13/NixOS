@@ -11,7 +11,7 @@ in {
     ];
 
     exec-once = [
-      "uwsm finalize" 
+      "uwsm finalize"
       "hyprctl setcursor ${cursorName} ${toString config.home.pointerCursor.size}"
     ];
 

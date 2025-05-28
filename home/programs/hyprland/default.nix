@@ -1,10 +1,10 @@
 {
-paths,
-config,
-lib,
-pkgs,
-self,
-...
+  paths,
+  config,
+  lib,
+  pkgs,
+  self,
+  ...
 }: let
   cursor = "Bibata-Modern-Classic-Hyprcursor";
   cursorPackage = self.packages.${pkgs.system}.bibata-hyprcursor;
