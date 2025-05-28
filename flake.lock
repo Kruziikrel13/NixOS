@@ -219,11 +219,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1748227609,
-        "narHash": "sha256-SaSdslyo6UGDpPUlmrPA4dWOEuxCy2ihRN9K6BnqYsA=",
+        "lastModified": 1748391243,
+        "narHash": "sha256-7sCuihzsTRZemtbTXaFUoGJUfuQErhKEcL9v7HKIo1k=",
         "owner": "nix-community",
         "repo": "home-manager",
-        "rev": "d23d20f55d49d8818ac1f1b2783671e8a6725022",
+        "rev": "f5b12be834874f7661db4ced969a621ab2d57971",
         "type": "github"
       },
       "original": {
@@ -589,11 +589,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1748306685,
-        "narHash": "sha256-27tU+NLJJ2asTU/Jw1q6QNwTwLwFS3VnCdqPt/w1bMc=",
+        "lastModified": 1748389389,
+        "narHash": "sha256-laB14zbx0zqsRMvBq8Ct4c7eAZNIe2Sj/bZDdWRhXmM=",
         "ref": "refs/heads/master",
-        "rev": "b898592db7a212a9e37841e9c8ed3072770d4546",
-        "revCount": 554,
+        "rev": "cb195d4b2a090a61f2eca5953f25df8333c881f5",
+        "revCount": 555,
         "type": "git",
         "url": "https://git.outfoxxed.me/outfoxxed/quickshell"
       },
