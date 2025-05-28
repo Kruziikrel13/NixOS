@@ -1,7 +1,7 @@
 {
-pkgs,
-inputs,
-...
+  pkgs,
+  inputs,
+  ...
 }: {
   # Performance
   ## Xanmod may handle commented out boot kernel opts
