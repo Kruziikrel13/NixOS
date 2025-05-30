@@ -1,4 +1,4 @@
-import "root:/state"
+import "root:/settings"
 import QtQuick
 import QtQuick.Layouts
 import Quickshell.Widgets
@@ -41,9 +41,9 @@ WrapperItem {
             return Appearance.sizes.icons.normal - (Appearance.sizes.icons.normal / 4)
           }
           color: {
-            if (modelData.focused) return Appearance.paletteColours.primary
-            if (modelData.lastIpcObject.windows > 0) return Appearance.paletteColours.onbackground 
-            return Appearance.paletteColours.secondary
+            if (modelData.focused) return Appearance.colors.primary
+            if (modelData.lastIpcObject.windows > 0) return Appearance.colors.onbackground
+            return Appearance.colors.secondary
           }
           radius: modelData.focused ? 2.5 : 10
           Behavior on implicitWidth {

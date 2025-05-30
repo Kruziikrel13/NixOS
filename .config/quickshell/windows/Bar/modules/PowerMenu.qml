@@ -1,7 +1,8 @@
 import "root:/widgets"
-import "root:/state"
+import "root:/settings"
 import Quickshell
 import Quickshell.Widgets
+import Quickshell.Hyprland
 import QtQuick
 
 WrapperItem {
@@ -12,8 +13,11 @@ WrapperItem {
     id: mouseArea
     anchors.fill: parent
     hoverEnabled: true
+    onClicked: () => {
+      Hyprland.dispatch('global quickshell:powerMenuToggle')
+    }
     StyledText {
-      color: mouseArea.containsMouse ? Appearance.paletteColours.warning :Appearance.paletteColours.urgent
+      color: mouseArea.containsMouse ? Appearance.colors.warning :Appearance.colors.urgent
       font.pixelSize: 24
       text: "󰐥"
     }

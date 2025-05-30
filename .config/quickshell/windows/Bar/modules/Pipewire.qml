@@ -1,6 +1,6 @@
 import "root:/widgets"
 import "root:/services"
-import "root:/state"
+import "root:/settings"
 import Quickshell
 import Quickshell.Io
 import Quickshell.Widgets
@@ -37,7 +37,7 @@ WrapperItem {
     }
 
     StyledText {
-      color: mouseArea.containsMouse ? Appearance.paletteColours.primary : defaultColor
+      color: mouseArea.containsMouse ? Appearance.colors.primary : defaultColor
       text: {
         if (!Audio.ready) return ""
         const volume = Audio.sink?.audio.volume

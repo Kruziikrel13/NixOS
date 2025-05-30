@@ -1,4 +1,4 @@
-import "root:/state"
+import "root:/settings"
 import "./components"
 import "./modules"
 import Quickshell
@@ -22,7 +22,7 @@ Scope {
       WlrLayershell.namespace: "quickshell:bar"
       exclusiveZone: barHeight - 1
       implicitHeight: barHeight
-      color: Appearance.paletteColours.background
+      color: Appearance.colors.background
 
       anchors {
         top: true
@@ -55,7 +55,7 @@ Scope {
             // Notifications {}
             // Separator {}
             Clock {}
-            // Separator {}
+            Separator {}
             Spotify {}
           }
         }

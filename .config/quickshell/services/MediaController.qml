@@ -1,4 +1,4 @@
-import "root:/state"
+import "root:/settings"
 import Quickshell
 import Quickshell.Widgets
 import Quickshell.Services.Mpris
@@ -34,7 +34,7 @@ Singleton {
 
     function getTrackInfo(maxLength) {
       if (trackInfo.length > maxLength) {
-        return trackInfo.slice(0, maxLength).trim()
+        return trackInfo.slice(0, maxLength).trim() + "..."
       }
       return trackInfo
     }

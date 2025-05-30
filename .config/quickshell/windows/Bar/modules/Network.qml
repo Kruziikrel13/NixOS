@@ -1,4 +1,4 @@
-import "root:/state"
+import "root:/settings"
 import "root:/widgets"
 import "root:/services"
 import Quickshell
@@ -27,7 +27,7 @@ WrapperItem {
       event.accepted = true
     }
     StyledText {
-      color: mouseArea.containsMouse ? Appearance.paletteColours.primary : defaultColor
+      color: mouseArea.containsMouse ? Appearance.colors.primary : defaultColor
       text: {
         switch (Network.networkType) {
           case 1:

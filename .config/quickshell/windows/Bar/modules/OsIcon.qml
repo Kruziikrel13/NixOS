@@ -1,16 +1,8 @@
-import "root:/state"
-import Quickshell
-import Quickshell.Widgets
-import QtQuick
+import "root:/settings"
+import "root:/widgets"
 
-WrapperItem {
-  id: root
-  anchors.verticalCenter: parent.verticalCenter
-  readonly property string osIcon: Appearance.iconFolder + "os/" + ConfigOptions.operatingSystem + ".svg"
-
-  IconImage {
-    anchors.centerIn: parent
-    implicitSize: Appearance.sizes.icons.normal
-    source: osIcon
-  }
+CustomIcon {
+  readonly property string osIcon: Appearance.iconFolder + "os/" + ConfigOptions.operatingSystem
+  size: Appearance.font.pixelSize.larger
+  source: osIcon
 }

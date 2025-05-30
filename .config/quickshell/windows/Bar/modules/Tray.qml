@@ -1,4 +1,5 @@
-import "root:/state"
+import "root:/settings"
+import "root:/widgets"
 import Quickshell
 import Quickshell.Widgets
 import QtQuick
@@ -42,12 +43,8 @@ WrapperItem {
           anchor.edges: Edges.Bottom
         }
 
-        Image {
-          id: trayIcon
-          source: modelData.title == "spotify" ? Appearance.iconFolder + "spotify" : modelData.icon
-          asynchronous: true
-          sourceSize.width: Appearance.sizes.icons.normal
-          sourceSize.height: Appearance.sizes.icons.normal
+        CustomIcon {
+          source: modelData.title == "spotify" ? Appearance.iconFolder + "/spotify" : modelData.icon
         }
       }
     }

@@ -1,5 +1,5 @@
 import "root:/services"
-import "root:/state"
+import "root:/settings"
 import "root:/widgets"
 import QtQuick
 import QtQuick.Layouts
@@ -65,9 +65,9 @@ Scope {
       Rectangle {
         anchors.fill: parent
         radius: height / 4
-        color: Appearance.paletteColours.background
+        color: Appearance.colors.background
         border {
-          color: Appearance.paletteColours.primary
+          color: Appearance.colors.primary
         }
 
         Rectangle {
@@ -76,7 +76,7 @@ Scope {
             bottom: parent.bottom
             left: parent.left
           }
-          color: Appearance.paletteColours.primary
+          color: Appearance.colors.primary
           implicitWidth: parent.width * (Audio.sink?.audio.volume ?? 0)
           radius: parent.radius
 
