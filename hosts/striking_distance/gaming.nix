@@ -36,11 +36,11 @@
 
   # Gaming Support
   programs = {
-    # gamescope = {
-    #   enable = true;
-    #   capSysNice = true;
-    #   args = ["--rt" "--expose-wayland"];
-    # };
+    gamescope = {
+      enable = true;
+      capSysNice = true;
+      args = ["--rt" "--expose-wayland"];
+    };
     gamemode = {
       enable = true;
       settings = {
@@ -55,7 +55,7 @@
       enable = true;
       platformOptimizations.enable = true;
       protontricks.enable = true;
-      extraCompatPackages = [pkgs.proton-ge-bin];
+      extraCompatPackages = [pkgs.proton-ge-bin pkgs.gamescope pkgs.mangohud];
     };
   };
   imports = [
