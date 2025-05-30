@@ -4,12 +4,12 @@ pragma Singleton
 
 Singleton {
   id: root
-  property QtObject paletteColours
+  property QtObject colors
   property QtObject font
   property QtObject sizes
   readonly property string iconFolder: "root:/assets/icons/"
 
-  paletteColours: QtObject {
+  colors: QtObject {
     property color background: "#171717"
     property color primary: "#51A4E7"
     property color fontPrimary: "#FFFFFF"
@@ -28,12 +28,12 @@ Singleton {
       property string icons: "NotoSans Nerd Font Mono"
     }
     property QtObject pixelSize: QtObject {
-      property int smallest: 7
-      property int smaller: 12
+      readonly property int smallest: smaller - 2
+      readonly property int smaller: normal - 4
       property int normal: 16
-      property int large: 18
-      property int larger: 22
-      property int title: 28
+      readonly property int large: normal + 4
+      readonly property int larger: large + 2
+      readonly property int largest: larger + 2
     }
   }
 
@@ -42,6 +42,7 @@ Singleton {
     property real barHeight: 40
     property real osdWidth: 900
     property real launchWidth: 900
+    property real mediaWidth: 450
     property real powerWidth: 435
     property QtObject icons: QtObject {
       property real smallest: 12
