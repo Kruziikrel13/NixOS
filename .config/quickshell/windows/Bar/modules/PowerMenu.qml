@@ -16,9 +16,10 @@ WrapperItem {
     onClicked: () => {
       Hyprland.dispatch('global quickshell:powerMenuToggle')
     }
+    acceptedButtons: Qt.LeftButton
     StyledText {
       color: mouseArea.containsMouse ? Appearance.colors.warning :Appearance.colors.urgent
-      font.pixelSize: 24
+      font.pixelSize: Appearance.font.pixelSize.largest
       text: "󰐥"
     }
   }

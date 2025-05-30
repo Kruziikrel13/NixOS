@@ -48,7 +48,7 @@ WrapperItem {
         popupCloseTimer.restart()
       }
       StyledText {
-        text: (trackInfo.length > 30 && !mArea.containsMouse) ? MediaController.spotify.getTrackInfo(30) : trackInfo
+        text: trackInfo
       }
     }
   }
@@ -63,7 +63,7 @@ WrapperItem {
       margins.top: 10
       visible: loader.active
       color: "transparent"
-      implicitWidth: Appearance.sizes.powerWidth
+      implicitWidth: Appearance.sizes.mediaWidth
       implicitHeight: width / 2
 
       FrameAnimation {
@@ -116,14 +116,14 @@ WrapperItem {
                 elide: Text.ElideRight
               }
 
-              StyledText {
-                text: {
-                  const position = MediaController.spotify.player.position
-                  const minutes = Math.floor(position / 60);
-                  const remainingSeconds = Math.floor(position % 60);
-                  return `${minutes}:${remainingSeconds.toString().padStart(2, '0')}`;
-                }
-              }
+              // StyledText {
+              //   text: {
+              //     const position = MediaController.spotify.player.position
+              //     const minutes = Math.floor(position / 60);
+              //     const remainingSeconds = Math.floor(position % 60);
+              //     return `${minutes}:${remainingSeconds.toString().padStart(2, '0')}`;
+              //   }
+              // }
             }
             Rectangle {
               Layout.fillWidth: true
