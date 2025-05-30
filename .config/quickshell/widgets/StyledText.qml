@@ -1,9 +1,9 @@
-import "root:/state"
+import "root:/settings"
 import QtQuick
 import QtQuick.Layouts
 
 Text {
-  readonly property color defaultColor: Appearance.paletteColours.fontPrimary
+  readonly property color defaultColor: Appearance.colors.fontPrimary
   renderType: Text.NativeRendering
   font.hintingPreference: Font.PreferFullHinting
   font.family: Appearance.font.family.main
