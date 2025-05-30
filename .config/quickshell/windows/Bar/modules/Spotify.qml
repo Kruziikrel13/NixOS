@@ -100,6 +100,7 @@ WrapperItem {
 
           ColumnLayout {
             RowLayout {
+              visible: !!MediaController.spotify.trackArtist
               Layout.fillWidth: true
               StyledText {
                 text: MediaController.spotify.trackArtist
@@ -109,6 +110,7 @@ WrapperItem {
             RowLayout {
               StyledText {
                 Layout.fillWidth: true
+                Layout.maximumHeight: 20
                 text: MediaController.spotify.trackTitle
                 wrapMode: Text.Wrap
                 elide: Text.ElideRight
