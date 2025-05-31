@@ -32,8 +32,6 @@ Scope {
     }
   }
 
-  
-
   LazyLoader {
     id: loader
     active: showMenu
@@ -48,9 +46,6 @@ Scope {
       color: "transparent"
       implicitWidth: Appearance.sizes.powerWidth - 150
       implicitHeight: width / 2
-
-
-
 
       WrapperRectangle {
         id: background
@@ -207,9 +202,9 @@ Scope {
                     }
                   }
                   Process {
-                    id: logout
+                    id: suspend
                     running: false
-                    command: [ "uwsm", "stop" ]
+                    command: [ "systemctl", "suspend" ]
                   }
                 }
                 WrapperMouseArea {
