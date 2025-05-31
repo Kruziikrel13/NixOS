@@ -83,7 +83,6 @@ in {
       force_split = 2;
       preserve_split = true;
       pseudotile = true;
-      precise_mouse_move = true;
     };
 
     input = {
