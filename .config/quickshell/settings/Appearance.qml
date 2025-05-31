@@ -43,7 +43,7 @@ Singleton {
     property real osdWidth: 900
     property real launchWidth: 900
     property real mediaWidth: 450
-    property real powerWidth: 435
+    property real powerWidth: 852
     property QtObject icons: QtObject {
       property real smallest: 12
       property real small: 15

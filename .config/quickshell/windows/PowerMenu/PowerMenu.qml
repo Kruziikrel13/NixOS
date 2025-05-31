@@ -1,4 +1,5 @@
 import "root:/settings"
+import "root:/services"
 import "root:/widgets"
 import QtQuick
 import QtQuick.Layouts
@@ -61,7 +62,7 @@ Scope {
             radius: implicitHeight / 4
             implicitHeight: parent.height
             Image {
-              source: "root:/assets/profile"
+              source: `/home/${SystemInfo.username}/Pictures/profile.png`
               sourceSize.height: parent.height
             }
           }
@@ -91,7 +92,7 @@ Scope {
                 color: "#373737"
                 CustomIcon {
                   anchors.fill: parent
-                  source: "root:/assets/icons/os/nixos"
+                  source: SystemInfo.getIcon()
                 }
               }
               Rectangle {
@@ -102,7 +103,7 @@ Scope {
                 StyledText {
                   anchors.centerIn: parent
                   font.pixelSize: 24
-                  text: ConfigOptions.username
+                  text: SystemInfo.username
                 }
               }
             }
