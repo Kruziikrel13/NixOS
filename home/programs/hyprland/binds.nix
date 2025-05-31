@@ -25,6 +25,12 @@ in {
         "$mod, mouse:273, resizewindow"
       ];
 
+    bindp = 
+      [
+        "$mod, mouse_up, focusmonitor, +1"
+        "$mod, mouse_down, focusmonitor, -1"
+      ];
+
     bind =
       [
         "$mod, RETURN, exec, uwsm app -- $terminal" # Launch Terminal
