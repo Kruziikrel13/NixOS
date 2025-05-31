@@ -8,6 +8,7 @@ import Quickshell.Services.SystemTray
 
 WrapperItem {
   id: root
+  visible: SystemTray.items.length > 0
   anchors.verticalCenter: parent.verticalCenter
   required property var bar
 

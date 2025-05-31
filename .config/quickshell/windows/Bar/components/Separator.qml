@@ -4,6 +4,8 @@ import Quickshell.Widgets
 WrapperItem {
   id: root
   anchors.verticalCenter: parent.verticalCenter
+  property var target
+  visible: target?.visible ?? true
 
   Rectangle {
     color: "#414141"

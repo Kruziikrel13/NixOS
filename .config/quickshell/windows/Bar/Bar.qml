@@ -20,7 +20,7 @@ Scope {
       property ShellScreen modelData
 
       WlrLayershell.namespace: "quickshell:bar"
-      exclusiveZone: barHeight - 1
+      exclusiveZone: barHeight
       implicitHeight: barHeight
       color: Appearance.colors.background
 
@@ -40,11 +40,19 @@ Scope {
             anchors.verticalCenter: parent.verticalCenter
             anchors.left: parent.left
             spacing: 7.5
-            OsIcon {}
-            Separator {}
+            OsIcon {
+              id: os
+            }
+            Separator {
+              target: os
+            }
             Workspaces {}
-            Separator {}
-            ActiveClient {}
+            Separator {
+              target: client
+            }
+            ActiveClient {
+              id: client
+            }
           }
         }
 
@@ -55,8 +63,12 @@ Scope {
             // Notifications {}
             // Separator {}
             Clock {}
-            Separator {}
-            Spotify {}
+            Separator {
+              target: spotify
+            }
+            Spotify {
+              id: spotify
+            }
           }
         }
 
@@ -71,8 +83,13 @@ Scope {
             Separator {}
             Pipewire {}
             Network {}
-            Separator {}
-            Tray { bar: barRoot }
+            Separator {
+              target: tray
+            }
+            Tray { 
+              id: tray
+              bar: barRoot 
+            }
           }
         }
       }
