@@ -18,7 +18,7 @@ WrapperItem {
     }
     acceptedButtons: Qt.LeftButton
     StyledText {
-      color: mouseArea.containsMouse ? Appearance.colors.warning :Appearance.colors.urgent
+      color: mouseArea.containsMouse ? Appearance.colors.warning : Appearance.colors.urgent
       font.pixelSize: Appearance.font.pixelSize.largest
       text: "󰐥"
     }
