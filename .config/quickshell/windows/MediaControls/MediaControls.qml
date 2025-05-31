@@ -67,10 +67,13 @@ Scope {
           }
 
           ColumnLayout {
-            RowLayout {
+            WrapperMouseArea {
+              hoverEnabled: true
               visible: !!MediaController.spotify.trackArtist
+              onClicked: Hyprland.dispatch(`focuswindow class:spotify`)
               StyledText {
                 text: MediaController.spotify.trackArtist
+                color: parent.containsMouse ? Appearance.colors.primary : defaultColor
                 font.weight: Font.Bold
                 Layout.fillWidth: true
               }
