@@ -49,7 +49,6 @@
     systems.url = "github:nix-systems/default-linux";
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
 
-    hyprland.url = "github:hyprwm/Hyprland";
 
     # Extra Inputs
     ags = {
