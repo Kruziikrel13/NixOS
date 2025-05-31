@@ -1,3 +1,4 @@
+import "root:/settings"
 import QtQuick.Effects
 
 RectangularShadow {
