@@ -2,11 +2,11 @@
   paths,
   lib,
   inputs,
-  pkgs,
   config,
   ...
 }: {
-  imports = paths.scanPaths ./.;
+  imports = [inputs.lix-module.nixosModules.default]
+    ++ (paths.scanPaths ./.);
 
   # Git explicitly required for flakes
   programs.git.enable = true;
@@ -14,8 +14,6 @@
   environment.stub-ld.enable = true;
   nixpkgs.config.allowUnfree = true;
   nix = {
-    package = pkgs.lix;
-
     channel.enable = false;
     # pin the registry to avoid downloading and evaling a new nixpkgs version every time
     registry =
