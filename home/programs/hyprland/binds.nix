@@ -19,17 +19,15 @@ let
   once = program: "pgrep ${program} || uwsm app -- ${program}";
 in {
   wayland.windowManager.hyprland.settings = {
-    bindm = 
-      [
-        "$mod, mouse:272, movewindow"
-        "$mod, mouse:273, resizewindow"
-      ];
+    bindm = [
+      "$mod, mouse:272, movewindow"
+      "$mod, mouse:273, resizewindow"
+    ];
 
-    bindp = 
-      [
-        "$mod, mouse_up, focusmonitor, +1"
-        "$mod, mouse_down, focusmonitor, -1"
-      ];
+    bindp = [
+      "$mod, mouse_up, focusmonitor, +1"
+      "$mod, mouse_down, focusmonitor, -1"
+    ];
 
     bind =
       [

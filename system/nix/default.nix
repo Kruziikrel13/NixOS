@@ -5,7 +5,8 @@
   config,
   ...
 }: {
-  imports = [inputs.lix-module.nixosModules.default]
+  imports =
+    [inputs.lix-module.nixosModules.default]
     ++ (paths.scanPaths ./.);
 
   # Git explicitly required for flakes
