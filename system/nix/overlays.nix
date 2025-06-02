@@ -4,7 +4,8 @@
       mpv-unwrapped = prev.mpv-unwrapped.override {
         libplacebo = let
           version = "7.349.0";
-        in prev.libplacebo.overrideAttrs(old: {
+        in
+          prev.libplacebo.overrideAttrs (old: {
             inherit version;
             src = prev.fetchFromGitLab {
               domain = "code.videolan.org";
