@@ -32,6 +32,7 @@ in {
     bind =
       [
         "$mod, RETURN, exec, uwsm app -- $terminal" # Launch Terminal
+        "$mod SHIFT, RETURN, exec, uwsm app -- $terminal --class=ghostty.small" # Launch Terminal
         "$mod, L, exec, loginctl lock-session" # Lock Session
         "$mod, Escape, exec, uwsm stop"
         "$mod, D, exec, ${toggle "$dmenu"}" # Launcher

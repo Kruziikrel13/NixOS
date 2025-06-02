@@ -36,6 +36,10 @@
       "float, title:^(Library)(.*)$"
       "float, title:^(File Upload)(.*)$"
 
+      "float, class:ghostty.small"
+      "size 35% 35%, class:ghostty.small"
+      "move onscreen cursor -50% -50%, class:ghostty.small"
+
       "float, class:ghostty.tui"
       "move onscreen 100%-w-50 50, class:ghostty.tui"
       "stayfocused, class:ghostty.tui"
