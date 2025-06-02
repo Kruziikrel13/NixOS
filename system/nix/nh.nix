@@ -3,18 +3,12 @@
   root,
   ...
 }: {
-  programs.nh = {
-    enable = true;
-    clean = {
-      enable = true;
-      extraArgs = "--keep-since 7d";
-    };
-  };
+  programs.nh.enable = true;
 
   environment.shellAliases = {
-    nixos-edit = "cd ${root} && nvim && cd -";
+    nixos-edit = "cd ${root}; sleep 1; nvim; cd -";
     nixos-build = "${config.programs.nh.package}/bin/nh os switch ${root}";
     nixos-upgrade = "${config.programs.nh.package}/bin/nh os switch ${root} --update";
-    nixos-clean = "${config.programs.nh.package}/bin/nh clean all";
+    nixos-clean = "${config.programs.nh.package}/bin/nh clean all --nogcroots";
   };
 }
