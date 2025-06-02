@@ -22,6 +22,10 @@
       # "immediate, class:^(steam_app_.*)$"
       "fullscreen, class:^(steam_app_.*)$"
 
+      "workspace 2, class:^(.*\.exe)$"
+      "idleinhibit class:^(.*\.exe)$"
+      "fullscreen, class:^(.*\.exe)$"
+
       "center, title:^(Open File)(.*)$"
       "center, title:^(Select a File)(.*)$"
       "center, title:^(Choose wallpaper)(.*)$"
