@@ -30,8 +30,8 @@
   '';
 
   hardware.amdgpu.amdvlk = {
-    enable = true;
-    support32Bit.enable = true;
+    enable = false;
+    support32Bit.enable = false;
   };
 
   # Gaming Support
