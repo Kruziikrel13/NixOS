@@ -54,7 +54,6 @@
     steam = {
       enable = true;
       platformOptimizations.enable = true;
-      gamescopeSession.enable = true;
     };
   };
   imports = [
