@@ -49,6 +49,7 @@
     systems.url = "github:nix-systems/default-linux";
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
 
+    hyprland.url = "github:hyprwm/Hyprland/b5c0d0b8aa8bb095ac447bf6c73486cb1c172b6e";
     lix-module = {
       url = "https://git.lix.systems/lix-project/nixos-module/archive/2.93.0.tar.gz";
       inputs.nixpkgs.follows = "nixpkgs";
