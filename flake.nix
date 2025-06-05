@@ -60,8 +60,8 @@
 
     # Extra Inputs
     ags = {
-      url = "github:aylur/ags/v3";
-      inputs = {nixpkgs.follows = "nixpkgs";};
+      url = "github:aylur/ags/bb06b973062fa62d531602786d81f1b7da7be575";
+      inputs.nixpkgs.follows = "nixpkgs";
     };
     astal = {
       url = "github:aylur/astal";
