@@ -30,6 +30,7 @@
   '';
 
   chaotic.mesa-git.enable = true;
+  services.scx.enable = true;
   hardware.amdgpu.amdvlk = {
     enable = false;
     support32Bit.enable = false;
