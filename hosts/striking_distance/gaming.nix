@@ -56,7 +56,7 @@
     steam = {
       enable = true;
       platformOptimizations.enable = true;
-      extraCompatPackages = [ pkgs.proton-ge-bin ];
+      extraCompatPackages = [pkgs.proton-ge-bin];
     };
   };
   imports = [
