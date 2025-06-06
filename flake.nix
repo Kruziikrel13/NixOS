@@ -33,7 +33,7 @@
     systems.url = "github:nix-systems/default-linux";
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
 
-    hyprland.url = "github:hyprwm/Hyprland/b5c0d0b8aa8bb095ac447bf6c73486cb1c172b6e";
+    hyprland.url = "github:hyprwm/Hyprland/2794f485cb5d52b3ff572953ddcfaf7fd3c25182";
 
     chaotic.url = "github:chaotic-cx/nyx/dcc72d01c5a8a4ea2768b13b2f57794ced9d2525";
 
