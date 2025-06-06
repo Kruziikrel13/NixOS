@@ -34,6 +34,10 @@
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
 
     hyprland.url = "github:hyprwm/Hyprland/2794f485cb5d52b3ff572953ddcfaf7fd3c25182";
+    hyprspace = {
+      url = "github:KZDKM/Hyprspace";
+      inputs.hyprland.follows = "hyprland";
+    };
 
     chaotic.url = "github:chaotic-cx/nyx/dcc72d01c5a8a4ea2768b13b2f57794ced9d2525";
 

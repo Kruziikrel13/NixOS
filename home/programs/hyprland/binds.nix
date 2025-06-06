@@ -53,8 +53,8 @@ in {
         "$mod, up, movefocus, u"
         "$mod, down, movefocus, d"
 
-        "$mod SHIFT, grave, movetoworkspace, special"
-        "$mod, grave, togglespecialworkspace, special"
+        # "$mod SHIFT, grave, movetoworkspace, special"
+        # "$mod, grave, togglespecialworkspace, special"
 
         "$mod, bracketleft, workspace, m-1"
         "$mod, bracketright, workspace, m+1"
