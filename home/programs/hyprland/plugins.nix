@@ -5,6 +5,9 @@
     ];
     settings = {
       bind = [ "$mod, grave, overview:toggle" ];
+      plugin.overview = {
+        drawActiveWorkspace = false;
+      };
     };
   };
 }
