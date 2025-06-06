@@ -29,8 +29,8 @@
     ACTION=="add", SUBSYSTEM=="usb", TEST=="power/control", ATTR{power/control}="on"
   '';
 
-  chaotic.mesa-git.enable = true;
-  services.scx.enable = true;
+  # chaotic.mesa-git.enable = true;
+  # services.scx.enable = true;
   hardware.amdgpu.amdvlk = {
     enable = false;
     support32Bit.enable = false;
@@ -61,6 +61,6 @@
   };
   imports = [
     inputs.nix-gaming.nixosModules.platformOptimizations
-    inputs.chaotic.nixosModules.default
+    # inputs.chaotic.nixosModules.default
   ];
 }
