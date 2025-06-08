@@ -13,6 +13,7 @@ Singleton {
   property string distroName: "Unknown"
   property string distroId: "unknown"
   property string distroIcon: "linux-symbolic"
+  property string uptime: "unknown"
   property string username: "user"
 
   Timer {
@@ -38,6 +39,9 @@ Singleton {
         case "ubuntu": distroIcon = "ubuntu-symbolic"; break;
         default: distroIcon = "linux-symbolic"; break;
       }
+
+      fileUptime.reload()
+      const textUptime = fileUptime.text()
     }
   }
 
@@ -54,6 +58,11 @@ Singleton {
         username = data.trim()
       }
     }
+  }
+
+  FileView {
+    id: fileUptime
+    path: "/proc/uptime"
   }
 
   FileView {
