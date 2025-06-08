@@ -13,7 +13,7 @@ Singleton {
   property QtObject spotify: QtObject {
     readonly property MprisPlayer player: Mpris.players.values.find(player => player.identity == "Spotify") ?? null
     readonly property bool active: !!player && player.canSeek // Should hopefully account for DJ
-    readonly property bool playing: player?.isPlaying
+    readonly property bool playing: player?.isPlaying ?? null
 
     readonly property string trackIcon: player?.trackArtUrl ?? null
     readonly property string trackArtist: player?.trackArtist ?? null
