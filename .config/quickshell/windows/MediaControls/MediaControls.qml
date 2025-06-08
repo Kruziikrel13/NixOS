@@ -4,6 +4,7 @@ import "root:/services"
 import Quickshell
 import Quickshell.Widgets
 import Quickshell.Hyprland
+import Quickshell.Wayland
 import QtQuick
 import QtQuick.Layouts
 
@@ -26,6 +27,7 @@ Scope {
       visible: loader.active
       color: "transparent"
       implicitWidth: Appearance.sizes.mediaWidth
+      WlrLayershell.namespace: "quickshell:media"
 
       HyprlandFocusGrab {
         id: grab
