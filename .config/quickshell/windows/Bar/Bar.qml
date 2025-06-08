@@ -63,12 +63,12 @@ Scope {
             // Notifications {}
             // Separator {}
             Clock {}
-            Separator {
-              target: spotify
-            }
-            Spotify {
-              id: spotify
-            }
+            // Separator {
+            //   target: spotify
+            // }
+            // Spotify {
+            //   id: spotify
+            // }
           }
         }
 
