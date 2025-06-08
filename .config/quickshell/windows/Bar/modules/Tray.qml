@@ -8,13 +8,12 @@ import Quickshell.Services.SystemTray
 
 WrapperItem {
   id: root
-  visible: SystemTray.items.length > 0
+  visible: SystemTray.items.values.length > 0
   anchors.verticalCenter: parent.verticalCenter
   required property var bar
 
   RowLayout {
     spacing: 5
-
     Repeater {
       model: SystemTray.items
 
@@ -25,11 +24,11 @@ WrapperItem {
         onClicked: (event) => {
           switch(event.button) {
             case Qt.LeftButton:
-              // modelData.activate();
-              break;
+            // modelData.activate();
+            break;
             case Qt.RightButton:
-              if (modelData.hasMenu) menu.open()
-              break;
+            if (modelData.hasMenu) menu.open()
+            break;
           }
           event.accepted = true
         }
