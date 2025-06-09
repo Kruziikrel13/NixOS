@@ -10,18 +10,17 @@
     enableNushellIntegration = true;
   };
   home.packages = with pkgs; [
+    inputs.zen-browser.packages.${pkgs.system}.default
     pulsemixer
     protonmail-desktop
     via
-    inputs.zen-browser.packages.${pkgs.system}.default
     heroic
     obsidian
     playerctl
     spotify
-    appflowy
 
-    # limo
-    # grayjay
+    limo
+    grayjay
   ];
 
   programs = {
