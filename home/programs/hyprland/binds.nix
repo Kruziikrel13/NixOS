@@ -24,16 +24,10 @@ in {
       "$mod, mouse:273, resizewindow"
     ];
 
-    bindp = [
-      "$mod, mouse_up, focusmonitor, +1"
-      "$mod, mouse_down, focusmonitor, -1"
-    ];
-
     bind =
       [
         "$mod, RETURN, exec, uwsm app -- $terminal" # Launch Terminal
         "$mod SHIFT, RETURN, exec, uwsm app -- $terminal --class=ghostty.small" # Launch Terminal
-        "$mod, L, exec, loginctl lock-session" # Lock Session
         "$mod, Escape, exec, uwsm stop"
         "$mod, D, exec, ${toggle "$dmenu"}" # Launcher
 
@@ -41,17 +35,15 @@ in {
         "$mod, F, fullscreen"
         "$mod, R, togglesplit"
         "$mod, T, togglefloating"
-        "$mod, P, pseudo"
-        "$mod, G, togglegroup"
-        "$mod SHIFT, N, changegroupactive, f"
-        "$mod SHIFT, P, changegroupactive, b"
-        "$mod ALT, ,resizeactive,"
         "$mod, TAB, cyclenext"
 
-        "$mod, left, movefocus, l"
-        "$mod, right, movefocus, r"
-        "$mod, up, movefocus, u"
-        "$mod, down, movefocus, d"
+        "$mod, L, movefocus, l"
+        "$mod, H, movefocus, r"
+        "$mod, K, movefocus, u"
+        "$mod, J, movefocus, d"
+
+        "$mod, mouse_up, focusmonitor, r"
+        "$mod, mouse_down, focusmonitor, l"
 
         # "$mod SHIFT, grave, movetoworkspace, special"
         # "$mod, grave, togglespecialworkspace, special"
@@ -61,6 +53,11 @@ in {
 
         "$mod SHIFT, bracketleft, focusmonitor, l"
         "$mod SHIFT, bracketright, focusmonitor, r"
+
+        # Master Binds
+        "$mod SHIFT, M, layoutmsg, swapwithmaster"
+        "$mod SHIFT, H, layoutmsg, swapprev"
+        "$mod SHIFT, L, layoutmsg, swapnext"
       ]
       ++ workspaces;
 
@@ -71,6 +68,13 @@ in {
 
       ", XF86AudioMute, exec, wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"
       ", XF86AudioMicMute, exec, wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle"
+    ];
+
+    binde = [
+      "$mod, right, resizeactive, 10 0"
+      "$mod, left, resizeactive, -10 0"
+      "$mod, up, resizeactive, 0 -10"
+      "$mod, down, resizeactive, 0 10"
     ];
 
     bindle = [
