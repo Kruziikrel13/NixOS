@@ -10,7 +10,7 @@
   home-manager = {
     useGlobalPkgs = true;
     useUserPackages = true;
-    backupFileExtension = ".hm-backup";
+    backupFileExtension = "hm-backup";
     extraSpecialArgs = specialArgs;
     users.${username} = {...}: {
       home = {
