@@ -23,6 +23,7 @@
     sourceFirst = true;
     settings = {
       animations.enabled = false;
+      gestures.workspace_swipe = true;
       source = [
         "${config.xdg.configHome}/hypr/monitors.conf"
         "${config.xdg.configHome}/hypr/workspaces.conf"
