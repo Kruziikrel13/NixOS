@@ -22,12 +22,9 @@ in {
     modules = [./striking_distance system home];
   };
 
-  # atlas = nixosSystem {
-  #   inherit specialArgs;
-  #   modules = [
-  #     ./atlas
-  #     system
-  #     home
-  #   ];
-  # };
+  aridhol = nixosSystem {
+    system = "x86_64-linux";
+    specialArgs = makeSpecialArgs "kruziikrel13";
+    modules = [./aridhol system home];
+  };
 }

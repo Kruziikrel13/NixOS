@@ -4,7 +4,7 @@
   ...
 }: {
   imports = paths.scanPaths ./.;
-  networking.hostName = "atlas";
+  networking.hostName = "aridhol";
   services = {
     libinput.enable = true;
     blueman.enable = true;
