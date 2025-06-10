@@ -5,48 +5,55 @@ import QtQuick
 import QtQuick.Layouts
 import Quickshell
 import Quickshell.Hyprland
+import Quickshell.Wayland
 import Quickshell.Io
 import Quickshell.Widgets
+import "./components"
 
 Scope {
   id: root
-  property bool showMenu: false
 
   GlobalShortcut {
     name: "powerMenuToggle"
     onPressed: {
-      showMenu = !showMenu
+      loader.active = !loader.active
     }
   }
 
   GlobalShortcut {
     name: "powerMenuClose"
     onPressed: {
-      showMenu = false
+      loader.active = false
     }
   }
 
   GlobalShortcut {
     name: "powerMenuOpen"
     onPressed: {
-      showMenu = true
+      loader.active = true
     }
   }
 
   LazyLoader {
     id: loader
-    active: showMenu
+    active: false
 
     PanelWindow {
       id: popup
+      anchors {
+        top: true
+        right: true
+      }
+      margins {
+        top: 5
+        right: 5
+      }
       visible: loader.active
-      margins.top: 10
-      margins.right: 10
-      anchors.right: true
-      anchors.top: true
       color: "transparent"
       implicitWidth: Appearance.sizes.powerWidth - 150
       implicitHeight: width / 2
+
+      WlrLayershell.namespace: "quickshell:powermenu"
 
       WrapperRectangle {
         id: background
@@ -54,25 +61,17 @@ Scope {
         color: Appearance.colors.background
         radius: height / 8
         margin: 10
+
         RowLayout {
-          Layout.fillHeight: true
-          Layout.fillWidth: true
-
-          ClippingWrapperRectangle {
-            radius: implicitHeight / 4
-            implicitHeight: parent.height
-            Image {
-              source: `/home/${SystemInfo.username}/Pictures/profile.png`
-              sourceSize.height: parent.height
-            }
+          id: content
+          spacing: 10
+          Profile {
+            targetHeight: content.height
           }
-
           ColumnLayout {
-            Layout.fillWidth: true
             RowLayout {
               spacing: 15
               Layout.fillWidth: true
-              Layout.fillHeight: true
               Rectangle {
                 radius: height / 8
                 implicitHeight: 64
