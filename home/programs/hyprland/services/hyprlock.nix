@@ -1,67 +1,63 @@
-{config, ...}: let
-  cfg_directory = "${config.xdg.configHome}/hypr";
-in {
+{config, ...}: {
   programs.hyprlock = {
     enable = true;
     extraConfig = ''
       # Hours
       label {
         monitor = DP-1
-        font_size = 112
-        text = cmd[update:1000] echo "<b><big> $(date +"%H") </big></b>"
+        font_size = 72
+        text = $TIME
         shadow_passes = 3
         shadow_size = 4
-        halign = center
-        valign = center
-        position = 0, 220
-      }
-
-      # Minutes
-      label {
-        monitor = DP-1
-        text = cmd[update:1000] echo "<b><big> $(date +"%M") </big></b>"
-        font_size = 112
-        shadow_passes = 3
-        shadow_size = 4
-
-        position = 0, 80
-        halign = center
-        valign = center
+        halign = left
+        valign = bottom
+        position = 30, 100
       }
 
       # Day
       label {
         monitor = DP-1
-        text = cmd[update:18000000] echo "<b><big> "$(date +'%A')" </big></b>"
+        text = cmd[update:18000000] echo "<b><big>"$(date +'%A')"</big></b>"
         font_size = 22
         font_family = JetBrainsMono Nerd Font 10
 
-        position = 0, -20
-        halign = center
-        valign = center
+        position = 40, 78
+
+        halign = left
+        valign = bottom
       }
 
       # Week
       label {
         monitor = DP-1
-        text = cmd[update:18000000] echo "<b> "$(date +'%d %b')" </b>"
+        text = cmd[update:18000000] echo "<b>"$(date +'%d %b')"</b>"
         font_size = 18
         font_family = JetBrainsMono Nerd Font 10
 
-        position = 0, -60
-        halign = center
-        valign = center
+        position = 40, 56
+
+        halign = left
+        valign = bottom
+      }
+
+      image {
+        monitor = DP-1
+        path = ${config.xdg.userDirs.pictures}/profile.png
+        halign = right
+        valign = bottom
+        border_color = transparent
+        size = 180
+        rounding = 10
+        position = -30, 50
       }
     '';
     settings = {
       general = {hide_cursor = true;};
       background = [
         {
-          path = "${cfg_directory}/wallpapers/lockscreen.jpeg";
+          path = "${config.xdg.userDirs.pictures}/wallpaper.png";
           blur_passes = 1;
           blur_size = 2;
-          reload_time = 300;
-          reload_cmd = "find ${cfg_directory}/wallpapers -maxdepth 1 -type f ! -name '*wallpaper.jpeg' ! -name '*lockscreen.jpeg' | shuf -n 1";
         }
       ];
       input-field = [
