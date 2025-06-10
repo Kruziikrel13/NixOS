@@ -11,7 +11,6 @@
   services = {
     libinput.enable = true;
     blueman.enable = true;
-    pulseaudio.enable = true;
     tlp.enable = true;
     thermald.enable = true;
     auto-cpufreq = {
