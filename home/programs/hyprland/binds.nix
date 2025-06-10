@@ -35,7 +35,7 @@ in {
         "$mod, F, fullscreen"
         "$mod, R, togglesplit"
         "$mod, T, togglefloating"
-        "$mod, TAB, cyclenext"
+        "$mod, C, centerwindow"
 
         "$mod, L, movefocus, l"
         "$mod, H, movefocus, r"
@@ -58,6 +58,8 @@ in {
         "$mod SHIFT, M, layoutmsg, swapwithmaster"
         "$mod SHIFT, H, layoutmsg, swapprev"
         "$mod SHIFT, L, layoutmsg, swapnext"
+        "$mod, TAB, layoutmsg, cyclenext"
+        "$mod SHIFT, TAB, cyclenext"
       ]
       ++ workspaces;
 
@@ -71,10 +73,10 @@ in {
     ];
 
     binde = [
-      "$mod, right, resizeactive, 10 0"
-      "$mod, left, resizeactive, -10 0"
-      "$mod, up, resizeactive, 0 -10"
-      "$mod, down, resizeactive, 0 10"
+      "$mod, right, resizeactive, 25 0"
+      "$mod, left, resizeactive, -25 0"
+      "$mod, up, resizeactive, 0 -25"
+      "$mod, down, resizeactive, 0 25"
     ];
 
     bindle = [
