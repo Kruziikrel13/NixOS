@@ -23,10 +23,6 @@
       enable = true;
       enable32Bit = true;
     };
-    cpu.amd = {
-      updateMicrocode = true;
-      sev.enable = true;
-    };
     logitech = {
       wireless.enable = true;
       wireless.enableGraphical = true;
