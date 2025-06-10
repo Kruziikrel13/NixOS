@@ -33,8 +33,8 @@
     settings = {
       ipc = "on";
       splash = false;
-      preload = ["${config.xdg.userDirs.pictures}/wallpaper.png"];
-      wallpaper = [" , ${config.xdg.userDirs.pictures}/wallpaper.png"];
+      preload = [config.xdg.dataFile.wallpaper.target];
+      wallpaper = [" , ${config.xdg.dataFile.wallpaper.target}"];
     };
   };
 }

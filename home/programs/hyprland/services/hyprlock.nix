@@ -55,7 +55,7 @@
       general = {hide_cursor = true;};
       background = [
         {
-          path = "${config.xdg.userDirs.pictures}/wallpaper.png";
+          path = config.xdg.dataFile.wallpaper.target;
           blur_passes = 1;
           blur_size = 2;
         }
