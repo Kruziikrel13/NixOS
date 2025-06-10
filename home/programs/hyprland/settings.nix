@@ -62,7 +62,6 @@ in {
     binds.scroll_event_delay = 10;
 
     animations = {
-      enabled = true;
       animation = [
         "border, 1, 2, default"
         "fade, 1, 4, default"
