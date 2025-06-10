@@ -22,7 +22,7 @@
   wayland.windowManager.hyprland = {
     sourceFirst = true;
     settings = {
-      animations.enabled = true; 
+      animations.enabled = false;
       source = [
         "${config.xdg.configHome}/hypr/monitors.conf"
         "${config.xdg.configHome}/hypr/workspaces.conf"
