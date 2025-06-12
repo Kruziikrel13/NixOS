@@ -21,6 +21,11 @@
     '';
   };
 
+  xdg.dataFile.wallpaper = {
+    enable = true;
+    source = ./wallpaper.jpg;
+  };
+
   wayland.windowManager.hyprland = {
     sourceFirst = true;
     settings = {
