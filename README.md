@@ -7,11 +7,5 @@
     </picture>
   </a>
 </p>
-
-## Kruziikrel13 NixOS Configurations
-### Striking Distance
-Primary Workstation
-|Arch          |CPU                |GPU                |
-|--------------|-------------------|-------------------|
-|`x86_64-linux`|`AMD Ryzen 9 5900X`|`AMD Radeon 6800XT`|
-### Atlas
+[![built with nix](https://builtwithnix.org/badge.svg)](https://builtwithnix.org)
+![check](https://github.com/axelf4/nixos-config/workflows/check/badge.svg)
