@@ -36,7 +36,10 @@
 
     hyprland.url = "github:hyprwm/Hyprland";
 
-    chaotic.url = "github:chaotic-cx/nyx/dcc72d01c5a8a4ea2768b13b2f57794ced9d2525";
+    ghostty = {
+      url = "github:ghostty-org/ghostty";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
 
     lix-module = {
       url = "https://git.lix.systems/lix-project/nixos-module/archive/2.93.0.tar.gz";
