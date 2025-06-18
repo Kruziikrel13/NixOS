@@ -4,19 +4,6 @@
   networking.hostName = "striking-distance";
 
   time.hardwareClockInLocalTime = true;
-  boot = {
-    loader.systemd-boot = {
-      windows = {
-        "10-pro" = {
-          title = "Windows 11 Pro";
-          efiDeviceHandle = "HD0b";
-          sortKey = "a_windows";
-        };
-      };
-    };
-  };
-
-  # TODO Verify this is necessary
 
   hardware = {
     graphics = {
