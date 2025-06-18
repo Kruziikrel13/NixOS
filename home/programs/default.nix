@@ -2,6 +2,7 @@
   paths,
   pkgs,
   inputs,
+  config,
   ...
 }: {
   imports = paths.scanPaths ./.;
@@ -37,9 +38,10 @@
     };
     git = {
       enable = true;
-      lfs.enable = true;
-      delta.enable = true;
+      userEmail = "dev@michaelpetersen.io";
+      userName = config.home.username;
     };
+    git-cliff.enable = true;
     mpv.enable = true;
     nix-init.enable = true;
     ghostty = {
@@ -47,6 +49,7 @@
       enableBashIntegration = true;
       installBatSyntax = true;
       installVimSyntax = true;
+      package = inputs.ghostty.packages.${pkgs.system}.default;
       settings = {
         theme = "GitHub Dark";
         title = "Ghostty";
