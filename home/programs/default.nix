@@ -20,7 +20,6 @@
     playerctl
     spotify
 
-    limo
     grayjay
   ];
 
