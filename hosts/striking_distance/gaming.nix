@@ -38,11 +38,6 @@
 
   # Gaming Support
   programs = {
-    gamescope = {
-      enable = false;
-      capSysNice = true;
-      args = ["--rt" "--expose-wayland"];
-    };
     gamemode = {
       enable = true;
       settings = {
