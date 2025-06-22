@@ -106,11 +106,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1750020774,
-        "narHash": "sha256-43lMH+9/0EHRhMuNvvo3Izvp1wXyMcSKRi8F2wSTepY=",
+        "lastModified": 1750576321,
+        "narHash": "sha256-p7Map1etXKQjldD0bj/xgc4vmAA1Sar9sIhPEhgcTas=",
         "owner": "aylur",
         "repo": "astal",
-        "rev": "ca3190d077d09b9597e7de471a8e388a08f112e9",
+        "rev": "07d7f994871424f4321671050f97e2b3a4540af7",
         "type": "github"
       },
       "original": {
@@ -677,7 +677,7 @@
         "lastModified": 1750535835,
         "narHash": "sha256-XnVSY70rW3DsMdftazi0xr0rMGnyclBlG7sSTLwktI4=",
         "ref": "refs/heads/master",
-        "rev": "9b31823c780bfd84ceac91030f46ef422521c066",
+        "rev": "20c3da01f1b2bc038582eee831e4f5055b4f71ff",
         "revCount": 594,
         "type": "git",
         "url": "https://git.outfoxxed.me/outfoxxed/quickshell"
