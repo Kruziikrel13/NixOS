@@ -48,7 +48,6 @@
       enableBashIntegration = true;
       installBatSyntax = true;
       installVimSyntax = true;
-      package = inputs.ghostty.packages.${pkgs.system}.default;
       settings = {
         theme = "GitHub Dark";
         title = "Ghostty";
