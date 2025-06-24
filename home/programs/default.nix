@@ -12,6 +12,7 @@
   };
   home.packages = with pkgs; [
     inputs.zen-browser.packages.${pkgs.system}.default
+    ulauncher
     pulsemixer
     protonmail-desktop
     via
@@ -71,18 +72,6 @@
           useQuickCss = false;
           notifyAboutUpdates = false;
         };
-      };
-    };
-    anyrun = {
-      enable = true;
-      package = inputs.anyrun.packages.${pkgs.system}.default;
-      config = {
-        width.fraction = 0.25;
-        y.fraction = 0.3;
-        hidePluginInfo = true;
-        closeOnClick = true;
-        layer = "overlay";
-        plugins = with inputs.anyrun.packages.${pkgs.system}; [applications];
       };
     };
   };
