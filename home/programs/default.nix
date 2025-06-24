@@ -12,7 +12,7 @@
   };
   home.packages = with pkgs; [
     inputs.zen-browser.packages.${pkgs.system}.default
-    ulauncher
+    inputs.ulauncher.packages.${pkgs.system}.default
     pulsemixer
     protonmail-desktop
     via
@@ -23,6 +23,27 @@
 
     grayjay
   ];
+
+  systemd.user.services = {
+    ulauncher = {
+      Unit = {
+        Description = "Ulauncher.service";
+        Documentation = "https://ulauncher.io";
+        PartOf = [ config.wayland.systemd.target ];
+        After = [ config.wayland.systemd.target ];
+      };
+
+      Service = {
+        BusName = "io.ulauncher.Ulauncher";
+        Type = "dbus";
+        Restart = "always";
+        RestartSec = 1;
+        ExecStart = "${inputs.ulauncher.packages.${pkgs.system}.default}/bin/ulauncher --daemon";
+      };
+
+      Install.WantedBy = [ config.wayland.systemd.target ];
+    };
+  };
 
   programs = {
     feh.enable = true;

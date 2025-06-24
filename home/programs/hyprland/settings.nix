@@ -16,7 +16,7 @@ in {
     ];
 
     "$terminal" = "ghostty";
-    "$dmenu" = "ulauncher";
+    "$dmenu" = "ulauncher-toggle";
     "$mod" = "SUPER";
 
     general = {

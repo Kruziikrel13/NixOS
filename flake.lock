@@ -131,6 +131,23 @@
         "type": "github"
       }
     },
+    "flake-parts_2": {
+      "inputs": {
+        "nixpkgs-lib": "nixpkgs-lib_2"
+      },
+      "locked": {
+        "lastModified": 1749398372,
+        "narHash": "sha256-tYBdgS56eXYaWVW3fsnPQ/nFlgWi/Z2Ymhyu21zVM98=",
+        "owner": "hercules-ci",
+        "repo": "flake-parts",
+        "rev": "9305fe4e5c2a6fcf5ba6a3ff155720fbe4076569",
+        "type": "github"
+      },
+      "original": {
+        "id": "flake-parts",
+        "type": "indirect"
+      }
+    },
     "flake-utils": {
       "inputs": {
         "systems": "systems_2"
@@ -585,6 +602,21 @@
         "type": "github"
       }
     },
+    "nixpkgs-lib_2": {
+      "locked": {
+        "lastModified": 1748740939,
+        "narHash": "sha256-rQaysilft1aVMwF14xIdGS3sj1yHlI6oKQNBRTF40cc=",
+        "owner": "nix-community",
+        "repo": "nixpkgs.lib",
+        "rev": "656a64127e9d791a334452c6b6606d17539476e2",
+        "type": "github"
+      },
+      "original": {
+        "owner": "nix-community",
+        "repo": "nixpkgs.lib",
+        "type": "github"
+      }
+    },
     "nixpkgs_2": {
       "locked": {
         "lastModified": 1750506804,
@@ -656,6 +688,7 @@
         "nixpkgs": "nixpkgs_2",
         "quickshell": "quickshell",
         "systems": "systems_3",
+        "ulauncher": "ulauncher",
         "zen-browser": "zen-browser"
       }
     },
@@ -701,6 +734,27 @@
       "original": {
         "owner": "nix-systems",
         "repo": "default-linux",
+        "type": "github"
+      }
+    },
+    "ulauncher": {
+      "inputs": {
+        "flake-parts": "flake-parts_2",
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1750719409,
+        "narHash": "sha256-n7I2QFEBYAir9lwpSB+F3aySxAp35QolC2p/HYSqvA0=",
+        "owner": "Ulauncher",
+        "repo": "Ulauncher",
+        "rev": "2ba10cb62df240fec279936d0fcde35d2ba7aba0",
+        "type": "github"
+      },
+      "original": {
+        "owner": "Ulauncher",
+        "repo": "Ulauncher",
         "type": "github"
       }
     },
