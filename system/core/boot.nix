@@ -17,9 +17,6 @@
         editor = false;
         consoleMode = "max";
         configurationLimit = 10;
-        extraInstallCommands = ''
-          sed -i 's/^default.*/default @saved/' /boot/loader/loader.conf
-        '';
       };
     };
   };
