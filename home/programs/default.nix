@@ -62,7 +62,11 @@
       userEmail = "dev@michaelpetersen.io";
       userName = config.home.username;
     };
-    git-cliff.enable = true;
+    gh = {
+      enable = true;
+      extensions = [ pkgs.gh-contribs pkgs.gh-notify ];
+      settings.git_protocol = "ssh";
+    };
     mpv.enable = true;
     nix-init.enable = true;
     ghostty = {
