@@ -6,8 +6,6 @@ in {
       "QT_WAYLAND_DISABLE_WINDOWDECORATION,1"
       "HYPRCURSOR_THEME,${cursorName}"
       "HYPRCURSOR_SIZE,${toString config.home.pointerCursor.size}"
-      # See https://github.com/hyprwm/contrib/issues/142
-      "GRIMBLAST_NO_CURSOR,0"
     ];
 
     exec-once = [
