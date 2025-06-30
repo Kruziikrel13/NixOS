@@ -18,8 +18,8 @@
 
       # Temp while the above doesn't work
       "workspace 2, class:^(steam_app_.*)$"
-      "idleinhibit class:^(steam_app_.*)$"
-      # "immediate, class:^(steam_app_.*)$"
+      "idleinhibit always, class:^(steam_app_.*)$"
+      "immediate, class:^(steam_app_.*)$"
       "fullscreen, class:^(steam_app_.*)$"
 
       "workspace 2, class:^(.*\.exe)$"
