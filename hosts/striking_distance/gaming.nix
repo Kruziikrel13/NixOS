@@ -50,6 +50,7 @@
       enable = true;
       platformOptimizations.enable = true;
       extraCompatPackages = [pkgs.proton-ge-bin];
+      protontricks.enable = true;
     };
   };
   imports = [ inputs.nix-gaming.nixosModules.platformOptimizations ];
