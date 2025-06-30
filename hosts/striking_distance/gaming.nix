@@ -29,8 +29,6 @@
     ACTION=="add", SUBSYSTEM=="usb", TEST=="power/control", ATTR{power/control}="on"
   '';
 
-  # chaotic.mesa-git.enable = true;
-  # services.scx.enable = true;
   hardware.amdgpu.amdvlk = {
     enable = false;
     support32Bit.enable = false;
@@ -54,8 +52,5 @@
       extraCompatPackages = [pkgs.proton-ge-bin];
     };
   };
-  imports = [
-    inputs.nix-gaming.nixosModules.platformOptimizations
-    # inputs.chaotic.nixosModules.default
-  ];
+  imports = [ inputs.nix-gaming.nixosModules.platformOptimizations ];
 }
