@@ -13,6 +13,7 @@
   home.packages = with pkgs; [
     inputs.zen-browser.packages.${pkgs.system}.default
     inputs.ulauncher.packages.${pkgs.system}.default
+    inputs.grayjay.packages.${pkgs.system}.grayjay
     pulsemixer
     protonmail-desktop
     via
@@ -20,8 +21,6 @@
     obsidian
     playerctl
     spotify
-
-    grayjay
   ];
 
   systemd.user.services = {

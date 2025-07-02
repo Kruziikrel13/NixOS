@@ -71,6 +71,7 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    grayjay.url = "github:Rishabh5321/grayjay-flake";
     zen-browser = {
       url = "github:youwen5/zen-browser-flake";
       inputs.nixpkgs.follows = "nixpkgs";
