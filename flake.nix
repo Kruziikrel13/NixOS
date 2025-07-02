@@ -41,16 +41,6 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    # Extra Inputs
-    ags = {
-      url = "github:aylur/ags/bb06b973062fa62d531602786d81f1b7da7be575";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-    astal = {
-      url = "github:aylur/astal";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-
     quickshell = {
       url = "git+https://git.outfoxxed.me/outfoxxed/quickshell";
       inputs.nixpkgs.follows = "nixpkgs";
