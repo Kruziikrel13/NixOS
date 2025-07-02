@@ -5,7 +5,10 @@
   };
 
   ## For Spotify Sync
-  networking.firewall.allowedTCPPorts = [57621];
+  networking.firewall.allowedTCPPorts = [
+    57621 # Spotify Sync
+    12315 # Grayjay Desktop
+  ];
 
   # TODO Verify
   services.resolved = {
