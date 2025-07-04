@@ -22,7 +22,6 @@
     spotify
   ];
 
-
   programs = {
     feh.enable = true;
     bash = {
@@ -42,7 +41,7 @@
     };
     gh = {
       enable = true;
-      extensions = [ pkgs.gh-contribs pkgs.gh-notify ];
+      extensions = [pkgs.gh-contribs pkgs.gh-notify];
       settings.git_protocol = "ssh";
     };
     mpv.enable = true;
