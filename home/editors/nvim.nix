@@ -22,6 +22,9 @@
       lazygit
       ripgrep
       nixd
+      stylua
+      alejandra
+      statix
       lua-language-server
       copilot-language-server-fhs
       typescript-language-server
