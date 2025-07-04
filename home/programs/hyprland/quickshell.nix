@@ -1,11 +1,17 @@
 {
-config,
-inputs,
-pkgs,
-root,
-...
+  config,
+  inputs,
+  pkgs,
+  root,
+  ...
 }: {
-  home.packages = [inputs.quickshell.packages.${pkgs.system}.default];
+  home.packages = with pkgs; [
+    qt6.qtimageformats
+    qt6.qt5compat
+    qt6.qtmultimedia
+    # qt6.qtdeclarative
+    inputs.quickshell.packages.${pkgs.system}.default
+  ];
   programs.jq.enable = true;
   xdg.configFile.quickshell = {
     enable = true;
@@ -22,8 +28,8 @@ root,
 
       Service = {
         ExecStart = "${
-        inputs.quickshell.packages.${pkgs.system}.default
-      }/bin/quickshell";
+          inputs.quickshell.packages.${pkgs.system}.default
+        }/bin/quickshell";
         Restart = "on-failure";
         KillMode = "mixed";
       };
