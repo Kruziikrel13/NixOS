@@ -9,10 +9,6 @@ import QtQuick
 WrapperItem {
   anchors.verticalCenter: parent.verticalCenter
 
-  Process {
-    id: network
-    command: ["ghostty","--class=ghostty.tui", "-e", "sleep 0.5; nmtui"]
-  }
   WrapperMouseArea {
     id: mouseArea
     acceptedButtons: Qt.LeftButton | Qt.RightButton
@@ -21,7 +17,7 @@ WrapperItem {
       switch (event.button) {
         case Qt.RightButton:
         case Qt.LeftButton:
-        network.running = true
+        Quickshell.execDetached(["ghostty", "--class=ghostty.tui", "-e", "sleep 0.5; nmtui"])
         break;
       }
       event.accepted = true

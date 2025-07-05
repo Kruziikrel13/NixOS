@@ -35,6 +35,7 @@
     nixos-hardware.url = "github:NixOS/nixos-hardware/master";
 
     hyprland.url = "github:hyprwm/Hyprland/9958d297641b5c84dcff93f9039d80a5ad37ab00"; # v0.49.0 Commit Hash
+    grayjay.url = "github:Rishabh5321/grayjay-flake";
 
     lix-module = {
       url = "https://git.lix.systems/lix-project/nixos-module/archive/2.93.0.tar.gz";
@@ -56,7 +57,6 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    grayjay.url = "github:Rishabh5321/grayjay-flake";
     zen-browser = {
       url = "github:youwen5/zen-browser-flake";
       inputs.nixpkgs.follows = "nixpkgs";

@@ -10,16 +10,6 @@ WrapperItem {
   id: root
   anchors.verticalCenter: parent.verticalCenter
 
-  Process {
-    id: pulsemixer
-    command: ["ghostty", "--class=ghostty.tui", "-e", "pulsemixer"]
-  }
-
-  Process {
-    id: mute
-    command: ["bash", "-c", `wpctl set-mute ${Audio.sink?.id} toggle`]
-  }
-
   WrapperMouseArea {
     id: mouseArea
     acceptedButtons: Qt.LeftButton | Qt.RightButton
@@ -27,10 +17,10 @@ WrapperItem {
     onClicked: (event) => {
       switch (event.button) {
         case Qt.LeftButton:
-        mute.running = true
+        Quickshell.execDetached(["bash", "-c", `wpctl set-mute ${Audio.sink?.id} toggle`])
         break;
         case Qt.RightButton:
-        pulsemixer.running = true
+        Quickshell.execDetached(["ghostty", "--class=ghostty.tui", "-e", "pulsemixer"])
         break;
       }
       event.accepted = true

@@ -157,7 +157,7 @@ Scope {
                   Layout.fillWidth: true
                   hoverEnabled: true
                   onClicked: () => {
-                    reboot.running = true;
+                    Quickshell.execDetached(["systemctl", "-i", "reboot"])
                   }
                   Rectangle {
                     radius: height / 8
@@ -174,17 +174,13 @@ Scope {
                       text: "󰜉"
                     }
                   }
-                  Process {
-                    id: reboot
-                    command: [ "systemctl", "reboot" ]
-                  }
                 }
                 WrapperMouseArea {
                   Layout.fillHeight: true
                   Layout.fillWidth: true
                   hoverEnabled: true
                   onClicked: () => {
-                    logout.running = true
+                    Quickshell.execDetached(["uwsm", "stop"])
                   }
                   Rectangle {
                     radius: height / 8
@@ -201,18 +197,13 @@ Scope {
                       text: ""
                     }
                   }
-                  Process {
-                    id: suspend
-                    running: false
-                    command: [ "systemctl", "suspend" ]
-                  }
                 }
                 WrapperMouseArea {
                   Layout.fillHeight: true
                   Layout.fillWidth: true
                   hoverEnabled: true
                   onClicked: () => {
-                    lock.running = true
+                    Quickshell.execDetached(["loginctl", "lock-session"])
                   }
                   Rectangle {
                     radius: height / 8
@@ -229,18 +220,13 @@ Scope {
                       text: ""
                     }
                   }
-                  Process {
-                    id: lock
-                    running: false
-                    command: [ "loginctl", "lock-session" ]
-                  }
                 }
                 WrapperMouseArea {
                   Layout.fillHeight: true
                   Layout.fillWidth: true
                   hoverEnabled: true
                   onClicked: () => {
-                    powerOff.running = true
+                    Quickshell.execDetached(["systemctl", "-i", "poweroff"])
                   }
                   Rectangle {
                     radius: height / 8
@@ -256,11 +242,6 @@ Scope {
                       font.family: Appearance.font.family.icons
                       text: ""
                     }
-                  }
-                  Process {
-                    id: powerOff
-                    running: false
-                    command: [ "systemctl", "-i", "poweroff" ]
                   }
                 }
               }
