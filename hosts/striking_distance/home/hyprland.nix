@@ -23,7 +23,7 @@
 
   xdg.dataFile.wallpaper = {
     enable = true;
-    source = ./wallpaper.jpg;
+    source = ./wallpaper.png;
   };
 
   wayland.windowManager.hyprland = {
