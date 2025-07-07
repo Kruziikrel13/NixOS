@@ -12,6 +12,12 @@
     qt6.qtdeclarative
     inputs.quickshell.packages.${pkgs.system}.default
   ];
+  qt = {
+    enable = true;
+    platformTheme.name = "kde";
+    style.name = "adwaita-dark";
+    style.package = pkgs.adwaita-qt6;
+  };
   programs.jq.enable = true;
   xdg.configFile.quickshell = {
     enable = true;
