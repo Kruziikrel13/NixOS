@@ -21,12 +21,7 @@
       import ./shell.nix {inherit pkgs;});
     formatter =
       forAllSystems (system: nixpkgs.legacyPackages.${system}.alejandra);
-    templates = {
-      shell = {
-        path = ./templates/shell;
-        description = "Minimal Flake Based Developer Shell";
-      };
-    };
+    templates = import ./templates;
   };
   inputs = {
     # Global / System Inputs
