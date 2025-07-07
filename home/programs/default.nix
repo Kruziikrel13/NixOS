@@ -11,7 +11,6 @@
     enableNushellIntegration = true;
   };
   home.packages = with pkgs; [
-    inputs.zen-browser.packages.${pkgs.system}.default
     inputs.grayjay.packages.${pkgs.system}.grayjay
     pulsemixer
     protonmail-desktop
