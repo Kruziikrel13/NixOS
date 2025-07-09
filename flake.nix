@@ -30,10 +30,7 @@
     nixos-hardware.url = "github:NixOS/nixos-hardware/master";
 
     hyprland.url = "github:hyprwm/Hyprland/9958d297641b5c84dcff93f9039d80a5ad37ab00"; # v0.49.0 Commit Hash
-    grayjay = {
-      url = "github:Rishabh5321/grayjay-flake";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
+    grayjay.url = "github:Rishabh5321/grayjay-flake";
 
     quickshell = {
       url = "git+https://git.outfoxxed.me/outfoxxed/quickshell?rev=5d7e07508ae3e5487edb1ac5a152120434f091d5";
