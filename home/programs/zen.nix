@@ -90,7 +90,7 @@ in {
             bookmarks = [
               {
                 name = "Home Manager: Appendix A";
-                url = "https://nix-community.github.io/home-manager/options.html";
+                url = "https://home-manager.dev/manual/25.05/options.xhtml";
               }
               {
                 name = "NixOS Packages Directory";
