@@ -1,4 +1,9 @@
-{pkgs, ...}: {
+{
+  pkgs,
+  lib,
+  config,
+  ...
+}: {
   boot = {
     supportedFilesystems = {
       btrfs = true;
@@ -10,7 +15,7 @@
       themePackages = [pkgs.adi1090x-plymouth-themes];
     };
     tmp.cleanOnBoot = true;
-    kernelParams = ["systemd.show_status=auto" "amd_pstate=active"];
+    kernelParams = ["systemd.show_status=auto" "amd_pstate=active"] ++ lib.optionals config.boot.plymouth.enable ["plymouth.use-simpledrm"];
     loader = {
       timeout = 2;
       efi = {
