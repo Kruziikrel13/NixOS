@@ -33,7 +33,7 @@
     grayjay.url = "github:Rishabh5321/grayjay-flake";
 
     quickshell = {
-      url = "git+https://git.outfoxxed.me/outfoxxed/quickshell?rev=5d7e07508ae3e5487edb1ac5a152120434f091d5";
+      url = "git+https://git.outfoxxed.me/outfoxxed/quickshell?rev=d7079b75241c6e2b67f2429996fa7679ffc052e2";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
