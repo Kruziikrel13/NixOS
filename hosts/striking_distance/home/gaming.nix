@@ -4,5 +4,9 @@
   ...
 }: {
   home.sessionVariables.WINEPREFIX = "${config.xdg.dataHome}/wine";
-  home.packages = with pkgs; [wineWowPackages.wayland winetricks];
+  home.packages = with pkgs; [
+    wineWowPackages.wayland
+    winetricks
+    mumble
+  ];
 }

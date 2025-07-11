@@ -53,5 +53,5 @@
       protontricks.enable = true;
     };
   };
-  imports = [ inputs.nix-gaming.nixosModules.platformOptimizations ];
+  imports = [inputs.nix-gaming.nixosModules.platformOptimizations];
 }
