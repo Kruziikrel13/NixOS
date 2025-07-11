@@ -5,10 +5,6 @@
   ...
 }: {
   boot = {
-    supportedFilesystems = {
-      btrfs = true;
-      ext4 = true;
-    };
     plymouth = {
       enable = true;
       theme = "hexagon_dots_alt";
