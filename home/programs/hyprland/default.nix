@@ -4,12 +4,13 @@
   lib,
   pkgs,
   self,
+  inputs,
   ...
 }: let
   cursor = "Bibata-Modern-Classic-Hyprcursor";
   cursorPackage = self.packages.${pkgs.system}.bibata-hyprcursor;
 in {
-  imports = paths.scanPaths ./.;
+  imports = paths.scanPaths ./. ++ [inputs.hyprland.homeManagerModules.default];
 
   xdg.dataFile."icons/${cursor}".source = "${cursorPackage}/share/icons/${cursor}";
 
