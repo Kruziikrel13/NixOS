@@ -47,9 +47,7 @@
     nix-init.enable = true;
     ghostty = {
       enable = true;
-      enableBashIntegration = true;
-      installBatSyntax = true;
-      installVimSyntax = true;
+      clearDefaultKeybinds = true;
       settings = {
         theme = "GitHub Dark";
         title = "Ghostty";

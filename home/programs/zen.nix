@@ -28,7 +28,7 @@ in {
   programs.zen-browser = {
     enable = true;
     package = pkgs.wrapFirefox (inputs.zen-browser.packages.${pkgs.system}.zen-browser-unwrapped.override {
-      policies = config.programs.zen-browser.policies;
+      inherit (config.programs.zen-browser) policies;
     }) {};
     policies = {
       DisableAppUpdate = true;

@@ -26,7 +26,7 @@
       alejandra
       statix
       lua-language-server
-      copilot-language-server-fhs
+      copilot-language-server
       typescript-language-server
     ];
   };
