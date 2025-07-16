@@ -10,6 +10,7 @@
       theme = "hexagon_dots_alt";
       themePackages = [
         (pkgs.adi1090x-plymouth-themes.overrideAttrs (old: {
+          # Fixes off centering of themes on multiple monitors
           installPhase =
             old.installPhase
             + ''
@@ -19,6 +20,7 @@
         }))
       ];
     };
+    initrd.systemd.enable = true;
     tmp.cleanOnBoot = true;
     kernelParams = ["systemd.show_status=auto" "amd_pstate=active"] ++ lib.optionals config.boot.plymouth.enable ["plymouth.use-simpledrm"];
     loader = {
