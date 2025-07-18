@@ -24,7 +24,7 @@
     tmp.cleanOnBoot = true;
     kernelParams = ["systemd.show_status=auto" "amd_pstate=active"] ++ lib.optionals config.boot.plymouth.enable ["plymouth.use-simpledrm"];
     loader = {
-      timeout = 2;
+      timeout = 5;
       efi = {
         canTouchEfiVariables = true;
         efiSysMountPoint = "/boot";
