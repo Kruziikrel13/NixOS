@@ -29,7 +29,7 @@
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
     nixos-hardware.url = "github:NixOS/nixos-hardware/master";
 
-    hyprland.url = "github:hyprwm/Hyprland/9958d297641b5c84dcff93f9039d80a5ad37ab00"; # v0.49.0 Commit Hash
+    hyprland.url = "github:hyprwm/Hyprland?ref=v0.50.0";
     grayjay.url = "github:Rishabh5321/grayjay-flake";
 
     quickshell = {
