@@ -1,4 +1,9 @@
-{config, ...}: let
+{
+  config,
+  osConfig,
+  lib,
+  ...
+}: let
   cursorName = "Bibata-Modern-Classic-Hyprcursor";
 in {
   wayland.windowManager.hyprland.settings = {
@@ -7,6 +12,10 @@ in {
       "HYPRCURSOR_THEME,${cursorName}"
       "HYPRCURSOR_SIZE,${toString config.home.pointerCursor.size}"
     ];
+    source = lib.mkIf (osConfig.hyprland.monitors != null || osConfig.hyprland.workspaces != null) (
+      (lib.optional (osConfig.hyprland.monitors != null) "${config.xdg.configHome}/hypr/monitors.conf")
+      ++ (lib.optional (osConfig.hyprland.workspaces != null) "${config.xdg.configHome}/hypr/workspaces.conf")
+    );
 
     exec-once = [
       "uwsm finalize"
