@@ -1,5 +1,9 @@
-{paths, ...}: {
-  imports = paths.scanPaths ./.;
+{
+  paths,
+  self,
+  ...
+}: {
+  imports = paths.scanPaths ./. ++ [self.nixosModules.hyprland];
 
   networking.hostName = "striking-distance";
 
@@ -18,7 +22,7 @@
   };
   services.ratbagd.enable = true;
 
-  hyprland = {
+  programs.hyprland = {
     monitors = [
       "desc:GIGA-BYTE TECHNOLOGY CO. LTD. AORUS FI32U 21440B000115,3840x2160@144.0,1920x0,1.0"
       "desc:ViewSonic Corporation VX2758-C-MH V9M184500179,1920x1080@60.0,5760x849,1.0"

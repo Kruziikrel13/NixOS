@@ -2,12 +2,14 @@
   pkgs,
   paths,
   inputs,
+  self,
   ...
 }: {
   imports =
     paths.scanPaths ./.
     ++ [
       inputs.nixos-hardware.nixosModules.lenovo-ideapad-slim-5
+      self.nixosModules.hyprland
     ];
   networking.hostName = "aridhol";
   services = {
@@ -36,7 +38,9 @@
     powerOnBoot = true;
   };
 
-  hyprland.monitors = [
-    "desc:Chimei Innolux Corporation 0x1553,1920x1080@60.0,0x0,0.9999999999999997,bitdepth,10"
-  ];
+  programs.hyprland = {
+    monitors = [
+      "desc:Chimei Innolux Corporation 0x1553,1920x1080@60.0,0x0,0.9999999999999997,bitdepth,10"
+    ];
+  };
 }

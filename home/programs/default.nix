@@ -1,11 +1,12 @@
 {
   paths,
+  self,
   pkgs,
   inputs,
   config,
   ...
 }: {
-  imports = paths.scanPaths ./.;
+  imports = [self.homeManagerModules.hyprland] ++ paths.scanPaths ./.;
   home.shell = {
     enableBashIntegration = true;
     enableNushellIntegration = true;
@@ -19,6 +20,7 @@
     obsidian
     playerctl
     spotify
+    unityhub
   ];
 
   programs = {

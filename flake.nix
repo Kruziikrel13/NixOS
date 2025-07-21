@@ -13,7 +13,7 @@
     modules = import ./modules self inputs;
   in {
     nixosConfigurations = import ./hosts {inherit self nixpkgs inputs;};
-    inherit (modules) homeManagerModules;
+    inherit (modules) homeManagerModules nixosModules;
     packages =
       forAllSystems
       (system: import ./packages nixpkgs.legacyPackages.${system});
