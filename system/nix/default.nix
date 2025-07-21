@@ -3,7 +3,6 @@
   lib,
   inputs,
   config,
-pkgs,
   ...
 }: {
   imports = paths.scanPaths ./.;
@@ -14,7 +13,6 @@ pkgs,
   environment.stub-ld.enable = true;
   nixpkgs.config.allowUnfree = true;
   nix = {
-    package = pkgs.lix;
     channel.enable = false;
     # pin the registry to avoid downloading and evaling a new nixpkgs version every time
     registry =
