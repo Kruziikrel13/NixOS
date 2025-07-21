@@ -16,7 +16,6 @@ let
   toggle = program: let
     prog = builtins.substring 0 14 program;
   in "pkill ${prog} || uwsm app -- ${program}";
-  once = program: "pgrep ${program} || uwsm app -- ${program}";
 in {
   wayland.windowManager.hyprland.settings = {
     bindm = [
