@@ -21,7 +21,7 @@ in {
   config = lib.mkIf osConfig.programs.hyprland.enable {
     xdg.dataFile."icons/${cursor}".source = "${cursorPackage}/share/icons/${cursor}";
 
-    programs.bash.profileExtra = lib.mkIf (osConfig.programs.hyprland.withUWSM) ''
+    programs.bash.profileExtra = lib.mkIf osConfig.programs.hyprland.withUWSM ''
       if uwsm check may-start; then
         exec uwsm start hyprland-uwsm.desktop
       fi
