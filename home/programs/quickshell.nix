@@ -6,10 +6,10 @@
   ...
 }: let
   inherit (lib.modules) mkIf;
-in
-  mkIf osConfig.programs.hyprland.enable {
-    imports = [self.homeManagerModules.quickshell];
+in {
+  imports = [self.homeManagerModules.quickshell];
 
+  config = mkIf osConfig.programs.hyprland.enable {
     programs.quickshell = {
       enable = true;
       systemd.enable = true;
@@ -22,4 +22,5 @@ in
       platformTheme.name = "qtct";
       style.name = "adwaita";
     };
-  }
+  };
+}
