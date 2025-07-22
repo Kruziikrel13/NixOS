@@ -6,7 +6,7 @@
   lib,
   ...
 }: let
-  inherit (lib) mkOverride;
+  inherit (lib) mkForce;
 in {
   imports =
     paths.scanPaths ./.
@@ -18,10 +18,10 @@ in {
   services = {
     libinput.enable = true;
     blueman.enable = true;
-    tlp.enable = true;
+    # tlp.enable = true;
     thermald.enable = true;
     auto-cpufreq = {
-      enable = true;
+      # enable = true;
       settings = {
         battery = {
           governor = "powersave";
@@ -46,8 +46,10 @@ in {
     wayland = true;
   };
 
+  services.desktopManager.gnome.enable = true;
+
   programs.hyprland = {
-    enable = mkOverride false;
+    enable = mkForce false;
     monitors = [
       "desc:Chimei Innolux Corporation 0x1553,1920x1080@60.0,0x0,0.9999999999999997,bitdepth,10"
     ];
