@@ -12,16 +12,12 @@ self: hyprland: {
 in {
   imports =
     [hyprland.homeManagerModules.default]
-    ++ (
-      if osCfg.enable
-      then [
-        ./services
-        ./binds.nix
-        ./rules.nix
-        ./settings.nix
-      ]
-      else []
-    );
+    ++ lib.optionals osCfg.enable [
+      ./services
+      ./binds.nix
+      ./rules.nix
+      ./settings.nix
+    ];
 
   config = mkIf osCfg.enable {
     programs.bash.profileExtra = lib.mkIf osCfg.withUWSM ''
