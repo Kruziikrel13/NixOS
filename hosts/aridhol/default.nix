@@ -46,6 +46,14 @@ in {
     wayland = true;
   };
 
+  services.gnome.gnome-browser-connector.enable = true;
+
+  environment.systemPackages = with pkgs; [
+    whitesur-cursors
+    whitesur-gtk-theme
+    whitesur-icon-theme
+  ];
+
   services.desktopManager.gnome.enable = true;
 
   programs.hyprland = {

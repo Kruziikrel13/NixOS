@@ -27,6 +27,7 @@ in {
 
   programs.zen-browser = {
     enable = true;
+    enableGnomeExtensions = true;
     package = pkgs.wrapFirefox (inputs.zen-browser.packages.${pkgs.system}.zen-browser-unwrapped.override {
       inherit (config.programs.zen-browser) policies;
     }) {};
