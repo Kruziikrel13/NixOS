@@ -1,36 +1,7 @@
-{
-  inputs,
-  pkgs,
-  config,
-  ...
-}: let
-  mkFirefoxModule = import "${inputs.home-manager.outPath}/modules/programs/firefox/mkFirefoxModule.nix";
-in {
-  imports = [
-    (mkFirefoxModule {
-      modulePath = [
-        "programs"
-        "zen-browser"
-      ];
-      name = "Zen Browser";
-      wrappedPackageName = "zen-browser";
-      unwrappedPackageName = "zen-browser-unwrapped";
-      visible = true;
-      platforms = {
-        linux = {
-          vendorPath = ".zen";
-          configPath = ".zen";
-        };
-      };
-    })
-  ];
-
+{inputs, ...}: {
+  imports = [inputs.zen-browser.homeModules.twilight];
   programs.zen-browser = {
     enable = true;
-    enableGnomeExtensions = true;
-    package = pkgs.wrapFirefox (inputs.zen-browser.packages.${pkgs.system}.zen-browser-unwrapped.override {
-      inherit (config.programs.zen-browser) policies;
-    }) {};
     policies = {
       DisableAppUpdate = true;
       DisableTelemetry = true;
