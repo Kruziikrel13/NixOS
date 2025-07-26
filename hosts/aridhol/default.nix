@@ -13,6 +13,7 @@ in {
     ++ [
       inputs.nixos-hardware.nixosModules.lenovo-ideapad-slim-5
       self.nixosModules.hyprland
+      self.nixosModules.gnome
     ];
   networking.hostName = "aridhol";
   services = {
@@ -41,20 +42,13 @@ in {
     powerOnBoot = true;
   };
 
-  services.displayManager.gdm = {
-    enable = true;
-    wayland = true;
-  };
-
-  services.gnome.gnome-browser-connector.enable = true;
+  programs.gnome.enable = true;
 
   environment.systemPackages = with pkgs; [
     whitesur-cursors
     whitesur-gtk-theme
     whitesur-icon-theme
   ];
-
-  services.desktopManager.gnome.enable = true;
 
   programs.hyprland = {
     enable = mkForce false;
