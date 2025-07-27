@@ -30,53 +30,6 @@
       name = "personal";
       path = "Profiles/home.personal";
       search.default = "ddg";
-      bookmarks = {
-        force = true;
-        settings = [
-          {
-            name = "Github Repositories";
-            bookmarks = [
-              {
-                name = "Kruziikrel13/NixOS";
-                url = "https://github.com/Kruziikrel13/NixOS";
-              }
-              {
-                name = "Kruziikrel13/sentinel.nvim";
-                url = "https://github.com/Kruziikrel13/sentinel.nvim";
-              }
-              {
-                name = "hyprwm/Hyprland";
-                url = "https://github.com/hyprwm/Hyprland";
-              }
-              {
-                name = "quickshell/quickshell";
-                url = "https://git.outfoxxed.me/quickshell/quickshell";
-              }
-              {
-                name = "futo-org/Grayjay.Desktop";
-                url = "https://github.com/futo-org/Grayjay.Desktop";
-              }
-            ];
-          }
-          {
-            name = "Nix Packages";
-            bookmarks = [
-              {
-                name = "Home Manager: Appendix A";
-                url = "https://home-manager.dev/manual/25.05/options.xhtml";
-              }
-              {
-                name = "NixOS Packages Directory";
-                url = "https://search.nixos.org/packages";
-              }
-            ];
-          }
-          {
-            name = "Home - Student - QUT Portal";
-            url = "https://qutvirtual4.qut.edu.au/group/student/home";
-          }
-        ];
-      };
       settings = {
         "zen.urlbar.replace-newtab" = false;
         "zen.view.sidebar-expanded" = false;
