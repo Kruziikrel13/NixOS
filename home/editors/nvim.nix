@@ -28,6 +28,7 @@
       lua-language-server
       copilot-language-server
       typescript-language-server
+      fzf
     ];
   };
 }
