@@ -22,7 +22,7 @@
   inputs = {
     # Global / System Inputs
     systems.url = "github:nix-systems/default-linux";
-    nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
+    nixpkgs.url = "github:nixos/nixpkgs?ref=7fd36ee82c0275fb545775cc5e4d30542899511d";
     nixos-hardware.url = "github:NixOS/nixos-hardware/master";
 
     hyprland.url = "github:hyprwm/Hyprland?ref=v0.50.1";
