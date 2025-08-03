@@ -20,7 +20,6 @@
     obsidian
     playerctl
     spotify
-    unityhub
   ];
 
   programs = {
