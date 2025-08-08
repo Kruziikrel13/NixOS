@@ -22,9 +22,7 @@
     fd.enable = true;
     bat.enable = true;
     bottom.enable = true;
-    nushell.enable = true;
-    gitui.enable = true;
-    zellij.enable = true;
+    nushell.enable = false;
     helix = {
       enable = true;
       package = pkgs.evil-helix;
