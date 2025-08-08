@@ -16,7 +16,6 @@
     pulsemixer
     protonmail-desktop
     via
-    heroic
     obsidian
     playerctl
     spotify
@@ -36,6 +35,7 @@
     };
     git = {
       enable = true;
+      lfs.enable = true;
       userEmail = "dev@michaelpetersen.io";
       userName = config.home.username;
     };
@@ -44,7 +44,12 @@
       extensions = [pkgs.gh-contribs pkgs.gh-notify];
       settings.git_protocol = "ssh";
     };
-    mpv.enable = true;
+    mpv = {
+      enable = true;
+      bindings = {
+        r = "cycle_values video-rotate 90 180 270 0";
+      };
+    };
     nix-init.enable = true;
     ghostty = {
       enable = true;
