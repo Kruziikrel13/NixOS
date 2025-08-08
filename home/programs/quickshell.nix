@@ -19,8 +19,8 @@ in {
 
     qt = {
       enable = true;
-      platformTheme.name = "qtct";
-      style.name = "adwaita";
+      platformTheme.name = "adwaita";
+      style.name = "adwaita-dark";
     };
   };
 }
