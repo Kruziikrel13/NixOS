@@ -32,6 +32,7 @@
       url = "git+https://git.outfoxxed.me/outfoxxed/quickshell";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    sherlock.url = "github:Skxxtz/sherlock";
 
     home-manager = {
       url = "github:nix-community/home-manager";
