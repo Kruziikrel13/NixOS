@@ -77,9 +77,9 @@ in {
       };
 
       Service = {
-        ExecReload = "${getExe cfg.finalPackage} kill";
+        ExecStop = "${getExe cfg.finalPackage} kill";
         ExecStart = "${getExe cfg.finalPackage}";
-        Restart = "on-failure";
+        Restart = "always";
         KillMode = "mixed";
       };
 
