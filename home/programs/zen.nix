@@ -31,7 +31,10 @@
       isDefault = true;
       name = "personal";
       path = "Profiles/home.personal";
-      search.default = "ddg";
+      search = {
+        force = true;
+        default = "ddg";
+      };
       settings = {
         "zen.urlbar.replace-newtab" = false;
         "zen.view.sidebar-expanded" = false;
