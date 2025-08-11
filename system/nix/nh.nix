@@ -1,14 +1,25 @@
 {
   config,
   root,
+  lib,
   ...
-}: {
-  programs.nh.enable = true;
+}: let
+  inherit (lib.meta) getExe;
+  exe = getExe config.programs.nh.package;
+in {
+  programs.nh = {
+    enable = true;
+    clean = {
+      enable = true;
+      extraArgs = "--keep 5";
+    };
+    flake = root;
+  };
 
   environment.shellAliases = {
     nixos-edit = "cd ${root}; nvim; cd -";
-    nixos-build = "${config.programs.nh.package}/bin/nh os switch ${root}";
-    nixos-upgrade = "${config.programs.nh.package}/bin/nh os switch ${root} --update";
-    nixos-clean = "${config.programs.nh.package}/bin/nh clean all --nogcroots";
+    nixos-build = "${exe} os switch";
+    nixos-upgrade = "${exe} os switch --update";
+    nixos-clean = "${exe} clean all --nogcroots";
   };
 }
