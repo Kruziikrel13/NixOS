@@ -14,5 +14,5 @@
   };
 in {
   programs.obs-studio.enable = true;
-  home.packages = [pkgs.slack pkgs-master.unityhub];
+  home.packages = [pkgs.slack pkgs-master.unityhub pkgs.jetbrains.rider];
 }
