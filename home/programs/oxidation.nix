@@ -33,10 +33,6 @@
       git = true;
       icons = "auto";
     };
-    yazi = {
-      enable = true;
-      enableBashIntegration = true;
-    };
     zoxide = {
       enable = true;
       enableBashIntegration = true;
