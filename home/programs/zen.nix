@@ -5,6 +5,8 @@
     policies = {
       DisableAppUpdate = true;
       DisableTelemetry = true;
+      NoDefaultBookmarks = false;
+      OfferToSaveLogins = false;
       ExtensionSettings = {
         "extension@tabliss-maintained" = {
           install_url = "https://addons.mozilla.org/firefox/downloads/latest/tablissng/latest.xpi";
