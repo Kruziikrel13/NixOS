@@ -38,7 +38,10 @@
     };
 
     # Applications
-    sherlock.url = "github:Skxxtz/sherlock";
+    sherlock = {
+      url = "github:Skxxtz/sherlock";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
     nh.url = "github:nix-community/nh?ref=1b80ec22d3ab66fa806e14cceec3457984226d37";
     grayjay.url = "github:Rishabh5321/grayjay-flake";
     zen-browser = {
