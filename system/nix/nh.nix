@@ -2,13 +2,18 @@
   config,
   root,
   lib,
+  inputs,
+  pkgs,
   ...
 }: let
   inherit (lib.meta) getExe;
+  inherit (inputs) nh;
+  inherit (pkgs) system;
   exe = getExe config.programs.nh.package;
 in {
   programs.nh = {
     enable = true;
+    package = nh.packages.${system}.default;
     clean = {
       enable = true;
       extraArgs = "--keep 5";
