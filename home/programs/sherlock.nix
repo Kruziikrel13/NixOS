@@ -32,19 +32,6 @@
 
       launchers = [
         {
-          name = "Weather";
-          type = "weather";
-          args = {
-            location = "brisbane, australia";
-            update_interval = 60;
-          };
-          home = "OnlyHome";
-          priority = 1;
-          async = true;
-          shortcut = false;
-          spawn_focus = false;
-        }
-        {
           name = "App Launcher";
           type = "app_launcher";
           args = {};
