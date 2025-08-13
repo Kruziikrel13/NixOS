@@ -33,9 +33,11 @@
     "dimaround, class:ghostty.tui"
 
     # Workspace Assignments
-    "workspace 8 silent, title:^(Proton Mail)$"
-    "workspace 9 silent, class:^(vesktop)$"
-    "workspace 10 silent, class:^(spotify)$"
+    "workspace 2, title:^(steam)$"
+    "workspace 8, title:^(Proton Mail)$"
+    "workspace 9, class:^(Slack)$"
+    "workspace 9, class:^(vesktop)$"
+    "workspace 10, class:^(spotify)$"
 
     # PiP
     "float, title:^(Picture-in-Picture)$"
