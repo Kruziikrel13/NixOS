@@ -91,11 +91,10 @@ in {
         debug = cfg.enableDebug;
         withI3 = cfg.supportI3;
         withX11 = cfg.supportX11;
-      }).overrideAttrs (prev: {
-        buildInputs =
-          if cfg.extraPackages != []
-          then (prev.buildInputs or []) ++ cfg.extraPackages
-          else prev.buildInputs;
-      });
+      }).withModules (
+        if cfg.extraPackages != []
+        then cfg.extraPackages
+        else []
+      );
   };
 }
