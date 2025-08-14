@@ -21,7 +21,7 @@
   };
   inputs = {
     # Global / System Inputs
-    nixpkgs.url = "github:nixos/nixpkgs?ref=7fd36ee82c0275fb545775cc5e4d30542899511d";
+    nixpkgs.url = "github:nixos/nixpkgs";
     nixos-hardware.url = "github:NixOS/nixos-hardware/master";
     home-manager = {
       url = "github:nix-community/home-manager";
@@ -29,7 +29,7 @@
     };
 
     # Desktop
-    hyprland.url = "github:hyprwm/Hyprland?rev=aa6a78f0a4e17c49ed4aff8b58c3f7ec7ef0408f";
+    hyprland.url = "github:hyprwm/Hyprland";
     quickshell = {
       url = "git+https://git.outfoxxed.me/outfoxxed/quickshell";
       inputs.nixpkgs.follows = "nixpkgs";
