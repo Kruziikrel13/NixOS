@@ -7,22 +7,21 @@
   ...
 }: {
   imports = [self.homeManagerModules.hyprland] ++ paths.scanPaths ./.;
-  home.shell = {
-    enableBashIntegration = true;
-    enableNushellIntegration = true;
-  };
+  home.shell.enableBashIntegration = true;
   home.packages = with pkgs; [
     inputs.grayjay.packages.${pkgs.system}.grayjay
     pulsemixer
     protonmail-desktop
     via
-    obsidian
     playerctl
     spotify
+
+    slack
   ];
 
   programs = {
-    feh.enable = true;
+    nix-init.enable = true;
+    obsidian.enable = true;
     bash = {
       enable = true;
       enableCompletion = true;
@@ -50,7 +49,6 @@
         r = "cycle_values video-rotate 90 180 270 0";
       };
     };
-    nix-init.enable = true;
     ghostty = {
       enable = true;
       clearDefaultKeybinds = true;
