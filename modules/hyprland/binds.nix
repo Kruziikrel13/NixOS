@@ -36,8 +36,8 @@ in {
         "$mod, T, togglefloating"
         "$mod, C, centerwindow"
 
-        "$mod, L, movefocus, l"
-        "$mod, H, movefocus, r"
+        "$mod, L, movefocus, r"
+        "$mod, H, movefocus, l"
         "$mod, K, movefocus, u"
         "$mod, J, movefocus, d"
 
