@@ -22,6 +22,7 @@ in {
   };
 
   environment.shellAliases = {
+    search = "${exe} search";
     nixos-edit = "cd ${root}; nvim; cd -";
     nixos-build = "${exe} os switch";
     nixos-upgrade = "${exe} os switch --update";
