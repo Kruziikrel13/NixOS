@@ -8,5 +8,6 @@
     wineWowPackages.wayland
     winetricks
     mumble
+    heroic
   ];
 }
