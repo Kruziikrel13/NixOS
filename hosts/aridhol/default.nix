@@ -3,26 +3,22 @@
   paths,
   inputs,
   self,
-  lib,
   ...
-}: let
-  inherit (lib) mkForce;
-in {
+}: {
   imports =
     paths.scanPaths ./.
     ++ [
       inputs.nixos-hardware.nixosModules.lenovo-ideapad-slim-5
       self.nixosModules.hyprland
-      self.nixosModules.gnome
     ];
   networking.hostName = "aridhol";
   services = {
     libinput.enable = true;
     blueman.enable = true;
-    # tlp.enable = true;
+    tlp.enable = true;
     thermald.enable = true;
     auto-cpufreq = {
-      # enable = true;
+      enable = true;
       settings = {
         battery = {
           governor = "powersave";
@@ -42,16 +38,7 @@ in {
     powerOnBoot = true;
   };
 
-  programs.gnome.enable = true;
-
-  environment.systemPackages = with pkgs; [
-    whitesur-cursors
-    whitesur-gtk-theme
-    whitesur-icon-theme
-  ];
-
   programs.hyprland = {
-    enable = mkForce false;
     monitors = [
       "desc:Chimei Innolux Corporation 0x1553,1920x1080@60.0,0x0,0.9999999999999997,bitdepth,10"
     ];
