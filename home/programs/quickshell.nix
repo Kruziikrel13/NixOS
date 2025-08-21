@@ -22,5 +22,21 @@ in {
       platformTheme.name = "adwaita";
       style.name = "adwaita-dark";
     };
+
+    wayland.windowManager.hyprland = {
+      settings = {
+        bind = [
+          "$mod, E, exec, quickshell ipc call powermenu toggle"
+        ];
+        layerrule = [
+          "animation slide, shell:bar"
+          "animation slide right, shell:powermenu"
+          "ignorezero, shell:bar"
+          "blur, shell:bar"
+          "blur, shell:notifications"
+          "ignorealpha 0.1, shell:notifications"
+        ];
+      };
+    };
   };
 }
