@@ -39,6 +39,7 @@
   };
 
   programs.hyprland = {
+    laptopSupport = true;
     monitors = [
       "desc:Chimei Innolux Corporation 0x1553,1920x1080@60.0,0x0,0.9999999999999997,bitdepth,10"
     ];
