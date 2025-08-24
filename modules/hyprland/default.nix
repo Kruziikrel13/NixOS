@@ -6,13 +6,14 @@ self: hyprland: home-manager: {
 }: let
   inherit (lib.modules) mkIf;
   inherit (lib.types) nullOr listOf str;
-  inherit (lib.options) mkOption;
+  inherit (lib.options) mkOption mkEnableOption;
 
   cfg = config.programs.hyprland;
 in {
   imports = [hyprland.nixosModules.default home-manager.nixosModules.default];
 
   options.programs.hyprland = {
+    laptopSupport = mkEnableOption "Enable additional configuration for laptops.";
     monitors = mkOption {
       type = nullOr (listOf str);
       default = null;
