@@ -6,7 +6,7 @@
 }: {
   boot = {
     plymouth = {
-      enable = true;
+      enable = false;
       theme = "hexagon_dots_alt";
       themePackages = [
         (pkgs.adi1090x-plymouth-themes.overrideAttrs (old: {
@@ -37,6 +37,5 @@
       };
     };
   };
-
   # TODO Support CPU Power Here? Or Kernel Specific CPU Power Support in Hosts
 }
