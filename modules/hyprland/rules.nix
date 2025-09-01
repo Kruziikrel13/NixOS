@@ -2,6 +2,8 @@
   wayland.windowManager.hyprland.settings.windowrule = [
     # Floating Windows
     "float, title:^(Friends List)$, class:^(steam)$"
+    "float, title:^(Steam Settings)$, class:^(steam)$"
+    "float, title:^(Wine)$, class:^(wineboot.exe)$"
 
     # Games
     # "content game, class:^(steam_app_.*)$"
