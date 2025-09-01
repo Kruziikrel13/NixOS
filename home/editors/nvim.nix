@@ -23,7 +23,7 @@
       ripgrep
       nixd
       stylua
-      alejandra
+      nixfmt
       statix
       lua-language-server
       copilot-language-server
