@@ -1,4 +1,5 @@
-{pkgs, ...}: {
+{ pkgs, ... }:
+{
   hardware = {
     firmware = [ pkgs.linux-firmware ];
     cpu.amd = {

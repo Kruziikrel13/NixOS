@@ -42,7 +42,7 @@ _: {
       "net.ipv4.tcp_congestion_control" = "bbr";
       "net.core.default_qdisc" = "cake";
     };
-    kernelModules = ["tcp_bbr"];
+    kernelModules = [ "tcp_bbr" ];
     loader.systemd-boot.memtest86.enable = true;
   };
 

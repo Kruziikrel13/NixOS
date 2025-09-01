@@ -2,7 +2,8 @@
   inputs,
   pkgs,
   ...
-}: {
+}:
+{
   programs.sherlock = {
     enable = true;
     systemd.enable = true;
@@ -16,8 +17,12 @@
       };
     };
     aliases = {
-      vesktop = {name = "Discord";};
-      zen = {name = "firefox";};
+      vesktop = {
+        name = "Discord";
+      };
+      zen = {
+        name = "firefox";
+      };
     };
     ignore = ''
       Qt*
@@ -33,7 +38,7 @@
       {
         name = "App Launcher";
         type = "app_launcher";
-        args = {};
+        args = { };
         priority = 2;
         home = "Home";
       }

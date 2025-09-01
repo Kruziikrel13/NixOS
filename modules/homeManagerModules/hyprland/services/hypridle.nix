@@ -1,6 +1,8 @@
-{config, ...}: let
+{ config, ... }:
+let
   monitors = "${config.xdg.configHome}/hypr/monitors.conf";
-in {
+in
+{
   services.hypridle = {
     enable = true;
     settings = {

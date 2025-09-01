@@ -5,8 +5,9 @@
   inputs,
   config,
   ...
-}: {
-  imports = [self.homeManagerModules.hyprland] ++ paths.scanPaths ./.;
+}:
+{
+  imports = [ self.homeManagerModules.hyprland ] ++ paths.scanPaths ./.;
   home.shell.enableBashIntegration = true;
   home.packages = with pkgs; [
     inputs.grayjay.packages.${pkgs.system}.grayjay
@@ -45,7 +46,10 @@
     };
     gh = {
       enable = true;
-      extensions = [pkgs.gh-contribs pkgs.gh-notify];
+      extensions = [
+        pkgs.gh-contribs
+        pkgs.gh-notify
+      ];
       settings.git_protocol = "ssh";
     };
     mpv = {

@@ -1,4 +1,5 @@
-{config, ...}: {
+{ config, ... }:
+{
   programs.hyprlock = {
     enable = true;
     extraConfig = ''
@@ -52,7 +53,9 @@
       }
     '';
     settings = {
-      general = {hide_cursor = true;};
+      general = {
+        hide_cursor = true;
+      };
       input-field = [
         {
           monitor = "DP-1";

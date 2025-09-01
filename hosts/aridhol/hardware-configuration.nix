@@ -6,55 +6,64 @@
   lib,
   modulesPath,
   ...
-}: {
+}:
+{
   imports = [
     (modulesPath + "/installer/scan/not-detected.nix")
   ];
 
   boot = {
     initrd = {
-      availableKernelModules = ["nvme" "xhci_pci" "ahci" "sdhci_pci"];
-      kernelModules = [];
+      availableKernelModules = [
+        "nvme"
+        "xhci_pci"
+        "ahci"
+        "sdhci_pci"
+      ];
+      kernelModules = [ ];
       luks.devices."enc".device = "/dev/disk/by-uuid/a95aa5e1-a1e6-47be-b78f-663246bfd078";
     };
-    kernelModules = ["kvm-amd"];
-    extraModulePackages = [];
+    kernelModules = [ "kvm-amd" ];
+    extraModulePackages = [ ];
   };
 
   fileSystems = {
     "/" = {
       device = "/dev/disk/by-uuid/158c17d8-d90d-443d-ab0d-8ebce12758db";
       fsType = "btrfs";
-      options = ["subvol=root"];
+      options = [ "subvol=root" ];
     };
     "/nix" = {
       device = "/dev/disk/by-uuid/158c17d8-d90d-443d-ab0d-8ebce12758db";
       fsType = "btrfs";
-      options = ["subvol=nix"];
+      options = [ "subvol=nix" ];
     };
     "/var/log" = {
       device = "/dev/disk/by-uuid/158c17d8-d90d-443d-ab0d-8ebce12758db";
       fsType = "btrfs";
-      options = ["subvol=log"];
+      options = [ "subvol=log" ];
     };
     "/home" = {
       device = "/dev/disk/by-uuid/158c17d8-d90d-443d-ab0d-8ebce12758db";
       fsType = "btrfs";
-      options = ["subvol=home"];
+      options = [ "subvol=home" ];
     };
     "/persist" = {
       device = "/dev/disk/by-uuid/158c17d8-d90d-443d-ab0d-8ebce12758db";
       fsType = "btrfs";
-      options = ["subvol=persist"];
+      options = [ "subvol=persist" ];
     };
     "/boot" = {
       device = "/dev/disk/by-uuid/1F99-8700";
       fsType = "vfat";
-      options = ["fmask=0022" "dmask=0022"];
+      options = [
+        "fmask=0022"
+        "dmask=0022"
+      ];
     };
   };
 
-  swapDevices = [];
+  swapDevices = [ ];
 
   networking = {
     useDHCP = lib.mkDefault true;

@@ -2,7 +2,8 @@
   pkgs,
   inputs,
   ...
-}: {
+}:
+{
   # Performance
   ## Xanmod may handle commented out boot kernel opts
   boot = {
@@ -21,7 +22,7 @@
     ];
   };
   powerManagement.cpuFreqGovernor = "performance";
-  environment.systemPackages = with pkgs; [steam-devices-udev-rules];
+  environment.systemPackages = with pkgs; [ steam-devices-udev-rules ];
 
   # See Keychron Support on Wiki https://github.com/Kruziikrel13/NixOS/wiki/Hardware-Fixes#keychron-keyboards
   services.udev.extraRules = ''
@@ -58,10 +59,10 @@
     steam = {
       enable = true;
       platformOptimizations.enable = true;
-      extraCompatPackages = [pkgs.proton-ge-bin];
+      extraCompatPackages = [ pkgs.proton-ge-bin ];
       gamescopeSession.enable = true;
       protontricks.enable = true;
     };
   };
-  imports = [inputs.nix-gaming.nixosModules.platformOptimizations];
+  imports = [ inputs.nix-gaming.nixosModules.platformOptimizations ];
 }

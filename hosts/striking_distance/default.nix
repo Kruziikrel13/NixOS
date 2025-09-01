@@ -2,8 +2,9 @@
   paths,
   self,
   ...
-}: {
-  imports = paths.scanPaths ./. ++ [self.nixosModules.hyprland];
+}:
+{
+  imports = paths.scanPaths ./. ++ [ self.nixosModules.hyprland ];
 
   networking.hostName = "striking-distance";
 

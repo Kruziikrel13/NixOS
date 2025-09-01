@@ -1,4 +1,5 @@
-{pkgs, ...}: {
+{ pkgs, ... }:
+{
   home = {
     packages = with pkgs; [
       uutils-coreutils-noprefix
@@ -36,7 +37,7 @@
     zoxide = {
       enable = true;
       enableBashIntegration = true;
-      options = ["--cmd cd"];
+      options = [ "--cmd cd" ];
     };
   };
 }

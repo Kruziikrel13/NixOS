@@ -1,4 +1,5 @@
-{username, ...}: {
+{ username, ... }:
+{
   users.users.${username} = {
     isNormalUser = true;
     description = "Primary user account for system";

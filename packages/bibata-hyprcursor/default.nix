@@ -11,84 +11,95 @@
   outlineColor ? "#FFFFFF",
   watchBackgroundColor ? "#000000",
   colorName ? "classic",
-}: let
-  capitalize = str: let
-    capital_letter = builtins.substring 0 1 str;
-    non_capital = lib.removePrefix capital_letter str;
-  in
+}:
+let
+  capitalize =
+    str:
+    let
+      capital_letter = builtins.substring 0 1 str;
+      non_capital = lib.removePrefix capital_letter str;
+    in
     lib.toUpper capital_letter + non_capital;
 
   themeName = "Bibata-${capitalize variant}-${capitalize colorName}-Hyprcursor";
 in
-  assert builtins.elem variant [
-    "modern"
-    "modern-right"
-    "original"
-    "original-right"
+assert builtins.elem variant [
+  "modern"
+  "modern-right"
+  "original"
+  "original-right"
+];
+stdenvNoCC.mkDerivation (final: {
+  pname = "bibata-hyprcursor";
+  version = "v2.0.7";
+
+  src = fetchFromGitHub {
+    owner = "ful1e5";
+    repo = "Bibata_Cursor";
+    rev = final.version;
+    hash = "sha256-kIKidw1vditpuxO1gVuZeUPdWBzkiksO/q2R/+DUdEc=";
+  };
+
+  nativeBuildInputs = [
+    python3
+    python3Packages.tomli
+    python3Packages.tomli-w
+    hyprcursor
   ];
-    stdenvNoCC.mkDerivation (final: {
-      pname = "bibata-hyprcursor";
-      version = "v2.0.7";
 
-      src = fetchFromGitHub {
-        owner = "ful1e5";
-        repo = "Bibata_Cursor";
-        rev = final.version;
-        hash = "sha256-kIKidw1vditpuxO1gVuZeUPdWBzkiksO/q2R/+DUdEc=";
-      };
+  phases = [
+    "unpackPhase"
+    "configurePhase"
+    "buildPhase"
+    "installPhase"
+  ];
 
-      nativeBuildInputs = [python3 python3Packages.tomli python3Packages.tomli-w hyprcursor];
+  unpackPhase = ''
+          runHook preUnpack
 
-      phases = ["unpackPhase" "configurePhase" "buildPhase" "installPhase"];
+          cp $src/configs/${
+            if lib.hasSuffix "right" variant then "right" else "normal"
+          }/x.build.toml config.toml
 
-      unpackPhase = ''
-              runHook preUnpack
+    mkdir cursors
+    for cursor in $src/svg/${variant}/*; do
+    cp -r $src/svg/${variant}/$(readlink $cursor) cursors
+    done
 
-              cp $src/configs/${
-          if lib.hasSuffix "right" variant
-          then "right"
-          else "normal"
-        }/x.build.toml config.toml
+    chmod -R u+w .
 
-        mkdir cursors
-        for cursor in $src/svg/${variant}/*; do
-        cp -r $src/svg/${variant}/$(readlink $cursor) cursors
-        done
+    runHook postUnpack
+  '';
 
-        chmod -R u+w .
+  configurePhase = ''
+    runHook preConfigure
 
-        runHook postUnpack
-      '';
+    cat << EOF > manifest.hl
+    name = ${themeName}
+    description = The Bibata Cursor theme packaged for hyprcursor.
+    version = ${final.version}
+    cursors_directory = cursors
+    EOF
 
-      configurePhase = ''
-        runHook preConfigure
+    find cursors -type f -name '*.svg' | xargs sed -i -e 's/#00FF00/${baseColor}/g' -e 's/#0000FF/${outlineColor}/g' -e 's/#FF0000/${watchBackgroundColor}/g'
 
-        cat << EOF > manifest.hl
-        name = ${themeName}
-        description = The Bibata Cursor theme packaged for hyprcursor.
-        version = ${final.version}
-        cursors_directory = cursors
-        EOF
+    python ${./configure.py} config.toml cursors
 
-        find cursors -type f -name '*.svg' | xargs sed -i -e 's/#00FF00/${baseColor}/g' -e 's/#0000FF/${outlineColor}/g' -e 's/#FF0000/${watchBackgroundColor}/g'
+    runHook postConfigure
+  '';
 
-        python ${./configure.py} config.toml cursors
+  buildPhase = ''
+    runHook preBuild
+    hyprcursor-util --create . --output .
+    runHook postBuild
+  '';
 
-        runHook postConfigure
-      '';
+  installPhase = ''
+    runHook preInstall
 
-      buildPhase = ''
-        runHook preBuild
-        hyprcursor-util --create . --output .
-        runHook postBuild
-      '';
+    mkdir -p $out/share/icons
+    cp -r theme_${themeName} $out/share/icons/${themeName}
 
-      installPhase = ''
-        runHook preInstall
-
-        mkdir -p $out/share/icons
-        cp -r theme_${themeName} $out/share/icons/${themeName}
-
-        runHook postInstall
-      '';
-    })
+    runHook postInstall
+  '';
+})

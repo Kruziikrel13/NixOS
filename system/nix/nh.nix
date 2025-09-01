@@ -5,12 +5,14 @@
   inputs,
   pkgs,
   ...
-}: let
+}:
+let
   inherit (lib.meta) getExe;
   inherit (inputs) nh;
   inherit (pkgs) system;
   exe = getExe config.programs.nh.package;
-in {
+in
+{
   programs.nh = {
     enable = true;
     package = nh.packages.${system}.default;

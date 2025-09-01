@@ -4,21 +4,22 @@
     as a flake.
   '';
 
-  outputs = {
-    self,
-    nixpkgs,
-    ...
-  } @ inputs: let
-    forAllSystems = nixpkgs.lib.genAttrs ["x86_64-linux"];
-    modules = import ./modules self inputs;
-  in {
-    nixosConfigurations = import ./hosts {inherit self nixpkgs inputs;};
-    inherit (modules) homeManagerModules nixosModules;
-    packages =
-      forAllSystems
-      (system: import ./packages nixpkgs.legacyPackages.${system});
-    templates = import ./templates;
-  };
+  outputs =
+    {
+      self,
+      nixpkgs,
+      ...
+    }@inputs:
+    let
+      forAllSystems = nixpkgs.lib.genAttrs [ "x86_64-linux" ];
+      modules = import ./modules self inputs;
+    in
+    {
+      nixosConfigurations = import ./hosts { inherit self nixpkgs inputs; };
+      inherit (modules) homeManagerModules nixosModules;
+      packages = forAllSystems (system: import ./packages nixpkgs.legacyPackages.${system});
+      templates = import ./templates;
+    };
   inputs = {
     # Global / System Inputs
     nixpkgs.url = "github:nixos/nixpkgs";

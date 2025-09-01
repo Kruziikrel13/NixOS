@@ -3,7 +3,8 @@
   lib,
   config,
   ...
-}: {
+}:
+{
   boot = {
     plymouth = {
       enable = false;
@@ -11,18 +12,20 @@
       themePackages = [
         (pkgs.adi1090x-plymouth-themes.overrideAttrs (old: {
           # Fixes off centering of themes on multiple monitors
-          installPhase =
-            old.installPhase
-            + ''
-              find $out/share/plymouth/themes/ -name \*.script -exec sed -i 's/Window.GetX()/Window.GetX(0)/g' {} \;
-              find $out/share/plymouth/themes/ -name \*.script -exec sed -i 's/Window.GetY()/Window.GetY(0)/g' {} \;
-            '';
+          installPhase = old.installPhase + ''
+            find $out/share/plymouth/themes/ -name \*.script -exec sed -i 's/Window.GetX()/Window.GetX(0)/g' {} \;
+            find $out/share/plymouth/themes/ -name \*.script -exec sed -i 's/Window.GetY()/Window.GetY(0)/g' {} \;
+          '';
         }))
       ];
     };
     initrd.systemd.enable = true;
     tmp.cleanOnBoot = true;
-    kernelParams = ["systemd.show_status=auto" "amd_pstate=active"] ++ lib.optionals config.boot.plymouth.enable ["plymouth.use-simpledrm"];
+    kernelParams = [
+      "systemd.show_status=auto"
+      "amd_pstate=active"
+    ]
+    ++ lib.optionals config.boot.plymouth.enable [ "plymouth.use-simpledrm" ];
     loader = {
       timeout = 5;
       efi = {

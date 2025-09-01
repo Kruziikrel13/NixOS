@@ -3,13 +3,13 @@
   root,
   config,
   ...
-}: {
+}:
+{
   xdg.configFile.nvim = {
     enable = true;
     target = "nvim";
     recursive = true;
-    source =
-      config.lib.file.mkOutOfStoreSymlink "${root}/.config/sentinel.nvim";
+    source = config.lib.file.mkOutOfStoreSymlink "${root}/.config/sentinel.nvim";
   };
   programs.neovim = {
     enable = true;
@@ -24,6 +24,7 @@
       nixd
       stylua
       nixfmt
+      nixfmt-tree
       statix
       lua-language-server
       copilot-language-server

@@ -3,7 +3,8 @@
   nixpkgs,
   inputs,
   ...
-}: let
+}:
+let
   inherit (nixpkgs) lib;
   inherit (lib) nixosSystem;
 
@@ -15,16 +16,25 @@
     paths = import "${self}/lib/paths" lib;
     root = "/etc/nixos";
   };
-in {
+in
+{
   striking-distance = nixosSystem {
     system = "x86_64-linux";
     specialArgs = makeSpecialArgs "kruziikrel13";
-    modules = [./striking_distance system home];
+    modules = [
+      ./striking_distance
+      system
+      home
+    ];
   };
 
   aridhol = nixosSystem {
     system = "x86_64-linux";
     specialArgs = makeSpecialArgs "kruziikrel13";
-    modules = [./aridhol system home];
+    modules = [
+      ./aridhol
+      system
+      home
+    ];
   };
 }

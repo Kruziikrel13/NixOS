@@ -1,4 +1,5 @@
-{lib, ...}: {
+{ lib, ... }:
+{
   services = {
     pipewire = {
       enable = true;
@@ -12,7 +13,15 @@
         "10-clock-rate" = {
           "context.properties" = {
             "default.clock.rate" = 384000;
-            "default.clock.allowed-rates" = [44100 48000 96000 176400 192000 352800 384000];
+            "default.clock.allowed-rates" = [
+              44100
+              48000
+              96000
+              176400
+              192000
+              352800
+              384000
+            ];
             "default.clock.quantum" = 1024;
             "default.clock.min-quantum" = 32;
             "default.clock.max-quantum" = 2048;
@@ -21,7 +30,9 @@
       };
       extraConfig.client = {
         "11-resample-max" = {
-          "stream.properties" = {"resample.quality" = 10;};
+          "stream.properties" = {
+            "resample.quality" = 10;
+          };
         };
       };
     };

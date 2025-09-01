@@ -43,7 +43,7 @@ gcc14Stdenv.mkDerivation (finalAttrs: {
     description = "QT6 Theme Provider for Hyprland";
     homepage = "https://github.com/hyprwm/hyprqt6engine";
     license = lib.licenses.bsd3;
-    teams = [lib.teams.hyprland];
+    teams = [ lib.teams.hyprland ];
     platforms = lib.platforms.linux;
   };
 })

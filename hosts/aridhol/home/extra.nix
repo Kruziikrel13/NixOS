@@ -1,3 +1,4 @@
-{pkgs, ...}: {
-  home.packages = [pkgs.sutils];
+{ pkgs, ... }:
+{
+  home.packages = [ pkgs.sutils ];
 }

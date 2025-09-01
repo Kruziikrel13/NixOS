@@ -1,4 +1,5 @@
-{pkgs, ...}: {
+{ pkgs, ... }:
+{
   networking.networkmanager = {
     enable = true;
     dns = "systemd-resolved";
@@ -17,5 +18,8 @@
   };
 
   # TODO Verify
-  systemd.services.NetworkManager-wait-online.serviceConfig.ExecStart = ["" "${pkgs.networkmanager}/bin/nm-online -q"];
+  systemd.services.NetworkManager-wait-online.serviceConfig.ExecStart = [
+    ""
+    "${pkgs.networkmanager}/bin/nm-online -q"
+  ];
 }
