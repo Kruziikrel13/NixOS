@@ -17,12 +17,6 @@ in {
       config = /etc/nixos/.config/quickshell;
     };
 
-    qt = {
-      enable = true;
-      platformTheme.name = "adwaita";
-      style.name = "adwaita-dark";
-    };
-
     wayland.windowManager.hyprland = {
       settings = {
         bind = [
