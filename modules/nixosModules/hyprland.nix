@@ -1,19 +1,23 @@
-self: hyprland: home-manager: {
+self: hyprland: home-manager:
+{
   config,
   pkgs,
   lib,
   ...
-}: let
+}:
+let
   inherit (lib.modules) mkIf;
   inherit (lib.types) nullOr listOf str;
-  inherit (lib.options) mkOption mkEnableOption;
+  inherit (lib.options) mkOption;
 
   cfg = config.programs.hyprland;
-in {
-  imports = [hyprland.nixosModules.default home-manager.nixosModules.default];
+in
+{
+  imports = [
+    hyprland.nixosModules.default
+  ];
 
   options.programs.hyprland = {
-    laptopSupport = mkEnableOption "Enable additional configuration for laptops.";
     monitors = mkOption {
       type = nullOr (listOf str);
       default = null;
@@ -31,11 +35,16 @@ in {
       systemPackages = [
         self.packages.${pkgs.system}.bibata-hyprcursor
       ];
-      pathsToLink = ["/share/icons"];
+      pathsToLink = [ "/share/icons" ];
       variables.NIXOS_OZONE_WL = "1";
     };
     services.gvfs.enable = true;
-    xdg.portal.config = {hyprland.default = ["gtk" "hyprland"];};
+    xdg.portal.config = {
+      hyprland.default = [
+        "gtk"
+        "hyprland"
+      ];
+    };
     security = {
       polkit.enable = true;
       pam.services.hyprlock = {
@@ -44,8 +53,8 @@ in {
     };
 
     nix.settings = {
-      substituters = ["https://hyprland.cachix.org"];
-      trusted-public-keys = ["hyprland.cachix.org-1:a7pgxzMz7+chwVL3/pzj6jIBMioiJM7ypFP8PwtkuGc="];
+      substituters = [ "https://hyprland.cachix.org" ];
+      trusted-public-keys = [ "hyprland.cachix.org-1:a7pgxzMz7+chwVL3/pzj6jIBMioiJM7ypFP8PwtkuGc=" ];
     };
   };
 }

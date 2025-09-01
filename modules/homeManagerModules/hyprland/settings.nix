@@ -3,10 +3,12 @@
   osConfig,
   lib,
   ...
-}: let
+}:
+let
   osCfg = osConfig.programs.hyprland;
   cursorName = "Bibata-Modern-Classic-Hyprcursor";
-in {
+in
+{
   wayland.windowManager.hyprland.settings = {
     env = [
       "QT_WAYLAND_DISABLE_WINDOWDECORATION,1"
@@ -25,7 +27,6 @@ in {
 
     "$terminal" = "ghostty";
     "$mod" = "SUPER";
-    gestures.workspace_swipe = osCfg.laptopSupport;
     general = {
       layout = "master";
       gaps_in = 5;
@@ -66,10 +67,13 @@ in {
       };
     };
 
+    render = {
+      cm_fs_passthrough = true;
+    };
+
     binds.scroll_event_delay = 10;
 
     animations = {
-      enabled = !osCfg.laptopSupport;
       animation = [
         "border, 1, 2, default"
         "fade, 1, 4, default"
@@ -115,7 +119,9 @@ in {
 
     xwayland.force_zero_scaling = true;
 
-    cursor = {default_monitor = "DP-1";};
+    cursor = {
+      default_monitor = "DP-1";
+    };
     experimental.xx_color_management_v4 = true;
   };
 }

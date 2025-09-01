@@ -1,19 +1,22 @@
-self: {
+self:
+{
   config,
   pkgs,
   lib,
   ...
-}: let
+}:
+let
   inherit (lib.modules) mkIf;
   inherit (lib.options) mkEnableOption;
   cfg = config.programs.gnome;
-in {
+in
+{
   options.programs.gnome = {
     enable = mkEnableOption "Enable Gnome Desktop Environment";
   };
 
   config = mkIf cfg.enable {
-    environment.systemPackages = with pkgs.gnomeExtensions; [user-themes];
+    environment.systemPackages = with pkgs.gnomeExtensions; [ user-themes ];
     services = {
       displayManager.gdm = {
         enable = true;

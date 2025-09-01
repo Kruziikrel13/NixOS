@@ -1,10 +1,10 @@
 self: inputs: {
   nixosModules = {
-    hyprland = import ./hyprland self inputs.hyprland inputs.home-manager;
-    gnome = import ./gnome.nix self;
+    hyprland = import ./nixosModules/hyprland.nix self inputs.hyprland;
+    gnome = import ./nixosModules/gnome.nix self;
   };
   homeManagerModules = {
-    quickshell = import ./quickshell.nix self inputs.quickshell inputs.home-manager;
-    hyprland = import ./hyprland/home.nix self inputs.hyprland;
+    quickshell = import ./homeManagerModules/quickshell.nix self inputs.quickshell inputs.home-manager;
+    hyprland = import ./homeManagerModules/hyprland self inputs.hyprland;
   };
 }

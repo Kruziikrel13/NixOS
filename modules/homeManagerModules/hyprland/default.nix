@@ -1,23 +1,27 @@
-self: hyprland: {
+self: hyprland:
+{
   config,
   osConfig,
   pkgs,
   lib,
   ...
-}: let
+}:
+let
   inherit (lib.modules) mkIf;
   osCfg = osConfig.programs.hyprland;
   cursor = "Bibata-Modern-Classic-Hyprcursor";
   cursorPackage = self.packages.${pkgs.system}.bibata-hyprcursor;
-in {
-  imports =
-    [hyprland.homeManagerModules.default]
-    ++ lib.optionals osCfg.enable [
-      ./services
-      ./binds.nix
-      ./rules.nix
-      ./settings.nix
-    ];
+in
+{
+  imports = [
+    hyprland.homeManagerModules.default
+  ]
+  ++ lib.optionals osCfg.enable [
+    ./services
+    ./binds.nix
+    ./rules.nix
+    ./settings.nix
+  ];
 
   config = mkIf osCfg.enable {
     programs.bash.profileExtra = lib.mkIf osCfg.withUWSM ''
@@ -50,7 +54,7 @@ in {
       portalPackage = null;
       systemd = {
         enable = false;
-        variables = ["--all"];
+        variables = [ "--all" ];
         extraCommands = [
           "systemctl --user stop graphical-session.target"
           "systemctl --user start hyprland-session.target"
@@ -70,7 +74,6 @@ in {
       XDG_SESSION_TYPE = "wayland";
     };
 
-    systemd.user.targets.tray.Unit.Requires =
-      lib.mkForce [config.wayland.systemd.target];
+    systemd.user.targets.tray.Unit.Requires = lib.mkForce [ config.wayland.systemd.target ];
   };
 }
