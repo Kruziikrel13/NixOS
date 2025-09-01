@@ -21,8 +21,6 @@
   ];
 
   wayland.windowManager.hyprland.settings.exec-once = [
-    "uwsm app io.github.alainm23.planify"
-    "uwsm app slack"
     "uwsm app proton-mail"
   ];
 
