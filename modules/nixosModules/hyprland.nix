@@ -1,4 +1,4 @@
-self: hyprland: home-manager:
+self: hyprland:
 {
   config,
   pkgs,
