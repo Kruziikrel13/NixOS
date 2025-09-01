@@ -1,0 +1,40 @@
+{
+  paths,
+  self,
+  ...
+}:
+{
+  imports = paths.scanPaths ./. ++ [ self.nixosModules.hyprland ];
+
+  networking.hostName = "striking-distance";
+
+  time.hardwareClockInLocalTime = true;
+
+  hardware = {
+    graphics = {
+      enable = true;
+      enable32Bit = true;
+    };
+    logitech = {
+      wireless.enable = true;
+      wireless.enableGraphical = true;
+    };
+    keyboard.qmk.enable = true;
+  };
+  services.ratbagd.enable = true;
+
+  programs.hyprland = {
+    monitors = [
+      "desc:GIGA-BYTE TECHNOLOGY CO. LTD. AORUS FI32U 21440B000115,3840x2160@144.0,1920x0,1.0, bitdepth, 10"
+      "desc:ViewSonic Corporation VX2758-C-MH V9M184500179,1920x1080@60.0,5760x849,1.0"
+      "desc:AOC 24G1WG4 0x0004A33C,1920x1080@60.0,0x344,1.0"
+    ];
+    workspaces = [
+      "1,monitor:desc:AOC 24G1WG4 0x0004A33C,default:true"
+      "2,monitor:desc:GIGA-BYTE TECHNOLOGY CO. LTD. AORUS FI32U 21440B000115,default:true"
+      "3,monitor:desc:ViewSonic Corporation VX2758-C-MH V9M184500179,default:true"
+      "9,monitor:desc:ViewSonic Corporation VX2758-C-MH V9M184500179"
+      "10,monitor:desc:AOC 24G1WG4 0x0004A33C"
+    ];
+  };
+}

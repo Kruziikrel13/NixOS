@@ -1,0 +1,34 @@
+{
+  pkgs,
+  root,
+  config,
+  ...
+}:
+{
+  xdg.configFile.nvim = {
+    enable = true;
+    target = "nvim";
+    recursive = true;
+    source = config.lib.file.mkOutOfStoreSymlink "${root}/.config/sentinel.nvim";
+  };
+  programs.neovim = {
+    enable = true;
+    defaultEditor = true;
+    viAlias = true;
+    vimAlias = true;
+    vimdiffAlias = true;
+    extraPackages = with pkgs; [
+      gcc
+      lazygit
+      ripgrep
+      nixd
+      stylua
+      nixfmt
+      nixfmt-tree
+      statix
+      lua-language-server
+      copilot-language-server
+      fzf
+    ];
+  };
+}
