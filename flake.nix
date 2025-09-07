@@ -23,6 +23,7 @@
   inputs = {
     # Global / System Inputs
     nixpkgs.url = "github:nixos/nixpkgs";
+    nixpkgs-2022.url = "github:nixos/nixpkgs?ref=22.11";
     nixos-hardware.url = "github:NixOS/nixos-hardware/master";
     home-manager = {
       url = "github:nix-community/home-manager";
@@ -31,6 +32,7 @@
 
     # Desktop
     hyprland.url = "github:hyprwm/hyprland";
+    hyprqt6engine.url = "github:hyprwm/hyprqt6engine";
     quickshell = {
       url = "git+https://git.outfoxxed.me/outfoxxed/quickshell";
       inputs.nixpkgs.follows = "nixpkgs";
