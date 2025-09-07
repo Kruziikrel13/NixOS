@@ -1,15 +1,18 @@
 {
   paths,
-  self,
   pkgs,
+  inputs,
   ...
 }:
+let
+  inherit (inputs) hyprqt6engine;
+in
 {
   imports = paths.scanPaths ./.;
   environment.systemPackages = [
-    self.packages.${pkgs.system}.hyprqt6engine
     pkgs.kdePackages.breeze-icons
     pkgs.kdePackages.breeze
+    hyprqt6engine.packages.${pkgs.system}.hyprqt6engine
   ];
   qt.enable = true;
   environment.sessionVariables = {
