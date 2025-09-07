@@ -66,7 +66,6 @@
     "noshadow, floating: 0"
     "idleinhibit focus, class:^(mpv)$"
     "idleinhibit focus, class:^(zen)$, title:^(.*YouTube.*)$"
-    "idleinhibit fullscreen, class:^(zen)$"
 
     # xwayland
     "noblur, class:^()$,title:^()$"
