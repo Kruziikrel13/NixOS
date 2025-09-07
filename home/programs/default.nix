@@ -26,7 +26,6 @@
   ];
 
   programs = {
-    nix-init.enable = true;
     obsidian.enable = true;
     bash = {
       enable = true;
@@ -46,10 +45,6 @@
     };
     gh = {
       enable = true;
-      extensions = [
-        pkgs.gh-contribs
-        pkgs.gh-notify
-      ];
       settings.git_protocol = "ssh";
     };
     mpv = {
