@@ -18,17 +18,23 @@
     vimAlias = true;
     vimdiffAlias = true;
     extraPackages = with pkgs; [
+      ## Dependencies
       gcc
-      lazygit
       ripgrep
+      fzf
+      lazygit
+      tree-sitter
+
+      ## Language Servers
       nixd
-      stylua
       nixfmt
       nixfmt-tree
       statix
-      lua-language-server
+
       copilot-language-server
-      fzf
+
+      lua-language-server
+      stylua
     ];
   };
 }
