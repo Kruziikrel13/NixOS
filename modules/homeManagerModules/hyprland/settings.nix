@@ -33,7 +33,12 @@ in
       gaps_out = 5;
       border_size = 1;
       allow_tearing = true;
+      no_focus_fallback = true;
       "col.active_border" = "rgb(51A4E7)";
+
+      snap = {
+        enabled = true;
+      };
     };
 
     decoration = {
@@ -42,18 +47,19 @@ in
 
       blur = {
         enabled = true;
+        new_optimizations = true;
+        xray = true;
+        popups = false;
+        popups_ignorealpha = 0.2;
+
         brightness = 1.0;
         contrast = 1.0;
         noise = 0.01;
-
         vibrancy = 0.2;
         vibrancy_darkness = 0.5;
 
         passes = 4;
         size = 7;
-
-        popups = true;
-        popups_ignorealpha = 0.2;
       };
 
       shadow = {
@@ -67,9 +73,7 @@ in
       };
     };
 
-    render = {
-      cm_fs_passthrough = true;
-    };
+    render.direct_scanout = 2;
 
     binds.scroll_event_delay = 10;
 
@@ -103,7 +107,7 @@ in
       kb_variant = ",qwerty";
       kb_options = "grp:alt_shift_toggle";
       kb_model = "pc104";
-      follow_mouse = true;
+      follow_mouse = 1;
       accel_profile = "flat";
     };
 
@@ -111,8 +115,10 @@ in
       disable_hyprland_logo = true;
       disable_splash_rendering = true;
       force_default_wallpaper = 0;
-      # disable_autoreload = true;
       animate_mouse_windowdragging = false;
+      middle_click_paste = false;
+      anr_missed_pings = 2;
+      # disable_autoreload = true;
     };
 
     debug.disable_logs = false;
@@ -121,6 +127,7 @@ in
 
     cursor = {
       default_monitor = "DP-1";
+
     };
     experimental.xx_color_management_v4 = true;
   };
