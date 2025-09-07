@@ -15,10 +15,10 @@
     # "fullscreen, content: game"
 
     ## Temp while the above doesn't work
-    "workspace 2, class:^(steam_app_.*)$"
-    "idleinhibit always, class:^(steam_app_.*)$"
-    "immediate, class:^(steam_app_.*)$"
-    "fullscreen, class:^(steam_app_.*)$"
+    "workspace 2, class:^(steam_app).*"
+    "idleinhibit always, class:^(steam_app).*"
+    "immediate, class:^(steam_app).*"
+    "fullscreen, class:^(steam_app).*"
 
     "workspace 2, class:^(.*\.exe)$"
     "idleinhibit class:^(.*\.exe)$"
