@@ -5,6 +5,7 @@
     "float, title:^(Steam Settings)$, class:^(steam)$"
     "float, title:^(Wine)$, class:^(wineboot.exe)$"
     "float, class:^(Slack)$, initialTitle:^(Huddle)$"
+    "pin, class:^(Slack)$, initialTitle:^(Huddle)$"
 
     # Games
     # "content game, class:^(steam_app_.*)$"
