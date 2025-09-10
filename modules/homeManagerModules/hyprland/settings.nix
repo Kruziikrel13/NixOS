@@ -46,7 +46,6 @@ in
       rounding_power = 3;
 
       blur = {
-        enabled = true;
         new_optimizations = true;
         xray = true;
         popups = false;
@@ -63,7 +62,6 @@ in
       };
 
       shadow = {
-        enabled = true;
         color = "rgba(00000055)";
         ignore_window = true;
         offset = "0 15";
