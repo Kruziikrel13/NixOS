@@ -10,6 +10,7 @@ in
         lock_cmd = "pidof hyprlock || hyprlock";
         before_sleep_cmd = "loginctl lock-session";
         after_sleep_cmd = "hyprctl dispatch dpms on; hyprctl keyword source ${monitors}";
+        inhibit_sleep = 3;
       };
 
       listener = [
@@ -26,7 +27,7 @@ in
 
         {
           timeout = 1800;
-          on-timeout = "systemctl suspend";
+          on-timeout = "systemctl suspend || loginctl suspend";
         }
       ];
     };
