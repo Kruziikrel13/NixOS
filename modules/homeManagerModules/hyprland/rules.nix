@@ -1,6 +1,8 @@
 {
   wayland.windowManager.hyprland.settings.windowrule = [
     # Floating Windows
+    "center 1, floating:1, xwayland:0"
+
     "float, title:^(Friends List)$, class:^(steam)$"
     "float, title:^(Steam Settings)$, class:^(steam)$"
     "float, title:^(Wine)$, class:^(wineboot.exe)$"
@@ -71,7 +73,6 @@
 
     # xwayland
     "noblur, class:^()$,title:^()$"
-    ## "noblur, xwayland:1"
     "nodim, xwayland:1"
     "noshadow, xwayland:1"
     "rounding 0, xwayland:1"
