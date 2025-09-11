@@ -26,7 +26,8 @@ in
     wayland.windowManager.hyprland = {
       settings = {
         bind = [
-          "$mod, E, exec, quickshell ipc call powermenu toggle"
+          "$mod, E, global, shell:powermenu"
+          # "$mod, D, global, shell:launcher"
         ];
         layerrule = [
           "animation slide, shell:bar"
