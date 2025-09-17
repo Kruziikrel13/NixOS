@@ -43,7 +43,7 @@
     "workspace 8, title:^(Proton Mail)$"
     "workspace 9, class:^(Slack)$"
     "workspace 9, class:^(vesktop)$"
-    "workspace 10, class:^(spotify)$"
+    "workspace 10, class:^(spotify)$, initialTitle:^(Spotify( Premium)?)$"
 
     # PiP
     "float, title:^(Picture-in-Picture)$"
