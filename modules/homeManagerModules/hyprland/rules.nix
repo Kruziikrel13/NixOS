@@ -3,8 +3,7 @@
     # Floating Windows
     "center 1, floating:1, xwayland:0"
 
-    "float, title:^(Friends List)$, class:^(steam)$"
-    "float, title:^(Steam Settings)$, class:^(steam)$"
+    "float, class:^([Ss]team)$, title:negative:^([Ss]team)$"
     "float, title:^(Wine)$, class:^(wineboot.exe)$"
     "float, class:^(Slack)$, initialTitle:^(Huddle)$"
     "float, class:^(\.blueman).*"
@@ -40,7 +39,7 @@
     "dimaround, class:ghostty.tui"
 
     # Workspace Assignments
-    "workspace 2, title:^(steam)$"
+    "workspace 2, class:^([Ss]team)$"
     "workspace 8, title:^(Proton Mail)$"
     "workspace 9, class:^(Slack)$"
     "workspace 9, class:^(vesktop)$"
