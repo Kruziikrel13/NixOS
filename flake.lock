@@ -122,24 +122,6 @@
         "type": "github"
       }
     },
-    "grayjay": {
-      "inputs": {
-        "nixpkgs": "nixpkgs"
-      },
-      "locked": {
-        "lastModified": 1753338437,
-        "narHash": "sha256-Gxn/i7mPFuiybZXEazt0+ipm72FnUULoCsyFC2pXLjg=",
-        "owner": "Rishabh5321",
-        "repo": "grayjay-flake",
-        "rev": "612ccd84925c0a5b08f51a22685e4e8878e0d1c5",
-        "type": "github"
-      },
-      "original": {
-        "owner": "Rishabh5321",
-        "repo": "grayjay-flake",
-        "type": "github"
-      }
-    },
     "home-manager": {
       "inputs": {
         "nixpkgs": [

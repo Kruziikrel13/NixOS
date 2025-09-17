@@ -2,7 +2,6 @@
   paths,
   self,
   pkgs,
-  inputs,
   config,
   ...
 }:
@@ -10,7 +9,7 @@
   imports = [ self.homeManagerModules.hyprland ] ++ paths.scanPaths ./.;
   home.shell.enableBashIntegration = true;
   home.packages = with pkgs; [
-    inputs.grayjay.packages.${pkgs.system}.grayjay
+    grayjay
     pulsemixer
     protonmail-desktop
     via
