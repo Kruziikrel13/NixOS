@@ -60,6 +60,7 @@
       enable = true;
       platformOptimizations.enable = true;
       extraCompatPackages = [ pkgs.proton-ge-bin ];
+      extest.enable = true;
       gamescopeSession.enable = true;
       protontricks.enable = true;
     };
