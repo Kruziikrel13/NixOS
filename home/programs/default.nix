@@ -56,7 +56,7 @@
       enable = true;
       clearDefaultKeybinds = true;
       settings = {
-        theme = "GitHub Dark";
+        theme = "GitHub";
         title = "Ghostty";
       };
     };
