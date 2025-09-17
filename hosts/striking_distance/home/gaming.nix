@@ -6,9 +6,10 @@
 {
   home.sessionVariables.WINEPREFIX = "${config.xdg.dataHome}/wine";
   home.packages = with pkgs; [
-    wineWowPackages.wayland
-    winetricks
+    wineWow64Packages.waylandFull
     mumble
     heroic
+    winetricks
+    umu-launcher
   ];
 }
