@@ -15,6 +15,7 @@
       mprocs
     ];
     shellAliases = {
+      cat = "bat --plain";
       ps = "procs";
       du = "dust";
     };
