@@ -32,7 +32,7 @@ in
     ];
 
     bind = [
-      "$mod, RETURN, exec, uwsm app -- $terminal" # Launch Terminal
+      "$mod, RETURN, exec, uwsm app -T" # Launch Terminal
       "$mod SHIFT, RETURN, exec, uwsm app -- $terminal --class=ghostty.small" # Launch Terminal
       "$mod, Escape, exec, uwsm stop"
       "$mod, D, exec, ${toggle "$dmenu"}" # Launcher
