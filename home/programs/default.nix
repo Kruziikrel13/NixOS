@@ -45,6 +45,10 @@
     gh = {
       enable = true;
       settings.git_protocol = "ssh";
+      extensions = [
+        pkgs.gh-contribs
+        pkgs.gh-notify
+      ];
     };
     mpv = {
       enable = true;
