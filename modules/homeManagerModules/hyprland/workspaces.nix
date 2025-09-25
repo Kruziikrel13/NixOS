@@ -11,7 +11,7 @@
         ", c, submap, reset"
         ", g, workspace, name:gaming"
         ", g, submap, reset"
-        ", escape, submap, reset"
+        ", catchall, submap, reset"
       ];
     };
     settings.workspace = [
