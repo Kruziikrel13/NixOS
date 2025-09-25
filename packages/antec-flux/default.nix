@@ -1,15 +1,10 @@
 {
+  lib,
   rustPlatform,
   fetchFromGitHub,
   lm_sensors,
   usbutils,
   nix-update-script,
-
-  cpu_device ? "k10temp",
-  cpu_temp_type ? "tctl",
-  gpu_device ? "amdgpu",
-  gpu_temp_type ? "edge",
-  update_interval ? "1000",
 }:
 rustPlatform.buildRustPackage rec {
   pname = "antec-flux-pro";
@@ -36,5 +31,7 @@ rustPlatform.buildRustPackage rec {
     homepage = "https://github.com/Reikooters/antec-flux-pro-display";
     description = "Antec Flux Pro Hardware Display Service";
     mainProgram = "antec-flux-pro-display";
+    license = lib.licenses.gpl3;
+    maintainers = "kruziikrel13";
   };
 }

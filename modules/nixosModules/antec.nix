@@ -49,14 +49,7 @@ in
   };
   config = mkIf cfg.enable {
     environment = {
-      systemPackages = [
-        (cfg.package.override {
-          cpu_device = cfg.cpu-device;
-          cpu_temp_type = cfg.cpu-temp-type;
-          gpu_device = cfg.gpu-device;
-          gpu_temp_type = cfg.gpu-temp-type;
-        })
-      ];
+      systemPackages = [ cfg.package ];
       etc."antec-flux-pro-display/config.conf".text = ''
         cpu_device=${cfg.cpu-device}
         cpu_temp_type=${cfg.cpu-temp-type}
