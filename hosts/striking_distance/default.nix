@@ -4,7 +4,10 @@
   ...
 }:
 {
-  imports = paths.scanPaths ./. ++ [ self.nixosModules.hyprland ];
+  imports = paths.scanPaths ./. ++ [
+    self.nixosModules.hyprland
+    self.nixosModules.antec-flux-pro
+  ];
 
   networking.hostName = "striking-distance";
 
@@ -21,7 +24,16 @@
     };
     keyboard.qmk.enable = true;
   };
-  services.ratbagd.enable = true;
+  services = {
+    ratbagd.enable = true;
+    antec-flux-pro = {
+      enable = true;
+      cpu-device = "k10temp-pci-00c3";
+      cpu-temp-type = "Tctl";
+      gpu-device = "amdgpu-pci-7700";
+      gpu-temp-type = "edge";
+    };
+  };
 
   programs.hyprland = {
     monitors = [
