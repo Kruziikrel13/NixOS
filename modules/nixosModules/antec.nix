@@ -65,11 +65,12 @@ in
     systemd.services.antec-flux-pro-display = {
       unitConfig = {
         Description = "Antec Flux Pro Display Service";
-        StartLimitIntervalSec = "0";
+        StartLimitIntervalSec = "5";
       };
 
       serviceConfig = {
         Type = "simple";
+        ExecStartPre = "${pkgs.coreutils}/bin/sleep 5";
         ExecStart = getExe cfg.package;
         Restart = "always";
         RestartSec = "5";
