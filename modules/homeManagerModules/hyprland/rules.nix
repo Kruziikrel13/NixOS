@@ -1,4 +1,5 @@
 {
+  imports = [ ./apprules.nix ];
   wayland.windowManager.hyprland.settings.windowrule = [
     # Floating Windows
     "center 1, floating:1, xwayland:0"
