@@ -39,11 +39,11 @@
     "dimaround, class:ghostty.tui"
 
     # Workspace Assignments
-    "workspace 2, class:^([Ss]team)$"
-    "workspace 8, title:^(Proton Mail)$"
-    "workspace 9, class:^(Slack)$"
-    "workspace 9, class:^(vesktop)$"
-    "workspace 10, class:^(spotify)$, initialTitle:^(Spotify( Premium)?)$"
+    "workspace name:gaming, class:^([Ss]team)$"
+    "workspace name:email, title:^(Proton Mail)$"
+    "workspace name:chat, class:^(Slack)$"
+    "workspace name:chat, class:^(vesktop)$"
+    "workspace name:spotify, class:^(spotify)$, initialTitle:^(Spotify( Premium)?)$"
 
     # PiP
     "float, title:^(Picture-in-Picture)$"
