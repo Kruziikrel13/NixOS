@@ -41,6 +41,12 @@ in
     pkgs.unityhub
   ];
 
+  home.activation = {
+    makeUnityConfigDir = ''
+      run mkdir -p $HOME/.local/share/unity3d
+    '';
+  };
+
   home.file.rider = {
     target = ".local/share/applications/jetbrains-rider.desktop";
     source = "${
