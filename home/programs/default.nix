@@ -20,10 +20,6 @@
     slack
   ];
 
-  wayland.windowManager.hyprland.settings.exec-once = [
-    "uwsm app proton-mail"
-  ];
-
   programs = {
     obsidian.enable = true;
     bash = {
