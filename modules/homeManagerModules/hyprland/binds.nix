@@ -17,12 +17,6 @@ let
       ]
     ) 10
   );
-  toggle =
-    program:
-    let
-      prog = builtins.substring 0 14 program;
-    in
-    "pkill ${prog} || uwsm app -- ${program}";
 in
 {
   wayland.windowManager.hyprland.settings = {
@@ -35,7 +29,7 @@ in
       "$mod, RETURN, exec, uwsm app -T" # Launch Terminal
       "$mod SHIFT, RETURN, exec, uwsm app -- $terminal --class=ghostty.small" # Launch Terminal
       "$mod, Escape, exec, uwsm stop"
-      "$mod, D, exec, ${toggle "$dmenu"}" # Launcher
+      "$mod, D, exec, $dmenu" # Launcher
 
       "$mod, Q, killactive"
       "$mod, F, fullscreen"
