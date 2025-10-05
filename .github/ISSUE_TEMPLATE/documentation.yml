@@ -1,0 +1,48 @@
+name: 📝 Documentation
+description: Track tasks related to docs, notes, or knowledge capture.
+title: "[Docs]: "
+labels: ["documentation"]
+assignees: []
+
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Use this form to track documentation-related work.
+
+  - type: input
+    id: summary
+    attributes:
+      label: Documentation Summary
+      description: Short description of the doc task.
+      placeholder: "Add setup instructions for NixOS users"
+    validations:
+      required: true
+
+  - type: dropdown
+    id: doc-type
+    attributes:
+      label: Type of Documentation
+      options:
+        - 📖 User Guide / How-To
+        - ⚙️ Developer Notes
+        - 🏗️ System Architecture
+        - ✅ Tests & QA
+        - Other
+    validations:
+      required: true
+
+  - type: textarea
+    id: details
+    attributes:
+      label: Details
+      description: What should be documented? Any structure/links/references?
+      placeholder: "Include installation prerequisites, flake usage examples, and troubleshooting steps."
+
+  - type: checkboxes
+    id: checklist
+    attributes:
+      label: Checklist
+      options:
+        - label: I confirmed this doc task is not already tracked.
+        - label: I know where in the repo this documentation should live.

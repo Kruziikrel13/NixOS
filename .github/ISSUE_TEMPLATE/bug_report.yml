@@ -1,0 +1,47 @@
+name: 🐛 Bug Report
+description: Track a bug or problem in the existing codebase.
+title: "[Bug]: "
+labels: ["bug"]
+assignees: []
+
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Use this form to record problems you discover in your code.
+
+  - type: input
+    id: summary
+    attributes:
+      label: Bug Summary
+      description: Short description of the problem.
+      placeholder: "Crash when saving a file"
+    validations:
+      required: true
+
+  - type: textarea
+    id: steps
+    attributes:
+      label: Steps to Reproduce / Notes
+      description: How you ran into this bug. (Can just be a quick note for yourself.)
+      placeholder: |
+        1. Run program with `--save`
+        2. Program exits with error code 1
+
+  - type: textarea
+    id: expected
+    attributes:
+      label: Expected vs Actual
+      description: What should happen vs what actually happens.
+      placeholder: |
+        Expected: File saves successfully
+        Actual: Program crashes
+
+  - type: textarea
+    id: fix-ideas
+    attributes:
+      label: Possible Fix Ideas
+      description: Notes, hunches, or related areas of code that might be relevant.
+      placeholder: "Check file permissions in save module."
+    validations:
+      required: true

@@ -1,0 +1,39 @@
+name: 🛠️ Refactor
+description: Track code improvements or restructuring without adding new features.
+title: "[Refactor]: "
+labels: ["refactor"]
+assignees: []
+
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Use this form to track refactoring tasks — code cleanups, reorganizations, or improvements that don’t change functionality.
+
+  - type: input
+    id: summary
+    attributes:
+      label: Refactor Summary
+      description: Short description of what needs refactoring.
+      placeholder: "Simplify error handling in FileManager"
+
+  - type: textarea
+    id: motivation
+    attributes:
+      label: Motivation
+      description: Why does this refactor need to happen? (e.g. code readability, performance, maintainability)
+      placeholder: "The error handling is duplicated across multiple functions, making changes hard to maintain."
+
+  - type: textarea
+    id: scope
+    attributes:
+      label: Scope
+      description: What parts of the codebase will this affect?
+      placeholder: "Affects FileManager, Logger, and CLI save command."
+
+  - type: textarea
+    id: notes
+    attributes:
+      label: Notes / Ideas
+      description: Any specific approaches, patterns, or libraries to consider.
+      placeholder: "Introduce a central error handler function."

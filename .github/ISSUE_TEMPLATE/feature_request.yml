@@ -1,0 +1,44 @@
+name: ✨ New Feature
+description: Track a planned addition or enhancement to the codebase.
+title: "[Feature]: "
+labels: ["feature"]
+assignees: []
+
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Use this form to describe a new feature or enhancement you want to add.
+
+  - type: input
+    id: summary
+    attributes:
+      label: Feature Summary
+      description: Short description of the feature.
+      placeholder: "Add support for exporting reports as PDF"
+    validations:
+      required: true
+
+  - type: textarea
+    id: motivation
+    attributes:
+      label: Motivation
+      description: Why do you want to add this feature?
+      placeholder: "Currently I can only export reports as CSV, but PDF would be more user-friendly."
+    validations:
+      required: true
+
+  - type: textarea
+    id: details
+    attributes:
+      label: Feature Details
+      description: Implementation ideas, requirements, or notes.
+      placeholder: "Use reportlab for PDF generation. Add CLI flag `--export pdf`."
+  
+  - type: checkboxes
+    id: checklist
+    attributes:
+      label: Checklist
+      options:
+        - label: I have checked this is not already implemented.
+        - label: I have thought about the scope of this feature.
