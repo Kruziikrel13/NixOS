@@ -6,7 +6,7 @@
   ...
 }:
 {
-  imports = [ self.homeManagerModules.hyprland ] ++ paths.scanPaths ./.;
+  imports = paths.scanPaths ./.;
   home.shell.enableBashIntegration = true;
   home.packages = with pkgs; [
     grayjay
