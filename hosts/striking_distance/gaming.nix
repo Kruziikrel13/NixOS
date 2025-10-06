@@ -22,7 +22,6 @@
     ];
   };
   powerManagement.cpuFreqGovernor = "performance";
-  environment.systemPackages = with pkgs; [ steam-devices-udev-rules ];
 
   # See Keychron Support on Wiki https://github.com/Kruziikrel13/NixOS/wiki/Hardware-Fixes#keychron-keyboards
   services.udev.extraRules = ''
@@ -30,6 +29,7 @@
     ACTION=="add", SUBSYSTEM=="usb", TEST=="power/control", ATTR{power/control}="on"
   '';
 
+  hardware.steam-hardware.enable = true;
   # Gaming Support
   programs = {
     gamemode = {
@@ -50,7 +50,6 @@
     #     "--expose-wayland"
     #   ];
     # };
-
     steam = {
       enable = true;
       platformOptimizations.enable = true;
