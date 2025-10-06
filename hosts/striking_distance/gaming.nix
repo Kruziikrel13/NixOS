@@ -42,20 +42,20 @@
       };
     };
 
-    gamescope = {
-      enable = true;
-      capSysNice = true;
-      args = [
-        "--rt"
-        "--expose-wayland"
-      ];
-    };
+    # gamescope = {
+    #   enable = true;
+    #   capSysNice = false;
+    #   args = [
+    #     "--rt"
+    #     "--expose-wayland"
+    #   ];
+    # };
 
     steam = {
       enable = true;
       platformOptimizations.enable = true;
       extraCompatPackages = [ pkgs.proton-ge-bin ];
-      gamescopeSession.enable = true;
+      # gamescopeSession.enable = true;
       protontricks.enable = true;
     };
   };
