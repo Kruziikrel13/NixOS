@@ -34,7 +34,7 @@ in
       border_size = 1;
       allow_tearing = true;
       no_focus_fallback = true;
-      "col.active_border" = "rgb(51A4E7)";
+      "col.active_border" = "rgb(C8C8C8)";
 
       snap = {
         enabled = true;
@@ -62,9 +62,9 @@ in
       };
 
       shadow = {
-        color = "rgba(00000055)";
+        color = "rgb(000000)";
         ignore_window = true;
-        offset = "0 15";
+        offset = "20 20";
         range = 100;
         render_power = 2;
         scale = 0.97;

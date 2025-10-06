@@ -1,32 +1,15 @@
 {
+  imports = [ ./apprules.nix ];
   wayland.windowManager.hyprland.settings.windowrule = [
     # Floating Windows
     "center 1, floating:1, xwayland:0"
 
-    "float, class:^([Ss]team)$, title:negative:^([Ss]team)$"
-    "float, title:^(Wine)$, class:^(wineboot.exe)$"
-    "float, class:^(Slack)$, initialTitle:^(Huddle)$"
-    "float, class:^(\.blueman).*"
-    "pin, class:^(Slack)$, initialTitle:^(Huddle)$"
-
-    # Games
-    # "content game, class:^(steam_app_.*)$"
-    # "content game, title:.*\.exe"
-    # "workspace 2, content: game"
-    # "idleinhibit always, content: game"
-    # "immediate, content: game"
-    # "fullscreen, content: game"
-
-    ## Temp while the above doesn't work
-    "workspace 2, class:^(steam_app).*"
-    "idleinhibit always, class:^(steam_app).*"
-    "immediate, class:^(steam_app).*"
-    "fullscreen, class:^(steam_app).*"
-
-    "workspace 2, class:^(.*\.exe)$"
-    "idleinhibit class:^(.*\.exe)$"
-    "fullscreen, class:^(.*\.exe)$"
-    "immediate, class:^(.*\.exe)$"
+    # Gaming
+    "workspace name:gaming, tag:gaming"
+    "content game, tag:gaming, tag:video"
+    "idleinhibit always, tag:gaming, tag:video"
+    "immediate, tag:gaming, tag:video"
+    "fullscreen, tag:gaming, tag:video"
 
     # Custom Windows
     "float, class:ghostty.small"
@@ -39,11 +22,9 @@
     "dimaround, class:ghostty.tui"
 
     # Workspace Assignments
-    "workspace 2, class:^([Ss]team)$"
-    "workspace 8, title:^(Proton Mail)$"
-    "workspace 9, class:^(Slack)$"
-    "workspace 9, class:^(vesktop)$"
-    "workspace 10, class:^(spotify)$, initialTitle:^(Spotify( Premium)?)$"
+    "workspace name:email, tag:email"
+    "workspace name:chat, tag:chat"
+    "workspace name:music, tag:music"
 
     # PiP
     "float, title:^(Picture-in-Picture)$"

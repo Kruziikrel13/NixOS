@@ -46,8 +46,6 @@
       "1,monitor:desc:AOC 24G1WG4 0x0004A33C,default:true"
       "2,monitor:desc:GIGA-BYTE TECHNOLOGY CO. LTD. AORUS FI32U 21440B000115,default:true"
       "3,monitor:desc:ViewSonic Corporation VX2758-C-MH V9M184500179,default:true"
-      "9,monitor:desc:ViewSonic Corporation VX2758-C-MH V9M184500179"
-      "10,monitor:desc:AOC 24G1WG4 0x0004A33C"
     ];
   };
 }
