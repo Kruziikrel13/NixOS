@@ -61,6 +61,7 @@ in
       "$mod SHIFT, L, layoutmsg, swapnext"
       "$mod, TAB, layoutmsg, cyclenext"
       "$mod SHIFT, TAB, cyclenext"
+      "$mod, W, submap, named_workspaces"
     ]
     ++ workspaces;
 

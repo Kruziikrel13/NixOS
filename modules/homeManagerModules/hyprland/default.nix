@@ -17,6 +17,7 @@ in
     hyprland.homeManagerModules.default
   ]
   ++ lib.optionals osCfg.enable [
+    ./workspaces.nix
     ./services
     ./binds.nix
     ./rules.nix
