@@ -3,7 +3,6 @@ self:
   config,
   pkgs,
   lib,
-  self,
   ...
 }:
 let
