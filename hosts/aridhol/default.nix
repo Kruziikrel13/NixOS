@@ -8,7 +8,6 @@
 {
   imports = paths.scanPaths ./. ++ [
     inputs.nixos-hardware.nixosModules.lenovo-ideapad-slim-5
-    self.nixosModules.hyprland
   ];
   networking.hostName = "aridhol";
   services = {

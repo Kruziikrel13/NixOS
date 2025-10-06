@@ -5,7 +5,6 @@
 }:
 {
   imports = paths.scanPaths ./. ++ [
-    self.nixosModules.hyprland
     self.nixosModules.antec-flux-pro
   ];
 
