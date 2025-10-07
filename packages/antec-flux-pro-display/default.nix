@@ -35,11 +35,7 @@ rustPlatform.buildRustPackage rec {
 
   udevRules = writeTextFile {
     name = "99-antec-flux-pro.rules";
-    text = ''
-      SUBSYSTEM=="usb", ATTR{idVendor}=="2022", ATTR{idProduct}=="0522", SYMLINK+="antec-flux-pro-case"
-      SUBSYSTEM=="usb", ATTR{idVendor}=="2022", ATTR{idProduct}=="0522", MODE="0666", GROUP="plugdev"
-      SUBSYSTEM=="usb", ATTR{idVendor}=="2022", ATTR{idProduct}=="0522", MODE="0666", GROUP="plugdev", TAG+="uaccess"
-    '';
+    text = ''SUBSYSTEM=="usb", ATTR{idVendor}=="2022", ATTR{idProduct}=="0522", GROUP="plugdev", TAG+="uaccess"'';
   };
 
   configFile = writeTextFile {
