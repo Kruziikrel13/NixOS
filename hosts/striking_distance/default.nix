@@ -5,7 +5,8 @@
 }:
 {
   imports = paths.scanPaths ./. ++ [
-    self.nixosModules.antec-flux-pro
+    self.nixosModules.antec
+    self.nixosModules.keychron
   ];
 
   networking.hostName = "striking-distance";
@@ -22,17 +23,21 @@
       wireless.enable = true;
       wireless.enableGraphical = true;
     };
-    keyboard.qmk.enable = true;
-  };
-  services = {
-    ratbagd.enable = true;
-    antec-flux-pro = {
+    antec = {
       enable = true;
       cpu-device = "k10temp-pci-00c3";
       cpu-temp-type = "Tctl";
       gpu-device = "amdgpu-pci-7700";
       gpu-temp-type = "edge";
     };
+    keyboard.keychron = {
+      enable = true;
+      idProduct = "0161"; # Keychron Q6
+    };
+  };
+
+  services = {
+    ratbagd.enable = true;
   };
 
   programs.hyprland = {
