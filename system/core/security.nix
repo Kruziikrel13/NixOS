@@ -1,5 +1,6 @@
 # Security Tweaks borrowed from @hlissner
-_: {
+{ pkgs, ... }:
+{
   # TODO Understand what this is doing
   boot = {
     kernel.sysctl = {
@@ -49,5 +50,12 @@ _: {
   security = {
     rtkit.enable = true;
     sudo.wheelNeedsPassword = false;
+  };
+
+  services.greetd = {
+    enable = true;
+    useTextGreeter = true;
+    settings.default_session.command = "${pkgs.tuigreet}/bin/tuigreet --time";
+    settings.default_session.user = "greeter";
   };
 }

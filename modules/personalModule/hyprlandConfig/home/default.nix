@@ -27,11 +27,11 @@ in
     ./settings.nix
   ];
 
-  programs.bash.profileExtra = lib.mkIf osCfg.withUWSM ''
-    if uwsm check may-start; then
-      exec uwsm start hyprland-uwsm.desktop
-    fi
-  '';
+  # programs.bash.profileExtra = lib.mkIf osCfg.withUWSM ''
+  #   if uwsm check may-start; then
+  #     exec uwsm start hyprland-uwsm.desktop
+  #   fi
+  # '';
 
   home.packages = with pkgs; [
     wl-clipboard
