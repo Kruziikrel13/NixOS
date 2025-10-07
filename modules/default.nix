@@ -1,7 +1,8 @@
 self: inputs: {
   nixosModules = {
     gnome = import ./nixosModules/gnome.nix self;
-    antec-flux-pro = import ./nixosModules/antec.nix self;
+    antec = import ./nixosModules/antec.nix self;
+    keychron = import ./nixosModules/keychron.nix self;
     personalModule = import ./personalModule self inputs;
   };
   homeManagerModules = {
