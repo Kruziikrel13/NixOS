@@ -8,7 +8,10 @@ let
   inherit (lib.types) str;
 in
 {
-  imports = [ (import ./hyprlandConfig self inputs.hyprland) ];
+  imports = [
+    (import ./hyprlandConfig self inputs.hyprland)
+    (import ./gaming.nix self inputs.nix-gaming)
+  ];
   options.personalModule = {
     username = mkOption {
       type = str;
