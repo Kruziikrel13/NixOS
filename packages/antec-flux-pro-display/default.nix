@@ -34,7 +34,7 @@ rustPlatform.buildRustPackage rec {
   ];
 
   udevRules = writeTextFile {
-    name = "99-antec-flux-pro.rules";
+    name = "70-antec-flux-pro.rules";
     text = ''SUBSYSTEM=="usb", ATTR{idVendor}=="2022", ATTR{idProduct}=="0522", GROUP="plugdev", TAG+="uaccess"'';
   };
 
@@ -57,7 +57,7 @@ rustPlatform.buildRustPackage rec {
   '';
 
   postInstall = ''
-    install -Dm644 ${udevRules} $udev/lib/udev/rules.d/99-antec-flux-pro.rules
+    install -Dm644 ${udevRules} $udev/lib/udev/rules.d/70-antec-flux-pro.rules
     install -D ${configFile} $out/etc/antec-flux-pro-display/config.conf
   '';
 
