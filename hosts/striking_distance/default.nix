@@ -35,6 +35,7 @@
       idProduct = "0161"; # Keychron Q6
     };
   };
+  personalModule.gaming.enable = true;
 
   services = {
     ratbagd.enable = true;
