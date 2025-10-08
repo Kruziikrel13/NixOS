@@ -18,7 +18,7 @@ in
     powerManagement.cpuFreqGovernor = "performance";
     hardware.steam-hardware.enable = true;
     boot = {
-      kernelPackages = pkgs.linuxPackages_xanmod;
+      kernelPackages = pkgs.linuxPackages_xanmod_stable;
       kernelParams = [
         "threadirqs"
         "amdgpu.ppfeaturemask=0xffffffff"
