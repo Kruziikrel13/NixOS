@@ -21,11 +21,7 @@
     };
     initrd.systemd.enable = true;
     tmp.cleanOnBoot = true;
-    kernelParams = [
-      "systemd.show_status=auto"
-      "amd_pstate=active"
-    ]
-    ++ lib.optionals config.boot.plymouth.enable [ "plymouth.use-simpledrm" ];
+    kernelParams = lib.optionals config.boot.plymouth.enable [ "plymouth.use-simpledrm" ];
     loader = {
       timeout = 5;
       efi = {
