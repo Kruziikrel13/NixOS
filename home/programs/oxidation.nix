@@ -8,6 +8,7 @@
       mprocs
     ];
     shellAliases = {
+      cat = "${pkgs.bat}/bin/bat --plain";
       ps = "procs";
     };
   };
