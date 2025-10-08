@@ -5,26 +5,15 @@
       uutils-coreutils-noprefix
       procs
       hyperfine
-      du-dust
-      fclones
-      tokei
-      bandwhich
-      xh
-      just
-      mask
       mprocs
     ];
     shellAliases = {
-      cat = "bat --plain";
       ps = "procs";
-      du = "dust";
     };
   };
   programs = {
     fd.enable = true;
-    bat.enable = true;
     bottom.enable = true;
-    nushell.enable = false;
     helix = {
       enable = true;
       package = pkgs.evil-helix;

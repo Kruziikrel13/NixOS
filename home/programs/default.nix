@@ -15,7 +15,6 @@
     via
     playerctl
     spotify
-    planify
 
     slack
   ];
