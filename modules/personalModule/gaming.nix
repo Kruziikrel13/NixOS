@@ -16,12 +16,14 @@ in
 
   config = mkIf cfg.enable {
     powerManagement.cpuFreqGovernor = "performance";
-    hardware.steam-hardware.enable = true;
+    hardware = {
+      steam-hardware.enable = true;
+      amdgpu.overdrive.ppfeaturemask = "0xffffffff";
+    };
     boot = {
       kernelPackages = pkgs.linuxPackages_xanmod_stable;
       kernelParams = [
         "threadirqs"
-        "amdgpu.ppfeaturemask=0xffffffff"
         "processor.max_cstate=5"
         "idle=nomwait"
         "pcie_aspm=off"
