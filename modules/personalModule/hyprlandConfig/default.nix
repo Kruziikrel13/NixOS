@@ -30,6 +30,11 @@ in
       systemPackages = [ self.packages.${pkgs.system}.bibata-hyprcursor ];
       pathsToLink = [ "/share/icons" ];
       variables.NIXOS_OZONE_WL = "1";
+      loginShellInit = mkIf config.programs.hyprland.withUWSM ''
+        if uwsm check may-start; then
+            exec uwsm start hyprland-uwsm.desktop
+          fi
+      '';
     };
     xdg.portal.config.hyprland.default = [
       "gtk"
