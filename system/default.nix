@@ -14,4 +14,5 @@
   ]
   ++ paths.scanPaths ./.;
   personalModule.username = username;
+  services.getty.autologinUser = username;
 }
