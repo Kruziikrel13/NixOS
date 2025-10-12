@@ -31,7 +31,6 @@ in
         };
         bind = [
           "$mod, E, global, shell:powermenu"
-          "$mod SHIFT, L, global, shell:lockscreen"
           # "$mod, D, global, shell:launcher"
         ];
         layerrule = [
