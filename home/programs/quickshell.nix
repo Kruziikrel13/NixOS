@@ -24,6 +24,11 @@ in
 
     wayland.windowManager.hyprland = {
       settings = {
+        misc = {
+          allow_session_lock_restore = true;
+          session_lock_xray = true;
+          focus_on_activate = true;
+        };
         bind = [
           "$mod, E, global, shell:powermenu"
           "$mod SHIFT, L, global, shell:lockscreen"
