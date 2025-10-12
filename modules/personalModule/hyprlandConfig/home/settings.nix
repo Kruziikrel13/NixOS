@@ -116,6 +116,7 @@ in
       animate_mouse_windowdragging = false;
       middle_click_paste = false;
       anr_missed_pings = 2;
+      key_press_enables_dpms = true;
       # disable_autoreload = true;
     };
 
