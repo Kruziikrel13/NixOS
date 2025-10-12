@@ -17,7 +17,6 @@ in
       systemd.enable = true;
       extraPackages = with pkgs.qt6; [
         qtimageformats
-        qt5compat
         qtmultimedia
       ];
       config = /etc/nixos/.config/quickshell;
