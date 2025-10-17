@@ -15,6 +15,7 @@
           in
           [
             ", ${ws}, workspace, ${toString (x + 1)}"
+            "SHIFT, ${ws}, movetoworkspace, ${toString (x + 1)}"
           ]
         ) 10
       );
