@@ -1,6 +1,5 @@
 {
   paths,
-  self,
   pkgs,
   config,
   ...
