@@ -6,10 +6,9 @@
 
     # Gaming
     "workspace name:gaming, tag:gaming"
-    "content game, tag:gaming, tag:video"
-    "idleinhibit always, tag:gaming, tag:video"
-    "immediate, tag:gaming, tag:video"
-    "fullscreen, tag:gaming, tag:video"
+    "idleinhibit always, tag:game"
+    "immediate, tag:game"
+    "fullscreen, tag:game"
 
     # Custom Windows
     "float, class:ghostty.small"

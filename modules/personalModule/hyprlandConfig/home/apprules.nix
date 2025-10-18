@@ -1,13 +1,12 @@
 {
   wayland.windowManager.hyprland.settings.windowrule = [
-    "tag +gaming, class:^([Ss]team)$"
-    "tag +gaming, class:^(steam_app).*"
-    "tag +video, class:^(steam_app).*"
-    "float, class:^([Ss]team)$, title:negative:^([Ss]team)$"
+    "tag +game, class:^(steam_app).*"
+    "tag +game, class:^(.*\.exe)$"
 
+    "tag +gaming, class:^([Ss]team)$"
     "tag +gaming, class:^(heroic)$"
-    "tag +gaming, class:^(.*\.exe)$"
-    "tag +video, class:^(.*\.exe)$"
+    "tag +gaming, tag:game"
+    "float, class:^([Ss]team)$, title:negative:^([Ss]team)$"
     "float, title:^(Wine)$, class:^(wineboot.exe)$"
 
     "tag +chat, class:^(vesktop)$"
