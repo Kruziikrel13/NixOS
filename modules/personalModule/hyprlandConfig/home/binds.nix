@@ -40,6 +40,9 @@
       "$mod SHIFT, L, layoutmsg, swapnext"
       "$mod, TAB, layoutmsg, cyclenext"
       "$mod SHIFT, TAB, cyclenext"
+
+      "CTRL SHIFT, M, pass, class:^(vesktop)$"
+      "CTRL SHIFT, D, pass, class:^(vesktop)$"
     ];
 
     bindl = [
