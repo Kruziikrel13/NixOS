@@ -33,13 +33,6 @@
     git = {
       enable = true;
       lfs.enable = true;
-    gh = {
-      enable = true;
-      settings.git_protocol = "ssh";
-      extensions = [
-        pkgs.gh-contribs
-        pkgs.gh-notify
-      ];
       settings.user = {
         email = "dev@michaelpetersen.io";
         name = config.home.username;
