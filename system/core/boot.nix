@@ -2,10 +2,16 @@
   pkgs,
   lib,
   config,
+  inputs,
   ...
 }:
 {
+  imports = [ inputs.lanzaboote.nixosModules.lanzaboote ];
   boot = {
+    lanzaboote = {
+      enable = true;
+      pkiBundle = "/var/lib/sbctl";
+    };
     plymouth = {
       enable = false;
       theme = "hexagon_dots_alt";
@@ -29,7 +35,7 @@
         efiSysMountPoint = "/boot";
       };
       systemd-boot = {
-        enable = true;
+        enable = lib.mkForce false;
         editor = false;
         consoleMode = "max";
         configurationLimit = 10;
