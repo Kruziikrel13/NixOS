@@ -33,9 +33,6 @@
     git = {
       enable = true;
       lfs.enable = true;
-      userEmail = "dev@michaelpetersen.io";
-      userName = config.home.username;
-    };
     gh = {
       enable = true;
       settings.git_protocol = "ssh";
@@ -43,6 +40,10 @@
         pkgs.gh-contribs
         pkgs.gh-notify
       ];
+      settings.user = {
+        email = "dev@michaelpetersen.io";
+        name = config.home.username;
+      };
     };
     mpv = {
       enable = true;
