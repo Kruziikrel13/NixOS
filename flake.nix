@@ -22,14 +22,13 @@
     };
   inputs = {
     # Global / System Inputs
-    nixpkgs.url = "github:nixos/nixpkgs";
+    nixpkgs.url = "github:nixos/nixpkgs?ref=nixos-unstable";
     nixpkgs-2022.url = "github:nixos/nixpkgs?ref=22.11";
     nixos-hardware.url = "github:NixOS/nixos-hardware/master";
     home-manager = {
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-
     # Desktop
     hyprland.url = "github:hyprwm/hyprland?ref=v0.51.1";
     hyprqt6engine.url = "github:hyprwm/hyprqt6engine";
@@ -37,7 +36,6 @@
       url = "git+https://git.outfoxxed.me/outfoxxed/quickshell";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-
     # Applications
     sherlock = {
       url = "github:Skxxtz/sherlock";
