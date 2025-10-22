@@ -1,18 +1,11 @@
 {
   pkgs,
   lib,
-  inputs,
   ...
 }:
 let
-  nixpkgs-2022 = import inputs.nixpkgs-2022 {
-    inherit (pkgs) system;
-    config = {
-      allowUnfree = true;
-    };
-  };
   extra-pkgs = with pkgs; [
-    nixpkgs-2022.dotnet-sdk_3
+    dotnet-sdk_3
     dotnetCorePackages.sdk_8_0_3xx
     dotnetPackages.Nuget
     mono
