@@ -63,12 +63,20 @@ in
           Restart = "always";
           RestartSec = "5";
           ProtectSystem = "strict";
-          ProtectHome = "true";
+          ProtectHome = "read-only";
           PrivateTmp = "true";
           NoNewPrivileges = "true";
+          MemoryDenyWriteExecute = "true";
+          RestrictRealtime = "true";
+
+          LimitNOFILE = "1024";
+          MemoryMax = "128M";
         };
 
-        wantedBy = [ "multi-user.target" ];
+        wantedBy = [
+          "default.target"
+          "multi-user.target"
+        ];
       };
     };
 }
