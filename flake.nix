@@ -58,5 +58,7 @@
       url = "github:fufexan/nix-gaming";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    grayjay11.url = "github:kruziikrel13/nixpkgs?ref=grayjay";
   };
 }
