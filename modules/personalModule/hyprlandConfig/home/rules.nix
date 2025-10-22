@@ -10,6 +10,8 @@
     "immediate, tag:game"
     "fullscreen, tag:game"
 
+    "idleinhibit fullscreen, tag:video"
+
     # Custom Windows
     "float, class:ghostty.small"
     "size 35% 35%, class:ghostty.small"
