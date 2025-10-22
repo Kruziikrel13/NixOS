@@ -13,7 +13,9 @@ in
 {
   nixpkgs.overlays = [
     (final: prev: {
-      grayjay = grayjay-patch.grayjay;
+      grayjay = grayjay-patch.grayjay.overrideAttrs {
+        patches = [ ./versionFix.patch ];
+      };
       dotnet-sdk_3 = dotnet3-available.dotnet-sdk_3;
     })
   ];
