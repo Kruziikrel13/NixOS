@@ -196,6 +196,22 @@
         "type": "github"
       }
     },
+    "grayjay11": {
+      "locked": {
+        "lastModified": 1760857826,
+        "narHash": "sha256-GgRvdM2KcyNMAAsEfKH4v6oFHXy6MtpHr1K4AvW4HwU=",
+        "owner": "kruziikrel13",
+        "repo": "nixpkgs",
+        "rev": "6a85c3086dec41a36bea2fa6c643f77000f9d919",
+        "type": "github"
+      },
+      "original": {
+        "owner": "kruziikrel13",
+        "ref": "grayjay",
+        "repo": "nixpkgs",
+        "type": "github"
+      }
+    },
     "home-manager": {
       "inputs": {
         "nixpkgs": [
@@ -203,11 +219,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1761005073,
-        "narHash": "sha256-r6qbieh8iC1q1eCaWv15f4UIp8SeGffwswhNSA1Qk3s=",
+        "lastModified": 1761081701,
+        "narHash": "sha256-IwpfaKg5c/WWQiy8b5QGaVPMvoEQ2J6kpwRFdpVpBNQ=",
         "owner": "nix-community",
         "repo": "home-manager",
-        "rev": "84e1adb0cdd13f5f29886091c7234365e12b1e7f",
+        "rev": "9b4a2a7c4fbd75b422f00794af02d6edb4d9d315",
         "type": "github"
       },
       "original": {
@@ -625,11 +641,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1761011506,
-        "narHash": "sha256-apiyjYib8jyrptGolBvbg6dGZut07XFDoRqso5jGL7g=",
+        "lastModified": 1761082499,
+        "narHash": "sha256-yYi9Y1BlbTCz/L91STqZZ9FFMDaW6FJ/tZg+GImssA8=",
         "owner": "fufexan",
         "repo": "nix-gaming",
-        "rev": "1ef1f1b6bee55ec3ca76d8094ebc699585eb5005",
+        "rev": "a757514dffbeafcce1a3edb9e83b9f8ae38b10e1",
         "type": "github"
       },
       "original": {
@@ -766,11 +782,11 @@
     },
     "nixpkgs_4": {
       "locked": {
-        "lastModified": 1761026153,
-        "narHash": "sha256-gGjCh3AQSMGvBalAyxMsnQ2F+LeYa0p9qN7LX3iMCcA=",
+        "lastModified": 1761102505,
+        "narHash": "sha256-a8IRb+PgqozRhdKkyBb0xLs1oDSDEDHl/QixFuiUY5U=",
         "owner": "nixos",
         "repo": "nixpkgs",
-        "rev": "956f93135fe922122893b9cba61b059bfaaeb891",
+        "rev": "5e2e9c2ea67c5ae6a70f55476a0fd195c08581be",
         "type": "github"
       },
       "original": {
@@ -851,6 +867,7 @@
     },
     "root": {
       "inputs": {
+        "grayjay11": "grayjay11",
         "home-manager": "home-manager",
         "hyprland": "hyprland",
         "hyprqt6engine": "hyprqt6engine",
@@ -1009,11 +1026,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1761020606,
-        "narHash": "sha256-XdDpTJHjFqZJ3ss6xzTWYyi3PEObX2fs+kW0Wg/rNDk=",
+        "lastModified": 1761081495,
+        "narHash": "sha256-L0MCEvm37OppIHTiMt4yxfum4m7IfeHXHQaC3EeA/eo=",
         "owner": "0xc000022070",
         "repo": "zen-browser-flake",
-        "rev": "637cb6167da4dbf8ef7f5a50e69933c4f9796095",
+        "rev": "a2691fb00e51ee9b20c02526bb40c5362649bd3c",
         "type": "github"
       },
       "original": {
