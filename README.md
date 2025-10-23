@@ -22,3 +22,4 @@ Configurations from which I learned or copied:
 - [Mic92/dotfiles](https://github.com/Mic92/dotfiles)
 - [outfoxxed/nixnew](https://git.outfoxxed.me/outfoxxed/nixnew)
 - [ryan4yin/nix-config](https://github.com/ryan4yin/nix-config)
+- [JohnRTitor/nix-conf](https://github.com/JohnRTitor/nix-conf)
