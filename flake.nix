@@ -29,8 +29,9 @@
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
     # Desktop
-    hyprland.url = "github:hyprwm/hyprland?ref=v0.51.1";
+    hyprland.url = "github:hyprwm/hyprland";
     hyprqt6engine.url = "github:hyprwm/hyprqt6engine";
     quickshell = {
       url = "git+https://git.outfoxxed.me/outfoxxed/quickshell";
