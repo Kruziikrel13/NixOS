@@ -32,9 +32,9 @@
       gpu-device = "amdgpu-pci-7700";
       gpu-temp-type = "edge";
     };
-    keyboard.keychron = {
+    keyboard.qmk = {
       enable = true;
-      idProduct = "0161"; # Keychron Q6
+      keychronSupport = true;
     };
   };
   personalModule.gaming.enable = true;
