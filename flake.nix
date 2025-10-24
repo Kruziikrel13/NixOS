@@ -58,5 +58,7 @@
     };
 
     grayjay11.url = "github:kruziikrel13/nixpkgs?ref=grayjay";
+    keychron.url = "github:nixos/nixpkgs";
+    antec.url = "github:kruziikrel13/nixpkgs?ref=add-antec-flux-pro";
   };
 }
