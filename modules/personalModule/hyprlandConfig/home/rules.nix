@@ -6,10 +6,10 @@
 
     # Gaming
     "workspace name:gaming, tag:gaming"
-    "idleinhibit always, tag:game"
-    "immediate, tag:game"
-    "fullscreen, tag:game"
+    "idleinhibit always, immediate, fullscreen, float, tag:game"
+    "decorate off, rounding off, keepaspectratio, tag:game"
 
+    "content video, tag:video"
     "idleinhibit fullscreen, tag:video"
 
     # Custom Windows
