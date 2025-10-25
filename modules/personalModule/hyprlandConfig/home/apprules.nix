@@ -2,6 +2,7 @@
   wayland.windowManager.hyprland.settings.windowrule = [
     "tag +game, class:^(steam_app).*"
     "tag +game, class:^(.*\.exe)$"
+    "tag +game,  class:^(gamescope)$"
 
     "tag +gaming, class:^([Ss]team)$"
     "tag +gaming, class:^(heroic)$"
