@@ -45,7 +45,7 @@
     "noblur, class:^()$,title:^()$"
     "nodim, noshadow, rounding 0, xwayland:1"
     "nofocus, class:^$, title:^$, xwayland:1, floating:1, fullscreen:0, pinned:0"
-    "noinitialfocus, class:^(jetbrains-).*,floating:1,title:^$|^\s$|^win\d+$"
+    "noinitialfocus, class:^jetbrains-.*$, floating:1, title:^$|^\s$|^win\d+$"
     "noinitialfocus, class:^(Unity)$,floating:1"
   ];
 }
