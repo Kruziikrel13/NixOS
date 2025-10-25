@@ -32,6 +32,11 @@ in
     wlr-randr
   ];
 
+  home.shellAliases = {
+    screenshot = "${pkgs.hyprshot}/bin/hyprshot --mode region --filename";
+    screenshot-window = "${pkgs.hyprshot}/bin/hyprshot --mode window --filename";
+  };
+
   xdg.dataFile."icons/${cursor}".source = "${cursorPackage}/share/icons/${cursor}";
 
   xdg.configFile.hyprlandMonitors = mkIf (osCfg.monitors != null) {
