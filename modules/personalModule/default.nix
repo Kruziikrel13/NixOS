@@ -10,7 +10,7 @@ in
 {
   imports = [
     (import ./hyprlandConfig self inputs.hyprland)
-    (import ./gaming.nix self inputs.nix-gaming)
+    (import ./gaming.nix self inputs.nix-gaming inputs.chaotic)
   ];
   options.personalModule = {
     username = mkOption {
