@@ -27,11 +27,7 @@ in
     boot = {
       kernelPackages = pkgs.linuxPackages_cachyos;
       kernelParams = [
-        "threadirqs"
-        "processor.max_cstate=5"
-        "idle=nomwait"
-        "pcie_aspm=off"
-        "usbcore.autosuspend=-1"
+        "amd-pstate=active"
       ];
     };
     programs = {
