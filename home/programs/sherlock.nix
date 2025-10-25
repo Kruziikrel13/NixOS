@@ -16,14 +16,6 @@
         behavior.global_prefix = "uwsm app --";
       };
     };
-    aliases = {
-      vesktop = {
-        name = "Discord";
-      };
-      zen = {
-        name = "firefox";
-      };
-    };
     ignore = ''
       Qt*
       uuctl
