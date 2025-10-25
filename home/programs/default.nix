@@ -14,8 +14,6 @@
     via
     playerctl
     spotify
-
-    slack
   ];
 
   programs = {
