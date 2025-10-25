@@ -42,15 +42,55 @@ in
           renice = 15;
         };
       };
+      gamescope = {
+        enable = true;
+        capSysNice = true;
+      };
       steam = {
         enable = true;
         platformOptimizations.enable = true;
         protontricks.enable = true;
+        gamescopeSession = {
+          enable = true;
+          args = [
+            "--rt"
+            "--fullscreen"
+            "--borderless"
+            "--expose-wayland"
+            "--grab"
+            "--force-grab-cursor"
+            "--output-width 3840"
+            "--output-height 2160"
+            "--backend sdl"
+          ];
+        };
         extraCompatPackages = [
           pkgs.proton-ge-bin
           pkgs.steamtinkerlaunch
         ];
       };
     };
+
+    home-manager.users.${config.personalModule.username} =
+      mkIf config.programs.steam.gamescopeSession.enable
+        {
+          xdg.desktopEntries.steam-gamescope = {
+            name = "Steam (Gamescope)";
+            exec = "steam-gamescope %U";
+            icon = "steam";
+            terminal = false;
+            prefersNonDefaultGPU = true;
+            noDisplay = false;
+            mimeType = [
+              "x-scheme-handler/steam"
+              "x-scheme-handler/steamlink"
+            ];
+            categories = [
+              "Network"
+              "FileTransfer"
+              "Game"
+            ];
+          };
+        };
   };
 }
