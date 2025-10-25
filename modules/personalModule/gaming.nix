@@ -1,4 +1,4 @@
-self: nix-gaming:
+self: nix-gaming: chaotic:
 {
   config,
   pkgs,
@@ -11,7 +11,10 @@ let
   cfg = config.personalModule.gaming;
 in
 {
-  imports = [ nix-gaming.nixosModules.platformOptimizations ];
+  imports = [
+    nix-gaming.nixosModules.platformOptimizations
+    chaotic.nixosModules.default
+  ];
   options.personalModule.gaming.enable = mkEnableOption "Enable gaming optimizations and tools.";
 
   config = mkIf cfg.enable {
@@ -20,8 +23,9 @@ in
       steam-hardware.enable = true;
       amdgpu.overdrive.ppfeaturemask = "0xffffffff";
     };
+    system.nixos.tags = lib.mkDefault [ "cachyos" ];
     boot = {
-      kernelPackages = pkgs.linuxPackages_xanmod_stable;
+      kernelPackages = pkgs.linuxPackages_cachyos;
       kernelParams = [
         "threadirqs"
         "processor.max_cstate=5"
