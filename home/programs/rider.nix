@@ -34,23 +34,16 @@ in
     pkgs.unityhub
   ];
 
-  home.activation = {
-    makeUnityConfigDir = ''
-      run mkdir -p $HOME/.local/share/unity3d
-    '';
-  };
+  home.activation.makeUnityConfigDir = ''
+    run mkdir -p $HOME/.local/share/unity3d
+  '';
 
-  home.file.rider = {
-    target = ".local/share/applications/jetbrains-rider.desktop";
-    source = "${
-      pkgs.makeDesktopItem {
-        name = "jetbrains-rider";
-        desktopName = "Rider";
-        exec = "\"${rider}/bin/rider\"";
-        icon = "rider";
-        type = "Application";
-        extraConfig.NoDisplay = "true";
-      }
-    }/share/applications/jetbrains-rider.desktop";
+  xdg.desktopEntries.jetbrains-rider = {
+    genericName = "jetbrains-rider";
+    name = "Rider";
+    exec = "${rider}/bin/rider";
+    icon = "rider";
+    type = "Application";
+    noDisplay = true;
   };
 }
