@@ -15,7 +15,7 @@ in
     nix-gaming.nixosModules.platformOptimizations
     chaotic.nixosModules.default
   ];
-  options.personalModule.gaming.enable = mkEnableOption "Enable gaming optimizations and tools.";
+  options.personalModule.gaming.enable = mkEnableOption "gaming optimizations and tools.";
 
   config = mkIf cfg.enable {
     powerManagement.cpuFreqGovernor = "performance";
