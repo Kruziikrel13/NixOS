@@ -1,9 +1,9 @@
 {
-  paths,
+  pathLib,
   ...
 }:
 {
-  imports = paths.scanPaths ./.;
+  imports = pathLib.scanPaths ./.;
 
   programs = {
     dconf.enable = true;

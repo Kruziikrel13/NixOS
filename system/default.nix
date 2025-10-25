@@ -1,18 +1,18 @@
 {
-  paths,
+  pathLib,
   self,
   username,
-  inputs,
+  nixos-hardware,
   ...
 }:
 {
   imports = [
     self.nixosModules.personalModule
-    inputs.nixos-hardware.nixosModules.common-cpu-amd
-    inputs.nixos-hardware.nixosModules.common-cpu-amd-pstate
-    inputs.nixos-hardware.nixosModules.common-gpu-amd
+    nixos-hardware.nixosModules.common-cpu-amd
+    nixos-hardware.nixosModules.common-cpu-amd-pstate
+    nixos-hardware.nixosModules.common-gpu-amd
   ]
-  ++ paths.scanPaths ./.;
+  ++ pathLib.scanPaths ./.;
   personalModule.username = username;
   services.getty = {
     autologinUser = username;

@@ -6,35 +6,53 @@
 }:
 let
   inherit (nixpkgs) lib;
-  inherit (lib) nixosSystem;
 
-  system = "${self}/system";
-  home = "${self}/home";
+  genSpecialArgs =
+    username: system:
+    inputs
+    // {
+      inherit self username system;
+      pathLib = import ../lib/paths lib;
 
-  makeSpecialArgs = username: {
-    inherit self inputs username;
-    paths = import "${self}/lib/paths" lib;
-    root = "/etc/nixos";
-  };
+      pkgs-unstable = import inputs.nixpkgs-unstable {
+        inherit system;
+        config.allowUnfree = true;
+      };
+
+      pkgs-stable = import inputs.nixpkgs-stable {
+        inherit system;
+        config.allowUnfree = true;
+      };
+
+      pkgs-2022 = import inputs.nixpkgs-2022 {
+        inherit system;
+        config.allowUnfree = true;
+      };
+
+      pkgs-patched = import inputs.nixpkgs-patched {
+        inherit system;
+        config.allowUnfree = true;
+      };
+    };
 in
 {
-  striking-distance = nixosSystem {
+  striking-distance = lib.nixosSystem rec {
     system = "x86_64-linux";
-    specialArgs = makeSpecialArgs "kruziikrel13";
+    specialArgs = genSpecialArgs "kruziikrel13" system;
     modules = [
       ./striking_distance
-      system
-      home
+      ../system
+      ../home
     ];
   };
 
-  aridhol = nixosSystem {
+  aridhol = lib.nixosSystem rec {
     system = "x86_64-linux";
-    specialArgs = makeSpecialArgs "kruziikrel13";
+    specialArgs = genSpecialArgs "kruziikrel13" system;
     modules = [
       ./aridhol
-      system
-      home
+      ../system
+      ../home
     ];
   };
 }

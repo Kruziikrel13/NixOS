@@ -1,6 +1,6 @@
-{ inputs, ... }:
+{ zen-browser, ... }:
 {
-  imports = [ inputs.zen-browser.homeModules.twilight ];
+  imports = [ zen-browser.homeModules.twilight ];
   programs.zen-browser = {
     enable = true;
     policies = {

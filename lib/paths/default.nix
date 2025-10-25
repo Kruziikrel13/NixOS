@@ -1,4 +1,10 @@
-lib: {
+lib:
+let
+  root = "/etc/nixos"; # Has to be string absolute path to flake, or breaks functions
+in
+{
+  relativeToRoot = lib.path.append (/. + root);
+  relativeToRootStr = path: "${root}/${path}";
   scanPaths =
     path:
     builtins.map (f: (path + "/${f}")) (

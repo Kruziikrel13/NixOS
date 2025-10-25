@@ -1,10 +1,10 @@
 {
   lib,
-  inputs,
+  lanzaboote,
   ...
 }:
 {
-  imports = [ inputs.lanzaboote.nixosModules.lanzaboote ];
+  imports = [ lanzaboote.nixosModules.lanzaboote ];
   boot = {
     bootspec.enable = true;
     tmp.cleanOnBoot = true;

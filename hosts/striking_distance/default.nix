@@ -1,14 +1,14 @@
 {
-  paths,
+  pathLib,
   self,
-  inputs,
+  nixos-hardware,
   ...
 }:
 {
-  imports = paths.scanPaths ./. ++ [
+  imports = pathLib.scanPaths ./. ++ [
     self.nixosModules.antec
     self.nixosModules.keychron
-    inputs.nixos-hardware.nixosModules.common-cpu-amd-raphael-igpu
+    nixos-hardware.nixosModules.common-cpu-amd-raphael-igpu
   ];
 
   networking.hostName = "striking-distance";

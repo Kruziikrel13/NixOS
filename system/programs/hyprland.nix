@@ -1,6 +1,6 @@
 {
-  inputs,
-  pkgs,
+  hyprqt6engine,
+  system,
   ...
 }:
 {
@@ -12,7 +12,7 @@
 
   qt.enable = true;
   environment = {
-    systemPackages = [ inputs.hyprqt6engine.packages.${pkgs.system}.hyprqt6engine ];
+    systemPackages = [ hyprqt6engine.packages.${system}.hyprqt6engine ];
     sessionVariables.QT_QPA_PLATFORMTHEME = "hyprqt6engine";
   };
 

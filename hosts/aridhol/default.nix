@@ -1,13 +1,12 @@
 {
   pkgs,
-  paths,
-  inputs,
-  self,
+  pathLib,
+  nixos-hardware,
   ...
 }:
 {
-  imports = paths.scanPaths ./. ++ [
-    inputs.nixos-hardware.nixosModules.lenovo-ideapad-slim-5
+  imports = pathLib.scanPaths ./. ++ [
+    nixos-hardware.nixosModules.lenovo-ideapad-slim-5
   ];
   networking.hostName = "aridhol";
   services = {

@@ -2,6 +2,7 @@
   self,
   pkgs,
   osConfig,
+  pathLib,
   lib,
   ...
 }:
@@ -19,7 +20,7 @@ in
         qtimageformats
         qtmultimedia
       ];
-      config = /etc/nixos/.config/quickshell;
+      config = pathLib.relativeToRoot ".config/quickshell";
     };
 
     wayland.windowManager.hyprland = {

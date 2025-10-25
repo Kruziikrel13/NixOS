@@ -1,11 +1,11 @@
 {
-  paths,
+  pathLib,
   pkgs,
   config,
   ...
 }:
 {
-  imports = paths.scanPaths ./.;
+  imports = pathLib.scanPaths ./.;
   home.shell.enableBashIntegration = true;
   home.packages = with pkgs; [
     grayjay

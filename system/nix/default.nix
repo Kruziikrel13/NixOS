@@ -1,12 +1,9 @@
 {
-  paths,
-  lib,
-  inputs,
-  config,
+  pathLib,
   ...
 }:
 {
-  imports = paths.scanPaths ./.;
+  imports = pathLib.scanPaths ./.;
 
   # Git explicitly required for flakes
   programs.git.enable = true;
@@ -15,12 +12,6 @@
   nixpkgs.config.allowUnfree = true;
   nix = {
     channel.enable = false;
-    # pin the registry to avoid downloading and evaling a new nixpkgs version every time
-    registry = lib.mapAttrs (_: v: { flake = v; }) (
-      lib.filterAttrs (_: v: lib.isType "flake" v) inputs
-    );
-    # set the path for channels compat
-    nixPath = lib.mapAttrsToList (key: _: "${key}=flake:${key}") config.nix.registry;
 
     settings = {
       auto-optimise-store = true;

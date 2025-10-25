@@ -1,26 +1,14 @@
 {
   description = "NixOS Configuration for Kruziikrel13 (Hyprland, Secure-Boot, Gaming)";
 
-  outputs =
-    {
-      self,
-      nixpkgs,
-      ...
-    }@inputs:
-    let
-      forAllSystems = nixpkgs.lib.genAttrs [ "x86_64-linux" ];
-      modules = import ./modules self inputs;
-    in
-    {
-      nixosConfigurations = import ./hosts { inherit self nixpkgs inputs; };
-      inherit (modules) homeManagerModules nixosModules;
-      packages = forAllSystems (system: import ./packages nixpkgs.legacyPackages.${system});
-      templates = import ./templates;
-    };
   inputs = {
-    # Global / System Inputs
-    nixpkgs.url = "github:nixos/nixpkgs?ref=nixos-unstable";
-    nixpkgs-2022.url = "github:nixos/nixpkgs?ref=22.11";
+    # NIXPKGS
+    nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
+    nixpkgs-master.url = "github:nixos/nixpkgs/master";
+    nixpkgs-stable.url = "github:nixos/nixpkgs/nixos-25.05";
+    nixpkgs-patched.url = "github:kruziikrel13/nixpkgs/nixos-unstable-patched";
+    nixpkgs-2022.url = "github:nixos/nixpkgs/22.11";
+
     nixos-hardware.url = "github:NixOS/nixos-hardware/master";
     chaotic = {
       url = "github:chaotic-cx/nyx/nyxpkgs-unstable";
@@ -58,9 +46,23 @@
       url = "github:fufexan/nix-gaming";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-
-    grayjay11.url = "github:kruziikrel13/nixpkgs?ref=grayjay";
-    keychron.url = "github:nixos/nixpkgs";
-    antec.url = "github:kruziikrel13/nixpkgs?ref=add-antec-flux-pro";
   };
+
+  outputs =
+    inputs@{ self, nixpkgs, ... }:
+    let
+      forEachSystem =
+        fn:
+        nixpkgs.lib.genAttrs nixpkgs.lib.platforms.linux (
+          system: fn system nixpkgs.legacyPackages.${system}
+        );
+      modules = import ./modules self inputs;
+    in
+    {
+      inherit (modules) homeManagerModules nixosModules;
+      nixosConfigurations = import ./hosts { inherit self nixpkgs inputs; };
+      packages = forEachSystem (system: pkgs: import ./packages pkgs);
+      formatter = forEachSystem (system: pkgs: pkgs.nixfmt);
+    };
+
 }

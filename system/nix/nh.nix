@@ -1,15 +1,13 @@
 {
   config,
-  root,
+  pathLib,
   lib,
-  inputs,
-  pkgs,
+  nh,
+  system,
   ...
 }:
 let
   inherit (lib.meta) getExe;
-  inherit (inputs) nh;
-  inherit (pkgs) system;
   exe = getExe config.programs.nh.package;
 in
 {
@@ -20,12 +18,12 @@ in
       enable = true;
       extraArgs = "--keep 5";
     };
-    flake = root;
+    flake = pathLib.relativeToRootStr ".";
   };
 
   environment.shellAliases = {
     search = "${exe} search";
-    nixos-edit = "cd ${root}; nvim; cd -";
+    nixos-edit = "cd ${pathLib.relativeToRootStr "."}; nvim; cd -";
     nixos-build = "${exe} os switch";
     nixos-upgrade = "${exe} os switch --update";
     nixos-clean = "${exe} clean all --nogcroots";

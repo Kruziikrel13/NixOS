@@ -1,12 +1,12 @@
 {
   specialArgs,
-  inputs,
+  home-manager,
   username,
-  paths,
+  pathLib,
   ...
 }:
 {
-  imports = [ inputs.home-manager.nixosModules.home-manager ];
+  imports = [ home-manager.nixosModules.home-manager ];
   environment.pathsToLink = [
     "/share/xdg-desktop-portal"
     "/share/applications"
@@ -30,7 +30,7 @@
           json.enable = false;
           manpages.enable = false;
         };
-        imports = paths.scanPaths ./.;
+        imports = pathLib.scanPaths ./.;
       };
   };
 }

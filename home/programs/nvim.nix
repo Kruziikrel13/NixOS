@@ -1,6 +1,6 @@
 {
   pkgs,
-  root,
+  pathLib,
   config,
   ...
 }:
@@ -9,7 +9,7 @@
     enable = true;
     target = "nvim";
     recursive = true;
-    source = config.lib.file.mkOutOfStoreSymlink "${root}/.config/sentinel.nvim";
+    source = config.lib.file.mkOutOfStoreSymlink (pathLib.relativeToRoot ".config/sentinel.nvim");
   };
   programs.neovim = {
     enable = true;
