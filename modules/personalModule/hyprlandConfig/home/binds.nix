@@ -5,13 +5,17 @@
       "$mod, mouse:273, resizewindow"
     ];
 
+    bindp = [
+      "$mod, Q, killactive"
+      "$mod SHIFT, Q, forcekillactive"
+    ];
+
     bind = [
       "$mod, RETURN, exec, uwsm app -T" # Launch Terminal
       "$mod SHIFT, RETURN, exec, uwsm app -- $terminal --class=ghostty.small" # Launch Terminal
       "$mod, Escape, exec, uwsm stop"
       "$mod, D, exec, $dmenu" # Launcher
 
-      "$mod, Q, killactive"
       "$mod, F, fullscreen"
       "$mod, R, togglesplit"
       "$mod, T, togglefloating"
