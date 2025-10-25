@@ -1,21 +1,5 @@
 {
   "nodes": {
-    "antec": {
-      "locked": {
-        "lastModified": 1761266616,
-        "narHash": "sha256-I8a9wgCLstg9jcqFne9dNILxBJog9Ps4r5AFcE/Cur4=",
-        "owner": "kruziikrel13",
-        "repo": "nixpkgs",
-        "rev": "983a4b56aa2b8b6fd7aaf131a16fe3f8e2d7985e",
-        "type": "github"
-      },
-      "original": {
-        "owner": "kruziikrel13",
-        "ref": "add-antec-flux-pro",
-        "repo": "nixpkgs",
-        "type": "github"
-      }
-    },
     "aquamarine": {
       "inputs": {
         "hyprutils": [
@@ -248,22 +232,6 @@
       "original": {
         "owner": "hercules-ci",
         "repo": "gitignore.nix",
-        "type": "github"
-      }
-    },
-    "grayjay11": {
-      "locked": {
-        "lastModified": 1761208915,
-        "narHash": "sha256-2+wmWVPiLeJp+6q1mtpj/iMZMkejEsP9wVcHvlg2bpI=",
-        "owner": "kruziikrel13",
-        "repo": "nixpkgs",
-        "rev": "cd1d00aac1212c3fa11a71f20dbfab33cc37e470",
-        "type": "github"
-      },
-      "original": {
-        "owner": "kruziikrel13",
-        "ref": "grayjay",
-        "repo": "nixpkgs",
         "type": "github"
       }
     },
@@ -664,21 +632,6 @@
         "type": "github"
       }
     },
-    "keychron": {
-      "locked": {
-        "lastModified": 1761358678,
-        "narHash": "sha256-oBOSKLAa89mtVmytbX1hcX5QRTnFtdeHTJop9PJyX98=",
-        "owner": "nixos",
-        "repo": "nixpkgs",
-        "rev": "d31a6bdfc5005d7008674f0c3beecdecba6f99b0",
-        "type": "github"
-      },
-      "original": {
-        "owner": "nixos",
-        "repo": "nixpkgs",
-        "type": "github"
-      }
-    },
     "lanzaboote": {
       "inputs": {
         "crane": "crane",
@@ -846,6 +799,38 @@
         "type": "github"
       }
     },
+    "nixpkgs-master": {
+      "locked": {
+        "lastModified": 1761374372,
+        "narHash": "sha256-WY+yiYJ+niKiBk1GhL/k4zpdEvHcwKh+QElf4kUZixQ=",
+        "owner": "nixos",
+        "repo": "nixpkgs",
+        "rev": "3c0492fef3a354980b57b4e9f024afbea41f4465",
+        "type": "github"
+      },
+      "original": {
+        "owner": "nixos",
+        "ref": "master",
+        "repo": "nixpkgs",
+        "type": "github"
+      }
+    },
+    "nixpkgs-patched": {
+      "locked": {
+        "lastModified": 1761370424,
+        "narHash": "sha256-+4DyUSQUZ8grKVPEvrSiQxHlE/+w2YyANGfovVJRP3w=",
+        "owner": "kruziikrel13",
+        "repo": "nixpkgs",
+        "rev": "142f993e248e26299663954078b7b3401b11cc21",
+        "type": "github"
+      },
+      "original": {
+        "owner": "kruziikrel13",
+        "ref": "nixos-unstable-patched",
+        "repo": "nixpkgs",
+        "type": "github"
+      }
+    },
     "nixpkgs-stable": {
       "locked": {
         "lastModified": 1730741070,
@@ -858,6 +843,22 @@
       "original": {
         "owner": "NixOS",
         "ref": "nixos-24.05",
+        "repo": "nixpkgs",
+        "type": "github"
+      }
+    },
+    "nixpkgs-stable_2": {
+      "locked": {
+        "lastModified": 1761173472,
+        "narHash": "sha256-m9W0dYXflzeGgKNravKJvTMR4Qqa2MVD11AwlGMufeE=",
+        "owner": "nixos",
+        "repo": "nixpkgs",
+        "rev": "c8aa8cc00a5cb57fada0851a038d35c08a36a2bb",
+        "type": "github"
+      },
+      "original": {
+        "owner": "nixos",
+        "ref": "nixos-25.05",
         "repo": "nixpkgs",
         "type": "github"
       }
@@ -998,19 +999,19 @@
     },
     "root": {
       "inputs": {
-        "antec": "antec",
         "chaotic": "chaotic",
-        "grayjay11": "grayjay11",
         "home-manager": "home-manager",
         "hyprland": "hyprland",
         "hyprqt6engine": "hyprqt6engine",
-        "keychron": "keychron",
         "lanzaboote": "lanzaboote",
         "nh": "nh",
         "nix-gaming": "nix-gaming",
         "nixos-hardware": "nixos-hardware",
         "nixpkgs": "nixpkgs_5",
         "nixpkgs-2022": "nixpkgs-2022",
+        "nixpkgs-master": "nixpkgs-master",
+        "nixpkgs-patched": "nixpkgs-patched",
+        "nixpkgs-stable": "nixpkgs-stable_2",
         "quickshell": "quickshell",
         "sherlock": "sherlock",
         "zen-browser": "zen-browser"
@@ -1181,11 +1182,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1761347880,
-        "narHash": "sha256-n7OPf1BL7zVYq/zVaVyLspqsMeTjVIR/BSyTrsUduAs=",
+        "lastModified": 1761366157,
+        "narHash": "sha256-aqZ8hrOgs6cPKQ7efc1sGYPa7iGVsmCbcGXktRJz2Qs=",
         "owner": "0xc000022070",
         "repo": "zen-browser-flake",
-        "rev": "457bb3634cb588ade65eb38d2f07c118c205b87d",
+        "rev": "f338def1f2ea5f6c214004b5d2ed796b9783581a",
         "type": "github"
       },
       "original": {
