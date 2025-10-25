@@ -23,7 +23,6 @@
     "usb_storage"
     "sd_mod"
   ];
-  boot.initrd.kernelModules = [ "amdgpu" ];
   boot.kernelModules = [ "kvm-amd" ];
   boot.extraModulePackages = [ ];
 
@@ -35,7 +34,10 @@
     "/boot" = {
       device = "/dev/disk/by-uuid/543D-56A2";
       fsType = "vfat";
-      options = [ "umask=077" ];
+      options = [
+        "fmask=0137"
+        "dmask=0027"
+      ];
     };
   };
 
