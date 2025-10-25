@@ -1,8 +1,5 @@
 {
-  description = ''
-    Personal NixOS Configuration for both my main desktop and my laptop
-    as a flake.
-  '';
+  description = "NixOS Configuration for Kruziikrel13 (Hyprland, Secure-Boot, Gaming)";
 
   outputs =
     {
