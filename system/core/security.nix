@@ -48,6 +48,6 @@ _: {
 
   security = {
     rtkit.enable = true;
-    sudo.wheelNeedsPassword = false;
+    sudo-rs.wheelNeedsPassword = false;
   };
 }
