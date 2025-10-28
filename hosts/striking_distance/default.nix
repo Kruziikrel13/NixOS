@@ -7,7 +7,6 @@
 {
   imports = pathLib.scanPaths ./. ++ [
     self.nixosModules.antec
-    self.nixosModules.keychron
     nixos-hardware.nixosModules.common-cpu-amd-raphael-igpu
   ];
 
