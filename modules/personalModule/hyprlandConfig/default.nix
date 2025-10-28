@@ -29,7 +29,16 @@ in
     environment = {
       systemPackages = [ self.packages.${pkgs.system}.bibata-hyprcursor ];
       pathsToLink = [ "/share/icons" ];
-      variables.NIXOS_OZONE_WL = "1";
+      sessionVariables = {
+        NIXOS_OZONE_WL = "1";
+        MOZ_ENABLE_WAYLAND = "1";
+        SDL_VIDEODRIVER = "wayland";
+        CLUTTER_BACKEND = "wayland";
+        GTK_USE_PORTAL = "1";
+        ELECTRON_OZONE_PLATFORM_HINT = "auto";
+        QT_QPA_PLATFORM = "wayland";
+        XDG_SESSION_TYPE = "wayland";
+      };
       loginShellInit = mkIf config.programs.hyprland.withUWSM ''
         if uwsm check may-start; then
             exec uwsm start hyprland-uwsm.desktop
@@ -63,14 +72,6 @@ in
             "systemctl --user start hyprland-session.target"
           ];
         };
-      };
-
-      home.sessionVariables = {
-        MOZ_ENABLE_WAYLAND = "1";
-        ELECTRON_OZONE_PLATFORM_HINT = "auto";
-        QT_QPA_PLATFORM = "wayland";
-        SDL_VIDEODRIVER = "wayland,x11";
-        XDG_SESSION_TYPE = "wayland";
       };
     };
   };
