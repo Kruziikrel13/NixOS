@@ -32,7 +32,7 @@
         ];
       };
       settings = {
-        bind = [
+        bindp = [
           "$mod, 1, focusmonitor, desc:AOC 24G1WG4 0x0004A33C"
           "$mod SHIFT, 1, movewindow, mon:desc:AOC 24G1WG4 0x0004A33C"
           "$mod SHIFT, 1, centerwindow"
@@ -42,9 +42,8 @@
           "$mod, 3, focusmonitor, desc:ViewSonic Corporation VX2758-C-MH V9M184500179"
           "$mod SHIFT, 3, movewindow, mon:desc:ViewSonic Corporation VX2758-C-MH V9M184500179"
           "$mod SHIFT, 3, centerwindow"
-
-          "$mod, W, submap, workspaces"
         ];
+        bind = [ "$mod, W, submap, workspaces" ];
         workspace = [
           "name:gaming, monitor:desc:GIGA-BYTE TECHNOLOGY CO. LTD. AORUS FI32U 21440B000115"
           "name:music, monitor:desc:AOC 24G1WG4 0x0004A33C, on-created-empty: uwsm app -- spotify"
