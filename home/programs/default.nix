@@ -28,14 +28,6 @@
       enableBashIntegration = true;
       nix-direnv.enable = true;
     };
-    git = {
-      enable = true;
-      lfs.enable = true;
-      settings.user = {
-        email = "dev@michaelpetersen.io";
-        name = config.home.username;
-      };
-    };
     mpv = {
       enable = true;
       bindings = {
