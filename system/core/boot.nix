@@ -1,6 +1,7 @@
 {
   lib,
   lanzaboote,
+  pkgs,
   ...
 }:
 {
@@ -24,4 +25,5 @@
       pkiBundle = "/var/lib/sbctl";
     };
   };
+  environment.systemPackages = [ pkgs.sbctl ];
 }
