@@ -21,4 +21,5 @@
   xdg.portal.extraPortals = with pkgs; [ xdg-desktop-portal-gtk ];
 
   security.polkit.enable = true;
+  security.soteria.enable = true;
 }
