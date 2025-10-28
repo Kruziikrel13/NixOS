@@ -7,7 +7,6 @@
   imports = pathLib.scanPaths ./.;
 
   programs.nix-ld.enable = true;
-  environment.stub-ld.enable = true;
   documentation = {
     nixos.enable = false;
     dev.enable = true;
