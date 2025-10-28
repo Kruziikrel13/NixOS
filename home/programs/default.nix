@@ -14,6 +14,7 @@
     via
     playerctl
     spotify
+    devenv
   ];
 
   programs = {
@@ -27,6 +28,7 @@
       enable = true;
       enableBashIntegration = true;
       nix-direnv.enable = true;
+      silent = true;
     };
     mpv = {
       enable = true;
