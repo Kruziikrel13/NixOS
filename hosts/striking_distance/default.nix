@@ -17,6 +17,8 @@
 
   environment.variables.AMD_VULKAN_ICD = "RADV";
   environment.variables.VDPAU_DRIVER = "radeonsi";
+  security.tpm2.enable = true;
+  security.tpm2.pkcs11.enable = true;
   hardware = {
     graphics = {
       enable = true;
