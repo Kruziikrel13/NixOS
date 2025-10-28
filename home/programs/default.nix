@@ -1,7 +1,6 @@
 {
   pathLib,
   pkgs,
-  config,
   ...
 }:
 {
