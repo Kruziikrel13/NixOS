@@ -9,10 +9,11 @@
     withUWSM = true;
   };
 
-  qt.enable = true;
-  environment = {
-    systemPackages = [ hyprqt6engine.packages.${system}.hyprqt6engine ];
-    sessionVariables.QT_QPA_PLATFORMTHEME = "hyprqt6engine";
+  qt = {
+    enable = true;
+    style = "breeze";
+    platformTheme = "qt5ct";
+  };
   xdg.portal = {
     enable = true;
     xdgOpenUsePortal = true;
