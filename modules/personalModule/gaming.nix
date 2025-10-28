@@ -18,12 +18,14 @@ in
   options.personalModule.gaming.enable = mkEnableOption "gaming optimizations and tools.";
 
   config = mkIf cfg.enable {
+    chaotic.mesa-git.enable = true;
     powerManagement.cpuFreqGovernor = "performance";
     hardware = {
       steam-hardware.enable = true;
       amdgpu.overdrive.ppfeaturemask = "0xffffffff";
     };
     system.nixos.tags = lib.mkDefault [ "cachyos" ];
+    services.scx.enable = true;
     boot = {
       kernelPackages = pkgs.linuxPackages_cachyos;
       kernelParams = [
@@ -41,6 +43,7 @@ in
       gamescope = {
         enable = true;
         capSysNice = true;
+        package = pkgs.gamescope_git;
       };
       steam = {
         enable = true;
@@ -48,6 +51,11 @@ in
         protontricks.enable = true;
         gamescopeSession = {
           enable = true;
+          env = {
+            WLR_RENDERER = "vulkan";
+            DXVK_HDR = "1";
+            ENABLE_GAMESCOPE_WSI = "1";
+          };
           args = [
             "--rt"
             "--fullscreen"
@@ -57,12 +65,15 @@ in
             "--force-grab-cursor"
             "--output-width 3840"
             "--output-height 2160"
-            "--backend sdl"
+            "--backend wayland"
+            "--prefer-vk-device 1002:7550" # lspci -nn | grep VGA
           ];
         };
         extraCompatPackages = [
-          pkgs.proton-ge-bin
+          pkgs.proton-ge-custom
+          pkgs.proton-cachyos
           pkgs.steamtinkerlaunch
+          pkgs.luxtorpeda
         ];
       };
     };
