@@ -23,6 +23,7 @@
   boot.kernelModules = [
     "kvm-amd"
     "amdgpu"
+    "f2fs"
   ];
   boot.extraModulePackages = [ ];
 
