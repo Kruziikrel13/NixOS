@@ -48,25 +48,5 @@
         title = "Ghostty";
       };
     };
-    vesktop = {
-      enable = true;
-      settings = {
-        discordBranch = "canary";
-        tray = true;
-        appBadge = true;
-        arRPC = true;
-        staticTitle = true;
-        splashTheming = false;
-        hardwareAcceleration = true;
-      };
-      vencord = {
-        useSystem = true;
-        settings = {
-          autoUpdate = false;
-          useQuickCss = false;
-          notifyAboutUpdates = false;
-        };
-      };
-    };
   };
 }
