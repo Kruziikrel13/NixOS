@@ -6,6 +6,7 @@
 }:
 {
   imports = [ lanzaboote.nixosModules.lanzaboote ];
+  console.earlySetup = true;
   boot = {
     bootspec.enable = true;
     tmp.cleanOnBoot = true;
