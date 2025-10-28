@@ -27,6 +27,9 @@
       enable = true;
       enableCompletion = true;
       enableVteIntegration = true;
+      sessionVariables = {
+        GPG_TTY = "$(tty)";
+      };
     };
     direnv = {
       enable = true;
