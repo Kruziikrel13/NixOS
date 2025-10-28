@@ -1,4 +1,4 @@
-self: nix-gaming: chaotic:
+self: nix-gaming:
 {
   config,
   pkgs,
@@ -13,21 +13,16 @@ in
 {
   imports = [
     nix-gaming.nixosModules.platformOptimizations
-    chaotic.nixosModules.default
   ];
   options.personalModule.gaming.enable = mkEnableOption "gaming optimizations and tools.";
 
   config = mkIf cfg.enable {
-    chaotic.mesa-git.enable = true;
     powerManagement.cpuFreqGovernor = "performance";
     hardware = {
       steam-hardware.enable = true;
       amdgpu.overdrive.ppfeaturemask = "0xffffffff";
     };
-    system.nixos.tags = lib.mkDefault [ "cachyos" ];
-    services.scx.enable = true;
     boot = {
-      kernelPackages = pkgs.linuxPackages_cachyos;
       kernelParams = [
         "amd-pstate=active"
       ];
@@ -43,7 +38,6 @@ in
       gamescope = {
         enable = true;
         capSysNice = true;
-        package = pkgs.gamescope_git;
       };
       steam = {
         enable = true;
@@ -70,10 +64,8 @@ in
           ];
         };
         extraCompatPackages = [
-          pkgs.proton-ge-custom
-          pkgs.proton-cachyos
+          # pkgs.proton-ge-bin replaced in experimental
           pkgs.steamtinkerlaunch
-          pkgs.luxtorpeda
         ];
       };
     };
