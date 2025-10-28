@@ -17,6 +17,10 @@
     devenv
   ];
 
+  home.shellAliases = {
+    fix-store = "sudo nix-store --verify --check-contents --repair";
+  };
+
   programs = {
     obsidian.enable = true;
     bash = {
