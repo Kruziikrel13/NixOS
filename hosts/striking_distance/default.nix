@@ -2,6 +2,7 @@
   pathLib,
   self,
   nixos-hardware,
+  pkgs,
   ...
 }:
 {
@@ -15,10 +16,20 @@
   time.hardwareClockInLocalTime = true;
 
   environment.variables.AMD_VULKAN_ICD = "RADV";
+  environment.variables.VDPAU_DRIVER = "radeonsi";
   hardware = {
     graphics = {
       enable = true;
       enable32Bit = true;
+      extraPackages = with pkgs; [
+        libva
+        libva-vdpau-driver
+        libvdpau-va-gl
+      ];
+      extraPackages32 = with pkgs.driversi686Linux; [
+        libva-vdpau-driver
+        libvdpau-va-gl
+      ];
     };
     logitech = {
       wireless.enable = true;
