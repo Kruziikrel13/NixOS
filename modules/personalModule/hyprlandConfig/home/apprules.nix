@@ -3,6 +3,7 @@
     "tag +game, class:^(steam_app).*"
     "tag +game, class:^(.*\.exe)$"
     "tag +game,  class:^(gamescope|\.gamescope-wrapped)$"
+    "tag -game, tag:game, title:^(Wine.*)$"
 
     "tag +gaming, class:^([Ss]team)$"
     "tag +gaming, class:^(heroic)$"
@@ -17,5 +18,6 @@
     "tag +video, class:^(cef)$, initialTitle:^(Grayjay)$"
 
     "float, class:^(\.blueman).*"
+    "float, stayfocused, class:^(.*\.exe)$, title:^(.*[Ee]rror.*)$"
   ];
 }

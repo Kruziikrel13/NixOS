@@ -6,7 +6,7 @@
 
     # Gaming
     "workspace name:gaming, tag:gaming"
-    "workspace emptym, tag:negative:gaming, onworkspace:name:gaming"
+    "workspace emptym, class:(?:(?!^$).)+, tag:negative:gaming, onworkspace:name:gaming" # For weird app popups
     "idleinhibit always, immediate, fullscreen, float, tag:game"
     "decorate off, rounding off, keepaspectratio, tag:game"
 
@@ -19,17 +19,18 @@
 
     # Workspace Assignments
     "workspace name:email, tag:email"
-    "workspace emptym, tag:negative:email, onworkspace:name:email"
+    "workspace emptym, class:(?:(?!^$).)+, tag:negative:email, onworkspace:name:email"
     "workspace name:chat, tag:chat"
-    "workspace emptym, tag:negative:chat, onworkspace:name:chat"
+    "workspace emptym, class:(?:(?!^$).)+, tag:negative:chat, onworkspace:name:chat"
     "workspace name:music, tag:music"
-    "workspace emptym, tag:negative:music, onworkspace:name:music"
+    "workspace emptym, class:(?:(?!^$).)+, tag:negative:music, onworkspace:name:music"
 
     # PiP
     "float, pin, keepaspectratio, title:^(Picture-in-Picture)$"
 
     # Dialogue Windows
     "center, float, title:^(Open File)(.*)$"
+    "center, float, title:^(Select EXE)(.*)$"
     "center, float, title:^(Select a File)(.*)$"
     "center, float, title:^(Choose wallpaper)(.*)$"
     "center, float, title:^(Save As)(.*)$"
