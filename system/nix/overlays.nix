@@ -1,4 +1,8 @@
-{ pkgs-2022, pkgs-patched, ... }:
+{
+  pkgs-2022,
+  pkgs-patched,
+  ...
+}:
 {
   nixpkgs.overlays = [
     (final: prev: {
