@@ -42,6 +42,12 @@ in
       steam = {
         enable = true;
         platformOptimizations.enable = true;
+        package = pkgs.steam.override {
+          extraEnv = {
+            PROTON_NO_STEAMINPUT = "1";
+            PROTON_ENABLE_HDR = "1";
+          };
+        };
         protontricks.enable = true;
         gamescopeSession = {
           enable = true;
@@ -56,6 +62,7 @@ in
             "--borderless"
             "--expose-wayland"
             "--grab"
+            "--hdr-enabled"
             "--force-grab-cursor"
             "--output-width 3840"
             "--output-height 2160"
