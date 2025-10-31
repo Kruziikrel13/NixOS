@@ -5,6 +5,13 @@
   ...
 }:
 
+let
+  mkBtrfsOpts = subvol: [
+    "subvol=@${subvol}"
+    "discard"
+    "compress=zstd"
+  ];
+in
 {
   imports = [
     (modulesPath + "/installer/scan/not-detected.nix")
@@ -26,19 +33,6 @@
   ];
   boot.extraModulePackages = [ ];
 
-  fileSystems."/" = {
-    device = "/dev/disk/by-uuid/e2c630af-cf1a-4502-91dc-d69145fb8c61";
-    fsType = "btrfs";
-    options = [
-      "subvol=@root"
-      "ssd"
-      "discard"
-      "compress=zstd"
-      "noatime"
-      "noacl"
-    ];
-  };
-
   fileSystems."/boot" = {
     device = "/dev/disk/by-uuid/D36D-6804";
     fsType = "vfat";
@@ -48,25 +42,27 @@
     ];
   };
 
+  fileSystems."/" = {
+    device = "/dev/disk/by-uuid/e2c630af-cf1a-4502-91dc-d69145fb8c61";
+    fsType = "btrfs";
+    options = [
+      (mkBtrfsOpts "root")
+      "defaults"
+      "ssd"
+      "noacl"
+      "noatime"
+    ];
+  };
+
   fileSystems."/home" = {
     device = "/dev/disk/by-uuid/e2c630af-cf1a-4502-91dc-d69145fb8c61";
     fsType = "btrfs";
     options = [
-      "subvol=@home"
-      "noatime"
-      "compress=zstd"
-      "discard"
+      (mkBtrfsOpts "home")
+      "defaults"
       "ssd"
       "noacl"
-    ];
-  };
-
-  fileSystems."/var/tmp" = {
-    device = "/dev/disk/by-uuid/e2c630af-cf1a-4502-91dc-d69145fb8c61";
-    fsType = "btrfs";
-    options = [
-      "subvol=@tmp"
-      "compress=zstd"
+      "noatime"
     ];
   };
 
