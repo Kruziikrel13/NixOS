@@ -2,6 +2,7 @@
   config,
   lib,
   modulesPath,
+  username,
   ...
 }:
 
@@ -66,12 +67,22 @@ in
     ];
   };
 
-  fileSystems."/var/log" = {
-    device = "/dev/disk/by-uuid/e2c630af-cf1a-4502-91dc-d69145fb8c61";
-    fsType = "btrfs";
+  fileSystems."/home/${username}/games" = {
+    device = "/dev/disk/by-uuid/bbdffe39-6de4-46f5-85f6-a08f5c77e355";
+    fsType = "f2fs";
     options = [
-      "subvol=@log"
-      "compress=zstd"
+      "defaults"
+      "noauto"
+      "nofail"
+      "user"
+      "ssd"
+
+      "compress_algorithm=zstd"
+      "compress_chksum"
+      "compress_cache"
+      "discard"
+      "inline_xattr"
+      "extent_cache"
     ];
   };
 
