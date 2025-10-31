@@ -46,8 +46,7 @@ in
   fileSystems."/" = {
     device = "/dev/disk/by-uuid/e2c630af-cf1a-4502-91dc-d69145fb8c61";
     fsType = "btrfs";
-    options = [
-      (mkBtrfsOpts "root")
+    options = (mkBtrfsOpts "root") ++ [
       "defaults"
       "ssd"
       "noacl"
@@ -58,8 +57,7 @@ in
   fileSystems."/home" = {
     device = "/dev/disk/by-uuid/e2c630af-cf1a-4502-91dc-d69145fb8c61";
     fsType = "btrfs";
-    options = [
-      (mkBtrfsOpts "home")
+    options = (mkBtrfsOpts "home") ++ [
       "defaults"
       "ssd"
       "noacl"
