@@ -57,7 +57,7 @@
       inherit (modules) homeManagerModules nixosModules;
       nixosConfigurations = import ./hosts { inherit self nixpkgs inputs; };
       packages = forEachSystem (system: pkgs: import ./packages pkgs);
-      formatter = forEachSystem (system: pkgs: pkgs.nixfmt);
+      formatter = forEachSystem (system: pkgs: pkgs.nixfmt-rfc-style);
     };
 
 }
