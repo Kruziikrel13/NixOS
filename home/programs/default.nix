@@ -44,10 +44,13 @@
     };
     ghostty = {
       enable = true;
-      clearDefaultKeybinds = true;
       settings = {
-        theme = "GitHub Dark";
         title = "Ghostty";
+        theme = "GitHub Dark";
+
+        window-decoration = false;
+        confirm-close-surface = false;
+        quit-after-last-window-closed = true;
       };
     };
   };
