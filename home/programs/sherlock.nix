@@ -7,7 +7,7 @@
         debug.try_suppress_warnings = true;
         backdrop.enable = true;
         caching.enable = true;
-        behavior.global_prefix = "uwsm app --";
+        behavior.global_prefix = "runapp --";
       };
     };
     ignore = ''
