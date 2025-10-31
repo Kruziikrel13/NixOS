@@ -1,6 +1,7 @@
 {
   pkgs-2022,
   pkgs-patched,
+  neovim-nightly-overlay,
   ...
 }:
 {
@@ -13,5 +14,6 @@
       keychron-udev-rules = pkgs-patched.keychron-udev-rules;
       antec-flux-pro = pkgs-patched.antec-flux-pro;
     })
+    neovim-nightly-overlay.overlays.default
   ];
 }

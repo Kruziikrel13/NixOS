@@ -8,6 +8,7 @@
     nixpkgs-stable.url = "github:nixos/nixpkgs/nixos-25.05";
     nixpkgs-patched.url = "github:kruziikrel13/nixpkgs/nixos-unstable-patched";
     nixpkgs-2022.url = "github:nixos/nixpkgs/22.11";
+    neovim-nightly-overlay.url = "github:nix-community/neovim-nightly-overlay";
 
     nixos-hardware.url = "github:NixOS/nixos-hardware/master";
     chaotic = {
