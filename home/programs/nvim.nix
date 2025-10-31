@@ -26,12 +26,11 @@
       tree-sitter
 
       ## Language Servers
+      nil
       nixd
-      nixfmt
-      nixfmt-tree
       statix
-
-      copilot-language-server
+      deadnix
+      nixfmt-rfc-style
 
       lua-language-server
       stylua
