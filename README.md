@@ -1,8 +1,8 @@
 # NixOS Configuration
 <picture>
-  <source media="(prefers-color-scheme: dark)" srcset="nixos-white.svg">
-  <source media="(prefers-color-scheme: light)" srcset="nixos.svg">
-  <img alt="Fallback image description" src="default-image.png">
+  <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/NixOS/nixos-artwork/refs/heads/master/logo/nixos-white.svg">
+  <source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/NixOS/nixos-artwork/refs/heads/master/logo/nixos.svg">
+  <img alt="NixOS Logo" src="https://raw.githubusercontent.com/NixOS/nixos-artwork/refs/heads/master/logo/nixos.svg">
 </picture>
 
 ## About
