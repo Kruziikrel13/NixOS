@@ -25,12 +25,7 @@
       url = "git+https://git.outfoxxed.me/outfoxxed/quickshell";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    # Applications
-    sherlock = {
-      url = "github:Skxxtz/sherlock";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-    nh.url = "github:nix-community/nh?ref=master";
+
     zen-browser = {
       url = "github:0xc000022070/zen-browser-flake";
       inputs.nixpkgs.follows = "nixpkgs";

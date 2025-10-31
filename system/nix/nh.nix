@@ -13,7 +13,6 @@ in
 {
   programs.nh = {
     enable = true;
-    package = nh.packages.${system}.default;
     clean = {
       enable = true;
       extraArgs = "--keep 5";

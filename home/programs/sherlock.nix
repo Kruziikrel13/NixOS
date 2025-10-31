@@ -1,13 +1,7 @@
 {
-  sherlock,
-  system,
-  ...
-}:
-{
   programs.sherlock = {
     enable = true;
     systemd.enable = true;
-    package = sherlock.packages.${system}.default;
     settings = {
       config = {
         debug.try_suppress_warnings = true;
