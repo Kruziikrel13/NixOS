@@ -1,0 +1,99 @@
+#!/usr/bin/env bash
+
+# Partition disk, format and mount partitions
+# Works in a NixOS live environment
+
+# Requirements: coreutils, btrfs
+# Usage: partition-disk <disk-path>
+
+set -eu
+
+if [ $# -eq 0 ]; then
+  echo "No disk provided. Please provide a disk from /dev/"
+  exit 1
+fi
+
+DRIVE="/dev/$1"
+BOOT_PARTITION="${DRIVE}p1"
+ROOT_PARTITION="${DRIVE}p2"
+
+ROOT_SIZE=0
+
+read -p "Enable dual boot (y/n)?" choice
+case "$choice" in
+  y|Y)
+    START=$(sgdisk -F $DRIVE)
+    END=$(sgdisk -E $DRIVE)
+    FREE=$(( END - START + 1))
+
+    PART_SIZE=$(( FREE * 60 / 100 ))
+    ROOT_SIZE=$(( START + PART_SIZE - 1 ))
+    ;;
+  n|N);;
+  *) echo "Not a valid choice, exiting."; exit 1;;
+esac
+
+read -p "This will wipe the partition table on the current drive! Are you sure (y/n)?" choice
+case "$choice" in
+  y|Y) sgdisk -Z $DRIVE;;
+  n|N) exit 1;;
+  *) echo "Not a valid choice, exiting."; exit 1;;
+esac
+
+# 2G Boot Partition, at start of drive
+sgdisk --new=1:1M:+2G --typecode=1:ef00 $DRIVE
+
+# Primary Partition, 8304 is linux-x86_64 root partition
+sgdisk --new=2:0:$ROOT_SIZE --typecode=2:8304 $DRIVE
+
+# Notify the kernel
+partprobe $DRIVE
+
+# Pause to allow device changes
+sleep 1s
+
+formatWithExt4() {
+  mkfs.ext4 -L NIXOS $ROOT_PARTITION
+  sleep 3s
+
+  mount /dev/disk/by-label/NIXOS /mnt
+}
+
+formatWithBtrfs() {
+  mkfs.btrfs --label NIXOS $ROOT_PARTITION
+  sleep 3s
+
+  mkdir -p /mnt
+  mount /dev/disk/by-label/NIXOS /mnt
+  btrfs subvolume create /mnt/@{root,home,snapshots}
+  umount /mnt
+
+  mount --options defaults,compress=zstd,noatime,subvol=@root /dev/disk/by-label/NIXOS /mnt
+  mkdir /mnt/{home,snapshots}
+  mount --options defaults,compress=zstd,noatime,subvol=@home /dev/disk/by-label/NIXOS /mnt/home
+  mount --options defaults,compress=zstd,noatime,subvol=@snapshots /dev/disk/by-label/NIXOS /mnt/snapshots
+}
+
+while true; do
+  read -p "Choose a filesystem for the root partition (ext4/btrfs): " choice
+  case "$choice" in
+    ext4|EXT4)
+      formatWithExt4
+      break;;
+    btrfs|BTRFS)
+      formatWithBtrfs
+      break;;
+    *)
+      echo "Not a valid choice: $choice"
+      ;;
+  esac
+done
+
+mkdir /mnt/boot
+mount /dev/disk/by-label/BOOT /mnt/boot
+
+mkfs.fat -F32 -n BOOT $BOOT_PARTITION
+sleep 1s
+
+mkdir -p /mnt/boot
+mount /dev/disk/by-label/BOOT /mnt/boot

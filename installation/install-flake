@@ -1,0 +1,30 @@
+#!/usr/bin/env bash
+
+# Install the flake on the system.
+# Should be used in a NixOS live environment.
+
+
+# Usage: install-flake <host>
+
+set -eu
+
+if [ $# -eq 0 ]; then
+  echo "No host provided. Provide a hostname from the hosts folder."
+  exit 1
+fi
+
+current_path=${PWD}
+dirname=${PWD##*/}
+
+if [ "$dirname" == "installation" ]; then
+  cd ..
+  current_path=${PWD}
+  dirname=${PWD##*/}
+fi
+
+if [ ! "$dirname" == "nixos" ]; then
+  echo "Not in flake directory."
+  exit 1
+fi
+
+nixos-install --flake $current_path#$1
