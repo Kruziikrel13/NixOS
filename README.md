@@ -23,3 +23,5 @@ Configurations from which I learned or copied:
 - [outfoxxed/nixnew](https://git.outfoxxed.me/outfoxxed/nixnew)
 - [ryan4yin/nix-config](https://github.com/ryan4yin/nix-config)
 - [JohnRTitor/nix-conf](https://github.com/JohnRTitor/nix-conf)
+- [viperML/dotfiles](https://github.com/viperML/dotfiles)
+- [RicArch97/nixos-config](https://github.com/RicArch97/nixos-config)
