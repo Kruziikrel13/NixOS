@@ -21,7 +21,6 @@
   };
 
   programs = {
-    obsidian.enable = true;
     bash = {
       enable = true;
       enableCompletion = true;
