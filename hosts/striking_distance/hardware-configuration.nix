@@ -57,11 +57,13 @@ in
   fileSystems."/snapshots" = {
     device = "/dev/disk/by-uuid/e2c630af-cf1a-4502-91dc-d69145fb8c61";
     fsType = "btrfs";
-    options = (mkBtrfsOpts "snapshots") ++ [
-      "defaults"
+    options = [
+      "subvol=@snapshots"
+      "compress=zstd:6"
+      "noexec"
+      "nosuid"
+      "sync"
       "ssd"
-      "noacl"
-      "noatime"
     ];
   };
 
@@ -81,7 +83,7 @@ in
     fsType = "f2fs";
     options = [
       "defaults"
-      "noauto"
+      # "noauto"
       "nofail"
       "user"
       "ssd"
