@@ -40,6 +40,7 @@ in
     options = [
       "fmask=0137"
       "dmask=0022"
+      "umask=077" # Fixes boot security
     ];
   };
 
