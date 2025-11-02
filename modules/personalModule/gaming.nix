@@ -3,6 +3,7 @@ self: nix-gaming:
   config,
   pkgs,
   lib,
+  username,
   ...
 }:
 let
@@ -17,6 +18,7 @@ in
   options.personalModule.gaming.enable = mkEnableOption "gaming optimizations and tools.";
 
   config = mkIf cfg.enable {
+    users.users.${username}.extraGroups = [ "gamemode" ];
     powerManagement.cpuFreqGovernor = "performance";
     hardware = {
       steam-hardware.enable = true;
