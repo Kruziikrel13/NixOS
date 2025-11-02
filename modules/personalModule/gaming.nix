@@ -48,6 +48,8 @@ in
           extraEnv = {
             PROTON_NO_STEAMINPUT = "1";
             PROTON_ENABLE_HDR = "1";
+            ENABLE_HDR_WSI = "1";
+            PROTON_ENABLE_WAYLAND = "1";
           };
         };
         protontricks.enable = true;
