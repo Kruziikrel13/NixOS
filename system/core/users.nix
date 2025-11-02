@@ -3,6 +3,7 @@ let
   coreGroups = [
     "disk"
     "audio"
+    "video"
     "input"
     "storage"
   ];
