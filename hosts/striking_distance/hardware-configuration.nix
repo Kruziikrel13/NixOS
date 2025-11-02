@@ -87,7 +87,6 @@ in
       # "noauto"
       "nofail"
       "user"
-      "ssd"
 
       "compress_algorithm=zstd"
       "compress_chksum"
