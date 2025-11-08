@@ -84,9 +84,8 @@ in
     fsType = "f2fs";
     options = [
       "defaults"
-      # "noauto"
       "nofail"
-      "user"
+      "noatime"
 
       "compress_algorithm=zstd"
       "compress_chksum"
