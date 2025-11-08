@@ -3,8 +3,10 @@
     "tag +game, class:^(steam_app).*"
     "tag +game, class:^(.*\.exe)$"
     "tag +game,  class:^(gamescope|\.gamescope-wrapped)$"
+
     "tag -game, tag:game, title:^([Ww]ine.*)$"
     "tag -game, tag:game, class:^([Ww]ine.*)$"
+    "tag -game, tag:game, title:^(REDlauncher)$"
 
     "tag +gaming, class:^([Ss]team)$"
     "tag +gaming, class:^(heroic)$"
