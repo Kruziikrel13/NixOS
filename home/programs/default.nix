@@ -5,19 +5,18 @@
 }:
 {
   imports = pathLib.scanPaths ./.;
-  home.shell.enableBashIntegration = true;
-  home.packages = with pkgs; [
-    grayjay
-    pulsemixer
-    protonmail-desktop
-    via
-    playerctl
-    spotify
-    devenv
-  ];
-
-  home.shellAliases = {
-    fix-store = "sudo nix-store --verify --check-contents --repair";
+  home = {
+    shell.enableBashIntegration = true;
+    packages = with pkgs; [
+      grayjay
+      pulsemixer
+      protonmail-desktop
+      via
+      playerctl
+      spotify
+      devenv
+    ];
+    shellAliases.fix-store = "sudo nix-store --verify --check-contents --repair";
   };
 
   programs = {
