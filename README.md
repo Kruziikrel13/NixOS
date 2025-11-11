@@ -25,3 +25,4 @@ Configurations from which I learned or copied:
 - [JohnRTitor/nix-conf](https://github.com/JohnRTitor/nix-conf)
 - [viperML/dotfiles](https://github.com/viperML/dotfiles)
 - [RicArch97/nixos-config](https://github.com/RicArch97/nixos-config)
+- [hlissner/dotfiles](https://github.com/hlissner/dotfiles)
