@@ -34,6 +34,7 @@
       nix-direnv.enable = true;
       silent = true;
     };
+    element-desktop.enable = true;
     mpv = {
       enable = true;
       bindings = {
