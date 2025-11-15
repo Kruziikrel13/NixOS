@@ -11,7 +11,7 @@ Personal NixOS and Home Manager configuration files, including submodules linkin
 - [hosts](https://github.com/Kruziikrel13/NixOS/blob/master/hosts): host-specific configuration
 - [home](https://github.com/Kruziikrel13/NixOS/blob/master/home): common home manager configuration
 - [lib](https://github.com/Kruziikrel13/NixOS/blob/master/lib): helper libraries used throughout configuration
-- [modules](https://github.com/Kruziikrel13/NixOS/blob/master/modules): nix modules for use in both home manager and nixo
+- [modules](https://github.com/Kruziikrel13/NixOS/blob/master/modules): nix modules for use in both home manager and nixos
 - [packages](https://github.com/Kruziikrel13/NixOS/blob/master/packages): custom packages
 - [system](https://github.com/Kruziikrel13/NixOS/blob/master/system): common nixos system level configuration
 - [templates](https://github.com/Kruziikrel13/NixOS/blob/master/templates): code templates
