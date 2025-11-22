@@ -25,6 +25,7 @@ in
     ./binds.nix
     ./rules.nix
     ./settings.nix
+    ./idle.nix
   ];
 
   home.packages = with pkgs; [
