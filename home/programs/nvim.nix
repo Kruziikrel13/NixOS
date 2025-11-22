@@ -24,6 +24,7 @@
       fzf
       lazygit
       tree-sitter
+      github-copilot-cli
 
       ## Language Servers
       nil
@@ -31,6 +32,7 @@
       statix
       deadnix
       nixfmt-rfc-style
+      copilot-language-server
 
       lua-language-server
       stylua
