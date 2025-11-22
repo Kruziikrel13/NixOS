@@ -1,36 +1,12 @@
 {
-  specialArgs,
-  home-manager,
+  hjem,
   username,
-  pathLib,
   ...
 }:
 {
-  imports = [ home-manager.nixosModules.home-manager ];
-  environment.pathsToLink = [
-    "/share/xdg-desktop-portal"
-    "/share/applications"
-  ];
-  home-manager = {
-    useGlobalPkgs = true;
-    useUserPackages = true;
-    backupFileExtension = "hm-backup";
-    extraSpecialArgs = specialArgs;
-    users.${username} =
-      { ... }:
-      {
-        home = {
-          inherit username;
-          homeDirectory = "/home/${username}";
-          preferXdgDirectories = true;
-          stateVersion = "24.11";
-        };
-        manual = {
-          html.enable = false;
-          json.enable = false;
-          manpages.enable = false;
-        };
-        imports = pathLib.scanPaths ./.;
-      };
+  imports = [ hjem.nixosModules.default ];
+  hjem.users.${username} = {
+    enable = true;
+    directory = "/home/${username}";
   };
 }

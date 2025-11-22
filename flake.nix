@@ -16,6 +16,7 @@
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    hjem.url = "github:feel-co/hjem";
 
     # Desktop
     hyprland.url = "github:hyprwm/hyprland?ref=v0.52.1";
