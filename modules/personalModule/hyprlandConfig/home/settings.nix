@@ -72,6 +72,7 @@ in
     };
 
     render.direct_scanout = 2;
+    render.new_render_scheduling = true;
 
     binds.scroll_event_delay = 10;
 
