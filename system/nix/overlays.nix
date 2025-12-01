@@ -11,7 +11,7 @@
         patches = [ ./versionFix.patch ];
       };
       inherit (pkgs-2022) dotnet-sdk_3;
-      inherit (pkgs-patched) antec-flux-pro runapp;
+      inherit (pkgs-patched) antec-flux-pro runapp budget-tracker-tui;
     })
     neovim-nightly-overlay.overlays.default
   ];

@@ -5,32 +5,38 @@
     tree
   ];
 
-  home.shellAliases.cat = "${pkgs.bat}/bin/bat --plain";
-  programs.bat.enable = true;
-
-  programs.eza = {
-    enable = true;
-    icons = "auto";
-    git = true;
-    enableBashIntegration = true;
-    extraOptions = [
-      "--git-repos"
-      "--hyperlink"
-    ];
+  home.shellAliases = {
+    cat = "${pkgs.bat}/bin/bat --plain";
+    budget = "${pkgs.budget-tracker-tui}/bin/Budget_Tracker";
   };
 
-  programs.zoxide = {
-    enable = true;
-    enableBashIntegration = true;
-  };
+  programs = {
+    bat.enable = true;
 
-  programs.ripgrep.enable = true;
-  programs.ripgrep-all.enable = true;
-  programs.fd.enable = true;
-  programs.bottom.enable = true;
+    eza = {
+      enable = true;
+      icons = "auto";
+      git = true;
+      enableBashIntegration = true;
+      extraOptions = [
+        "--git-repos"
+        "--hyperlink"
+      ];
+    };
 
-  programs.helix = {
-    enable = true;
-    package = pkgs.evil-helix;
+    zoxide = {
+      enable = true;
+      enableBashIntegration = true;
+    };
+
+    ripgrep.enable = true;
+    ripgrep-all.enable = true;
+    fd.enable = true;
+    bottom.enable = true;
+
+    helix = {
+      enable = true;
+      package = pkgs.evil-helix;
+    };
   };
 }
