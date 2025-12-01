@@ -20,7 +20,7 @@ in
         qtimageformats
         qtmultimedia
       ];
-      config = pathLib.relativeToRoot ".config/quickshell";
+      config = pathLib.relativeToRoot "config/quickshell";
     };
 
     wayland.windowManager.hyprland = {
