@@ -1,6 +1,6 @@
-[submodule "config/sentinel.nvim"]
+[submodule "sentinel.nvim"]
 	path = config/sentinel.nvim
 	url = git@github.com:kruziikrel13/sentinel.nvim
-[submodule "config/quickshell"]
+[submodule "quickshell"]
 	path = config/quickshell
 	url = git@github.com:kruziikrel13/quickshell.git
