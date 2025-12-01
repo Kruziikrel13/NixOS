@@ -4,9 +4,9 @@
     uutils-coreutils-noprefix
   ];
 
-  home.shellAliases = {
-    cat = "${pkgs.bat}/bin/bat --plain";
-    budget = "${pkgs.budget-tracker-tui}/bin/Budget_Tracker";
+  home.shellAliases = with pkgs; {
+    cat = "${lib.getExe bat} --plain";
+    budget = "${lib.getExe budget-tracker-tui}";
   };
 
   programs = {
