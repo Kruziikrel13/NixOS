@@ -1,18 +1,11 @@
-# flake.nix --- nixos system configurations
-#
-# Author: Michael Petersen <dev@michaelpetersen.io>
-# URL:  https://github.com/kruziikrel13/NixOS
-#
-# Core flake configuration file. Sets up and loads entirety of flake and it's modules.
-
 {
-  description = "NixOS Configuration for Kruziikrel13 (Hyprland, Secure-Boot, Gaming)";
-
+  description = "NixOS configuration";
   inputs = {
-    # NIXPKGS
-    nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
+    # Nix Packages
+    nixpkgs.url = "github:nixos/nixpkgs?ref=25.11";
+    nixpkgs-unstable.url = "github:nixos/nixpkgs/nixos-unstable";
     nixpkgs-patched.url = "github:kruziikrel13/nixpkgs/nixos-unstable-patched";
-    nixpkgs-2022.url = "github:nixos/nixpkgs/22.11";
+
     nixos-hardware.url = "github:NixOS/nixos-hardware/master";
     chaotic.url = "github:chaotic-cx/nyx/nyxpkgs-unstable";
     chaotic.inputs.home-manager.follows = "home-manager";
