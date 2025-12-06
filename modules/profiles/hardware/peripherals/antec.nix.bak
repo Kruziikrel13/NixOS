@@ -1,0 +1,19 @@
+# {
+#   lib,
+#   config,
+#   pkgs,
+#   ...
+# }:
+# with lib;
+# mkIf (elem "peripherals/antec" config.modules.profiles.hardware) {
+#   environment.systemPackages = [ pkgs.antec-flux-pro ];
+#   services.udev.packages = [ pkgs.antec-flux-pro.udev ];
+#
+#   environment.etc."antec-flux-pro-display/config.conf".text = ''
+#     cpu_device=${cfg.cpu-device}
+#     cpu_temp_type=${cfg.cpu-temp-type}
+#     gpu_device=${cfg.gpu-device}
+#     gpu_temp_type=${cfg.gpu-temp-type}
+#     update_interval=1000
+#   '';
+# }

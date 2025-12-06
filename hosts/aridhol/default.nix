@@ -1,44 +1,46 @@
 {
-  pkgs,
-  pathLib,
-  nixos-hardware,
-  ...
-}:
-{
-  imports = pathLib.scanPaths ./. ++ [
-    nixos-hardware.nixosModules.lenovo-ideapad-slim-5
-  ];
-  networking.hostName = "aridhol";
-  services = {
-    libinput.enable = true;
-    blueman.enable = true;
-    tlp.enable = true;
-    thermald.enable = true;
-    auto-cpufreq = {
-      enable = true;
-      settings = {
-        battery = {
-          governor = "powersave";
-          turbo = "never";
+  system = "x86_64-linux";
+
+  modules = {
+    profiles = {
+      role = "laptop";
+      user = "kruziikrel13";
+      hardware = [
+        "cpu/amd"
+        "gpu/amd"
+        "audio"
+        "bluetooth"
+        "ssd"
+        "wifi"
+      ];
+    };
+
+    desktop.gnome.enable = true;
+  };
+
+  ## Local config
+  config =
+    { pkgs, ... }:
+    {
+
+    };
+
+  hardware =
+    { ... }:
+    {
+      fileSystems = {
+        "/boot" = {
+          device = "/dev/disk/by-uuid/1F99-8700";
+          fsType = "vfat";
         };
-        charger = {
-          governor = "performance";
-          turbo = "auto";
+        "/" = {
+          device = "/dev/disk/by-uuid/158c17d8-d90d-443d-ab0d-8ebce12758db";
+          fsType = "btrfs";
+        };
+        "/home" = {
+          device = "/dev/disk/by-uuid/158c17d8-d90d-443d-ab0d-8ebce12758db";
+          fsType = "btrfs";
         };
       };
     };
-  };
-  boot.kernelPackages = pkgs.linuxPackages_latest;
-
-  hardware.bluetooth = {
-    enable = true;
-    powerOnBoot = true;
-  };
-
-  programs.hyprland = {
-    monitors = [
-      "desc:Chimei Innolux Corporation 0x1553,1920x1080@60.0,0x0,0.9999999999999997,bitdepth,10"
-      ", preferred, auto, 1, mirror, eDP-1"
-    ];
-  };
 }
