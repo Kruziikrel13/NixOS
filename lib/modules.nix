@@ -1,5 +1,3 @@
-{ lib, attrs }:
-
 let
   inherit (builtins)
     attrValues
@@ -60,7 +58,7 @@ rec {
     dir: fn:
     let
       dirs = mapAttrsToList (k: _: "${dir}/${k}") (
-        filterAttrs (n: v: v == "directory" && !(hasPrefix "_" n) && !(pathExists "${dir}/${n}/.noload")) (
+         
           readDir dir
         )
       );
