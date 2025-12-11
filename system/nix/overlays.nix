@@ -7,9 +7,6 @@
 {
   nixpkgs.overlays = [
     (final: prev: {
-      grayjay = pkgs-patched.grayjay.overrideAttrs {
-        patches = [ ./versionFix.patch ];
-      };
       inherit (pkgs-2022) dotnet-sdk_3;
       inherit (pkgs-patched) antec-flux-pro runapp budget-tracker-tui;
     })
