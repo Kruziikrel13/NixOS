@@ -1,5 +1,6 @@
-{ lib, ... }:
+{ nix-gaming, lib, ... }:
 {
+  imports = [ nix-gaming.nixosModules.pipewireLowLatency ];
   services.pipewire = {
     enable = true;
     pulse.enable = true;
@@ -8,6 +9,11 @@
     alsa.support32Bit = true;
     jack.enable = true;
 
+    lowLatency = {
+      enable = true;
+      quantum = 64;
+      rate = 384000;
+    };
   };
   security.rtkit.enable = lib.mkDefault true;
 
