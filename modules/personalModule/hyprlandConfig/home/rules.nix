@@ -26,7 +26,7 @@
     # "workspace emptym, class:(?:(?!^$).)+, tag:negative:music, onworkspace:name:music"
 
     # PiP
-    "float, pin, keepaspectratio, title:^(Picture-in-Picture)$"
+    "float, pin, keepaspectratio, renderunfocused, title:^(Picture-in-Picture)$"
 
     # Dialogue Windows
     "center, float, title:^(Open File)(.*)$"

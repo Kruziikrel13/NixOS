@@ -5,9 +5,7 @@
     dns = "systemd-resolved";
   };
 
-  ## For Spotify Sync
   networking.firewall.allowedTCPPorts = [
-    57621 # Spotify Sync
     12315 # Grayjay Desktop
   ];
 

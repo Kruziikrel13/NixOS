@@ -46,7 +46,6 @@
         bind = [ "$mod, W, submap, workspaces" ];
         workspace = [
           "name:gaming, monitor:desc:GIGA-BYTE TECHNOLOGY CO. LTD. AORUS FI32U 21440B000115"
-          "name:music, monitor:desc:AOC 24G1WG4 0x0004A33C, on-created-empty: runapp -- spotify"
           "name:email, monitor:desc:ViewSonic Corporation VX2758-C-MH V9M184500179, on-created-empty: runapp -- proton-mail"
           "name:chat, monitor:desc:ViewSonic Corporation VX2758-C-MH V9M184500179, on-created-empty: runapp -- vesktop"
         ];

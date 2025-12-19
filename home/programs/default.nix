@@ -13,7 +13,6 @@
       protonmail-desktop
       via
       playerctl
-      spotify
       devenv
     ];
     shellAliases.fix-store = "sudo nix-store --verify --check-contents --repair";

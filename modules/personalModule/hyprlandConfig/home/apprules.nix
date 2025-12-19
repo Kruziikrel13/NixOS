@@ -19,9 +19,9 @@
     "tag +chat, class:^(vesktop)$"
     "tag +chat, class:^(Element)$"
     "tag +email, class:^(Proton Mail)$"
-    "tag +music, class:^(spotify)$, initialTitle:^(Spotify( Premium)?)$"
 
     "tag +video, class:^(cef)$, initialTitle:^(Grayjay)$"
+    "tag +video, title:^(Picture-in-Picture)$"
 
     "float, class:^(\.blueman).*"
     "float, stayfocused, class:^(.*\.exe)$, title:^(.*[Ee]rror.*)$"
