@@ -47,6 +47,14 @@
     kernelModules = [ "tcp_bbr" ];
   };
 
+  user.initialPassword = "nixos";
+  users.users.root.initialPassword = "nixos";
+
+  programs.ssh.extraConfig = ''
+    Host *
+      UseRoaming no
+  '';
+
   security.sudo-rs = {
     enable = true;
     wheelNeedsPassword = false;
