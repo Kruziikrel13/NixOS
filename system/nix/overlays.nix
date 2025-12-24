@@ -8,7 +8,12 @@
   nixpkgs.overlays = [
     (final: prev: {
       inherit (pkgs-2022) dotnet-sdk_3;
-      inherit (pkgs-patched) antec-flux-pro runapp budget-tracker-tui;
+      inherit (pkgs-patched)
+        antec-flux-pro
+        runapp
+        budget-tracker-tui
+        grayjay
+        ;
     })
     neovim-nightly-overlay.overlays.default
   ];
