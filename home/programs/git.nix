@@ -6,7 +6,6 @@
     signing = {
       signByDefault = true;
       format = "openpgp";
-      key = "F34EB44630C65A33";
     };
     settings = {
       user = {
