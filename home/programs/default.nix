@@ -14,6 +14,7 @@
       via
       playerctl
       devenv
+      cachix
     ];
     shellAliases.fix-store = "sudo nix-store --verify --check-contents --repair";
   };
