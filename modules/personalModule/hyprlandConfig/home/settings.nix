@@ -129,6 +129,5 @@ in
       default_monitor = "DP-1";
 
     };
-    experimental.xx_color_management_v4 = true;
   };
 }

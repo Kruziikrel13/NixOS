@@ -1,52 +1,95 @@
 {
   imports = [ ./apprules.nix ];
   wayland.windowManager.hyprland.settings.windowrule = [
-    # Floating Windows
-    "center 1, floating:1, xwayland:0"
+    {
+      name = "Center floating windows";
+      "match:xwayland" = 0;
+      "match:float" = 1;
 
-    # Gaming
-    "workspace name:gaming, tag:gaming"
-    # "workspace emptym, tag:negative:gaming, onworkspace:name:gaming" # For weird app popups
-    "idleinhibit always, immediate, fullscreen, float, tag:game"
-    "decorate off, rounding off, keepaspectratio, tag:game"
+      center = "on";
+    }
+    {
+      name = "Gaming window rules";
+      "match:tag" = "gaming";
 
-    "content video, tag:video"
-    "idleinhibit fullscreen, tag:video"
+      workspace = "name:gaming";
+    }
+    {
+      name = "Game window rules";
+      "match:tag" = "game";
 
-    # Custom Windows
-    "float, size 35% 35%, move onscreen cursor -50% -50%, class:ghostty.small"
-    "float, stayfocused, dimaround, move onscreen 100%-w-50 50, class:ghostty.tui"
+      idle_inhibit = "always";
+      immediate = "on";
+      fullscreen = "on";
+      float = "on";
 
-    # Workspace Assignments
-    "workspace name:email, tag:email"
-    # "workspace emptym, class:(?:(?!^$).)+, tag:negative:email, onworkspace:name:email"
-    "workspace name:chat, tag:chat"
-    # "workspace emptym, class:(?:(?!^$).)+, tag:negative:chat, onworkspace:name:chat"
-    "workspace name:music, tag:music"
-    # "workspace emptym, class:(?:(?!^$).)+, tag:negative:music, onworkspace:name:music"
+      decorate = "off";
+      rounding = "off";
+      keep_aspect_ratio = "on";
+    }
+    {
+      name = "Video window rules";
+      "match:tag" = "video";
 
-    # PiP
-    "float, pin, keepaspectratio, renderunfocused, title:^(Picture-in-Picture)$"
+      content = "video";
+      idle_inhibit = "on";
+      fullscreen = "on";
+    }
+    {
+      name = "Email workspace";
+      "match:tag" = "email";
 
-    # Dialogue Windows
-    "center, float, title:^(Open File)(.*)$"
-    "center, float, title:^(Select EXE)(.*)$"
-    "center, float, title:^(Select a File)(.*)$"
-    "center, float, title:^(Choose wallpaper)(.*)$"
-    "center, float, title:^(Save As)(.*)$"
-    "center, float, title:^(Library)(.*)$"
-    "center, float, title:^(File Upload)(.*)$"
+      workspace = "name:email";
+    }
+    {
+      name = "Chat workspace";
+      "match:tag" = "chat";
 
-    ## General Window Rules
-    "noshadow, floating: 0"
-    "idleinhibit focus, class:^(mpv)$"
-    "idleinhibit focus, class:^(zen)$, title:^(.*YouTube.*)$"
+      workspace = "name:chat";
+    }
+    {
+      name = "Open terminal on cursor";
+      "match:class" = "ghostty.small";
 
-    # xwayland
-    "noblur, class:^()$,title:^()$"
-    "nodim, noshadow, rounding 0, xwayland:1"
-    "nofocus, class:^$, title:^$, xwayland:1, floating:1, fullscreen:0, pinned:0"
-    "noinitialfocus, class:^jetbrains-.*$, floating:1, title:^$|^\s$|^win\d+$"
-    "noinitialfocus, class:^(Unity)$,floating:1"
+      float = "on";
+      size = "(monitor_w*0.35) (monitor_h*0.35)";
+      move = "(cursor_x-window_w/2) (cursor_y-window_h/2)";
+    }
+    {
+      name = "Quickshell TUI window";
+      "match:class" = "ghostty.tui";
+
+      float = "on";
+      stay_focused = "on";
+      dim_around = "on";
+      size = "(monitor_w*0.35) (monitor_h*0.35)";
+      move = "(monitor_w-window_w)-10 10";
+    }
+    {
+      name = "Picture in Picture";
+      "match:title" = "^(Picture-in-Picture)$";
+
+      float = "on";
+      pin = "on";
+      keep_aspect_ratio = "on";
+      render_unfocused = "on";
+    }
+    {
+      name = "Dialogue windows";
+      "match:title" =
+        "^(Open File|Select EXE|Select a File|Choose wallpaper|Save As|Library|File Upload)";
+
+      center = "on";
+      float = "on";
+    }
+    # XWayland
+    {
+      name = "Some XWayland Fixes";
+      "match:xwayland" = 1;
+
+      no_dim = "on";
+      no_shadow = "on";
+      rounding = 0;
+    }
   ];
 }

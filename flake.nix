@@ -20,7 +20,7 @@
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
 
     # Desktop
-    hyprland.url = "github:hyprwm/hyprland?ref=v0.52.1";
+    hyprland.url = "github:hyprwm/hyprland?ref=v0.53.0";
     quickshell.url = "git+https://git.outfoxxed.me/outfoxxed/quickshell";
     quickshell.inputs.nixpkgs.follows = "nixpkgs";
     zen-browser.url = "github:0xc000022070/zen-browser-flake";

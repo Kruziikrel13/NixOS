@@ -35,12 +35,26 @@ in
           # "$mod, D, global, shell:launcher"
         ];
         layerrule = [
-          "animation slide, shell:bar"
-          "animation slide right, shell:powermenu"
-          "ignorezero, shell:bar"
-          "blur, shell:bar"
-          "blur, shell:notifications"
-          "ignorealpha 0.1, shell:notifications"
+          {
+            name = "Quickshell Bar";
+            "match:namespace" = "shell:bar";
+
+            animation = "slide";
+            blur = "on";
+          }
+          {
+            name = "Quickshell Powermenu";
+            "match:namespace" = "shell:powermenu";
+
+            animation = "slide right";
+          }
+          {
+            name = "Quickshell Notifications";
+            "match:namespace" = "shell:notifications";
+
+            blur = "on";
+            ignore_alpha = "0.1";
+          }
         ];
       };
     };
