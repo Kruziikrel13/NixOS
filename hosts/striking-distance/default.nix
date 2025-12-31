@@ -77,11 +77,6 @@ rec {
           replace-ls = true;
         };
       };
-      system = {
-        sudo-rs.enable = true;
-        utils.enable = true;
-        fs.enable = true;
-      };
     };
   };
 
