@@ -61,6 +61,9 @@ rec {
         proton-mail.enable = true;
         zen-browser.enable = true;
       };
+      dev = {
+        sql.enable = true; # Use sqlit for SQL UI (https://github.com/Maxteabag/sqlit)
+      };
       shell = {
         rust-core-utils.enable = true;
         git.enable = true;
