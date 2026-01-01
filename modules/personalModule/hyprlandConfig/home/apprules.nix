@@ -15,7 +15,14 @@
     {
       name = "Remove game tag from launchers";
       "match:tag" = "game";
-      "match:title" = "^([Ww]ine.*|REDlauncher)$";
+      "match:title" = "^([Ww]ine.*|REDlauncher|Rockstar Games Launcher)$";
+
+      tag = "-game";
+    }
+    {
+      name = "Remove game tag from other classes";
+      "match:tag" = "game";
+      "match:class" = "^(explorer.exe|socialclubhelper.exe)$";
 
       tag = "-game";
     }
