@@ -38,15 +38,8 @@ rec {
           }
         ];
       };
-      editors = {
-        default = "nvim";
-        nvim.enable = true;
-        helix.enable = true;
-      };
-      services = {
-        quickshell.enable = true;
-        scx.enable = true;
-        ananicy.enable = true;
+      browsers = {
+        zen.enable = true;
       };
       apps = {
         steam = {
@@ -59,26 +52,35 @@ rec {
         vesktop.enable = true;
         element.enable = true;
         proton-mail.enable = true;
-        zen-browser.enable = true;
       };
-      dev = {
-        sql.enable = true; # Use sqlit for SQL UI (https://github.com/Maxteabag/sqlit)
+    };
+    editors = {
+      default = "nvim";
+      nvim.enable = true;
+      helix.enable = true;
+    };
+    services = {
+      quickshell.enable = true;
+      scx.enable = true;
+      ananicy.enable = true;
+    };
+    dev = {
+      sql.enable = true; # Use sqlit for SQL UI (https://github.com/Maxteabag/sqlit)
+    };
+    shell = {
+      rust-core-utils.enable = true;
+      git.enable = true;
+      gnupg.enable = true;
+      bottom.enable = true;
+      zoxide.enable = true;
+      direnv.enable = true;
+      bat = {
+        enable = true;
+        replace-cat = true;
       };
-      shell = {
-        rust-core-utils.enable = true;
-        git.enable = true;
-        gnupg.enable = true;
-        bottom.enable = true;
-        zoxide.enable = true;
-        direnv.enable = true;
-        bat = {
-          enable = true;
-          replace-cat = true;
-        };
-        eza = {
-          enable = true;
-          replace-ls = true;
-        };
+      eza = {
+        enable = true;
+        replace-ls = true;
       };
     };
   };

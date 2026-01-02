@@ -15,32 +15,34 @@
     };
     desktop = {
       gnome.enable = true;
-      editors = {
-        default = "nvim";
-        nvim.enable = true;
-        helix.enable = true;
+      browser = {
+        zen.enable = true;
       };
       apps = {
         grayjay.enable = true;
         element.enable = true;
         proton-mail.enable = true;
-        zen-browser.enable = true;
       };
-      shell = {
-        rust-core-utils.enable = true;
-        git.enable = true;
-        gnupg.enable = true;
-        direnv.enable = true;
-        bat = {
-          enable = true;
-          replaceCat = true;
-        };
-        eza = {
-          enable = true;
-          replaceLs = true;
-        };
-        zoxide.enable = true;
+    };
+    editors = {
+      default = "nvim";
+      nvim.enable = true;
+      helix.enable = true;
+    };
+    shell = {
+      rust-core-utils.enable = true;
+      git.enable = true;
+      gnupg.enable = true;
+      direnv.enable = true;
+      bat = {
+        enable = true;
+        replaceCat = true;
       };
+      eza = {
+        enable = true;
+        replaceLs = true;
+      };
+      zoxide.enable = true;
     };
   };
 
