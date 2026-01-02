@@ -28,7 +28,10 @@ in
   config = mkIf config.programs.hyprland.enable {
     environment = {
       systemPackages = [ self.packages.${pkgs.system}.bibata-hyprcursor ];
-      pathsToLink = [ "/share/icons" ];
+      pathsToLink = [
+        "/share/icons"
+        "/share/wayland-sessions"
+      ];
       sessionVariables = {
         NIXOS_OZONE_WL = "1";
         MOZ_ENABLE_WAYLAND = "1";
@@ -41,7 +44,7 @@ in
       };
       loginShellInit = mkIf config.programs.hyprland.withUWSM ''
         if uwsm check may-start; then
-            exec uwsm start hyprland-uwsm.desktop
+            exec uwsm start hyprland.desktop
           fi
       '';
     };
