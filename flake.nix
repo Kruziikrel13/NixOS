@@ -27,7 +27,7 @@
     zen-browser.inputs.nixpkgs.follows = "nixpkgs";
     neovim-nightly-overlay.url = "github:nix-community/neovim-nightly-overlay";
     neovim-nightly-overlay.inputs.nixpkgs.follows = "nixpkgs";
-    lanzaboote.url = "github:nix-community/lanzaboote?ref=v0.4.3";
+    lanzaboote.url = "github:nix-community/lanzaboote?ref=v1.0.0";
     lanzaboote.inputs.nixpkgs.follows = "nixpkgs";
     nix-gaming.url = "github:fufexan/nix-gaming";
     nix-gaming.inputs.nixpkgs.follows = "nixpkgs";
