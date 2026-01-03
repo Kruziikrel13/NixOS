@@ -35,18 +35,21 @@
   outputs =
     inputs@{ self, nixpkgs, ... }:
     let
-      forEachSystem =
-        fn:
-        nixpkgs.lib.genAttrs nixpkgs.lib.platforms.linux (
-          system: fn system nixpkgs.legacyPackages.${system}
-        );
-      modules = import ./modules self inputs;
+      args = {
+        inherit self;
+        inherit (nixpkgs) lib;
+        pkgs = import nixpkgs { };
+      };
+      lib = import ./lib args;
     in
-    {
-      inherit (modules) homeManagerModules nixosModules;
-      nixosConfigurations = import ./hosts { inherit self nixpkgs inputs; };
-      packages = forEachSystem (system: pkgs: import ./packages pkgs);
-      formatter = forEachSystem (system: pkgs: pkgs.nixfmt-tree);
-    };
+    lib.mkFlake inputs {
+      systems = [ "x86_64-linux" ];
+      inherit lib;
 
+      hosts = lib.mapHosts ./hosts;
+      modules.default = import ./modules;
+      devShells.default = import ./shell.nix;
+      overlays = lib.mapModules ./overlays import;
+      packages = lib.mapModules ./packages import;
+    };
 }
