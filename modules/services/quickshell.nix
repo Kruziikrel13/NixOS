@@ -1,14 +1,13 @@
-self: quickshell: home-manager:
 {
   config,
   pkgs,
   lib,
+  quickshell,
   ...
 }:
 let
   inherit (lib.modules) mkIf;
   inherit (lib.meta) getExe;
-  inherit (config.lib.file) mkOutOfStoreSymlink;
 
   inherit (lib.types)
     nullOr
@@ -26,11 +25,10 @@ let
     ;
 
   quickshellPkgs = quickshell.packages.${pkgs.stdenv.hostPlatform.system};
-  cfg = config.programs.quickshell;
+  cfg = config.modules.services.quickshell;
 in
 {
-  disabledModules = [ "${home-manager}/modules/programs/quickshell.nix" ];
-  options.programs.quickshell = {
+  options.modules.services.quickshell = {
     enable = mkEnableOption "quickshell";
     enableDebug = mkEnableOption "Enable debugging for Quickshell";
     supportI3 = mkEnableOption "Enable I3 support for Quickshell";
@@ -62,7 +60,7 @@ in
       enable = mkEnableOption "Quickshell systemd integration";
       target = mkOption {
         type = str;
-        default = config.wayland.systemd.target;
+        default = "graphical-session.target";
         example = "hyprland-session.target";
         description = ''
           The systemd target that will automatically start the quickshell service
@@ -72,14 +70,10 @@ in
   };
 
   config = mkIf cfg.enable {
-    home.packages = [ cfg.finalPackage ];
-
-    xdg.configFile.quickshell = mkIf (cfg.config != null) {
-      source = mkOutOfStoreSymlink (toString cfg.config);
-    };
+    environment.systemPackages = [ cfg.finalPackage ];
 
     systemd.user.services.quickshell = mkIf cfg.systemd.enable {
-      Unit = {
+      unitConfig = {
         Description = "Quickshell Desktop Shell System";
         Documentation = "https://quickshell.org";
         PartOf = [
@@ -90,20 +84,20 @@ in
         ConditionEnvironment = mkIf (!cfg.supportX11 && !cfg.supportI3) "WAYLAND_DISPLAY";
       };
 
-      Service = {
+      serviceConfig = {
         ExecStop = "${getExe cfg.finalPackage} kill";
         ExecStart = "${getExe cfg.finalPackage}";
         Restart = "always";
         KillMode = "mixed";
       };
 
-      Install.WantedBy = [
+      wantedBy = [
         cfg.systemd.target
         "tray.target"
       ];
     };
 
-    programs.quickshell.finalPackage =
+    modules.services.quickshell.finalPackage =
       (cfg.package.override {
         debug = cfg.enableDebug;
         withI3 = cfg.supportI3;
