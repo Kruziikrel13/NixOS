@@ -1,4 +1,3 @@
-self:
 {
   config,
   pkgs,
@@ -10,12 +9,12 @@ let
   inherit (lib.meta) getExe;
   inherit (lib.types) str;
   inherit (lib.options) mkEnableOption mkOption;
-  cfg = config.hardware.antec;
+  cfg = config.modules.services.antec;
   package = pkgs.antec-flux-pro;
 in
 {
   meta.maintainers = [ lib.maintainers.kruziikrel13 ];
-  options.hardware.antec = {
+  options.modules.services.antec = {
     enable = mkEnableOption "support for Antec Flux Pro GPU and CPU Temperature Sensor.";
     cpu-device = mkOption {
       type = str;

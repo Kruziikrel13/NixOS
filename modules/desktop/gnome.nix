@@ -1,4 +1,3 @@
-self:
 {
   config,
   pkgs,
@@ -8,10 +7,10 @@ self:
 let
   inherit (lib.modules) mkIf;
   inherit (lib.options) mkEnableOption;
-  cfg = config.programs.gnome;
+  cfg = config.modules.desktop.gnome;
 in
 {
-  options.programs.gnome = {
+  options.modules.desktop.gnome = {
     enable = mkEnableOption "Enable Gnome Desktop Environment";
   };
 
