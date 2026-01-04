@@ -1,5 +1,5 @@
 {
-  wayland.windowManager.hyprland.settings.windowrule = [
+  programs.hyprland.settings.windowrule = [
     {
       name = "Game";
       "match:class" = "^(steam_app.*|.*\.exe|gamescope|\.gamescope-wrapped)$";

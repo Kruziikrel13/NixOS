@@ -1,6 +1,5 @@
 {
-  imports = [ ./apprules.nix ];
-  wayland.windowManager.hyprland.settings.windowrule = [
+  programs.hyprland.settings.windowrule = [
     {
       name = "Center floating windows";
       "match:xwayland" = 0;

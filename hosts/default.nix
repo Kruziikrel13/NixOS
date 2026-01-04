@@ -12,7 +12,12 @@ let
     username: system:
     inputs
     // {
-      inherit self username system;
+      inherit
+        self
+        username
+        system
+        lib'
+        ;
       pathLib = import ../lib/paths lib;
 
       pkgs-patched = import inputs.nixpkgs-patched {
