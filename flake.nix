@@ -41,10 +41,8 @@
         nixpkgs.lib.genAttrs nixpkgs.lib.platforms.linux (
           system: fn system nixpkgs.legacyPackages.${system}
         );
-      modules = import ./modules self inputs;
     in
     {
-      inherit (modules) homeManagerModules nixosModules;
       nixosConfigurations = import ./hosts { inherit self nixpkgs inputs; };
       packages = forEachSystem (system: pkgs: import ./packages pkgs);
       formatter = forEachSystem (system: pkgs: pkgs.nixfmt-rfc-style);
