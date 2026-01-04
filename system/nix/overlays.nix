@@ -10,7 +10,6 @@
       inherit (pkgs-2022) dotnet-sdk_3;
       inherit (pkgs-patched)
         antec-flux-pro
-        runapp
         budget-tracker-tui
         grayjay
         ;
