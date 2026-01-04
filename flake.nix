@@ -12,7 +12,6 @@
     # NIXPKGS
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
     nixpkgs-patched.url = "github:kruziikrel13/nixpkgs/nixos-unstable-patched";
-    nixpkgs-2022.url = "github:nixos/nixpkgs/22.11";
     nixos-hardware.url = "github:NixOS/nixos-hardware/master";
     chaotic.url = "github:chaotic-cx/nyx/nyxpkgs-unstable";
     chaotic.inputs.home-manager.follows = "home-manager";

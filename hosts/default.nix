@@ -14,11 +14,6 @@ let
       inherit self username system;
       pathLib = import ../lib/paths lib;
 
-      pkgs-2022 = import inputs.nixpkgs-2022 {
-        inherit system;
-        config.allowUnfree = true;
-      };
-
       pkgs-patched = import inputs.nixpkgs-patched {
         inherit system;
         config.allowUnfree = true;
