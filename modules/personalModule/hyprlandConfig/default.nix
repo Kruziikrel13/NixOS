@@ -44,7 +44,7 @@ in
       };
       loginShellInit = mkIf config.programs.hyprland.withUWSM ''
         if uwsm check may-start; then
-            exec uwsm start hyprland.desktop
+            exec uwsm start -eD Hyprland hyprland.desktop
           fi
       '';
     };
