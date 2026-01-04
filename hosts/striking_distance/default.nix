@@ -10,6 +10,22 @@
       hyprland = {
         enable = true;
         monitors = [
+          {
+            output = "HDMI-A-1";
+            mode = "1920x1080@144";
+            position = "-1920x344";
+          }
+          {
+            output = "DP-2";
+            mode = "3840x2160@144";
+            position = "0x0";
+            primary = true;
+          }
+          {
+            output = "HDMI-A-2";
+            mode = "1920x1080@144";
+            position = "3840x849";
+          }
         ];
       };
     };
