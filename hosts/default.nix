@@ -29,7 +29,8 @@ in
       ./striking_distance
       ../system
       ../home
-    ];
+    ]
+    ++ (lib'.modules.mapModulesRec' ../modules import);
   };
 
   aridhol = lib.nixosSystem rec {

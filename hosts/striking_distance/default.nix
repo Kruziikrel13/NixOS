@@ -1,11 +1,28 @@
 {
   pathLib,
-  self,
   nixos-hardware,
   pkgs,
   ...
 }:
 {
+  modules = {
+    desktop = {
+      hyprland = {
+        enable = true;
+        monitors = [
+        ];
+      };
+    };
+    services.quickshell = {
+      enable = true;
+      systemd.enable = true;
+      extraPackages = with pkgs.qt6; [
+        qtimageformats
+        qtmultimedia
+      ];
+    };
+  };
+
   imports = pathLib.scanPaths ./. ++ [
     nixos-hardware.nixosModules.common-cpu-amd-raphael-igpu
   ];
