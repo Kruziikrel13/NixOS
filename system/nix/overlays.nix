@@ -1,6 +1,7 @@
 {
   pkgs-patched,
   neovim-nightly-overlay,
+  hyprland,
   ...
 }:
 {
@@ -13,5 +14,6 @@
         ;
     })
     neovim-nightly-overlay.overlays.default
+    hyprland.overlays.default
   ];
 }
