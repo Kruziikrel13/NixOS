@@ -13,8 +13,9 @@
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
     nixpkgs-patched.url = "github:kruziikrel13/nixpkgs/nixos-unstable-patched";
     nixos-hardware.url = "github:NixOS/nixos-hardware/master";
-    chaotic.url = "github:chaotic-cx/nyx/nyxpkgs-unstable";
-    chaotic.inputs.home-manager.follows = "home-manager";
+    cachyos.url = "github:xddxdd/nix-cachyos-kernel";
+    gaming-edge.url = "github:powerofthe69/nix-gaming-edge";
+    gaming-edge.inputs.nixpkgs.follows = "nixpkgs";
     home-manager.url = "github:nix-community/home-manager";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
 

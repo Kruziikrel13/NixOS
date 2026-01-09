@@ -24,11 +24,6 @@ in
       steam-hardware.enable = true;
       amdgpu.overdrive.ppfeaturemask = "0xffffffff";
     };
-    boot = {
-      kernelParams = [
-        "amd-pstate=active"
-      ];
-    };
     programs = {
       gamemode = {
         enable = true;
@@ -75,7 +70,7 @@ in
           ];
         };
         extraCompatPackages = [
-          # pkgs.proton-ge-bin replaced in experimental
+          pkgs.proton-ge-bin
           pkgs.steamtinkerlaunch
         ];
       };

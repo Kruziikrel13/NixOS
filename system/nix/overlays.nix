@@ -2,6 +2,8 @@
   pkgs-patched,
   neovim-nightly-overlay,
   hyprland,
+  cachyos,
+  gaming-edge,
   ...
 }:
 {
@@ -15,5 +17,7 @@
     })
     neovim-nightly-overlay.overlays.default
     hyprland.overlays.default
+    cachyos.overlays.default
+    gaming-edge.overlays.default
   ];
 }

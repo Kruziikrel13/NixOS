@@ -1,18 +1,21 @@
-{ chaotic, pkgs, ... }:
+{ gaming-edge, pkgs, ... }:
 {
-  imports = [ chaotic.nixosModules.default ];
+  imports = [ gaming-edge.nixosModules.default ];
 
   system.nixos.tags = [ "cachyos" ];
-  chaotic.mesa-git.enable = true;
-  boot.kernelPackages = pkgs.linuxPackages_cachyos;
+  boot.kernelPackages = pkgs.cachyosKernels.linuxPackages-cachyos-latest-zen4;
 
-  programs.gamescope.package = pkgs.gamescope_git;
+  drivers.mesa-git = {
+    enable = true;
+    cacheCleanup = {
+      enable = true;
+      protonPackage = pkgs.proton-cachyos;
+    };
+  };
 
   programs = {
     steam.extraCompatPackages = [
-      pkgs.proton-ge-custom
       pkgs.proton-cachyos
-      pkgs.luxtorpeda
     ];
   };
   security.sudo-rs.enable = true;
@@ -27,7 +30,7 @@
     ananicy = {
       enable = true;
       package = pkgs.ananicy-cpp;
-      rulesProvider = pkgs.ananicy-rules-cachyos_git.overrideAttrs (prevAttrs: {
+      rulesProvider = pkgs.ananicy-rules-cachyos.overrideAttrs (prevAttrs: {
         patches = [
           (pkgs.fetchpatch {
             # Revert removal of compiler rules
