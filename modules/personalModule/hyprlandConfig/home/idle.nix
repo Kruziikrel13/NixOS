@@ -20,7 +20,7 @@ in
 
         {
           timeout = 480;
-          on-timeout = "hyprctl dispatch dpms off; hyprctl keyword monitor HDMI-A-2,disable";
+          on-timeout = "hyprctl dispatch dpms off";
           on-resume = "hyprctl dispatch dpms on; hyprctl keyword source ${monitors}";
         }
 
