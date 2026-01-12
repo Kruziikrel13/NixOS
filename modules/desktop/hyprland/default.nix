@@ -8,7 +8,7 @@
 let
   cfg = config.modules.desktop.hyprland;
 
-  inherit (lib) mkMerge;
+  inherit (lib) mkMerge mkDefault;
   inherit (lib.modules) mkIf;
   inherit (lib.options) mkEnableOption;
   inherit (lib'.options) mkOpt mkBoolOpt;
@@ -28,7 +28,8 @@ in
 
   config = mkIf cfg.enable (mkMerge [
     {
-      modules.services.quickshell.enable = true;
+      modules.services.quickshell.enable = mkDefault true;
+      modules.services.hyprlauncher.enable = mkDefault true;
 
       nixpkgs.overlays = [ hyprland.overlays.default ];
       nix.settings = {
