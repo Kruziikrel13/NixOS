@@ -8,6 +8,7 @@
 let
   cfg = config.modules.desktop.hyprland;
 
+  inherit (lib) mkMerge;
   inherit (lib.modules) mkIf;
   inherit (lib.options) mkEnableOption;
   inherit (lib'.options) mkOpt mkBoolOpt;
@@ -44,34 +45,42 @@ in
     };
   };
 
-  config = mkIf cfg.enable {
-    modules.services.quickshell.enable = true;
+  config = mkIf cfg.enable (mkMerge [
+    {
+      modules.services.quickshell.enable = true;
 
-    environment.sessionVariables = {
-      ELECTRON_OZONE_PLATFORM_HINT = "auto";
-      NIXOS_OZONE_WL = "1";
-      MOZ_ENABLE_WAYLAND = "1";
-    };
+      nixpkgs.overlays = [ hyprland.overlays.default ];
 
-    programs.hyprland = {
-      enable = true;
-      withUWSM = true;
-    };
+      environment.sessionVariables = {
+        ELECTRON_OZONE_PLATFORM_HINT = "auto";
+        NIXOS_OZONE_WL = "1";
+        MOZ_ENABLE_WAYLAND = "1";
+      };
 
-    services.getty = mkIf (cfg.autoLogin && config.programs.hyprland.withUWSM) {
-      autologinUser = config.user.name;
-      autologinOnce = true;
-    };
+      programs.hyprland = {
+        enable = true;
+        withUWSM = true;
+        settings.exec-once = [ "uwsm finalize" ];
+        inherit (cfg) extraConfig;
+      };
 
-    security = {
-      polkit.enable = true;
-      soteria.enable = true;
-    };
+      security = {
+        polkit.enable = true;
+        soteria.enable = true;
+      };
 
-    environment.loginShellInit = mkIf (cfg.autoLogin && config.programs.hyprland.withUWSM) ''
-      if uwsm check may-start; then
-          exec uwsm start -eD Hyprland hyprland.desktop
-        fi
-    '';
-  };
+    }
+    (mkIf cfg.autoLogin {
+      services.getty = {
+        autologinUser = config.user.name;
+        autologinOnce = true;
+      };
+
+      environment.loginShellInit = mkIf config.programs.hyprland.withUWSM ''
+        if uwsm check may-start; then
+            exec uwsm start -eD Hyprland hyprland.desktop
+          fi
+      '';
+    })
+  ]);
 }
