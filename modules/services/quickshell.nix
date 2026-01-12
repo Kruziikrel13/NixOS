@@ -70,6 +70,12 @@ in
   };
 
   config = mkIf cfg.enable {
+    assertions = [
+      {
+        assertion = config.modules.desktop.hyprland.enable;
+        message = "quickshell requires the hyprland desktop";
+      }
+    ];
     environment.systemPackages = [ cfg.finalPackage ];
 
     qt = {
