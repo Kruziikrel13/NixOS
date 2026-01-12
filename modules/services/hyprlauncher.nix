@@ -42,9 +42,11 @@ in
       };
       serviceConfig = {
         ExecStart = "${getExe pkgs.hyprlauncher} --daemon";
+        ExecStop = "${pkgs.coreutils}/bin/kill -TERM $MAINPID";
         Restart = "on-failure";
       };
       wantedBy = [ "graphical-session.target" ];
+      restartTriggers = [ config.environment.etc."xdg/hypr/hyprlauncher.conf".source ];
     };
   };
 }
