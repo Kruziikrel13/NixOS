@@ -2,6 +2,7 @@
   config,
   pkgs,
   lib,
+  pkgs-patched,
   ...
 }:
 let
@@ -35,6 +36,13 @@ in
   };
   config = mkIf cfg.enable {
     environment.systemPackages = [ package ];
+    nixpkgs.overlays = [
+      (final: prev: {
+        inherit (pkgs-patched)
+          antec-flux-pro
+          ;
+      })
+    ];
     services.udev.packages = [ package.udev ];
     environment.etc."antec-flux-pro-display/config.conf".text = ''
       cpu_device=${cfg.cpu-device}

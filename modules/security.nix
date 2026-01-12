@@ -1,7 +1,13 @@
-# Security Tweaks borrowed from @hlissner
-_: {
-  # TODO Understand what this is doing
+{ lib, config, ... }:
+{
+  fileSystems."/boot".options = [
+    "fmask=0137"
+    "dmask=0022"
+    "umask=077" # Fixes boot security
+  ];
   boot = {
+    tmp.useTmpfs = lib.mkDefault true;
+    tmp.cleanOnBoot = lib.mkDefault (!config.boot.tmp.useTmpfs);
     kernel.sysctl = {
       # The Magic SysRq key is a key combo that allows users connected to the
       # system console of a Linux kernel to perform some low-level commands.
@@ -43,11 +49,9 @@ _: {
       "net.core.default_qdisc" = "cake";
     };
     kernelModules = [ "tcp_bbr" ];
-    loader.systemd-boot.memtest86.enable = true;
   };
-
-  security = {
-    rtkit.enable = true;
-    sudo-rs.wheelNeedsPassword = false;
+  security.sudo-rs = {
+    enable = true;
+    wheelNeedsPassword = false;
   };
 }

@@ -17,31 +17,14 @@ in
   imports = [
     (modulesPath + "/installer/scan/not-detected.nix")
   ];
-
-  boot.initrd.availableKernelModules = [
-    "nvme"
-    "xhci_pci"
-    "ahci"
-    "thunderbolt"
-    "usb_storage"
-    "usbhid"
-    "sd_mod"
-  ];
-  boot.initrd.kernelModules = [ ];
   boot.kernelModules = [
-    "kvm-amd"
-    "f2fs"
+    "kvm-amd" # TODO: Use for VM role
+    "f2fs" # TODO: Auto add if f2fs file system detected
   ];
-  boot.extraModulePackages = [ ];
 
   fileSystems."/boot" = {
     device = "/dev/disk/by-uuid/D36D-6804";
     fsType = "vfat";
-    options = [
-      "fmask=0137"
-      "dmask=0022"
-      "umask=077" # Fixes boot security
-    ];
   };
 
   fileSystems."/" = {
@@ -102,6 +85,4 @@ in
   # networking.interfaces.wlp7s0.useDHCP = lib.mkDefault true;
 
   nixpkgs.hostPlatform = lib.mkDefault "x86_64-linux";
-  hardware.cpu.amd.updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware;
-  hardware.amdgpu.initrd.enable = true;
 }

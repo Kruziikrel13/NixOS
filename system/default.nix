@@ -1,7 +1,5 @@
 {
   pathLib,
-  self,
-  username,
   nixos-hardware,
   ...
 }:
@@ -12,8 +10,4 @@
     nixos-hardware.nixosModules.common-gpu-amd
   ]
   ++ pathLib.scanPaths ./.;
-  services.getty = {
-    autologinUser = username;
-    autologinOnce = true;
-  };
 }

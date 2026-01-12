@@ -1,5 +1,6 @@
+{ lib, pkgs, ... }:
 {
-  wayland.windowManager.hyprland.settings = {
+  programs.hyprland.settings = {
     bindm = [
       "$mod, mouse:272, movewindow"
       "$mod, mouse:273, resizewindow"
@@ -11,7 +12,7 @@
     ];
 
     bind = [
-      "$mod, RETURN, exec, runapp -- $terminal" # Launch Terminal
+      "$mod, RETURN, exec, ${lib.meta.getExe pkgs.runapp} -- $terminal" # Launch Terminal
       "$mod SHIFT, RETURN, exec, runapp -- $terminal --class=ghostty.small" # Launch Terminal
       "$mod, Escape, exec, uwsm stop"
       "$mod, D, exec, $dmenu" # Launcher

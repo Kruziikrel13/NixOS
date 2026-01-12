@@ -72,6 +72,12 @@ in
   config = mkIf cfg.enable {
     environment.systemPackages = [ cfg.finalPackage ];
 
+    qt = {
+      enable = true;
+      style = "breeze";
+      platformTheme = "qt5ct";
+    };
+
     systemd.user.services.quickshell = mkIf cfg.systemd.enable {
       unitConfig = {
         Description = "Quickshell Desktop Shell System";

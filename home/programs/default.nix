@@ -11,7 +11,6 @@
       grayjay
       pulsemixer
       protonmail-desktop
-      via
       playerctl
       devenv
       cachix

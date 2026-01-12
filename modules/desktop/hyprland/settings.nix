@@ -1,32 +1,22 @@
-{
-  config,
-  osConfig,
-  lib,
-  ...
-}:
+{ config, lib, ... }:
 let
-  osCfg = osConfig.programs.hyprland;
-  cursorName = "Bibata-Modern-Classic-Hyprcursor";
+  primaryMonitor = lib.findFirst (
+    monitor: monitor.primary
+  ) { } config.modules.desktop.hyprland.monitors;
 in
 {
-  wayland.windowManager.hyprland.settings = {
+  programs.hyprland.settings = {
+    "$mod" = "SUPER";
+    "$terminal" = "ghostty";
     env = [
       "QT_WAYLAND_DISABLE_WINDOWDECORATION,1"
-      "HYPRCURSOR_THEME,${cursorName}"
-      "HYPRCURSOR_SIZE,${toString config.home.pointerCursor.size}"
+      "HYPRCURSOR_THEME,Bibata-Modern-Classic-Hyprcursor"
+      "HYPRCURSOR_SIZE,${toString 16}"
     ];
-    source = lib.mkIf (osCfg.monitors != null || osCfg.workspaces != null) (
-      (lib.optional (osCfg.monitors != null) "${config.xdg.configHome}/hypr/monitors.conf")
-      ++ (lib.optional (osCfg.workspaces != null) "${config.xdg.configHome}/hypr/workspaces.conf")
-    );
-
     exec-once = [
       "uwsm finalize"
-      "hyprctl setcursor ${cursorName} ${toString config.home.pointerCursor.size}"
+      "hyprctl setcursor Bibata-Modern-Classic-Hyprcursor ${toString 16}"
     ];
-
-    "$terminal" = "ghostty";
-    "$mod" = "SUPER";
     general = {
       layout = "master";
       gaps_in = 5;
@@ -35,12 +25,10 @@ in
       allow_tearing = true;
       no_focus_fallback = true;
       "col.active_border" = "rgb(C8C8C8)";
-
       snap = {
         enabled = true;
       };
     };
-
     decoration = {
       rounding = 10;
       rounding_power = 3;
@@ -70,12 +58,9 @@ in
         scale = 0.97;
       };
     };
-
     render.direct_scanout = 2;
     render.new_render_scheduling = true;
-
     binds.scroll_event_delay = 10;
-
     animations = {
       animation = [
         "border, 1, 2, default"
@@ -84,7 +69,6 @@ in
         "workspaces, 1, 2, default, slide"
       ];
     };
-
     group = {
       groupbar = {
         font_size = 10;
@@ -120,14 +104,8 @@ in
       key_press_enables_dpms = true;
       # disable_autoreload = true;
     };
-
     debug.disable_logs = false;
-
     xwayland.force_zero_scaling = true;
-
-    cursor = {
-      default_monitor = "DP-1";
-
-    };
+    cursor.default_monitor = primaryMonitor.output;
   };
 }

@@ -1,57 +1,83 @@
 {
   pathLib,
-  self,
   nixos-hardware,
+  username,
   pkgs,
   ...
 }:
 {
+  modules = {
+    profiles = {
+      user = username;
+      hardware = [
+        "cpu/amd"
+        "gpu/amd"
+        "audio"
+        "audio/realtime"
+        "ssd"
+        "wifi"
+        "secureboot"
+        "tpm"
+        "peripherals/logitech"
+        "peripherals/keychron"
+      ];
+    };
+    desktop = {
+      hyprland = {
+        enable = true;
+        monitors = [
+          {
+            output = "HDMI-A-1";
+            mode = "1920x1080@144";
+            position = "-1920x344";
+          }
+          {
+            output = "DP-2";
+            mode = "3840x2160@144";
+            position = "0x0";
+            primary = true;
+          }
+          {
+            output = "HDMI-A-2";
+            mode = "1920x1080@144";
+            position = "3840x849";
+          }
+        ];
+      };
+      gaming.enable = true;
+      apps = {
+        steam.enable = true;
+        minecraft.enable = true;
+        grayjay.enable = true;
+        heroic.enable = true;
+        proton-mail.enable = true;
+      };
+    };
+    services = {
+      quickshell = {
+        enable = true;
+        systemd.enable = true;
+        extraPackages = with pkgs.qt6; [
+          qtimageformats
+          qtmultimedia
+        ];
+      };
+      antec = {
+        enable = true;
+        cpu-device = "k10temp-pci-00c3";
+        cpu-temp-type = "Tctl";
+        gpu-device = "amdgpu-pci-7700";
+        gpu-temp-type = "edge";
+      };
+    };
+  };
+
   imports = pathLib.scanPaths ./. ++ [
     nixos-hardware.nixosModules.common-cpu-amd-raphael-igpu
   ];
 
   networking.hostName = "striking-distance";
-
   time.hardwareClockInLocalTime = true;
-
-  environment.variables.AMD_VULKAN_ICD = "RADV";
-  environment.variables.VDPAU_DRIVER = "radeonsi";
-  security.tpm2.enable = true;
-  security.tpm2.pkcs11.enable = true;
-  hardware = {
-    graphics = {
-      enable = true;
-      enable32Bit = true;
-      extraPackages = with pkgs; [
-        libva
-        libva-vdpau-driver
-        libvdpau-va-gl
-      ];
-      extraPackages32 = with pkgs.driversi686Linux; [
-        libva-vdpau-driver
-        libvdpau-va-gl
-      ];
-    };
-    logitech = {
-      wireless.enable = true;
-      wireless.enableGraphical = true;
-    };
-    # antec = {
-    #   enable = true;
-    #   cpu-device = "k10temp-pci-00c3";
-    #   cpu-temp-type = "Tctl";
-    #   gpu-device = "amdgpu-pci-7700";
-    #   gpu-temp-type = "edge";
-    # };
-    keyboard.qmk = {
-      enable = true;
-      keychronSupport = true;
-    };
-  };
-
-  services = {
-    ratbagd.enable = true;
-  };
 
   # programs.hyprland = {
   #   monitors = [

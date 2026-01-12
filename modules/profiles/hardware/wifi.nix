@@ -1,21 +1,23 @@
-{ pkgs, ... }:
 {
+  lib,
+  config,
+  pkgs,
+  ...
+}:
+let
+  inherit (lib.modules) mkIf;
+  inherit (lib) elem;
+in
+mkIf (elem "wifi" config.modules.profiles.hardware) {
   networking.networkmanager = {
     enable = true;
     dns = "systemd-resolved";
   };
-
-  networking.firewall.allowedTCPPorts = [
-    12315 # Grayjay Desktop
-  ];
-
-  # TODO Verify
   services.resolved = {
     enable = true;
     dnsovertls = "opportunistic";
   };
-
-  # TODO Verify
+  user.extraGroups = [ "networkmanager" ];
   systemd.services.NetworkManager-wait-online.serviceConfig.ExecStart = [
     ""
     "${pkgs.networkmanager}/bin/nm-online -q"
