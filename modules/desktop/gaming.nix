@@ -25,6 +25,8 @@ in
     system.nixos.tags = [ "cachyos" ];
     boot.kernelPackages = pkgs.cachyosKernels.linuxPackages-cachyos-latest-zen4;
 
+    user.packages = [ pkgs.wineWow64Packages.waylandFull ];
+
     drivers.mesa-git = {
       enable = true;
       cacheCleanup = {
