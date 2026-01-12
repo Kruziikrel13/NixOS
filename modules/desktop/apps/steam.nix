@@ -2,7 +2,6 @@
   lib,
   lib',
   config,
-  nix-gaming,
   pkgs,
   ...
 }:
@@ -12,7 +11,6 @@ let
   cfg = config.modules.desktop.apps.steam;
 in
 {
-  imports = [ nix-gaming.nixosModules.platformOptimizations ];
   options.modules.desktop.apps.steam = {
     enable = mkBoolOpt false;
     gamemode.enable = mkBoolOpt false;
@@ -26,7 +24,6 @@ in
         programs.steam = {
           enable = true;
           protontricks.enable = true;
-          platformOptimizations.enable = true;
           package = pkgs.steam.override {
             extraEnv = {
               PROTON_NO_STEAMINPUT = "1";
