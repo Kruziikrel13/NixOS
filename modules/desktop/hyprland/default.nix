@@ -50,6 +50,10 @@ in
       modules.services.quickshell.enable = true;
 
       nixpkgs.overlays = [ hyprland.overlays.default ];
+      nix.settings = {
+        substituters = [ "https://hyprland.cachix.org" ];
+        trusted-public-keys = [ "hyprland.cachix.org-1:a7pgxzMz7+chwVL3/pzj6jIBMioiJM7ypFP8PwtkuGc=" ];
+      };
 
       environment.sessionVariables = {
         ELECTRON_OZONE_PLATFORM_HINT = "auto";
