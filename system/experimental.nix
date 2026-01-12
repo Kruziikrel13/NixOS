@@ -8,7 +8,7 @@
   drivers.mesa-git = {
     enable = true;
     cacheCleanup = {
-      enable = true;
+      enable = false;
       protonPackage = pkgs.proton-cachyos;
     };
   };
