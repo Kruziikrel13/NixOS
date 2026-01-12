@@ -12,32 +12,13 @@ let
   inherit (lib.modules) mkIf;
   inherit (lib.options) mkEnableOption;
   inherit (lib'.options) mkOpt mkBoolOpt;
-
-  inherit (lib.types)
-    lines
-    listOf
-    submodule
-    int
-    str
-    ;
 in
 {
   imports = [ hyprland.nixosModules.default ];
-  options.modules.desktop.hyprland = {
+  options.modules.desktop.hyprland = with lib.types; {
     enable = mkEnableOption "hyprland desktop";
     autoLogin = mkEnableOption "auto login";
     extraConfig = mkOpt lines "";
-    monitors = mkOpt (listOf (submodule {
-      options = {
-        output = mkOpt str "";
-        mode = mkOpt str "preferred";
-        position = mkOpt str "auto";
-        scale = mkOpt int 1;
-        disable = mkBoolOpt false;
-        primary = mkBoolOpt false;
-      };
-    })) [ { } ];
-
     idle = {
       time = mkOpt int 600;
       autodpms = mkOpt int 1200;

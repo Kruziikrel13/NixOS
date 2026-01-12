@@ -1,9 +1,3 @@
-{ config, lib, ... }:
-let
-  primaryMonitor = lib.findFirst (
-    monitor: monitor.primary
-  ) { } config.modules.desktop.hyprland.monitors;
-in
 {
   programs.hyprland.settings = {
     "$mod" = "SUPER";
@@ -103,6 +97,5 @@ in
     };
     debug.disable_logs = false;
     xwayland.force_zero_scaling = true;
-    cursor.default_monitor = primaryMonitor.output;
   };
 }
