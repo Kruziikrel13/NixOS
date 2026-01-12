@@ -10,11 +10,11 @@ let
   cfg = config.modules.shell.git;
 in
 {
-  options.modules.shell.git = {
+  options.modules.shell.git = with lib.types; {
     enable = mkBoolOpt false;
     lfs.enable = mkBoolOpt false;
-    email = mkOpt lib.str "";
-    signingKey = mkOpt lib.str "";
+    email = mkOpt str "";
+    signingKey = mkOpt str "";
   };
   config = lib.mkIf cfg.enable {
     programs.git = {
@@ -22,7 +22,7 @@ in
       config = [
         {
           user = {
-            inherit (cfg) email;
+            inherit (cfg) email signingKey;
             inherit (config.user) name;
           };
           commit = {
