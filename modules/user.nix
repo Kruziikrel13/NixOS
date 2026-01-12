@@ -26,5 +26,16 @@ in
       uid = 1000;
     };
     users.users.${config.user.name} = mkAliasDefinitions options.user;
+    i18n = {
+      defaultLocale = "en_US.UTF-8";
+      supportedLocales = [
+        "en_US.UTF-8/UTF-8"
+        "en_AU.UTF-8/UTF-8"
+        "ru_RU.UTF-8/UTF-8"
+        "nl_NL.UTF-8/UTF-8"
+      ];
+    };
+
+    time.timeZone = lib.mkDefault "Australia/Brisbane";
   };
 }
