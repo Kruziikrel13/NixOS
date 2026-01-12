@@ -14,7 +14,6 @@ in
       "HYPRCURSOR_SIZE,${toString 16}"
     ];
     exec-once = [
-      "uwsm finalize"
       "hyprctl setcursor Bibata-Modern-Classic-Hyprcursor ${toString 16}"
     ];
     general = {
