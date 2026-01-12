@@ -25,21 +25,23 @@
     desktop = {
       hyprland = {
         enable = true;
+        autoLogin = true;
         monitors = [
           {
-            output = "HDMI-A-1";
-            mode = "1920x1080@144";
+            output = "desc:AOC 24G1WG4 0x0004A33C";
+            mode = "1920x1080@144.0";
             position = "-1920x344";
           }
           {
-            output = "DP-2";
-            mode = "3840x2160@144";
+            output = "desc:GIGA-BYTE TECHNOLOGY CO. LTD. AORUS FI32U 21440B000115";
+            mode = "3840x2160@144.0";
             position = "0x0";
+            hdr = true;
             primary = true;
           }
           {
-            output = "HDMI-A-2";
-            mode = "1920x1080@144";
+            output = "desc:ViewSonic Corporation VX2758-C-MH V9M184500179";
+            mode = "1920x1080@144.0";
             position = "3840x849";
           }
         ];
@@ -78,17 +80,4 @@
 
   networking.hostName = "striking-distance";
   time.hardwareClockInLocalTime = true;
-
-  # programs.hyprland = {
-  #   monitors = [
-  #     "desc:GIGA-BYTE TECHNOLOGY CO. LTD. AORUS FI32U 21440B000115,3840x2160@144.0,1920x0,1.0, bitdepth, 10"
-  #     "desc:ViewSonic Corporation VX2758-C-MH V9M184500179,1920x1080@144.0,5760x849,1.0"
-  #     "desc:AOC 24G1WG4 0x0004A33C,1920x1080@144.0,0x344,1.0"
-  #   ];
-  #   workspaces = [
-  #     "1,monitor:desc:AOC 24G1WG4 0x0004A33C,default:true"
-  #     "2,monitor:desc:GIGA-BYTE TECHNOLOGY CO. LTD. AORUS FI32U 21440B000115,default:true"
-  #     "3,monitor:desc:ViewSonic Corporation VX2758-C-MH V9M184500179,default:true"
-  #   ];
-  # };
 }
