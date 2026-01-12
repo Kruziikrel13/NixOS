@@ -2,8 +2,6 @@
   config,
   pathLib,
   lib,
-  nh,
-  system,
   ...
 }:
 let
