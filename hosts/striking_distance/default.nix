@@ -55,6 +55,9 @@
         proton-mail.enable = true;
       };
     };
+    shell = {
+      gnupg.enable = true;
+    };
     services = {
       quickshell = {
         enable = true;
