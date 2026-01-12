@@ -9,7 +9,6 @@
     shell.enableBashIntegration = true;
     packages = with pkgs; [
       grayjay
-      pulsemixer
       protonmail-desktop
       playerctl
       devenv

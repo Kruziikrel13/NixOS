@@ -26,9 +26,7 @@ in
         pulse.enable = true;
       };
       user.extraGroups = [ "audio" ];
-      user.packages = with pkgs; [
-        pulsemixer
-      ];
+      user.packages = with pkgs; [ pulsemixer ];
     }
     (mkIf (elem "audio/realtime" hardware) {
       security.rtkit.enable = true;
