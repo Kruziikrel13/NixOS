@@ -55,6 +55,7 @@
         grayjay.enable = true;
         heroic.enable = true;
         proton-mail.enable = true;
+        element.enable = true;
       };
     };
     shell = {
@@ -64,6 +65,7 @@
         email = "dev@michaelpetersen.io";
         signingKey = "F34EB44630C65A33";
       };
+      direnv.enable = true;
     };
     services = {
       quickshell = {
