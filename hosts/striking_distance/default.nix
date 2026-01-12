@@ -9,6 +9,7 @@
   modules = {
     profiles = {
       user = username;
+      role = "workstation";
       hardware = [
         "cpu/amd"
         "gpu/amd"
