@@ -61,14 +61,12 @@ in
     render.direct_scanout = 2;
     render.new_render_scheduling = true;
     binds.scroll_event_delay = 10;
-    animations = {
-      animation = [
-        "border, 1, 2, default"
-        "fade, 1, 4, default"
-        "windows, 1, 3, default, popin 80%"
-        "workspaces, 1, 2, default, slide"
-      ];
-    };
+    animation = [
+      "border, 1, 2, default"
+      "fade, 1, 4, default"
+      "windows, 1, 3, default, popin 80%"
+      "workspaces, 1, 2, default, slide"
+    ];
     group = {
       groupbar = {
         font_size = 10;
