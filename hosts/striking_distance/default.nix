@@ -59,6 +59,11 @@
     };
     shell = {
       gnupg.enable = true;
+      git = {
+        enable = true;
+        email = "dev@michaelpetersen.io";
+        signingKey = "F34EB44630C65A33";
+      };
     };
     services = {
       quickshell = {
