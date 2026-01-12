@@ -48,6 +48,7 @@
         ];
       };
       gaming.enable = true;
+      browsers.zen.enable = true;
       apps = {
         steam.enable = true;
         minecraft.enable = true;
