@@ -71,6 +71,11 @@
         gpu-device = "amdgpu-pci-7700";
         gpu-temp-type = "edge";
       };
+      hyprlauncher = {
+        enable = true;
+        launchPrefix = "${pkgs.runapp}/bin/runapp --";
+        windowSize = "800 520";
+      };
     };
   };
 
