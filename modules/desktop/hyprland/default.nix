@@ -3,6 +3,7 @@
   hyprland,
   lib,
   lib',
+  pkgs,
   ...
 }:
 let
@@ -30,6 +31,7 @@ in
     {
       modules.services.quickshell.enable = mkDefault true;
       modules.services.hyprlauncher.enable = mkDefault true;
+      user.packages = with pkgs; [ wl-clipboard ];
 
       nixpkgs.overlays = [ hyprland.overlays.default ];
       nix.settings = {
