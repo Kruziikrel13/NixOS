@@ -24,6 +24,11 @@ in
     ];
     system.nixos.tags = [ "cachyos" ];
     boot.kernelPackages = pkgs.cachyosKernels.linuxPackages-cachyos-latest-zen4;
+    # CachyOS Cachix
+    nix.settings = {
+      substituters = [ "https://attic.xuyh0120.win/lantian" ];
+      trusted-public-keys = [ "lantian:EeAUQ+W+6r7EtwnmYjeVwx5kOGEBpjlBfPlzGlTNvHc=" ];
+    };
 
     user.packages = [ pkgs.wineWow64Packages.waylandFull ];
 
