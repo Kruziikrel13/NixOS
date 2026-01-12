@@ -6,10 +6,7 @@
 {
   imports = pathLib.scanPaths ./.;
   home = {
-    shell.enableBashIntegration = true;
     packages = with pkgs; [
-      grayjay
-      protonmail-desktop
       playerctl
       devenv
       cachix
@@ -18,19 +15,6 @@
   };
 
   programs = {
-    bash = {
-      enable = true;
-      enableCompletion = true;
-      enableVteIntegration = true;
-      sessionVariables.GPG_TTY = "$(tty)";
-    };
-    direnv = {
-      enable = true;
-      enableBashIntegration = true;
-      nix-direnv.enable = true;
-      silent = true;
-    };
-    element-desktop.enable = true;
     mpv = {
       enable = true;
       bindings = {
