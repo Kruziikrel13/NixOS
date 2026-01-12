@@ -56,7 +56,7 @@
           ;
       };
       packages = forEachSystem (system: pkgs: import ./packages pkgs);
-      formatter = forEachSystem (system: pkgs: pkgs.nixfmt-rfc-style);
+      formatter = forEachSystem (system: pkgs: pkgs.nixfmt);
     };
 
 }
