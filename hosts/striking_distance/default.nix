@@ -72,6 +72,7 @@
       nh.enable = true;
       direnv.enable = true;
       zoxide.enable = true;
+      bat.enable = true;
     };
     services = {
       quickshell = {

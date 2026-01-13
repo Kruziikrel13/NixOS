@@ -5,12 +5,10 @@
   ];
 
   home.shellAliases = with pkgs; {
-    cat = "${lib.getExe bat} --plain";
     budget = "${lib.getExe budget-tracker-tui}";
   };
 
   programs = {
-    bat.enable = true;
 
     eza = {
       enable = true;
