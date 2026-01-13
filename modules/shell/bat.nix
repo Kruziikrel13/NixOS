@@ -14,7 +14,7 @@ in
   config = lib.mkIf cfg.enable {
     programs.bat.enable = true;
     environment.shellAliases = {
-      ccat = "${lib.modules.getExe package} --plain";
+      ccat = "${lib.meta.getExe package} --plain";
     };
   };
 }
