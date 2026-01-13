@@ -57,6 +57,7 @@
         heroic.enable = true;
         proton-mail.enable = true;
         element.enable = true;
+        vesktop.enable = true;
       };
     };
     editors.default = "nvim";
