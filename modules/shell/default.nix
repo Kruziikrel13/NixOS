@@ -16,7 +16,10 @@ in
       direnv.enable = mkDefault true;
       zoxide.enable = mkDefault true;
       eza.enable = mkDefault true;
+      ripgrep.enable = mkDefault true;
       bat.enable = mkDefault true;
+      bottom.enable = mkDefault true;
+      fd.enable = mkDefault true;
     };
   };
 }
