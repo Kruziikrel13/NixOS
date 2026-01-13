@@ -33,6 +33,9 @@ in
           pull.rebase = true;
           format.signOff = true;
           gpg.format = "openpgp";
+
+          github.user = "kruziikrel13";
+          gitlab.user = "kruziikrel13";
         }
       ];
     };
