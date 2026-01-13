@@ -63,6 +63,7 @@
     editors.default = "nvim";
     editors.helix.enable = true;
     shell = {
+      defaultSuite = true; # Enables default set of shell progs
       gnupg.enable = true;
       git = {
         enable = true;
@@ -70,9 +71,6 @@
         signingKey = "F34EB44630C65A33";
       };
       nh.enable = true;
-      direnv.enable = true;
-      zoxide.enable = true;
-      bat.enable = true;
     };
     services = {
       quickshell = {
@@ -93,7 +91,7 @@
       hyprlauncher = {
         enable = true;
         launchPrefix = "${pkgs.runapp}/bin/runapp --";
-        windowSize = "800 520";
+        windowSize = "1200 920";
       };
     };
   };
