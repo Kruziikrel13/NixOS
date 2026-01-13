@@ -67,6 +67,7 @@
         email = "dev@michaelpetersen.io";
         signingKey = "F34EB44630C65A33";
       };
+      nh.enable = true;
       direnv.enable = true;
     };
     services = {
