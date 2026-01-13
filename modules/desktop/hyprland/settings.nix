@@ -1,7 +1,8 @@
+{ config, ... }:
 {
   programs.hyprland.settings = {
     "$mod" = "SUPER";
-    "$terminal" = "ghostty";
+    "$terminal" = config.modules.desktop.term.default;
     env = [
       "QT_WAYLAND_DISABLE_WINDOWDECORATION,1"
       "HYPRCURSOR_THEME,Bibata-Modern-Classic-Hyprcursor"
