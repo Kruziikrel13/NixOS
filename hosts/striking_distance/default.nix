@@ -48,6 +48,7 @@
         ];
       };
       term.default = "ghostty";
+      editors.default = "nvim";
       gaming.enable = true;
       browsers.zen.enable = true;
       apps = {
