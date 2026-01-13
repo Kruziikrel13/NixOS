@@ -1,6 +1,5 @@
 {
   pkgs-patched,
-  neovim-nightly-overlay,
   ...
 }:
 {
@@ -11,6 +10,5 @@
         grayjay
         ;
     })
-    neovim-nightly-overlay.overlays.default
   ];
 }
