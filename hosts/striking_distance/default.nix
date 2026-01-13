@@ -61,6 +61,7 @@
       };
     };
     editors.default = "nvim";
+    editors.helix.enable = true;
     shell = {
       gnupg.enable = true;
       git = {

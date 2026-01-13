@@ -32,10 +32,5 @@
     ripgrep-all.enable = true;
     fd.enable = true;
     bottom.enable = true;
-
-    helix = {
-      enable = true;
-      package = pkgs.evil-helix;
-    };
   };
 }
