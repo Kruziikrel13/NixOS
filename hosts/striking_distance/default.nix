@@ -65,12 +65,12 @@
     shell = {
       defaultSuite = true; # Enables default set of shell progs
       gnupg.enable = true;
+      nh.enable = true;
       git = {
         enable = true;
         email = "dev@michaelpetersen.io";
         signingKey = "F34EB44630C65A33";
       };
-      nh.enable = true;
     };
     services = {
       quickshell = {
