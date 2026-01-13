@@ -23,11 +23,6 @@
       ];
     };
 
-    zoxide = {
-      enable = true;
-      enableBashIntegration = true;
-    };
-
     ripgrep.enable = true;
     ripgrep-all.enable = true;
     fd.enable = true;
