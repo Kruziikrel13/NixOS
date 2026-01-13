@@ -1,11 +1,18 @@
 {
-  pathLib,
-  nixos-hardware,
   username,
   pkgs,
+  lib,
+  modulesPath,
   ...
 }:
-{
+rec {
+  imports = [
+    (modulesPath + "/installer/scan/not-detected.nix")
+  ];
+  nixpkgs.hostPlatform = lib.mkDefault "x86_64-linux";
+  networking.useDHCP = lib.mkDefault true;
+  networking.hostName = "striking-distance";
+  time.hardwareClockInLocalTime = true;
   modules = {
     profiles = {
       user = username;
@@ -91,15 +98,57 @@
       hyprlauncher = {
         enable = true;
         launchPrefix = "${pkgs.runapp}/bin/runapp --";
-        windowSize = "1200 920";
+        windowSize = "900 620";
       };
     };
   };
 
-  imports = pathLib.scanPaths ./. ++ [
-    nixos-hardware.nixosModules.common-cpu-amd-raphael-igpu
-  ];
+  fileSystems = {
+    "/boot" = {
+      device = "/dev/disk/by-uuid/D36D-6804";
+      fsType = "vfat";
+    };
+    "/" = {
+      device = "/dev/disk/by-uuid/e2c630af-cf1a-4502-91dc-d69145fb8c61";
+      fsType = "btrfs";
+      options = [ "subvol=@root" ];
+    };
+    "/home" = {
+      device = "/dev/disk/by-uuid/e2c630af-cf1a-4502-91dc-d69145fb8c61";
+      fsType = "btrfs";
+      options = [ "subvol=@home" ];
+    };
+    "/home/${modules.profiles.user}/games" = {
+      device = "/dev/disk/by-uuid/bbdffe39-6de4-46f5-85f6-a08f5c77e355";
+      fsType = "f2fs";
+      options = [
+        "defaults"
+        "noauto"
+        "nofail"
+        "noatime"
+        "nodev"
+        "exec"
+        "x-systemd.automount"
 
-  networking.hostName = "striking-distance";
-  time.hardwareClockInLocalTime = true;
+        "compress_algorithm=zstd"
+        "compress_chksum"
+        "compress_cache"
+        "discard"
+        "inline_xattr"
+        "extent_cache"
+      ];
+    };
+    "/snapshots" = {
+      device = "/dev/disk/by-uuid/e2c630af-cf1a-4502-91dc-d69145fb8c61";
+      fsType = "btrfs";
+      options = [
+        "subvol=@snapshots"
+        "compress=zstd:6"
+        "noexec"
+        "nosuid"
+        "sync"
+      ];
+    };
+  };
+  swapDevices = [ ];
 }
