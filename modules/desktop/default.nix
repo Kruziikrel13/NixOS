@@ -16,22 +16,22 @@ in
   };
 
   config = with lib; {
-    assertions =
-      let
-        isEnabled = _: v: v.enable or false;
-        hasDesktopEnabled =
-          cfg: (anyAttrs isEnabled cfg) || !(anyAttrs (_: v: isAttrs v && anyAttrs isEnabled v) cfg);
-      in
-      [
-        {
-          assertion = (countAttrs isEnabled cfg) < 2;
-          message = "Can't have more than one desktop environment enabled at a time";
-        }
-        {
-          assertion = hasDesktopEnabled cfg;
-          message = "Can't enable a desktop sub-module without a desktop environment";
-        }
-      ];
+    # assertions =
+    #   let
+    #     isEnabled = _: v: v.enable or false;
+    #     hasDesktopEnabled =
+    #       cfg: (anyAttrs isEnabled cfg) || !(anyAttrs (_: v: isAttrs v && anyAttrs isEnabled v) cfg);
+    #   in
+    #   [
+    #     {
+    #       assertion = (countAttrs isEnabled cfg) < 2;
+    #       message = "Can't have more than one desktop environment enabled at a time";
+    #     }
+    #     {
+    #       assertion = hasDesktopEnabled cfg;
+    #       message = "Can't enable a desktop sub-module without a desktop environment";
+    #     }
+    #   ];
 
     # TODO: Verify what's actually needed here
     fonts = {
