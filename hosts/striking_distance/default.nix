@@ -48,7 +48,6 @@
         ];
       };
       term.default = "ghostty";
-      editors.default = "nvim";
       gaming.enable = true;
       browsers.zen.enable = true;
       apps = {
@@ -60,6 +59,7 @@
         element.enable = true;
       };
     };
+    editors.default = "nvim";
     shell = {
       gnupg.enable = true;
       git = {
