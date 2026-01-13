@@ -14,8 +14,9 @@
       nixPathInputs = lib.mapAttrsToList (n: v: "${n}=${v}") filteredInputs;
     in
     {
-      nixPath = nixPathInputs;
-      # [ "nixpkgs-overlays=${self.dir}/overlays" ];
+      nixPath = nixPathInputs ++ [
+        "nixpkgs-overlays=${toString self}/overlays"
+      ];
       registry = lib.mapAttrs (_: v: { flake = v; }) filteredInputs;
       channel.enable = false;
 
