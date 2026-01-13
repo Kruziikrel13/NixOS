@@ -47,6 +47,7 @@
           }
         ];
       };
+      term.default = "ghostty";
       gaming.enable = true;
       browsers.zen.enable = true;
       apps = {
