@@ -3,11 +3,16 @@
   pkgs,
   lib,
   modulesPath,
+  nixos-hardware,
   ...
 }:
 rec {
   imports = [
     (modulesPath + "/installer/scan/not-detected.nix")
+    nixos-hardware.nixosModules.common-cpu-amd
+    nixos-hardware.nixosModules.common-cpu-amd-pstate
+    nixos-hardware.nixosModules.common-gpu-amd
+    nixos-hardware.nixosModules.common-cpu-amd-raphael-igpu
   ];
   nixpkgs.hostPlatform = lib.mkDefault "x86_64-linux";
   networking.useDHCP = lib.mkDefault true;
