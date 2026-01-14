@@ -31,7 +31,10 @@ in
     {
       modules.services.quickshell.enable = mkDefault true;
       modules.services.hyprlauncher.enable = mkDefault true;
-      user.packages = with pkgs; [ wl-clipboard ];
+      user.packages = with pkgs; [
+        wl-clipboard
+        hyprsysteminfo
+      ];
 
       nixpkgs.overlays = [ hyprland.overlays.default ];
       nix.settings = {
