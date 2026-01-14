@@ -1,20 +1,11 @@
 # NixOS Configuration
-<picture>
-  <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/NixOS/nixos-artwork/refs/heads/master/logo/nixos-white.svg">
-  <source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/NixOS/nixos-artwork/refs/heads/master/logo/nixos.svg">
-  <img alt="NixOS Logo" src="https://raw.githubusercontent.com/NixOS/nixos-artwork/refs/heads/master/logo/nixos.svg">
-</picture>
-
 ## About
-Personal NixOS and Home Manager configuration files, including submodules linking to other personal repositories for Neovim and Quickshell.
+Personal NixOS configuration files. Builds primarily at NixOS system level. However I use hjem for linking my submodules to .config in my user home.
 ### Contents
 - [hosts](https://github.com/Kruziikrel13/NixOS/blob/master/hosts): host-specific configuration
-- [home](https://github.com/Kruziikrel13/NixOS/blob/master/home): common home manager configuration
 - [lib](https://github.com/Kruziikrel13/NixOS/blob/master/lib): helper libraries used throughout configuration
-- [modules](https://github.com/Kruziikrel13/NixOS/blob/master/modules): nix modules for use in both home manager and nixos
+- [modules](https://github.com/Kruziikrel13/NixOS/blob/master/modules): host configuration modules (incl. common configuration)
 - [packages](https://github.com/Kruziikrel13/NixOS/blob/master/packages): custom packages
-- [system](https://github.com/Kruziikrel13/NixOS/blob/master/system): common nixos system level configuration
-- [templates](https://github.com/Kruziikrel13/NixOS/blob/master/templates): code templates
 
 ## Resources
 Configurations from which I learned or copied:
