@@ -60,27 +60,20 @@ in
             "--output-height 2160"
             "--backend wayland"
           ];
-        };
 
-        # {
-        #   xdg.desktopEntries.steam-gamescope = {
-        #     name = "Steam (Gamescope)";
-        #     exec = "steam-gamescope %U";
-        #     icon = "steam";
-        #     terminal = false;
-        #     prefersNonDefaultGPU = true;
-        #     noDisplay = false;
-        #     mimeType = [
-        #       "x-scheme-handler/steam"
-        #       "x-scheme-handler/steamlink"
-        #     ];
-        #     categories = [
-        #       "Network"
-        #       "FileTransfer"
-        #       "Game"
-        #     ];
-        #   };
-        # };
+          user.packages = [
+            (pkgs.mkLauncherEntry "Steam (Gamescope)" {
+              description = "Open steam in gamescope compositor";
+              icon = "steam";
+              exec = "steam-gamescope %U";
+              categories = [
+                "Network"
+                "FileTransfer"
+                "Game"
+              ];
+            })
+          ];
+        };
       })
 
       (mkIf cfg.gamemode.enable {
