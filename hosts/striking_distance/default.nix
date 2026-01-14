@@ -91,6 +91,7 @@ rec {
       defaultSuite = true; # Enables default set of shell progs
       gnupg.enable = true;
       nh.enable = true;
+      devenv.enable = true;
       git = {
         enable = true;
         email = "dev@michaelpetersen.io";
