@@ -2,6 +2,7 @@
   self,
   nixpkgs,
   inputs,
+  lib',
   ...
 }:
 let
@@ -11,7 +12,12 @@ let
     username: system:
     inputs
     // {
-      inherit self username system;
+      inherit
+        self
+        username
+        system
+        lib'
+        ;
       pathLib = import ../lib/paths lib;
 
       pkgs-patched = import inputs.nixpkgs-patched {
@@ -26,9 +32,8 @@ in
     specialArgs = genSpecialArgs "kruziikrel13" system;
     modules = [
       ./striking_distance
-      ../system
-      ../home
-    ];
+    ]
+    ++ (lib'.modules.mapModulesRec' ../modules import);
   };
 
   aridhol = lib.nixosSystem rec {
@@ -36,8 +41,7 @@ in
     specialArgs = genSpecialArgs "kruziikrel13" system;
     modules = [
       ./aridhol
-      ../system
-      ../home
-    ];
+    ]
+    ++ (lib'.modules.mapModulesRec' ../modules import);
   };
 }

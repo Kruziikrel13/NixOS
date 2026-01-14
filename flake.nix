@@ -16,14 +16,16 @@
     cachyos.url = "github:xddxdd/nix-cachyos-kernel";
     gaming-edge.url = "github:powerofthe69/nix-gaming-edge";
     gaming-edge.inputs.nixpkgs.follows = "nixpkgs";
-    home-manager.url = "github:nix-community/home-manager";
-    home-manager.inputs.nixpkgs.follows = "nixpkgs";
+    hjem = {
+      url = "github:feel-co/hjem";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
 
     # Desktop
     hyprland.url = "github:hyprwm/hyprland?ref=v0.53.1";
     quickshell.url = "git+https://git.outfoxxed.me/outfoxxed/quickshell";
     quickshell.inputs.nixpkgs.follows = "nixpkgs";
-    zen-browser.url = "github:0xc000022070/zen-browser-flake";
+    zen-browser.url = "github:youwen5/zen-browser-flake";
     zen-browser.inputs.nixpkgs.follows = "nixpkgs";
     neovim-nightly-overlay.url = "github:nix-community/neovim-nightly-overlay";
     neovim-nightly-overlay.inputs.nixpkgs.follows = "nixpkgs";
@@ -41,13 +43,22 @@
         nixpkgs.lib.genAttrs nixpkgs.lib.platforms.linux (
           system: fn system nixpkgs.legacyPackages.${system}
         );
-      modules = import ./modules self inputs;
+      args = {
+        inherit (nixpkgs) lib;
+      };
+      lib' = import ./lib args;
     in
     {
-      inherit (modules) homeManagerModules nixosModules;
-      nixosConfigurations = import ./hosts { inherit self nixpkgs inputs; };
+      nixosConfigurations = import ./hosts {
+        inherit
+          self
+          nixpkgs
+          inputs
+          lib'
+          ;
+      };
       packages = forEachSystem (system: pkgs: import ./packages pkgs);
-      formatter = forEachSystem (system: pkgs: pkgs.nixfmt-rfc-style);
+      formatter = forEachSystem (system: pkgs: pkgs.nixfmt);
     };
 
 }

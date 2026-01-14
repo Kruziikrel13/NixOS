@@ -1,0 +1,74 @@
+{
+  config,
+  hyprland,
+  lib,
+  lib',
+  pkgs,
+  ...
+}:
+let
+  cfg = config.modules.desktop.hyprland;
+
+  inherit (lib) mkMerge mkDefault;
+  inherit (lib.modules) mkIf;
+  inherit (lib.options) mkEnableOption;
+  inherit (lib'.options) mkOpt mkBoolOpt;
+in
+{
+  imports = [ hyprland.nixosModules.default ];
+  options.modules.desktop.hyprland = with lib.types; {
+    enable = mkEnableOption "hyprland desktop";
+    autoLogin = mkEnableOption "auto login";
+    extraConfig = mkOpt lines "";
+    idle = {
+      time = mkOpt int 600;
+      autodpms = mkOpt int 1200;
+      autosleep = mkBoolOpt false;
+    };
+  };
+
+  config = mkIf cfg.enable (mkMerge [
+    {
+      modules.services.quickshell.enable = mkDefault true;
+      modules.services.hyprlauncher.enable = mkDefault true;
+      user.packages = with pkgs; [ wl-clipboard ];
+
+      nixpkgs.overlays = [ hyprland.overlays.default ];
+      nix.settings = {
+        substituters = [ "https://hyprland.cachix.org" ];
+        trusted-public-keys = [ "hyprland.cachix.org-1:a7pgxzMz7+chwVL3/pzj6jIBMioiJM7ypFP8PwtkuGc=" ];
+      };
+
+      environment.sessionVariables = {
+        ELECTRON_OZONE_PLATFORM_HINT = "auto";
+        NIXOS_OZONE_WL = "1";
+        MOZ_ENABLE_WAYLAND = "1";
+      };
+
+      programs.hyprland = {
+        enable = true;
+        withUWSM = true;
+        settings.exec-once = [ "uwsm finalize" ];
+        inherit (cfg) extraConfig;
+      };
+
+      security = {
+        polkit.enable = true;
+        soteria.enable = true;
+      };
+
+    }
+    (mkIf cfg.autoLogin {
+      services.getty = {
+        autologinUser = config.user.name;
+        autologinOnce = true;
+      };
+
+      environment.loginShellInit = mkIf config.programs.hyprland.withUWSM ''
+        if uwsm check may-start; then
+            exec uwsm start -eD Hyprland hyprland.desktop
+          fi
+      '';
+    })
+  ]);
+}
