@@ -83,6 +83,7 @@ rec {
 
         lua-language-server
         stylua
+        nixfmt
       ];
     };
     editors.helix.enable = true;
