@@ -71,7 +71,20 @@ rec {
         vesktop.enable = true;
       };
     };
-    editors.default = "nvim";
+    editors = {
+      default = "nvim";
+      nvim.extraPackages = with pkgs; [
+        ## Language Servers
+        nil
+        nixd
+        statix
+        deadnix
+        copilot-language-server
+
+        lua-language-server
+        stylua
+      ];
+    };
     editors.helix.enable = true;
     shell = {
       defaultSuite = true; # Enables default set of shell progs
