@@ -32,7 +32,6 @@ in
     specialArgs = genSpecialArgs "kruziikrel13" system;
     modules = [
       ./striking_distance
-      ../home
     ]
     ++ (lib'.modules.mapModulesRec' ../modules import);
   };
@@ -42,7 +41,6 @@ in
     specialArgs = genSpecialArgs "kruziikrel13" system;
     modules = [
       ./aridhol
-      ../home
     ]
     ++ (lib'.modules.mapModulesRec' ../modules import);
   };

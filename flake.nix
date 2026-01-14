@@ -16,8 +16,10 @@
     cachyos.url = "github:xddxdd/nix-cachyos-kernel";
     gaming-edge.url = "github:powerofthe69/nix-gaming-edge";
     gaming-edge.inputs.nixpkgs.follows = "nixpkgs";
-    home-manager.url = "github:nix-community/home-manager";
-    home-manager.inputs.nixpkgs.follows = "nixpkgs";
+    hjem = {
+      url = "github:feel-co/hjem";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
 
     # Desktop
     hyprland.url = "github:hyprwm/hyprland?ref=v0.53.1";
