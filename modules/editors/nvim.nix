@@ -25,7 +25,11 @@ in
     home.configFiles."nvim".source = "${toString self}/config/sentinel.nvim";
     environment = {
       systemPackages = [ cfg.finalPackage ];
-      shellAliases.vimdiff = "nvim -d";
+      shellAliases = {
+        vimdiff = "nvim -d";
+        vi = "nvim";
+        vim = "nvim";
+      };
       variables = {
         EDITOR = lib.mkOverride 900 "nvim";
         VISUAL = lib.mkOverride 900 "nvim";
