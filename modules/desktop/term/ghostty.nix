@@ -16,7 +16,7 @@ in
   );
   config = lib.mkIf cfg.enable {
     user.packages = [ pkgs.ghostty ];
-    home.files.".config/ghostty/config".text = lib.generators.toKeyValue { } {
+    home.configFiles."ghostty/config".text = lib.generators.toKeyValue { } {
       title = "Ghostty";
       theme = "GitHub Dark";
 
@@ -24,6 +24,5 @@ in
       confirm-close-surface = false;
       quit-after-last-window-closed = true;
     };
-    # TODO: Add Hjem Module
   };
 }

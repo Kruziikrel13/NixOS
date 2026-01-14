@@ -3,6 +3,7 @@
   lib',
   config,
   pkgs,
+  self,
   neovim-nightly-overlay,
   ...
 }:
@@ -21,6 +22,7 @@ in
   };
   config = lib.mkIf cfg.enable {
     nixpkgs.overlays = [ neovim-nightly-overlay.overlays.default ];
+    home.configFiles."nvim".source = "${toString self}/config/sentinel.nvim";
     environment = {
       systemPackages = [ cfg.finalPackage ];
       shellAliases.vimdiff = "nvim -d";

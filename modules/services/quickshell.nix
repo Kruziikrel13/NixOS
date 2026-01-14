@@ -2,6 +2,7 @@
   config,
   pkgs,
   lib,
+  self,
   quickshell,
   ...
 }:
@@ -77,7 +78,7 @@ in
       }
     ];
     environment.systemPackages = [ cfg.finalPackage ];
-
+    home.configFiles."quickshell".source = "${toString self}/config/quickshell";
     qt = {
       enable = true;
       style = "breeze";
