@@ -26,7 +26,10 @@ in
         pulse.enable = true;
       };
       user.extraGroups = [ "audio" ];
-      user.packages = with pkgs; [ hyprpwcenter ];
+      user.packages = with pkgs; [
+        hyprpwcenter
+        at-spi2-core
+      ];
     }
     (mkIf (elem "audio/realtime" hardware) {
       security.rtkit.enable = true;
@@ -43,6 +46,11 @@ in
           "snd-rawmidi"
         ];
         kernelParams = [ "threadirqs" ];
+        postBootCommands = ''
+          echo 2048 > /sys/class/rtc/rtc0/max_user_freq
+          echo 2048 > /proc/sys/dev/hpet/max-user-freq
+          setpci -v -d "*:*" latency_timer=b0
+        '';
       };
 
       security.pam.loginLimits = [
