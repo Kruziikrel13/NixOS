@@ -31,7 +31,6 @@
       nixd
       statix
       deadnix
-      nixfmt-rfc-style
       copilot-language-server
 
       lua-language-server
