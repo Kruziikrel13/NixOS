@@ -60,20 +60,21 @@ in
             "--output-height 2160"
             "--backend wayland"
           ];
-
-          user.packages = [
-            (pkgs.mkLauncherEntry "Steam (Gamescope)" {
-              description = "Open steam in gamescope compositor";
-              icon = "steam";
-              exec = "steam-gamescope %U";
-              categories = [
-                "Network"
-                "FileTransfer"
-                "Game"
-              ];
-            })
-          ];
         };
+        user.packages = [
+          (pkgs.makeDesktopItem rec {
+            name = "launcher-${builtins.hashString "md5" exec}";
+            desktopName = "Steam (Gamescope)";
+            genericName = "Open steam in gamescope compositor";
+            exec = "steam-gamescope %U";
+            icon = "steam";
+            categories = [
+              "Network"
+              "FileTransfer"
+              "Game"
+            ];
+          })
+        ];
       })
 
       (mkIf cfg.gamemode.enable {
