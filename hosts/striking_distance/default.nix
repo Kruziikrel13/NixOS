@@ -7,6 +7,7 @@
   ...
 }:
 rec {
+  networking.hostName = "striking-distance";
   imports = [
     (modulesPath + "/installer/scan/not-detected.nix")
     nixos-hardware.nixosModules.common-cpu-amd
@@ -16,7 +17,6 @@ rec {
   ];
   nixpkgs.hostPlatform = lib.mkDefault "x86_64-linux";
   networking.useDHCP = lib.mkDefault true;
-  networking.hostName = "striking-distance";
   time.hardwareClockInLocalTime = true;
   modules = {
     profiles = {
