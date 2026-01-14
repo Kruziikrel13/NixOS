@@ -6,7 +6,6 @@
       "https://nix-community.cachix.org"
       "https://nix-gaming.cachix.org"
       "https://attic.xuyh0120.win/lantian"
-      "https://nyx.chaotic.cx/"
     ];
 
     trusted-public-keys = [
@@ -15,7 +14,6 @@
       "nix-community.cachix.org-1:mB9FSh9qf2dCimDSUo8Zy7bkq5CX+/rkCWyvRCYg3Fs="
       "nix-gaming.cachix.org-1:nbjlureqMbRAxR1gJ/f3hxemL9svXaZF/Ees8vCUUs4="
       "lantian:EeAUQ+W+6r7EtwnmYjeVwx5kOGEBpjlBfPlzGlTNvHc="
-      "nyx.chaotic.cx-1:HfnXSw4pj95iI/n17rIDy40agHj12WfF+Gqk6SonIT8="
     ];
   };
 }
