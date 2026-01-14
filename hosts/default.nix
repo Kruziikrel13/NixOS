@@ -43,6 +43,7 @@ in
     modules = [
       ./aridhol
       ../home
-    ];
+    ]
+    ++ (lib'.modules.mapModulesRec' ../modules import);
   };
 }
