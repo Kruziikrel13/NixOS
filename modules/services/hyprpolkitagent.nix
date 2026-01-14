@@ -25,7 +25,6 @@ in
         message = "hyprpolkitagent requires polkit to be enabled";
       }
     ];
-    environment.systemPackages = [ pkgs.hyprpolkitagent ];
-    systemd.user.services.hyprpolkitagent.wantedBy = [ "graphical-session.target" ];
+    user.packages = [ pkgs.hyprpolkitagent ];
   };
 }
