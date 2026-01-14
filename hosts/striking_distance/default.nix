@@ -23,7 +23,6 @@ rec {
         "audio"
         "audio/realtime"
         "ssd"
-        "wifi"
         "secureboot"
         "tpm"
         "peripherals/logitech"
