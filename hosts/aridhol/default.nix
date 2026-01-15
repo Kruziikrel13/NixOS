@@ -49,7 +49,7 @@
       };
     };
   };
-
+  boot.luks.devices."enc".device = "/dev/disk/by-uuid/a95aa5e1-a1e6-47be-b78f-663246bfd078";
   fileSystems = {
     "/" = {
       device = "/dev/disk/by-uuid/158c17d8-d90d-443d-ab0d-8ebce12758db";
