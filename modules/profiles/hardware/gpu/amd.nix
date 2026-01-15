@@ -39,5 +39,6 @@ mkIf (any (s: hasPrefix "gpu/amd" s) hardware) (mkMerge [
       enable = true;
       ppfeaturemask = "0xffffffff";
     };
+    services.lact.enable = true;
   })
 ])
