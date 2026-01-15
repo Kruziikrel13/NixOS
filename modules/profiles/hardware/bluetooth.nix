@@ -11,6 +11,7 @@ in
 {
 
   config = mkIf (elem "bluetooth" config.modules.profiles.hardware) {
+    user.packages = [ pkgs.overskride ];
     hardware.bluetooth = {
       enable = true;
       settings = {
