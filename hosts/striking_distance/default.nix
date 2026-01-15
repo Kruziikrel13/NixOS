@@ -119,7 +119,6 @@ rec {
         launchPrefix = "${pkgs.runapp}/bin/runapp --";
         windowSize = "900 620";
       };
-      hyprpolkitagent.enable = true;
     };
   };
 

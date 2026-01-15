@@ -73,7 +73,10 @@ in
         inherit (cfg) extraConfig;
       };
 
-      security.polkit.enable = true;
+      security = {
+        polkit.enable = true;
+        soteria.enable = true;
+      };
 
     }
     (mkIf cfg.autoLogin {
