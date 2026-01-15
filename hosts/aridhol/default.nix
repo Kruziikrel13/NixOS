@@ -80,7 +80,7 @@
       device = "/dev/disk/by-uuid/1F99-8700";
       fsType = "vfat";
     };
-
-    swapDevices = [ ];
   };
+
+  swapDevices = [ ];
 }
