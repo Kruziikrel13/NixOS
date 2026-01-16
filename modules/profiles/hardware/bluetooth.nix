@@ -17,6 +17,8 @@ in
       settings = {
         General.ControllerMode = "bredr";
         Policy.ReconnectAttempts = 0;
+        Experimental = true;
+        KernelExperimental = true;
       };
     };
 
