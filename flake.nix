@@ -13,7 +13,7 @@
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
     nixpkgs-patched.url = "github:kruziikrel13/nixpkgs/nixos-unstable-patched";
     nixos-hardware.url = "github:NixOS/nixos-hardware/master";
-    cachyos.url = "github:xddxdd/nix-cachyos-kernel";
+    cachyos.url = "github:xddxdd/nix-cachyos-kernel?ref=release";
     gaming-edge.url = "github:powerofthe69/nix-gaming-edge";
     gaming-edge.inputs.nixpkgs.follows = "nixpkgs";
     hjem = {
