@@ -1,6 +1,6 @@
 {
   programs.hyprland.settings.windowrule = [
-    "match:xwayland true, match:float true, center on"
+    "match:xwayland false, match:float true, center on"
     "match:tag gaming, workspace name:gaming"
     "match:tag game, idle_inhibit always, immediate on, fullscreen on, float on, decorate off, rounding off, keep_aspect_ratio on"
     "match:tag video, content video, idle_inhibit on, fullscreen on"
