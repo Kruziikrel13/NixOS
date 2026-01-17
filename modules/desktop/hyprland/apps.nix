@@ -1,7 +1,7 @@
 {
   programs.hyprland.settings.windowrule = [
-    "match:class ^(steam_app.*|.*\.exe|gamescope|\.gamescope-wrapped)$, tag + game"
-    "match:title ^(.*minecraft.*)$, tag + game"
+    "match:class ^(steam_app.*|.*\.exe|gamescope|\.gamescope-wrapped)$, tag +game"
+    "match:title ^(.*minecraft.*)$, tag +game"
 
     "match:tag game, match:title ^([Ww]ine.*|REDlauncher|Rockstar Games Launcher)$, tag -game"
     "match:class ^(explorer.exe|socialclubhelper.exe)$, tag -game"
