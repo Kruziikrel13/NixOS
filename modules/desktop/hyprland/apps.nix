@@ -4,7 +4,7 @@
     "match:title ^(.*minecraft.*)$, tag +game"
 
     "match:tag game, match:title ^([Ww]ine.*|REDlauncher|Rockstar Games Launcher)$, tag -game"
-    "match:class ^(explorer.exe|socialclubhelper.exe)$, tag -game"
+    "match:class ^(explorer.exe|socialclubhelper.exe|snakebite.exe)$, tag -game"
 
     "match:class ([Ss]team|heroic|.*Prism.*), tag +gaming"
     "match:tag game, tag +gaming"
