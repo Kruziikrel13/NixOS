@@ -3,6 +3,7 @@
   lib,
   config,
   options,
+  pkgs,
   ...
 }:
 let
@@ -31,7 +32,11 @@ in
         message = "hypridle requires the hyprland desktop";
       }
     ];
-    services.hypridle.enable = true;
+    environment.systemPackages = [ pkgs.hypridle ];
+    systemd = {
+      packages = [ pkgs.hypridle ];
+      user.services.hypridle.wantedBy = [ "graphical-session.target" ];
+    };
     environment.etc."xdg/hypr/hypridle.conf".text = ''
       general:lock_cmd = ""
       general:unlock_cmd = ""
