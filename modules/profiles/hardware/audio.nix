@@ -30,9 +30,9 @@ in
         hyprpwcenter
         at-spi2-core
       ];
+      security.rtkit.enable = true;
     }
     (mkIf (elem "audio/realtime" hardware) {
-      security.rtkit.enable = true;
       services.pipewire.lowLatency = {
         enable = true;
         quantum = 64;
