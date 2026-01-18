@@ -18,7 +18,7 @@ let
     ;
   inherit (lib.modules) mkIf;
   inherit (lib.options) mkEnableOption;
-  inherit (lib'.options) mkOpt mkBoolOpt;
+  inherit (lib'.options) mkOpt;
 in
 {
   imports = [ hyprland.nixosModules.default ];
@@ -27,9 +27,9 @@ in
     autoLogin = mkEnableOption "auto login";
     extraConfig = mkOpt lines "";
     idle = {
-      time = mkOpt int 600;
-      autodpms = mkOpt int 1200;
-      autosleep = mkBoolOpt false;
+      time = mkOpt int 300;
+      autodpms = mkOpt int 600;
+      autosleep = mkOpt int 900;
     };
   };
 
