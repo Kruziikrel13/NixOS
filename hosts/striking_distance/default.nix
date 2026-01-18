@@ -67,7 +67,10 @@ rec {
       gaming.enable = true;
       browsers.zen.enable = true;
       apps = {
-        steam.enable = true;
+        steam = {
+          enable = true;
+          gamemode.enable = true;
+        };
         minecraft.enable = true;
         grayjay.enable = true;
         heroic.enable = true;
