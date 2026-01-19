@@ -13,5 +13,6 @@ in
   options.modules.desktop.apps.element.enable = mkBoolOpt false;
   config = lib.mkIf cfg.enable {
     user.packages = [ pkgs.element-desktop ];
+    services.gnome.gnome-keyring.enable = true;
   };
 }
