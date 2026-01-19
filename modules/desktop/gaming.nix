@@ -3,7 +3,6 @@
   lib,
   pkgs,
   gaming-edge,
-  cachyos,
   ...
 }:
 let
@@ -18,10 +17,6 @@ in
   };
 
   config = mkIf cfg.enable {
-    nixpkgs.overlays = [
-      cachyos.overlays.default
-      gaming-edge.overlays.default
-    ];
     system.nixos.tags = [ "cachyos" ];
     boot.kernelPackages = pkgs.cachyosKernels.linuxPackages-cachyos-latest-zen4;
     # CachyOS Cachix
