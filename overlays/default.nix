@@ -4,6 +4,7 @@
   hyprland,
   gaming-edge,
   cachyos,
+  quickshell,
   ...
 }:
 
@@ -20,8 +21,8 @@ in
     })
     neovim-nightly-overlay.overlays.default
     hyprland.overlays.default
-
     cachyos.overlays.default
     gaming-edge.overlays.default
+    quickshell.overlays.default
   ];
 }

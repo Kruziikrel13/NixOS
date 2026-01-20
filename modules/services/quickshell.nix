@@ -3,7 +3,6 @@
   pkgs,
   lib,
   self,
-  quickshell,
   ...
 }:
 let
@@ -25,7 +24,6 @@ let
     literalExpression
     ;
 
-  quickshellPkgs = quickshell.packages.${pkgs.stdenv.hostPlatform.system};
   cfg = config.modules.services.quickshell;
 in
 {
@@ -34,7 +32,7 @@ in
     enableDebug = mkEnableOption "Enable debugging for Quickshell";
     supportI3 = mkEnableOption "Enable I3 support for Quickshell";
     supportX11 = mkEnableOption "Enable X11 support for Quickshell";
-    package = mkPackageOption quickshellPkgs "quickshell" { nullable = false; };
+    package = mkPackageOption pkgs "quickshell" { nullable = false; };
 
     extraPackages = mkOption {
       type = listOf package;
