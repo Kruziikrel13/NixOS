@@ -34,8 +34,9 @@ in
     }
     (mkIf (elem "audio/realtime" hardware) {
       services.pipewire.lowLatency = {
+        # Crackly
         enable = true;
-        quantum = 64;
+        quantum = 256;
         rate = 384000;
       };
 
