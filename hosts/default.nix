@@ -19,11 +19,6 @@ let
         lib'
         ;
       pathLib = import ../lib/paths lib;
-
-      pkgs-patched = import inputs.nixpkgs-patched {
-        inherit system;
-        config.allowUnfree = true;
-      };
     };
 in
 {
@@ -31,6 +26,7 @@ in
     system = "x86_64-linux";
     specialArgs = genSpecialArgs "kruziikrel13" system;
     modules = [
+      ../overlays
       ./striking_distance
     ]
     ++ (lib'.modules.mapModulesRec' ../modules import);
