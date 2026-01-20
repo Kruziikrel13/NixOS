@@ -3,6 +3,7 @@
   pkgs,
   lib,
   self,
+  qtengine,
   ...
 }:
 let
@@ -27,6 +28,7 @@ let
   cfg = config.modules.services.quickshell;
 in
 {
+  imports = [ qtengine.nixosModules.default ];
   options.modules.services.quickshell = {
     enable = mkEnableOption "quickshell";
     enableDebug = mkEnableOption "Enable debugging for Quickshell";
@@ -75,12 +77,42 @@ in
         message = "quickshell requires the hyprland desktop";
       }
     ];
-    environment.systemPackages = [ cfg.finalPackage ];
+    environment.systemPackages = [
+      cfg.finalPackage
+      pkgs.kdePackages.breeze
+      pkgs.kdePackages.breeze.qt5
+      pkgs.kdePackages.breeze-icons
+    ];
+
     home.configFiles."quickshell".source = "${toString self}/config/quickshell";
-    qt = {
+
+    programs.qtengine = {
       enable = true;
-      style = "breeze";
-      platformTheme = "qt5ct";
+      config = {
+        theme = {
+          colorScheme = "${pkgs.kdePackages.breeze}/share/color-schemes/BreezeDark.colors";
+          iconTheme = "breeze-dark";
+          style = "breeze";
+
+          font = {
+            family = "NotoSans Nerd Font Propo";
+            size = 13;
+            weight = -1;
+          };
+
+          fontFixed = {
+            family = "NotoSans Nerd Font Mono";
+            size = 13;
+            weight = -1;
+          };
+        };
+
+        misc = {
+          singleClickActivate = false;
+          menusHaveIcons = true;
+          shortcutsForContextMenus = true;
+        };
+      };
     };
 
     systemd.user.services.quickshell = mkIf cfg.systemd.enable {
