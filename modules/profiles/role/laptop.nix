@@ -10,11 +10,16 @@ in
 mkIf (config.modules.profiles.role == "laptop") {
   assertions = [
     {
+      # Ensure wifi is enabled on laptops
       assertion = elem "wifi" config.modules.profiles.hardware;
       message = "Networking on laptops without wifi is currently unsupported.";
     }
   ];
-
+  boot.initrd.availableKernelModules = [
+    "xhci_pci" # USB 3.0
+    "ahci" # SATA Devices on modern AHCI Controllers
+    "sdhci_pci" # SD Card Reader
+  ];
   services = {
     libinput.enable = true; # touchpad
     # power management
