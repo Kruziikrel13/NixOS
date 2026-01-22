@@ -1,7 +1,7 @@
 {
   lib,
   config,
-  pkgs,
+  nixos-hardware,
   ...
 }:
 let
@@ -13,9 +13,15 @@ let
     hasPrefix
     ;
 in
-mkIf (any (s: hasPrefix "cpu/amd" s) hardware) (mkMerge [
-  {
-    boot.kernelParams = [ "amd-pstate=active" ];
-    hardware.cpu.amd.updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware; # TODO: AMD Cpu
-  }
-])
+{
+  imports = [
+    nixos-hardware.nixosModules.common-cpu-amd
+    nixos-hardware.nixosModules.common-cpu-amd-pstate
+  ];
+  config = mkIf (any (s: hasPrefix "cpu/amd" s) hardware) (mkMerge [
+    {
+      boot.kernelParams = [ "amd-pstate=active" ];
+      hardware.cpu.amd.updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware; # TODO: AMD Cpu
+    }
+  ]);
+}

@@ -9,9 +9,7 @@
   networking.hostName = "aridhol";
   nixpkgs.hostPlatform = lib.mkDefault "x86_64-linux";
   networking.useDHCP = lib.mkDefault true;
-  imports = [
-    nixos-hardware.nixosModules.lenovo-ideapad-slim-5
-  ];
+  imports = [ nixos-hardware.nixosModules.lenovo-ideapad-slim-5 ];
   modules = {
     profiles = {
       user = username;
