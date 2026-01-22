@@ -61,7 +61,7 @@
       devShells = forEachSystem (
         system: pkgs: {
           default = pkgs.mkShell {
-            buildInputs = with pkgs; [
+            packages = with pkgs; [
               nil
               nixd
               statix
