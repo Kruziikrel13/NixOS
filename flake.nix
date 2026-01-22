@@ -64,6 +64,11 @@
       };
       packages = forEachSystem (system: pkgs: import ./packages pkgs);
       formatter = forEachSystem (system: pkgs: pkgs.nixfmt);
+      devShells = forEachSystem (
+        system: pkgs: {
+          default = import ./shell.nix { inherit pkgs; };
+        }
+      );
     };
 
 }
