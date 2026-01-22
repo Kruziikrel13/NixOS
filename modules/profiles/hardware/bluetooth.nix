@@ -15,9 +15,9 @@ in
     hardware.bluetooth = {
       enable = true;
       settings = {
+        Policy.ReconnectAttempts = 0;
         General = {
           ControllerMode = "bredr";
-          Policy.ReconnectAttempts = 0;
           Experimental = true;
           KernelExperimental = true;
         };
