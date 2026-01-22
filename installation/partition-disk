@@ -89,9 +89,6 @@ while true; do
   esac
 done
 
-mkdir /mnt/boot
-mount /dev/disk/by-label/BOOT /mnt/boot
-
 mkfs.fat -F32 -n BOOT $BOOT_PARTITION
 sleep 1s
 
