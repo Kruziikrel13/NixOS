@@ -36,6 +36,7 @@ in
     system = "x86_64-linux";
     specialArgs = genSpecialArgs "kruziikrel13" system;
     modules = [
+      ../overlays
       ./aridhol
     ]
     ++ (lib'.modules.mapModulesRec' ../modules import);
