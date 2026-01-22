@@ -27,7 +27,7 @@ in
       };
       user.extraGroups = [ "audio" ];
       user.packages = with pkgs; [
-        hyprpwcenter
+        # hyprpwcenter
         at-spi2-core
       ];
       security.rtkit.enable = true;
