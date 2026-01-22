@@ -37,6 +37,9 @@ in
                 lazygit
                 tree-sitter
                 github-copilot-cli
+
+                lua-language-server
+                stylua
               ]
               ++ cfg.extraPackages
             ))
