@@ -2,7 +2,6 @@
   lib',
   lib,
   config,
-  self,
   pathLib,
   ...
 }:
@@ -22,7 +21,7 @@ in
 
     environment.shellAliases = {
       search = "${exe} search";
-      nixos-edit = "cd ${flakePath}; nvim; cd -";
+      nixos-edit = "cd ${flakePath}; direnv exec . nvim; cd -";
       nixos-build = "${exe} os switch";
       nixos-upgrade = "${exe} os switch --update";
       nixos-clean = "${exe} clean all --nogcroots";
