@@ -25,6 +25,7 @@ mkIf (config.modules.profiles.role == "laptop") {
     fwupd.enable = true;
     # power management
     thermald.enable = true;
+    power-profiles-daemon.enable = lib.mkForce false;
     tlp = {
       enable = true;
       settings = {
