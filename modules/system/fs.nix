@@ -36,6 +36,7 @@ in
           "noatime"
         ]
         ++ optionals cfg.btrfs.enable [
+          "subvol=@root"
           "discard"
           "compress=zstd"
         ];
@@ -46,6 +47,7 @@ in
         "noatime"
       ]
       ++ optionals cfg.btrfs.enable [
+        "subvol=@home"
         "discard"
         "compress=zstd"
       ];
