@@ -22,6 +22,7 @@ mkIf (config.modules.profiles.role == "laptop") {
   ];
   services = {
     libinput.enable = true; # touchpad
+    fwupd.enable = true;
     # power management
     thermald.enable = true;
     tlp = {

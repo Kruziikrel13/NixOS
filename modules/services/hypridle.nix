@@ -14,7 +14,7 @@ let
 in
 {
   options.modules.services.hypridle = with lib.types; {
-    enable = mkBoolOpt (config.modules.desktop.hyprland.idle.time > 0);
+    enable = mkBoolOpt false;
     # Aliased to modules.desktop.hyprland.idle;
     time = mkOpt int 0;
     autodpms = mkOpt int 0;
