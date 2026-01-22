@@ -60,7 +60,14 @@
       packages = forEachSystem (system: pkgs: import ./packages pkgs);
       devShells = forEachSystem (
         system: pkgs: {
-          default = import ./shell.nix { inherit pkgs; };
+          default = pkgs.mkShell {
+            buildInputs = with pkgs; [
+              nil
+              nixd
+              statix
+              nixfmt
+            ];
+          };
         }
       );
     };
