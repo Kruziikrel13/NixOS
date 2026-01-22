@@ -33,7 +33,6 @@ in
         device = mkDefault "/dev/disk/by-label/NIXOS";
         options = [
           "defaults"
-          "noacl"
           "noatime"
         ]
         ++ optionals cfg.btrfs.enable [
@@ -44,7 +43,6 @@ in
       };
       "/home".options = [
         "defaults"
-        "noacl"
         "noatime"
       ]
       ++ optionals cfg.btrfs.enable [
