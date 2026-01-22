@@ -43,15 +43,10 @@
   outputs =
     inputs@{ self, nixpkgs, ... }:
     let
-      forEachSystem =
-        fn:
-        nixpkgs.lib.genAttrs nixpkgs.lib.platforms.linux (
-          system: fn system nixpkgs.legacyPackages.${system}
-        );
-      args = {
-        inherit (nixpkgs) lib;
-      };
-      lib' = import ./lib args;
+      inherit (nixpkgs) lib;
+      systems = [ "x86_64-linux" ];
+      forEachSystem = fn: lib.genAttrs systems (system: fn system nixpkgs.legacyPackages.${system});
+      lib' = import ./lib { inherit lib; };
     in
     {
       nixosConfigurations = import ./hosts {
@@ -63,7 +58,6 @@
           ;
       };
       packages = forEachSystem (system: pkgs: import ./packages pkgs);
-      formatter = forEachSystem (system: pkgs: pkgs.nixfmt);
       devShells = forEachSystem (
         system: pkgs: {
           default = import ./shell.nix { inherit pkgs; };
