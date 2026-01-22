@@ -26,9 +26,11 @@ in
         pulse.enable = true;
       };
       user.extraGroups = [ "audio" ];
-      user.packages = with pkgs; [
-        # hyprpwcenter
-        at-spi2-core
+      user.packages = [
+        pkgs.at-spi2-core
+      ]
+      ++ lib.optionals config.modules.desktop.hyprland.enable [
+        pkgs.hyprpwcenter
       ];
       security.rtkit.enable = true;
     }
