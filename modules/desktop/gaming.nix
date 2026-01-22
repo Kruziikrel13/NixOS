@@ -8,6 +8,7 @@
 let
   inherit (lib.modules) mkIf;
   inherit (lib.options) mkEnableOption;
+  wine = pkgs.wineWow64Packages.waylandFull;
   cfg = config.modules.desktop.gaming;
 in
 {
@@ -31,7 +32,8 @@ in
       ];
     };
 
-    user.packages = [ pkgs.wineWow64Packages.waylandFull ];
+    user.packages = [ wine ];
+    environment.sessionVariables.WINE_BIN = lib.getExe wine;
 
     drivers.mesa-git = {
       enable = true;
