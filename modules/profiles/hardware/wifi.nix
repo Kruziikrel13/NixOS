@@ -15,7 +15,7 @@ mkIf (elem "wifi" config.modules.profiles.hardware) {
   };
   services.resolved = {
     enable = true;
-    dnsovertls = "opportunistic";
+    settings.Resolve.DNSOverTLS = "opportunistic";
   };
   user.extraGroups = [ "networkmanager" ];
   systemd.services.NetworkManager-wait-online.serviceConfig.ExecStart = [
