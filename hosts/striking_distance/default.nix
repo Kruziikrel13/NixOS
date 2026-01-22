@@ -78,18 +78,7 @@ rec {
     };
     editors = {
       default = "nvim";
-      nvim.extraPackages = with pkgs; [
-        ## Language Servers
-        nil
-        nixd
-        statix
-        deadnix
-        copilot-language-server
-
-        lua-language-server
-        stylua
-        nixfmt
-      ];
+      nvim.extraPackages = [ pkgs.copilot-language-server ];
     };
     editors.helix.enable = true;
     shell = {
