@@ -22,7 +22,7 @@ if [ "$dirname" == "installation" ]; then
   dirname=${PWD##*/}
 fi
 
-if [ ! "$dirname" == "nixos" ]; then
+if [ ! "${dirname,,}" == "nixos" ]; then
   echo "Not in flake directory."
   exit 1
 fi
