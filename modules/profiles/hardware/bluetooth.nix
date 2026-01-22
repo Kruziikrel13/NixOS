@@ -15,10 +15,12 @@ in
     hardware.bluetooth = {
       enable = true;
       settings = {
-        General.ControllerMode = "bredr";
-        Policy.ReconnectAttempts = 0;
-        Experimental = true;
-        KernelExperimental = true;
+        General = {
+          ControllerMode = "bredr";
+          Policy.ReconnectAttempts = 0;
+          Experimental = true;
+          KernelExperimental = true;
+        };
       };
     };
 
