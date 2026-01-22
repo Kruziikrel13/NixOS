@@ -21,8 +21,14 @@ in
     boot.kernelPackages = pkgs.cachyosKernels.linuxPackages-cachyos-latest-zen4;
     # CachyOS Cachix
     nix.settings = {
-      substituters = [ "https://attic.xuyh0120.win/lantian" ];
-      trusted-public-keys = [ "lantian:EeAUQ+W+6r7EtwnmYjeVwx5kOGEBpjlBfPlzGlTNvHc=" ];
+      substituters = [
+        "https://attic.xuyh0120.win/lantian"
+        "https://nix-gaming.cachix.org"
+      ];
+      trusted-public-keys = [
+        "lantian:EeAUQ+W+6r7EtwnmYjeVwx5kOGEBpjlBfPlzGlTNvHc="
+        "nix-gaming.cachix.org-1:nbjlureqMbRAxR1gJ/f3hxemL9svXaZF/Ees8vCUUs4="
+      ];
     };
 
     user.packages = [ pkgs.wineWow64Packages.waylandFull ];
