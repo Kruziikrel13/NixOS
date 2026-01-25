@@ -59,6 +59,9 @@
       };
       packages = forEachSystem (
         system: pkgs: {
+          zen-custom = pkgs.callPackage ./packages/zen/package.nix {
+            inherit (inputs.zen-browser.packages.${pkgs.stdenv.hostPlatform.system}) zen-browser-unwrapped;
+          };
           bibata-hyprcursor = pkgs.callPackage ./packages/bibata-hyprcursor { };
         }
       );
