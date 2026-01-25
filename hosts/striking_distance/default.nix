@@ -15,6 +15,7 @@ rec {
   nixpkgs.hostPlatform = lib.mkDefault "x86_64-linux";
   networking.useDHCP = lib.mkDefault true;
   time.hardwareClockInLocalTime = true;
+
   modules = {
     profiles = {
       user = username;
@@ -114,6 +115,7 @@ rec {
         windowSize = "900 620";
       };
       hypridle.enable = true;
+      glance.enable = true;
     };
   };
 
