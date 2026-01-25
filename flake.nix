@@ -57,7 +57,11 @@
           lib'
           ;
       };
-      packages = forEachSystem (system: pkgs: import ./packages pkgs);
+      packages = forEachSystem (
+        system: pkgs: {
+          bibata-hyprcursor = pkgs.callPackage ./packages/bibata-hyprcursor { };
+        }
+      );
       devShells = forEachSystem (
         system: pkgs: {
           default = pkgs.mkShell {
