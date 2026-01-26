@@ -19,6 +19,7 @@ in
   config = lib.mkIf cfg.enable {
     programs.git = {
       enable = true;
+      lfs.enable = true;
       config = [
         {
           user = {
