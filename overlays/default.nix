@@ -21,7 +21,7 @@ in
     })
     neovim-nightly-overlay.overlays.default
     hyprland.overlays.default
-    cachyos.overlays.default
+    cachyos.overlays.pinned
     gaming-edge.overlays.default
     quickshell.overlays.default
   ];
