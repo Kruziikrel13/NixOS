@@ -24,38 +24,6 @@ in
             name = "Home";
             columns = [
               {
-                size = "full";
-                widgets = [
-                  {
-                    type = "videos";
-                    size = "full";
-                    style = "grid-cards";
-                    channels = [
-                      "UCedicLbmN_7vPUmPXlvKPFg"
-                      "UCNqHkzC_AlCPMwjTOSblkaA"
-                      "UC2MjZanWOfyfsrHOyitmXbQ"
-                      "UCyMnHssVup_wBZRnCSMVt3w"
-                      "UC5wZGwqyPawfmzpve8aJ-hw"
-                      "UCCCmapQ-VnHWNZlK1Jdnalg"
-                      "UCD6VugMZKRhSyzWEWA9W2fg"
-                      "UClOGLGPOqlAiLmOvXW5lKbw"
-                      "UCnHEz9DZ6EAof1-DaQGD_Xw"
-                      "UCq-xCE4xUr7RpvzjyVmYxqA"
-                    ];
-                  }
-                  {
-                    type = "twitch-channels";
-                    style = "horizontal-cards";
-                    channels = [
-                      "st1mpee"
-                      "jerma985"
-                      "generalsam123"
-                      "papapoob"
-                    ];
-                  }
-                ];
-              }
-              {
                 size = "small";
                 widgets = [
                   {
@@ -81,45 +49,75 @@ in
                     ];
                   }
                   {
-                    type = "clock";
-                    hour-format = "24h";
-                    timezones = [
+                    type = "group";
+                    widgets = [
                       {
-                        timezone = "Australia/Brisbane";
-                        label = "Brisbane";
+                        type = "clock";
+                        hour-format = "24h";
+                        timezones = [
+                          {
+                            timezone = "Australia/Brisbane";
+                            label = "Brisbane";
+                          }
+                          {
+                            timezone = "America/Los_Angeles";
+                            label = "Washington";
+                          }
+                          {
+                            timezone = "Europe/Stockholm";
+                            label = "Stockholm";
+                          }
+                        ];
                       }
                       {
-                        timezone = "America/Los_Angeles";
-                        label = "Washington";
-                      }
-                      {
-                        timezone = "Europe/Stockholm";
-                        label = "Stockholm";
+                        type = "weather";
+                        units = "metric";
+                        hour-format = "24h";
+                        location = "Sunshine Coast, Australia";
                       }
                     ];
                   }
                   {
-                    type = "weather";
-                    location = "Sunshine Coast, Australia";
+                    type = "twitch-channels";
+                    channels = [
+                      "st1mpee"
+                      "jerma985"
+                      "generalsam123"
+                      "papapoob"
+                    ];
                   }
+                ];
+              }
+              {
+                size = "full";
+                widgets = [
                   {
-                    type = "bookmarks";
-                    groups = [
+                    type = "group";
+                    widgets = [
                       {
-                        links = [
-                          {
-                            title = "NixOS Package Search";
-                            url = "https://search.nixos.org/";
-                          }
-                          {
-                            title = "Cloudflare";
-                            url = "https://dash.cloudflare.com";
-                          }
-                          {
-                            title = "QUT";
-                            url = "https://qutvirtual4.qut.edu.au";
-                          }
+                        type = "videos";
+                        size = "full";
+                        style = "grid-cards";
+                        channels = [
+                          "UCedicLbmN_7vPUmPXlvKPFg" # General Sam
+                          "UCNqHkzC_AlCPMwjTOSblkaA" # Forehead Fables Podcast
+                          "UC2MjZanWOfyfsrHOyitmXbQ" # Stimpee
+                          "UCyMnHssVup_wBZRnCSMVt3w" # CHRBRG
+                          "UC5wZGwqyPawfmzpve8aJ-hw" # Geopold
+                          "UCCCmapQ-VnHWNZlK1Jdnalg" # Gattsu
+                          "UCD6VugMZKRhSyzWEWA9W2fg" # Sseth Tzeentach
+                          "UClOGLGPOqlAiLmOvXW5lKbw" # Mandalore Gaming
+                          "UCnHEz9DZ6EAof1-DaQGD_Xw" # PPPeter
+                          "UCq-xCE4xUr7RpvzjyVmYxqA" # PoobTube
+                          "UC_lv3DF67KdqvLb_vc-mmIQ" # Seneral Gam
+                          "UC4Yjz30lM86xeqbHOhPqlmw" # Bizzlesnaff
                         ];
+                      }
+                      {
+                        type = "reddit";
+                        style = "vertical-cards";
+                        subreddit = "gamingnews";
+                        show-thumbnails = true;
                       }
                     ];
                   }
@@ -130,24 +128,6 @@ in
           {
             name = "Developer";
             columns = [
-              {
-                size = "full";
-                widgets = [
-                  {
-                    type = "videos";
-                    size = "full";
-                    style = "grid-cards";
-                    channels = [
-                      "UCsBjURrPoezykLs9EqgamOA"
-                      "UC-9b7aDP6ZN0coj9-xFnrtw"
-                      "UCsXVk37bltHxD1rDPwtNM8Q"
-                      "UCJXa3_WNNmIpewOtCHf3B0g"
-                      "UC5UAwBUum7CPN5buc-_N1Fw"
-                      "UCUMwY9iS8oMyWDYIe6_RmoA"
-                    ];
-                  }
-                ];
-              }
               {
                 size = "small";
                 widgets = [
@@ -162,35 +142,80 @@ in
                     ];
                   }
                   {
-                    type = "releases";
-                    show-source-icon = true;
-                    repositories = [
-                      "hyprwm/hyprland"
-                      "quickshell-mirror/quickshell"
-                      "folke/lazy.nvim"
-                      "folke/snacks.nvim"
-                    ];
-                  }
-                  {
-                    type = "rss";
-                    style = "vertical-list";
-                    limit = 1;
-                    feeds = [
+                    type = "group";
+                    widgets = [
                       {
-                        url = "https://gitlab.futo.org/videostreaming/Grayjay.Desktop/-/tags?format=atom";
-                        title = "Grayjay Releases";
+                        type = "releases";
+                        show-source-icon = true;
+                        repositories = [
+                          "hyprwm/hyprland"
+                          "quickshell-mirror/quickshell"
+                          "folke/lazy.nvim"
+                          "folke/snacks.nvim"
+                        ];
+                      }
+                      {
+                        type = "rss";
+                        title = "Grayjay Desktop";
+                        style = "vertical-list";
+                        limit = 1;
+                        feeds = [
+                          {
+                            url = "https://gitlab.futo.org/videostreaming/Grayjay.Desktop/-/tags?format=atom";
+                          }
+                        ];
                       }
                     ];
                   }
                   {
-                    type = "repository";
-                    repository = "poperigby/barnacle";
+                    type = "group";
+                    widgets = [
+                      {
+                        title = "Barnacle";
+                        type = "repository";
+                        repository = "poperigby/barnacle";
+                      }
+                      {
+                        title = "My NixOS";
+                        type = "repository";
+                        repository = "kruziikrel13/NixOS";
+                        pull-requests-limit = 0;
+                        issues-limit = 3;
+                      }
+                      {
+                        title = "Nixpkgs";
+                        type = "repository";
+                        repository = "nixos/nixpkgs";
+                      }
+                    ];
                   }
+                ];
+              }
+              {
+                size = "full";
+                widgets = [
                   {
-                    type = "repository";
-                    repository = "kruziikrel13/NixOS";
-                    pull-requests-limit = 0;
-                    issues-limit = 3;
+                    type = "group";
+                    widgets = [
+                      {
+                        type = "videos";
+                        size = "full";
+                        style = "grid-cards";
+                        channels = [
+                          "UCsBjURrPoezykLs9EqgamOA"
+                          "UC-9b7aDP6ZN0coj9-xFnrtw"
+                          "UCsXVk37bltHxD1rDPwtNM8Q"
+                          "UCJXa3_WNNmIpewOtCHf3B0g"
+                          "UC5UAwBUum7CPN5buc-_N1Fw"
+                          "UCUMwY9iS8oMyWDYIe6_RmoA"
+                        ];
+                      }
+                      {
+                        type = "reddit";
+                        subreddit = "neovim";
+                        show-thumbnails = true;
+                      }
+                    ];
                   }
 
                 ];
@@ -202,3 +227,63 @@ in
     };
   };
 }
+
+# {
+#             name = "Home";
+#             columns = [
+#               {
+#                 size = "full";
+#                 widgets = [
+#
+
+#                 ];
+#               }
+#               {
+#                 size = "small";
+#                 widgets = [
+#
+#                     type = "bookmarks";
+#                     groups = [
+#                       {
+#                         links = [
+#                           {
+#                             title = "NixOS Package Search";
+#                             url = "https://search.nixos.org/";
+#                           }
+#                           {
+#                             title = "Cloudflare";
+#                             url = "https://dash.cloudflare.com";
+#                           }
+#                           {
+#                             title = "QUT";
+#                             url = "https://qutvirtual4.qut.edu.au";
+#                           }
+#                         ];
+#                       }
+#                     ];
+#                   }
+#                 ];
+#               }
+#             ];
+#           }
+#           {
+#             name = "Developer";
+#             columns = [
+#               {
+#                 size = "full";
+#                 widgets = [
+#                   {
+#                     type = "videos";
+#                     size = "full";
+#                   }
+#                 ];
+#               }
+#               {
+#                 size = "small";
+#                 widgets = [
+
+#
+#                 ];
+#               }
+#             ];
+#           }
