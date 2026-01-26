@@ -111,6 +111,9 @@ in
                           "UCq-xCE4xUr7RpvzjyVmYxqA" # PoobTube
                           "UC_lv3DF67KdqvLb_vc-mmIQ" # Seneral Gam
                           "UC4Yjz30lM86xeqbHOhPqlmw" # Bizzlesnaff
+                          "UC_S45UpAYVuc0fYEcHN9BVQ" # Boy Boy
+                          "UCNMSCL9rDJJez6mP5gSpAPQ" # Bed Bananas
+                          "UCJYJgj7rzsn0vdR7fkgjuIA" # Styro Pyro
                         ];
                       }
                       {
