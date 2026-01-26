@@ -142,6 +142,29 @@ in
                     ];
                   }
                   {
+                    type = "monitor";
+                    cache = "1m";
+                    title = "Services";
+                    sites = [
+                      {
+                        title = "Steam";
+                        url = "https://steamcommunity.com";
+                      }
+                      {
+                        title = "GitHub";
+                        url = "https://github.com";
+                      }
+                      {
+                        title = "Cloudflare";
+                        url = "https://cloudflare.com";
+                      }
+                      {
+                        title = "Youtube";
+                        url = "https://youtube.com";
+                      }
+                    ];
+                  }
+                  {
                     type = "group";
                     widgets = [
                       {
