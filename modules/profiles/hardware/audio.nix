@@ -16,7 +16,6 @@ let
     ;
 in
 {
-  imports = [ nix-gaming.nixosModules.pipewireLowLatency ];
   config = mkIf (any (s: hasPrefix "audio" s) hardware) (mkMerge [
     {
       services.pipewire = {
@@ -35,13 +34,6 @@ in
       security.rtkit.enable = true;
     }
     (mkIf (elem "audio/realtime" hardware) {
-      services.pipewire.lowLatency = {
-        # Crackly
-        enable = true;
-        quantum = 256;
-        rate = 384000;
-      };
-
       boot = {
         kernel.sysctl."vm.swappiness" = 10;
         kernelModules = [
