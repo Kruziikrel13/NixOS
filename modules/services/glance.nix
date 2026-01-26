@@ -132,39 +132,44 @@ in
                 size = "small";
                 widgets = [
                   {
-                    type = "server-stats";
-                    servers = [
+                    type = "group";
+                    widgets = [
                       {
-                        type = "local";
-                        cpu-temp-sensor = true;
-                        name = "Services";
-                      }
-                    ];
-                  }
-                  {
-                    type = "monitor";
-                    cache = "1m";
-                    title = "Services";
-                    sites = [
-                      {
-                        title = "Steam";
-                        url = "https://steamcommunity.com";
+                        type = "server-stats";
+                        servers = [
+                          {
+                            type = "local";
+                            cpu-temp-sensor = true;
+                            name = "${config.networking.hostName}";
+                          }
+                        ];
                       }
                       {
-                        title = "NixOS";
-                        url = "https://cache.nixos.org";
-                      }
-                      {
-                        title = "GitHub";
-                        url = "https://github.com";
-                      }
-                      {
-                        title = "Cloudflare";
-                        url = "https://cloudflare.com";
-                      }
-                      {
-                        title = "Youtube";
-                        url = "https://youtube.com";
+                        type = "monitor";
+                        cache = "1m";
+                        title = "Services";
+                        sites = [
+                          {
+                            title = "Steam";
+                            url = "https://steamcommunity.com";
+                          }
+                          {
+                            title = "NixOS";
+                            url = "https://cache.nixos.org";
+                          }
+                          {
+                            title = "GitHub";
+                            url = "https://github.com";
+                          }
+                          {
+                            title = "Cloudflare";
+                            url = "https://cloudflare.com";
+                          }
+                          {
+                            title = "Youtube";
+                            url = "https://youtube.com";
+                          }
+                        ];
                       }
                     ];
                   }
