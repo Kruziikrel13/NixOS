@@ -33,6 +33,7 @@ in
             };
           };
         };
+        systemd.user.extraConfig = "DefaultLimitNOFILE=1048576";
       }
 
       (mkIf cfg.gamescope.enable {
