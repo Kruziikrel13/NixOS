@@ -151,6 +151,10 @@ in
                         url = "https://steamcommunity.com";
                       }
                       {
+                        title = "NixOS";
+                        url = "https://cache.nixos.org";
+                      }
+                      {
                         title = "GitHub";
                         url = "https://github.com";
                       }
