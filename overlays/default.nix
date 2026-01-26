@@ -17,7 +17,7 @@ in
 {
   nixpkgs.overlays = [
     (final: prev: {
-      inherit (patched) antec-flux-pro nitrolaunch;
+      inherit (patched) antec-flux-pro;
     })
     neovim-nightly-overlay.overlays.default
     hyprland.overlays.default
