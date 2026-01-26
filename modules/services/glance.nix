@@ -59,7 +59,26 @@ in
                 size = "small";
                 widgets = [
                   {
-                    type = "to-do";
+                    type = "search";
+                    search-engine = "duckduckgo";
+                    autofocus = true;
+                    bangs = [
+                      {
+                        title = "Nixpkgs";
+                        shortcut = "@np";
+                        url = "https://search.nixos.org/packages?query={QUERY}";
+                      }
+                      {
+                        title = "NixOS Options";
+                        shortcut = "@no";
+                        url = "https://search.nixos.org/options?query={QUERY}";
+                      }
+                      {
+                        title = "NixOS Wiki";
+                        shortcut = "@nw";
+                        url = "https://wiki.nixos.org/w/index.php?search={QUERY}";
+                      }
+                    ];
                   }
                   {
                     type = "clock";
@@ -83,7 +102,27 @@ in
                     type = "weather";
                     location = "Sunshine Coast, Australia";
                   }
-
+                  {
+                    type = "bookmarks";
+                    groups = [
+                      {
+                        links = [
+                          {
+                            title = "NixOS Package Search";
+                            url = "https://search.nixos.org/";
+                          }
+                          {
+                            title = "Cloudflare";
+                            url = "https://dash.cloudflare.com";
+                          }
+                          {
+                            title = "QUT";
+                            url = "https://qutvirtual4.qut.edu.au";
+                          }
+                        ];
+                      }
+                    ];
+                  }
                 ];
               }
             ];
@@ -107,9 +146,6 @@ in
                       "UCUMwY9iS8oMyWDYIe6_RmoA"
                     ];
                   }
-                  {
-                    type = "hacker-news";
-                  }
                 ];
               }
               {
@@ -131,6 +167,8 @@ in
                     repositories = [
                       "hyprwm/hyprland"
                       "quickshell-mirror/quickshell"
+                      "folke/lazy.nvim"
+                      "folke/snacks.nvim"
                     ];
                   }
                   {
@@ -154,27 +192,7 @@ in
                     pull-requests-limit = 0;
                     issues-limit = 3;
                   }
-                  {
-                    type = "bookmarks";
-                    groups = [
-                      {
-                        links = [
-                          {
-                            title = "GitHub";
-                            url = "https://github.com/";
-                          }
-                          {
-                            title = "NixOS Package Search";
-                            url = "https://search.nixos.org/";
-                          }
-                          {
-                            title = "Grayjay Desktop";
-                            url = "https://gitlab.futo.org/videostreaming/Grayjay.Desktop";
-                          }
-                        ];
-                      }
-                    ];
-                  }
+
                 ];
               }
             ];
@@ -184,102 +202,3 @@ in
     };
   };
 }
-
-# {
-#                 size = "small";
-#                 widgets = [
-#                   {
-#                     type = "calendar";
-#                   }
-#                 ];
-#               }
-#               {
-#                 size = "full";
-#                 widgets = [
-#
-#                 ];
-#               }
-# {
-#             name = "Home";
-#             columns = [
-#               {
-#                 size = "small";
-#                 widgets = [
-#
-# {
-#                     type = "server-stats";
-#                     servers = [
-#                       {
-#                         name = "Local Services";
-#                         type = "local";
-#                         cpu-temp-sensor = true;
-#                       }
-#                     ];
-#                   }
-#                 ];
-#               }
-#               {
-#                 size = "full";
-#                 widgets = [
-#                   {
-#                     type = "videos";
-#                     style = "grid-cards";
-#                     channels = [
-#                       "UC2MjZanWOfyfsrHOyitmXbQ"
-#                       "UCNqHkzC_AlCPMwjTOSblkaA"
-#                       "UC-9b7aDP6ZN0coj9-xFnrtw"
-#                       "UCyMnHssVup_wBZRnCSMVt3w"
-#                     ];
-#                   }
-#                 ];
-#               }
-#               {
-#                 size = "small";
-#                 widgets = [
-#                   {
-#                     type = "to-do";
-#                     size = "vertical-list";
-#                   }
-#                   {
-#                     type = "repository";
-#                     repository = "poperigby/barnacle";
-#                     pull-requests-limit = 1;
-#                     issues-limit = 3;
-#                     commits-limit = 3;
-#                   }
-#                   {
-#                     type = "repository";
-#                     repository = "kruziikrel13/NixOS";
-#                     pull-requests-limit = 0;
-#                     issues-limit = 1;
-#                     commits-limit = 3;
-#                   }
-#                 ];
-#               }
-#             ];
-#           }
-#           {
-#             name = "RSS";
-#             columns = [
-#               {
-#                 size = "full";
-#                 widgets = [
-#                   {
-#                     title = "News";
-#                     type = "rss";
-#                     style = "detailed-list";
-#                     feeds = [
-#                       {
-#                         url = "https://openrss.org/feed/github.com/hyprwm/Hyprland/releases";
-#                         title = "Hyprland Releases";
-#                       }
-#                       {
-#                         url = "https://gitlab.futo.org/videostreaming/Grayjay.Desktop/-/tags?format=atom";
-#                         title = "Grayjay Releases";
-#                       }
-#                     ];
-#                   }
-#                 ];
-#               }
-#             ];
-#           }
