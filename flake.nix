@@ -6,7 +6,7 @@
 # Core flake configuration file. Sets up and loads entirety of flake and it's modules.
 
 {
-  description = "NixOS Configuration for Kruziikrel13 (Hyprland, Secure-Boot, Gaming)";
+  description = "NixOS Configuration for Kruziikrel13";
 
   inputs = {
     # NIXPKGS
@@ -14,8 +14,12 @@
     nixpkgs-patched.url = "github:kruziikrel13/nixpkgs/nixos-unstable-patched";
     nixos-hardware.url = "github:NixOS/nixos-hardware/master";
     cachyos.url = "github:xddxdd/nix-cachyos-kernel?ref=release";
-    gaming-edge.url = "github:powerofthe69/nix-gaming-edge";
-    gaming-edge.inputs.nixpkgs.follows = "nixpkgs";
+
+    gaming-edge = {
+      url = "github:powerofthe69/nix-gaming-edge";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
     hjem = {
       url = "github:feel-co/hjem";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -23,16 +27,26 @@
 
     # Desktop
     hyprland.url = "github:hyprwm/hyprland?ref=v0.53.1";
-    quickshell.url = "git+https://git.outfoxxed.me/outfoxxed/quickshell";
-    quickshell.inputs.nixpkgs.follows = "nixpkgs";
-    zen-browser.url = "github:youwen5/zen-browser-flake";
-    zen-browser.inputs.nixpkgs.follows = "nixpkgs";
-    neovim-nightly-overlay.url = "github:nix-community/neovim-nightly-overlay";
-    neovim-nightly-overlay.inputs.nixpkgs.follows = "nixpkgs";
-    lanzaboote.url = "github:nix-community/lanzaboote?ref=v1.0.0";
-    lanzaboote.inputs.nixpkgs.follows = "nixpkgs";
-    nix-gaming.url = "github:fufexan/nix-gaming";
-    nix-gaming.inputs.nixpkgs.follows = "nixpkgs";
+
+    quickshell = {
+      url = "git+https://git.outfoxxed.me/outfoxxed/quickshell";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
+    zen-browser = {
+      url = "github:youwen5/zen-browser-flake";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
+    neovim-nightly-overlay = {
+      url = "github:nix-community/neovim-nightly-overlay";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
+    lanzaboote = {
+      url = "github:nix-community/lanzaboote?ref=v1.0.0";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
 
     qtengine = {
       url = "github:kossLAN/qtengine";
