@@ -17,7 +17,7 @@ in
 {
   nixpkgs.overlays = [
     (final: prev: {
-      inherit (patched) antec-flux-pro;
+      inherit (patched) antec-flux-pro grayjay;
     })
     neovim-nightly-overlay.overlays.default
     hyprland.overlays.default
