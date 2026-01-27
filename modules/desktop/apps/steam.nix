@@ -54,6 +54,7 @@ in
             "--fullscreen"
             "--borderless"
             "--expose-wayland"
+            "--steam"
             "--grab"
             "--hdr-enabled"
             "--force-grab-cursor"
