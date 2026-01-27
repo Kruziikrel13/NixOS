@@ -178,28 +178,23 @@ in
                     ];
                   }
                   {
-                    type = "group";
-                    widgets = [
+                    type = "releases";
+                    show-source-icon = true;
+                    repositories = [
+                      "hyprwm/hyprland"
+                      "quickshell-mirror/quickshell"
+                      "folke/lazy.nvim"
+                      "folke/snacks.nvim"
+                    ];
+                  }
+                  {
+                    title = "Grayjay Desktop";
+                    type = "rss";
+                    style = "vertical-list";
+                    limit = 1;
+                    feeds = [
                       {
-                        type = "releases";
-                        show-source-icon = true;
-                        repositories = [
-                          "hyprwm/hyprland"
-                          "quickshell-mirror/quickshell"
-                          "folke/lazy.nvim"
-                          "folke/snacks.nvim"
-                        ];
-                      }
-                      {
-                        type = "rss";
-                        title = "Grayjay Desktop";
-                        style = "vertical-list";
-                        limit = 1;
-                        feeds = [
-                          {
-                            url = "https://gitlab.futo.org/videostreaming/Grayjay.Desktop/-/tags?format=atom";
-                          }
-                        ];
+                        url = "https://gitlab.futo.org/videostreaming/Grayjay.Desktop/-/tags?format=atom";
                       }
                     ];
                   }
