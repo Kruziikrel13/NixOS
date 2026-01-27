@@ -5,15 +5,11 @@
   ...
 }:
 let
-  inherit (lib'.options) mkOpt mkBoolOpt;
+  inherit (lib'.options) mkBoolOpt;
   cfg = config.modules.services.glance;
 in
 {
-  options.modules.services.glance = {
-    enable = mkBoolOpt false;
-    enableFirewall = mkBoolOpt false;
-  };
-
+  options.modules.services.glance.enable = mkBoolOpt false;
   config = lib.mkIf cfg.enable {
     services.glance = {
       enable = true;
@@ -45,6 +41,11 @@ in
                         title = "NixOS Wiki";
                         shortcut = "@nw";
                         url = "https://wiki.nixos.org/w/index.php?search={QUERY}";
+                      }
+                      {
+                        title = "noogle";
+                        url = "https://noogle.dev/q?term={QUERY}";
+                        shortcut = "@ng";
                       }
                     ];
                   }
@@ -252,7 +253,6 @@ in
                       }
                     ];
                   }
-
                 ];
               }
             ];
@@ -262,63 +262,3 @@ in
     };
   };
 }
-
-# {
-#             name = "Home";
-#             columns = [
-#               {
-#                 size = "full";
-#                 widgets = [
-#
-
-#                 ];
-#               }
-#               {
-#                 size = "small";
-#                 widgets = [
-#
-#                     type = "bookmarks";
-#                     groups = [
-#                       {
-#                         links = [
-#                           {
-#                             title = "NixOS Package Search";
-#                             url = "https://search.nixos.org/";
-#                           }
-#                           {
-#                             title = "Cloudflare";
-#                             url = "https://dash.cloudflare.com";
-#                           }
-#                           {
-#                             title = "QUT";
-#                             url = "https://qutvirtual4.qut.edu.au";
-#                           }
-#                         ];
-#                       }
-#                     ];
-#                   }
-#                 ];
-#               }
-#             ];
-#           }
-#           {
-#             name = "Developer";
-#             columns = [
-#               {
-#                 size = "full";
-#                 widgets = [
-#                   {
-#                     type = "videos";
-#                     size = "full";
-#                   }
-#                 ];
-#               }
-#               {
-#                 size = "small";
-#                 widgets = [
-
-#
-#                 ];
-#               }
-#             ];
-#           }
