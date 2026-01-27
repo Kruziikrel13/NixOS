@@ -62,6 +62,7 @@ in
       environment.sessionVariables = {
         ELECTRON_OZONE_PLATFORM_HINT = "auto";
         NIXOS_OZONE_WL = "1";
+        QT_QPA_PLATFORM = "wayland";
         MOZ_ENABLE_WAYLAND = "1";
       };
 
