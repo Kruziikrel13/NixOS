@@ -51,7 +51,6 @@
       };
     };
   };
-  boot.initrd.luks.devices."enc".device = "/dev/disk/by-uuid/a95aa5e1-a1e6-47be-b78f-663246bfd078";
   fileSystems = {
     "/" = {
       device = "/dev/disk/by-label/NIXOS";
