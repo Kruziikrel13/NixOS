@@ -47,7 +47,7 @@
       git = {
         enable = true;
         email = "dev@michaelpetersen.io";
-        # signingKey = "CC4C1D82D045B5DA";
+        signingKey = "3A09074BE3F6C7BC8FC98B56E5593E0B417618A8";
       };
     };
   };
