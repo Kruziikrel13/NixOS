@@ -27,7 +27,7 @@
     };
 
     # Desktop
-    hyprland.url = "github:hyprwm/hyprland?ref=v0.53.1";
+    hyprland.url = "github:hyprwm/hyprland?ref=main";
 
     quickshell = {
       url = "git+https://git.outfoxxed.me/outfoxxed/quickshell";
