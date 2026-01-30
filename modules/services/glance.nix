@@ -205,18 +205,23 @@ in
                         title = "Barnacle";
                         type = "repository";
                         repository = "poperigby/barnacle";
+                        commits-limit = 5;
                       }
                       {
                         title = "My NixOS";
                         type = "repository";
                         repository = "kruziikrel13/NixOS";
-                        pull-requests-limit = 0;
+                        pull-requests-limit = -1;
                         issues-limit = 3;
+                        commits-limit = 5;
                       }
                       {
-                        title = "Nixpkgs";
+                        title = "Awesome Neovim";
                         type = "repository";
-                        repository = "nixos/nixpkgs";
+                        repository = "rockerBOO/awesome-neovim";
+                        issues-limit = -1;
+                        pull-requests-limit = -1;
+                        commits-limit = 5;
                       }
                     ];
                   }
