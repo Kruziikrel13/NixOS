@@ -26,7 +26,7 @@ rec {
         "audio"
         "audio/realtime"
         "ssd"
-        # "secureboot"
+        "secureboot"
         "tpm"
         "peripherals/logitech"
         "peripherals/keychron"
