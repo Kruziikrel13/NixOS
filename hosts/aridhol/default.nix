@@ -24,6 +24,7 @@
         "audio"
         "ssd"
         "wifi"
+        "secureboot"
         "bluetooth"
       ];
     };
