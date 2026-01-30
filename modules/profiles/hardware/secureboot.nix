@@ -17,12 +17,12 @@ in
     boot = {
       loader.systemd-boot.enable = mkForce false;
       lanzaboote = {
-        # autoGenerateKeys.enable = true;
-        # autoEnrollKeys = {
-        #   enable = true;
-        #   # Automatically reboot to enroll the keys in the firmware
-        #   autoReboot = true;
-        # };
+        autoGenerateKeys.enable = true;
+        autoEnrollKeys = {
+          enable = true;
+          # Automatically reboot to enroll the keys in the firmware
+          autoReboot = true;
+        };
         enable = mkDefault true;
         pkiBundle = "/var/lib/sbctl";
       };
