@@ -82,7 +82,10 @@
       );
       devShells = forEachSystem (
         system: pkgs: {
-          default = pkgs.mkShell {
+          default = pkgs.mkShellNoCC {
+            shellHook = ''
+              export SHELL=${lib.getExe pkgs.bash}
+            '';
             packages = with pkgs; [
               nil
               nixd
