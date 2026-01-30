@@ -15,6 +15,7 @@
     nixos-hardware.url = "github:NixOS/nixos-hardware/master";
     cachyos.url = "github:xddxdd/nix-cachyos-kernel?ref=release";
 
+    direnv-instant.url = "github:Mic92/direnv-instant";
     gaming-edge = {
       url = "github:powerofthe69/nix-gaming-edge";
       inputs.nixpkgs.follows = "nixpkgs";
