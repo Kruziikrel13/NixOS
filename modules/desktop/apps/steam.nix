@@ -32,6 +32,7 @@ in
               PROTON_ENABLE_WAYLAND = "1";
             };
           };
+          extraCompatPackages = [ pkgs.proton-ge-bin ];
         };
         systemd.user.extraConfig = "DefaultLimitNOFILE=1048576";
       }
