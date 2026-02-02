@@ -244,6 +244,7 @@ in
                           "UCJXa3_WNNmIpewOtCHf3B0g"
                           "UC5UAwBUum7CPN5buc-_N1Fw"
                           "UCUMwY9iS8oMyWDYIe6_RmoA"
+                          "UCtGG8ucQgEJPeUPhJZ4M4jA" # Rare Earth
                         ];
                       }
                       {
