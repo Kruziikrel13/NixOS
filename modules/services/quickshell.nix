@@ -84,7 +84,7 @@ in
       pkgs.kdePackages.breeze-icons
     ];
 
-    home.configFiles."quickshell".source = "${toString self}/config/quickshell";
+    home.configFiles."quickshell".source = "/etc/nixos/config/quickshell";
 
     programs.qtengine = {
       enable = true;
