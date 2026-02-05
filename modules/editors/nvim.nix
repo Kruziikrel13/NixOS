@@ -17,7 +17,7 @@ in
   config = lib.mkIf cfg.enable {
     home.configFiles.sentinel = {
       target = "nvim";
-      source = "/etc/nixos/config/sentinel.nvim";
+      source = lib'.relativeToRoot "config/sentinel.nvim";
     };
     environment = {
       systemPackages = [

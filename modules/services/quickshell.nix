@@ -2,6 +2,7 @@
   config,
   pkgs,
   lib,
+  lib',
   qtengine,
   ...
 }:
@@ -83,7 +84,10 @@ in
       pkgs.kdePackages.breeze-icons
     ];
 
-    home.configFiles."quickshell".source = "/etc/nixos/config/quickshell";
+    home.configFiles.quickshell = {
+      target = "quickshell";
+      source = lib'.relativeToRoot "config/quickshell";
+    };
 
     programs.qtengine = {
       enable = true;
