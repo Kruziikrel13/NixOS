@@ -18,7 +18,6 @@ let
         system
         lib'
         ;
-      pathLib = import ../lib/paths lib;
     };
 in
 {
