@@ -97,10 +97,10 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    neovim-nightly-overlay = {
-      type = "github";
-      owner = "nix-community";
-      repo = "neovim-nightly-overlay";
+    self.submodules = true;
+    sentinel = {
+      type = "path";
+      path = "config/sentinel.nvim";
       inputs.nixpkgs.follows = "nixpkgs";
     };
   };

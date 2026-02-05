@@ -1,6 +1,6 @@
 {
   nixpkgs-patched,
-  neovim-nightly-overlay,
+  sentinel,
   hyprland,
   gaming-edge,
   cachyos,
@@ -19,7 +19,7 @@ in
     (final: prev: {
       inherit (patched) antec-flux-pro grayjay;
     })
-    neovim-nightly-overlay.overlays.default
+    sentinel.overlays.default
     hyprland.overlays.default
     cachyos.overlays.pinned
     gaming-edge.overlays.default
