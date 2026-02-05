@@ -9,48 +9,98 @@
   description = "NixOS Configuration for Kruziikrel13";
 
   inputs = {
-    # NIXPKGS
-    nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
-    nixpkgs-patched.url = "github:kruziikrel13/nixpkgs/nixos-unstable-patched";
-    nixos-hardware.url = "github:NixOS/nixos-hardware/master";
-    cachyos.url = "github:xddxdd/nix-cachyos-kernel?ref=release";
+    # PKGS
+    nixpkgs = {
+      type = "github";
+      owner = "nixos";
+      repo = "nixpkgs";
+      ref = "nixos-unstable";
+    };
 
-    direnv-instant.url = "github:Mic92/direnv-instant";
-    gaming-edge = {
-      url = "github:powerofthe69/nix-gaming-edge";
-      inputs.nixpkgs.follows = "nixpkgs";
+    nixpkgs-patched = {
+      type = "github";
+      owner = "kruziikrel13";
+      repo = "nixpkgs";
+      ref = "nixos-unstable-patched";
+    };
+
+    # SYSTEM REQUIRED
+    nixos-hardware = {
+      type = "github";
+      owner = "nixos";
+      repo = "nixos-hardware";
     };
 
     hjem = {
-      url = "github:feel-co/hjem";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-
-    # Desktop
-    hyprland.url = "github:hyprwm/hyprland?ref=main";
-
-    quickshell = {
-      url = "git+https://git.outfoxxed.me/outfoxxed/quickshell";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-
-    zen-browser = {
-      url = "github:youwen5/zen-browser-flake";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-
-    neovim-nightly-overlay = {
-      url = "github:nix-community/neovim-nightly-overlay";
+      type = "github";
+      owner = "feel-co";
+      repo = "hjem";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
     lanzaboote = {
-      url = "github:nix-community/lanzaboote?ref=v1.0.0";
+      type = "github";
+      owner = "nix-community";
+      repo = "lanzaboote";
+      ref = "v1.0.0";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    # GAMING
+    cachyos = {
+      type = "github";
+      owner = "xddxdd";
+      repo = "nix-cachyos-kernel";
+      ref = "release";
+    };
+
+    gaming-edge = {
+      type = "github";
+      owner = "powerofthe69";
+      repo = "nix-gaming-edge";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
+    # DESKTOP
+    hyprland = {
+      type = "github";
+      owner = "hyprwm";
+      repo = "hyprland";
+      ref = "main";
+    };
+
     qtengine = {
-      url = "github:kossLAN/qtengine";
+      type = "github";
+      owner = "kossLAN";
+      repo = "qtengine";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
+    quickshell = {
+      type = "git";
+      url = "https://git.outfoxxed.me/outfoxxed/quickshell";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
+    # APPS
+    direnv-instant = {
+      type = "github";
+      owner = "Mic92";
+      repo = "direnv-instant";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
+    zen-browser = {
+      type = "github";
+      owner = "youwen5";
+      repo = "zen-browser-flake";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
+    neovim-nightly-overlay = {
+      type = "github";
+      owner = "nix-community";
+      repo = "neovim-nightly-overlay";
       inputs.nixpkgs.follows = "nixpkgs";
     };
   };
