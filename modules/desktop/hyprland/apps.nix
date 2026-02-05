@@ -10,6 +10,7 @@
     "match:tag game, tag +gaming"
 
     "match:class ^([Ss]team)$, match:title negative:^([Ss]team)$, float on"
+    "match:class ^([Ss]team)$, match:title .*Sign in to.*, center on"
     "match:class wineboot.exe, match:title Wine, float on"
     "match:class ^(vesktop|Element)$, tag +chat"
     "match:class ^(Proton Mail)$, tag +email"
