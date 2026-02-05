@@ -73,6 +73,7 @@ in
         inherit (cfg) extraConfig;
       };
 
+      services.displayManager.enable = true;
       security = {
         polkit.enable = true;
         soteria.enable = true;
