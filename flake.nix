@@ -106,7 +106,6 @@
     nix-templates = {
       type = "path";
       path = "config/nix-templates";
-      inputs.nixpkgs.follows = "nixpkgs";
     };
   };
 

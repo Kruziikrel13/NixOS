@@ -963,11 +963,6 @@
       }
     },
     "nix-templates": {
-      "inputs": {
-        "nixpkgs": [
-          "nixpkgs"
-        ]
-      },
       "locked": {
         "path": "config/nix-templates",
         "type": "path"
