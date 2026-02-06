@@ -4,6 +4,6 @@
 [submodule "quickshell"]
 	path = config/quickshell
 	url = git@github.com:kruziikrel13/quickshell.git
-[submodule "config/nix-templates"]
+[submodule "nix-templates"]
 	path = config/nix-templates
 	url = git@github.com:kruziikrel13/nix-templates
