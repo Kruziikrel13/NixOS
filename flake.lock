@@ -464,11 +464,11 @@
         "xdph": "xdph"
       },
       "locked": {
-        "lastModified": 1770208963,
-        "narHash": "sha256-5oMhKcLzNLMy9GFpHtrZ6XJdgJpthhprv2ZC88DPN5Q=",
+        "lastModified": 1770330959,
+        "narHash": "sha256-OPmJ6dBL615GGX7ENJXtJm4zeMv5uXDjmO8WB1MI5wM=",
         "owner": "hyprwm",
         "repo": "hyprland",
-        "rev": "02ff413002eddd7419ba70eb0f9f92acd2d97ddc",
+        "rev": "562171ab668e7ee98a9d2bbb62a9477ad2b1e24e",
         "type": "github"
       },
       "original": {
@@ -962,6 +962,22 @@
         "type": "github"
       }
     },
+    "nix-templates": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "path": "config/nix-templates",
+        "type": "path"
+      },
+      "original": {
+        "path": "config/nix-templates",
+        "type": "path"
+      },
+      "parent": []
+    },
     "nixos-hardware": {
       "locked": {
         "lastModified": 1769302137,
@@ -1010,11 +1026,11 @@
     },
     "nixpkgs-patched": {
       "locked": {
-        "lastModified": 1770287118,
-        "narHash": "sha256-bSEXdcx3ZywQGSx0/c/ifmJi+qEPjStX0LFgEwsNjPU=",
+        "lastModified": 1770337308,
+        "narHash": "sha256-pnZA+4rVq+dp/gNhSI1/bu2g51OQs23jHekehIRT6v0=",
         "owner": "kruziikrel13",
         "repo": "nixpkgs",
-        "rev": "7ba4ea6c9dce9ff9ccc0a3f16a2a0036e36566eb",
+        "rev": "d89509e9f1c35ac94bd158685a955490f79539ce",
         "type": "github"
       },
       "original": {
@@ -1190,6 +1206,7 @@
         "hjem": "hjem",
         "hyprland": "hyprland",
         "lanzaboote": "lanzaboote",
+        "nix-templates": "nix-templates",
         "nixos-hardware": "nixos-hardware",
         "nixpkgs": "nixpkgs_3",
         "nixpkgs-patched": "nixpkgs-patched",

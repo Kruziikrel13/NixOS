@@ -103,6 +103,11 @@
       path = "config/sentinel.nvim";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    nix-templates = {
+      type = "path";
+      path = "config/nix-templates";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs =
