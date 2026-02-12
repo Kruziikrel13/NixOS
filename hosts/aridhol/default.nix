@@ -34,7 +34,7 @@
       apps = {
         proton-mail.enable = true;
         element.enable = true;
-        # grayjay.enable = true;
+        grayjay.enable = true;
       };
     };
     editors = {
