@@ -68,6 +68,7 @@ rec {
         steam = {
           enable = true;
           gamemode.enable = true;
+          gamescope.enable = true;
         };
         minecraft.enable = true;
         grayjay.enable = true;

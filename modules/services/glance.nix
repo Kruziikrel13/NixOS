@@ -184,7 +184,6 @@ in
                       "hyprwm/hyprland"
                       "quickshell-mirror/quickshell"
                       "folke/lazy.nvim"
-                      "folke/snacks.nvim"
                     ];
                   }
                   {
