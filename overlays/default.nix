@@ -17,7 +17,7 @@ in
 {
   nixpkgs.overlays = [
     (final: prev: {
-      inherit (patched) antec-flux-pro grayjay;
+      inherit (patched) antec-flux-pro grayjay smfh;
     })
     sentinel.overlays.default
     hyprland.overlays.default
