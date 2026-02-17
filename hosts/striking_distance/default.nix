@@ -78,10 +78,7 @@ rec {
         vesktop.enable = true;
       };
     };
-    editors = {
-      default = "nvim";
-      nvim.extraPackages = [ pkgs.copilot-language-server ];
-    };
+    editors.default = "nvim";
     editors.helix.enable = true;
     shell = {
       defaultSuite = true; # Enables default set of shell progs
