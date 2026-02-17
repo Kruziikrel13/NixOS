@@ -5,6 +5,7 @@
   gaming-edge,
   cachyos,
   quickshell,
+  hyprpwcenter,
   ...
 }:
 
@@ -24,5 +25,6 @@ in
     cachyos.overlays.pinned
     gaming-edge.overlays.default
     quickshell.overlays.default
+    hyprpwcenter.overlays.default
   ];
 }

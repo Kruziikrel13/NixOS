@@ -69,6 +69,13 @@
       ref = "main";
     };
 
+    hyprpwcenter = {
+      type = "github";
+      owner = "hyprwm";
+      repo = "hyprpwcenter";
+      ref = "v0.1.2";
+    };
+
     qtengine = {
       type = "github";
       owner = "kossLAN";
