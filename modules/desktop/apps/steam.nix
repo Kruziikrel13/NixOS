@@ -61,7 +61,6 @@ in
             "--force-grab-cursor"
             "--output-width 3840"
             "--output-height 2160"
-            "--backend wayland"
           ];
         };
         user.packages = [
