@@ -10,15 +10,6 @@ body:
       value: |
         Use this form to record problems you discover in your code.
 
-  - type: input
-    id: summary
-    attributes:
-      label: Bug Summary
-      description: Short description of the problem.
-      placeholder: "Crash when saving a file"
-    validations:
-      required: true
-
   - type: textarea
     id: steps
     attributes:
@@ -33,6 +24,9 @@ body:
     attributes:
       label: Expected vs Actual
       description: What should happen vs what actually happens.
+      value: |
+        Expected:
+        Actual:
       placeholder: |
         Expected: File saves successfully
         Actual: Program crashes
