@@ -73,12 +73,7 @@ in
         settings.exec-once = [ "uwsm finalize" ];
         inherit (cfg) extraConfig;
       };
-
-      security = {
-        polkit.enable = true;
-        soteria.enable = true;
-      };
-
+      security.polkit.enable = true;
     }
     (mkIf cfg.autoLogin {
       services.getty = {
