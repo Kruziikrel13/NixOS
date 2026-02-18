@@ -2,7 +2,7 @@ name: 📝 Documentation
 description: Track tasks related to docs, notes, or knowledge capture.
 title: "[Docs]: "
 labels: ["documentation"]
-assignees: [ "kruziikrel13" ]
+assignees: ["kruziikrel13"]
 
 body:
   - type: markdown
@@ -38,11 +38,3 @@ body:
       label: Details
       description: What should be documented? Any structure/links/references?
       placeholder: "Include installation prerequisites, flake usage examples, and troubleshooting steps."
-
-  - type: checkboxes
-    id: checklist
-    attributes:
-      label: Checklist
-      options:
-        - label: I confirmed this doc task is not already tracked.
-        - label: I know where in the repo this documentation should live.
