@@ -2,7 +2,7 @@ name: 📝 Documentation
 description: Track tasks related to docs, notes, or knowledge capture.
 title: "[Docs]: "
 labels: ["documentation"]
-assignees: []
+assignees: [ "kruziikrel13" ]
 
 body:
   - type: markdown

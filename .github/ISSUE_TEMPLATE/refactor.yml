@@ -2,7 +2,7 @@ name: 🛠️ Refactor
 description: Track code improvements or restructuring without adding new features.
 title: "[Refactor]: "
 labels: ["refactor"]
-assignees: []
+assignees: [ "kruziikrel13" ]
 
 body:
   - type: markdown

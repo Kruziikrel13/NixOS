@@ -2,7 +2,7 @@ name: 🐛 Bug Report
 description: Track a bug or problem in the existing codebase.
 title: "[Bug]: "
 labels: ["bug"]
-assignees: []
+assignees: [ "kruziikrel13" ]
 
 body:
   - type: markdown
