@@ -83,8 +83,8 @@ in
 
       environment.loginShellInit = mkIf config.programs.hyprland.withUWSM ''
         if uwsm check may-start; then
-            exec uwsm start -eD Hyprland hyprland.desktop
-          fi
+          exec uwsm start hyprland.desktop
+        fi
       '';
     })
   ]);
