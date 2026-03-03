@@ -88,7 +88,7 @@ rec {
       git = {
         enable = true;
         email = "dev@michaelpetersen.io";
-        signingKey = "F34EB44630C65A33";
+        signingKey = "BB10A7F570D54738";
       };
     };
     services = {
