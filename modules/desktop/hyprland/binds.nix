@@ -90,9 +90,6 @@ in
         );
       in
       ''
-        workspace = name:gaming, monitor:desc:GIGA-BYTE TECHNOLOGY CO. LTD. AORUS FI32U 21440B000115
-        workspace = name:email, monitor:desc:ViewSonic Corporation VX2758-C-MH V9M184500179, on-created-empty: runapp -- proton-mail
-        workspace = name:chat, monitor:desc:ViewSonic Corporation VX2758-C-MH V9M184500179, on-created-empty: runapp -- vesktop
         bind = $mod, W, submap, workspaces
         submap = workspaces
         ${workspaces}
