@@ -19,6 +19,13 @@ in
   nixpkgs.overlays = [
     (final: prev: {
       inherit (patched) antec-flux-pro grayjay smfh;
+      pythonPackagesExtensions = prev.pythonPackagesExtensions ++ [
+        (python-final: python-prev: {
+          picosvg = python-prev.picosvg.overridePythonAttrs (oldAttrs: {
+            doCheck = false;
+          });
+        })
+      ];
     })
     sentinel.overlays.default
     hyprland.overlays.default
