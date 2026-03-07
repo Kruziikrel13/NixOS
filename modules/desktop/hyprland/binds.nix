@@ -18,7 +18,7 @@ in
       bind = [
         "$mod, RETURN, exec, ${getExe pkgs.runapp} -- $terminal" # Launch Terminal
         "$mod SHIFT, RETURN, exec, ${getExe pkgs.runapp} -- $terminal --class=ghostty.small" # Launch Terminal
-        "$mod, Escape, exec, uwsm stop"
+        "$mod, Escape, exec, ${getExe pkgs.hyprshutdown}"
         "$mod, D, exec, $dmenu" # Launcher
 
         "$mod, F, fullscreen"
