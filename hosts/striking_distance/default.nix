@@ -113,7 +113,6 @@ rec {
         windowSize = "900 620";
       };
       hypridle.enable = true;
-      glance.enable = true;
     };
   };
 
