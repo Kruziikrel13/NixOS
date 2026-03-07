@@ -3,8 +3,8 @@
   wrapFirefox,
 
   lib,
-  useGlance ? false,
-  glanceUrl ? "127.0.0.1:8080",
+  overrideNewtab ? false,
+  newtabUrl ? "127.0.0.1:8080",
 }:
 wrapFirefox zen-browser-unwrapped {
   pname = "zen-browser-custom";
@@ -41,7 +41,7 @@ wrapFirefox zen-browser-unwrapped {
       };
     }
     // (
-      if !useGlance then
+      if !overrideNewtab then
         {
           "extension@tabliss-maintained" = {
             install_url = "https://addons.mozilla.org/firefox/downloads/latest/tablissng/latest.xpi";
@@ -65,7 +65,7 @@ wrapFirefox zen-browser-unwrapped {
     lockPref("zen.view.show-newtab-button-top", false);
     lockPref("zen.welcome-screen.seen", true);
   ''
-  + lib.optionalString useGlance ''
-    lockPref("browser.startup.homepage", "http://${glanceUrl}");
+  + lib.optionalString overrideNewtab ''
+    lockPref("browser.startup.homepage", "http://${newtabUrl}");
   '';
 }
