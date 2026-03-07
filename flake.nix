@@ -66,7 +66,7 @@
       type = "github";
       owner = "hyprwm";
       repo = "hyprland";
-      ref = "v0.54.0";
+      ref = "v0.54.1";
     };
 
     hyprpwcenter = {
