@@ -1,4 +1,7 @@
 { pkgs, ... }:
 {
-  environment.systemPackages = [ pkgs.slack ];
+  environment.systemPackages = [
+    pkgs.slack
+    pkgs.gdevelop
+  ];
 }
