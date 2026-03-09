@@ -73,7 +73,7 @@ rec {
         minecraft.enable = true;
         grayjay.enable = true;
         heroic.enable = true;
-        proton-mail.enable = true;
+        protonmail.enable = true;
         element.enable = true;
         vesktop.enable = true;
       };
