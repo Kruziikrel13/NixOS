@@ -92,6 +92,7 @@ rec {
       };
     };
     services = {
+      protonvpn.enable = true;
       quickshell = {
         enable = true;
         systemd.enable = true;
