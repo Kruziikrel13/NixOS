@@ -51,7 +51,6 @@ in
       modules.services.hyprlauncher.enable = mkDefault true;
       user.packages = with pkgs; [
         wl-clipboard
-        hyprsysteminfo
       ];
 
       nix.settings = {
