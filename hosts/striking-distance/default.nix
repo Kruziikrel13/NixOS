@@ -162,5 +162,6 @@ rec {
       };
       swapDevices = [ ];
 
+      hardware.enableRedistributableFirmware = true;
     };
 }
