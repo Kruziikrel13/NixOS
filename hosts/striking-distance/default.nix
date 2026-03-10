@@ -107,6 +107,14 @@ rec {
     { pkgs, ... }:
     {
       time.hardwareClockInLocalTime = true;
+      # Disable Rhode Microphone as an audio source / output and fix silent audio on startup
+      boot.kernelModules = [ "snd-aloop" ];
+      services.pipewire.wireplumber.extraConfig."99-rhode-fix"."monitor.alsa.rules" = [
+        {
+          matches = [ { "node.name" = "alsa_output.usb-R__DE_R__DE_NT-USB__78F16F1B-00"; } ];
+          actions.update-props."node.disabled" = true;
+        }
+      ];
     };
 
   hardware =
