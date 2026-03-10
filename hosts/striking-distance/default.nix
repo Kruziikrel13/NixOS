@@ -112,7 +112,20 @@ rec {
   hardware =
     { ... }:
     {
-
+      # Only applies if audio/realtime is specified
+      audio.realtime = {
+        quantum = 256;
+        rate = 384000;
+        allowedRates = [
+          44100
+          48000
+          88200
+          96000
+          176400
+          352800
+          384000
+        ];
+      };
       fileSystems = {
         "/boot" = {
           device = "/dev/disk/by-uuid/D36D-6804";
