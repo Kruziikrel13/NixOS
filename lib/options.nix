@@ -2,8 +2,8 @@
 {
   mkOpt = type: default: lib.mkOption { inherit type default; };
   mkOpt' =
-    type: default: desc:
-    lib.mkOption { inherit type default desc; };
+    type: default: description:
+    lib.mkOption { inherit type default description; };
   mkBoolOpt =
     default:
     lib.mkOption {
