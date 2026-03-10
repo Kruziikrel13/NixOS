@@ -1,6 +1,8 @@
 {
   mkShellNoCC,
   git,
+  lib,
+  bash,
   nil,
   nixd,
   statix,
@@ -25,6 +27,7 @@ mkShellNoCC {
   ];
 
   shellHook = ''
+    export SHELL=${lib.getExe bash}
     export NIX_USER_CONF_FILES="${nixConfig}"
   '';
 }
