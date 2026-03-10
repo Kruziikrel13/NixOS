@@ -15,6 +15,4 @@ final: prev:
   gaming-edge.overlays.default
   quickshell.overlays.default
   hyprpwcenter.overlays.default
-])
-final
-prev
+] final prev)
