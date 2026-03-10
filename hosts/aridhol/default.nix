@@ -32,7 +32,7 @@
       cosmic.enable = true;
       browsers.zen.enable = true;
       apps = {
-        proton-mail.enable = true;
+        protonmail.enable = true;
         element.enable = true;
         grayjay.enable = true;
       };
