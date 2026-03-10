@@ -1,17 +1,17 @@
 {
-  hjem,
+  self,
   config,
   options,
   lib,
-  lib',
   ...
 }:
 let
-  inherit (lib'.options) mkOpt;
+  inherit (self.lib.options) mkOpt;
   inherit (lib.modules) mkAliasDefinitions;
 in
 {
-  imports = [ hjem.nixosModules.default ];
+  imports = [ self.modules.hjem.default ];
+
   options.home = with lib.types; {
     files = mkOpt attrs { };
     configFiles = mkOpt attrs { };

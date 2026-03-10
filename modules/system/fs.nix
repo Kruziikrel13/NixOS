@@ -1,6 +1,6 @@
 {
+  self,
   lib,
-  lib',
   config,
   ...
 }:
@@ -12,7 +12,7 @@ let
     optionals
     ;
   inherit (lib.modules) mkIf;
-  inherit (lib'.options) mkBoolOpt;
+  inherit (self.lib.options) mkBoolOpt;
   cfg = config.modules.system.fs;
   fsValues = attrValues config.fileSystems;
 in

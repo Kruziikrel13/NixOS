@@ -1,12 +1,12 @@
 {
-  lib',
+  self,
   lib,
   config,
   ...
 }:
 let
 
-  inherit (lib'.options) mkBoolOpt mkOpt;
+  inherit (self.lib.options) mkBoolOpt mkOpt;
   cfg = config.modules.shell.git;
 in
 {

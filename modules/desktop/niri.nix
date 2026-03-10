@@ -1,7 +1,7 @@
 {
+  self,
   config,
   lib,
-  lib',
   ...
 }:
 let
@@ -13,7 +13,7 @@ let
     length
     ;
   inherit (lib.modules) mkIf;
-  inherit (lib'.options) mkBoolOpt;
+  inherit (self.lib.options) mkBoolOpt;
 in
 {
   options.modules.desktop.niri = {

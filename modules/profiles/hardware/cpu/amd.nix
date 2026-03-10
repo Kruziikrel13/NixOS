@@ -1,7 +1,7 @@
 {
+  self,
   lib,
   config,
-  nixos-hardware,
   ...
 }:
 let
@@ -15,8 +15,8 @@ let
 in
 {
   imports = [
-    nixos-hardware.nixosModules.common-cpu-amd
-    nixos-hardware.nixosModules.common-cpu-amd-pstate
+    self.modules.nixos-hardware.common-cpu-amd
+    self.modules.nixos-hardware.common-cpu-amd-pstate
   ];
   config = mkIf (any (s: hasPrefix "cpu/amd" s) hardware) (mkMerge [
     {

@@ -1,5 +1,5 @@
 {
-  lib',
+  self,
   lib,
   config,
   options,
@@ -8,7 +8,7 @@
 }:
 let
   inherit (lib) optionalString mkAliasDefinitions;
-  inherit (lib'.options) mkBoolOpt mkOpt;
+  inherit (self.lib.options) mkBoolOpt mkOpt;
   cfg = config.modules.services.hypridle;
   hyprCfg = options.modules.desktop.hyprland.idle;
 in

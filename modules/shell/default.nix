@@ -1,12 +1,12 @@
 {
-  lib',
+  self,
   lib,
   config,
   ...
 }:
 let
   inherit (lib) mkDefault;
-  inherit (lib'.options) mkBoolOpt;
+  inherit (self.lib.options) mkBoolOpt;
 in
 {
   options.modules.shell.defaultSuite = mkBoolOpt false;

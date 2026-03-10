@@ -1,10 +1,10 @@
 {
-  lib',
+  self,
   lib,
   ...
 }:
 let
-  inherit (lib'.options) mkOpt;
+  inherit (self.lib.options) mkOpt;
 in
 {
   options.modules.profiles = with lib.types; {

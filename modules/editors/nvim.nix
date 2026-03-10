@@ -1,12 +1,13 @@
 {
+  self,
   lib,
-  lib',
   config,
   pkgs,
   ...
 }:
 let
-  inherit (lib'.options) mkOpt mkBoolOpt;
+  inherit (self.lib) relativeToRoot;
+  inherit (self.lib.options) mkOpt mkBoolOpt;
   cfg = config.modules.editors.nvim;
 in
 {
@@ -17,7 +18,7 @@ in
   config = lib.mkIf cfg.enable {
     home.configFiles.sentinel = {
       target = "nvim";
-      source = lib'.relativeToRoot "config/sentinel.nvim";
+      source = relativeToRoot "config/sentinel.nvim";
     };
     environment = {
       systemPackages = [

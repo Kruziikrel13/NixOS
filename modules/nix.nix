@@ -6,7 +6,6 @@
 }:
 {
   programs.nix-ld.enable = true;
-  nixpkgs.config.allowUnfree = true;
   environment.variables.NIXPKGS_ALLOW_UNFREE = "1";
   nix =
     let
@@ -26,9 +25,6 @@
           "nix-command"
           "flakes"
         ];
-
-        keep-derivations = true;
-        keep-outputs = true;
 
         trusted-users = [
           "root"
@@ -56,5 +52,8 @@
     nixos.enable = false;
     dev.enable = true;
   };
-  system.stateVersion = lib.mkDefault "24.11";
+  system = {
+    configurationRevision = self.dirtyRev;
+    stateVersion = lib.mkDefault "24.11";
+  };
 }

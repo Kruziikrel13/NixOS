@@ -1,8 +1,8 @@
 {
+  self,
   lib,
   config,
   pkgs,
-  nixos-hardware,
   ...
 }:
 let
@@ -16,7 +16,7 @@ let
     ;
 in
 {
-  imports = [ nixos-hardware.nixosModules.common-gpu-amd ];
+  imports = [ self.modules.nixos-hardware.common-gpu-amd ];
   config = mkIf (any (s: hasPrefix "gpu/amd" s) hardware) (mkMerge [
     {
       user.extraGroups = [ "video" ];

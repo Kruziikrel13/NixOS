@@ -1,21 +1,19 @@
 {
+  self,
   config,
   lib,
   pkgs,
-  gaming-edge,
   ...
 }:
 let
   inherit (lib.modules) mkIf;
-  inherit (lib.options) mkEnableOption;
+  inherit (self.lib.options) mkBoolOpt;
   wine = pkgs.wineWow64Packages.waylandFull;
   cfg = config.modules.desktop.gaming;
 in
 {
-  imports = [ gaming-edge.nixosModules.default ];
-  options.modules.desktop.gaming = {
-    enable = mkEnableOption "Enable gaming related modifications";
-  };
+  imports = [ self.modules.gaming-edge.default ];
+  options.modules.desktop.gaming.enable = mkBoolOpt false;
 
   config = mkIf cfg.enable {
     system.nixos.tags = [ "cachyos" ];
