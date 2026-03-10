@@ -1,25 +1,12 @@
-{
-  username,
-  pkgs,
-  lib,
-  modulesPath,
-  nixos-hardware,
-  ...
-}:
+{ self, ... }:
 rec {
-  networking.hostName = "striking-distance";
-  imports = [
-    (modulesPath + "/installer/scan/not-detected.nix")
-    nixos-hardware.nixosModules.common-cpu-amd-raphael-igpu
-  ];
-  nixpkgs.hostPlatform = lib.mkDefault "x86_64-linux";
-  networking.useDHCP = lib.mkDefault true;
-  time.hardwareClockInLocalTime = true;
+  imports = [ self.modules.nixos-hardware.common-cpu-amd-raphael-igpu ];
+  system = "x86_64-linux";
 
   modules = {
     profiles = {
-      user = username;
       role = "workstation";
+      user = "kruziikrel13";
       hardware = [
         "cpu/amd"
         "gpu/amd"
@@ -96,10 +83,10 @@ rec {
       quickshell = {
         enable = true;
         systemd.enable = true;
-        extraPackages = with pkgs.qt6; [
-          qtimageformats
-          qtmultimedia
-        ];
+        # extraPackages = with pkgs.qt6; [
+        #   qtimageformats
+        #   qtmultimedia
+        # ];
       };
       antec = {
         enable = true;
@@ -110,59 +97,71 @@ rec {
       };
       hyprlauncher = {
         enable = true;
-        launchPrefix = "${pkgs.runapp}/bin/runapp --";
+        # launchPrefix = "${pkgs.runapp}/bin/runapp --";
         windowSize = "900 620";
       };
       hypridle.enable = true;
     };
   };
 
-  fileSystems = {
-    "/boot" = {
-      device = "/dev/disk/by-uuid/D36D-6804";
-      fsType = "vfat";
+  config =
+    { pkgs, ... }:
+    {
+      time.hardwareClockInLocalTime = true;
     };
-    "/" = {
-      device = "/dev/disk/by-uuid/e2c630af-cf1a-4502-91dc-d69145fb8c61";
-      fsType = "btrfs";
-      options = [ "subvol=@root" ];
-    };
-    "/home" = {
-      device = "/dev/disk/by-uuid/e2c630af-cf1a-4502-91dc-d69145fb8c61";
-      fsType = "btrfs";
-      options = [ "subvol=@home" ];
-    };
-    "/home/${modules.profiles.user}/games" = {
-      device = "/dev/disk/by-uuid/bbdffe39-6de4-46f5-85f6-a08f5c77e355";
-      fsType = "f2fs";
-      options = [
-        "defaults"
-        "noauto"
-        "nofail"
-        "noatime"
-        "nodev"
-        "exec"
-        "x-systemd.automount"
 
-        "compress_algorithm=zstd"
-        "compress_chksum"
-        "compress_cache"
-        "discard"
-        "inline_xattr"
-        "extent_cache"
-      ];
+  hardware =
+    { ... }:
+    {
+
+      fileSystems = {
+        "/boot" = {
+          device = "/dev/disk/by-uuid/D36D-6804";
+          fsType = "vfat";
+        };
+        "/" = {
+          device = "/dev/disk/by-uuid/e2c630af-cf1a-4502-91dc-d69145fb8c61";
+          fsType = "btrfs";
+          options = [ "subvol=@root" ];
+        };
+        "/home" = {
+          device = "/dev/disk/by-uuid/e2c630af-cf1a-4502-91dc-d69145fb8c61";
+          fsType = "btrfs";
+          options = [ "subvol=@home" ];
+        };
+        "/home/${modules.profiles.user}/games" = {
+          device = "/dev/disk/by-uuid/bbdffe39-6de4-46f5-85f6-a08f5c77e355";
+          fsType = "f2fs";
+          options = [
+            "defaults"
+            "noauto"
+            "nofail"
+            "noatime"
+            "nodev"
+            "exec"
+            "x-systemd.automount"
+
+            "compress_algorithm=zstd"
+            "compress_chksum"
+            "compress_cache"
+            "discard"
+            "inline_xattr"
+            "extent_cache"
+          ];
+        };
+        "/snapshots" = {
+          device = "/dev/disk/by-uuid/e2c630af-cf1a-4502-91dc-d69145fb8c61";
+          fsType = "btrfs";
+          options = [
+            "subvol=@snapshots"
+            "compress=zstd:6"
+            "noexec"
+            "nosuid"
+            "sync"
+          ];
+        };
+      };
+      swapDevices = [ ];
+
     };
-    "/snapshots" = {
-      device = "/dev/disk/by-uuid/e2c630af-cf1a-4502-91dc-d69145fb8c61";
-      fsType = "btrfs";
-      options = [
-        "subvol=@snapshots"
-        "compress=zstd:6"
-        "noexec"
-        "nosuid"
-        "sync"
-      ];
-    };
-  };
-  swapDevices = [ ];
 }

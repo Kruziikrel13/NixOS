@@ -1,6 +1,6 @@
 {
+  self,
   config,
-  lib',
   lib,
   pkgs,
   ...
@@ -10,7 +10,7 @@ let
   inherit (lib.modules) mkIf;
   inherit (lib.meta) getExe;
   inherit (lib.options) mkEnableOption;
-  inherit (lib'.options) mkOpt;
+  inherit (self.lib.options) mkOpt;
   cfg = config.modules.services.hyprlauncher;
 in
 {

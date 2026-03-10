@@ -1,12 +1,12 @@
 {
-  lib',
+  self,
   lib,
   config,
   pkgs,
   ...
 }:
 let
-  inherit (lib'.options) mkBoolOpt;
+  inherit (self.lib.options) mkBoolOpt;
   cfg = config.modules.shell.rust-utils;
 in
 {

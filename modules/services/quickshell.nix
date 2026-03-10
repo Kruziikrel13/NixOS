@@ -1,12 +1,12 @@
 {
+  self,
   config,
   pkgs,
   lib,
-  lib',
-  qtengine,
   ...
 }:
 let
+  inherit (self.lib) relativeToRoot;
   inherit (lib.modules) mkIf;
   inherit (lib.meta) getExe;
 
@@ -28,7 +28,7 @@ let
   cfg = config.modules.services.quickshell;
 in
 {
-  imports = [ qtengine.nixosModules.default ];
+  imports = [ self.modules.qtengine.default ];
   options.modules.services.quickshell = {
     enable = mkEnableOption "quickshell";
     enableDebug = mkEnableOption "Enable debugging for Quickshell";
@@ -86,7 +86,7 @@ in
 
     home.configFiles.quickshell = {
       target = "quickshell";
-      source = lib'.relativeToRoot "config/quickshell";
+      source = relativeToRoot "config/quickshell";
     };
 
     programs.qtengine = {

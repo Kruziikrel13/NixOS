@@ -1,8 +1,7 @@
 {
+  self,
   config,
-  hyprland,
   lib,
-  lib',
   pkgs,
   ...
 }:
@@ -18,10 +17,10 @@ let
     ;
   inherit (lib.modules) mkIf;
   inherit (lib.options) mkEnableOption;
-  inherit (lib'.options) mkOpt;
+  inherit (self.lib.options) mkOpt;
 in
 {
-  imports = [ hyprland.nixosModules.default ];
+  imports = [ self.modules.hyprland.default ];
   options.modules.desktop.hyprland = with lib.types; {
     enable = mkEnableOption "hyprland desktop";
     autoLogin = mkEnableOption "auto login";
