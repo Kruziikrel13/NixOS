@@ -24,6 +24,10 @@ in
         "https://attic.xuyh0120.win/lantian"
         "https://nix-gaming.cachix.org"
       ];
+      trusted-substituters = [
+        "https://attic.xuyh0120.win/lantian"
+        "https://nix-gaming.cachix.org"
+      ];
       trusted-public-keys = [
         "lantian:EeAUQ+W+6r7EtwnmYjeVwx5kOGEBpjlBfPlzGlTNvHc="
         "nix-gaming.cachix.org-1:nbjlureqMbRAxR1gJ/f3hxemL9svXaZF/Ees8vCUUs4="
