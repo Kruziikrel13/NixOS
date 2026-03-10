@@ -52,7 +52,17 @@ in
           # Exclude self packages if they don't support the system
           withPkgs =
             pkgs: packageAttrs:
-            mapFilterAttrs (_: v: pkgs.callPackage v { self = self.packages.${system}; }) (
+            mapFilterAttrs (
+              _: v:
+              pkgs.callPackage v (
+                {
+                  self = self.packages.${system};
+                }
+                // lib.optionalAttrs (inputs ? zen-browser) {
+                  inherit (inputs.zen-browser.packages.${pkgs.stdenv.hostPlatform.system}) zen-browser-unwrapped;
+                }
+              )
+            ) (
               _: v: !(v ? meta.platforms) || (builtins.elem system v.meta.platforms)
             ) packageAttrs;
           pkgs = mkPkgs system nixpkgs (attrValues overlays);

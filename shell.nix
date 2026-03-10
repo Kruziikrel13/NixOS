@@ -1,30 +1,22 @@
 {
-  mkShell,
-  git,
+  mkShellNoCC,
+  lib,
+  bash,
   nil,
   nixd,
   statix,
   nixfmt,
   ...
 }:
-let
-  nixConfig = builtins.toFile "nix.conf" ''
-    warn-dirty = false
-    http2 = true
-    experimental-features = nix-command flakes
-    use-xdg-base-directories = true
+mkShellNoCC {
+  shellHook = ''
+    export SHELL=${lib.getExe bash}
   '';
-in
-mkShell {
-  buildInputs = [
-    git
+
+  packages = [
     nil
     nixd
     statix
     nixfmt
   ];
-
-  shellHook = ''
-    export NIX_USER_CONF_FILES="${nixConfig}"
-  '';
 }
