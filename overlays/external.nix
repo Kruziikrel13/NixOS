@@ -1,4 +1,5 @@
 {
+  nixpkgs,
   sentinel,
   hyprland,
   cachyos,
@@ -8,7 +9,7 @@
   ...
 }:
 final: prev:
-(final.lib.composeManyExtensions [
+(nixpkgs.lib.composeManyExtensions [
   sentinel.overlays.default
   hyprland.overlays.default
   cachyos.overlays.pinned
