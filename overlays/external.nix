@@ -8,7 +8,7 @@
   ...
 }:
 final: prev:
-(prev.lib.composeManyExtensions [
+(final.lib.composeManyExtensions [
   sentinel.overlays.default
   hyprland.overlays.default
   cachyos.overlays.pinned
