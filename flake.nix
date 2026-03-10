@@ -134,7 +134,7 @@
       hosts = nixos.mapHosts ./hosts;
       modules.default = import ./modules;
       devShells.default = import ./shell.nix;
-      overlays = modules.mapModules ./overlays import;
+      overlays = modules.mapModules ./overlays (path: import path inputs);
       packages = modules.mapModules ./packages import;
     };
 }
