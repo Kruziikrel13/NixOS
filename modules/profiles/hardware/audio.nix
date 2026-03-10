@@ -23,7 +23,6 @@ in
         alsa.support32Bit = true;
         pulse.enable = true;
       };
-      user.extraGroups = [ "audio" ];
       user.packages = [
         pkgs.at-spi2-core
       ]
@@ -31,6 +30,8 @@ in
         pkgs.hyprpwcenter
       ];
       security.rtkit.enable = true;
+      user.extraGroups = [ "audio" ];
+      services.pulseaudio.enable = lib.mkForce false;
     }
     (mkIf (elem "audio/realtime" hardware) {
       boot = {
