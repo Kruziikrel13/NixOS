@@ -16,7 +16,6 @@ in
 {
   options.modules.services.hyprlauncher = with lib.types; {
     enable = mkEnableOption "hyprlauncher service";
-    launchPrefix = mkOpt str "";
     windowSize = mkOpt str "400 260";
   };
   config = mkIf cfg.enable {
@@ -31,7 +30,7 @@ in
     environment.etc."xdg/hypr/hyprlauncher.conf".text = ''
       grab_focus = true
       cache:enabled = true
-      finders:desktop_launch_prefix = ${cfg.launchPrefix}
+      finders:desktop_launch_prefix = "${pkgs.runapp}/bin/runapp --"
       ui:window_size = ${cfg.windowSize}
     '';
     systemd.user.services.hyprlauncher = {
