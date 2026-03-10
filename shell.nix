@@ -1,5 +1,5 @@
 {
-  mkShell,
+  mkShellNoCC,
   git,
   nil,
   nixd,
@@ -15,8 +15,8 @@ let
     use-xdg-base-directories = true
   '';
 in
-mkShell {
-  buildInputs = [
+mkShellNoCC {
+  packages = [
     git
     nil
     nixd
