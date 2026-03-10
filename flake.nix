@@ -119,43 +119,21 @@
   outputs =
     inputs@{ self, nixpkgs, ... }:
     let
-      inherit (nixpkgs) lib;
-      systems = [ "x86_64-linux" ];
-      forEachSystem = fn: lib.genAttrs systems (system: fn system nixpkgs.legacyPackages.${system});
-      lib' = import ./lib { inherit lib; };
-    in
-    {
-      nixosConfigurations = import ./hosts {
-        inherit
-          self
-          nixpkgs
-          inputs
-          lib'
-          ;
+      args = {
+        inherit self;
+        inherit (nixpkgs) lib;
       };
-      packages = forEachSystem (
-        system: pkgs: {
-          zen-custom = pkgs.callPackage ./packages/zen/package.nix {
-            inherit (inputs.zen-browser.packages.${pkgs.stdenv.hostPlatform.system}) zen-browser-unwrapped;
-          };
-          bibata-hyprcursor = pkgs.callPackage ./packages/bibata-hyprcursor { };
-        }
-      );
-      devShells = forEachSystem (
-        system: pkgs: {
-          default = pkgs.mkShellNoCC {
-            shellHook = ''
-              export SHELL=${lib.getExe pkgs.bash}
-            '';
-            packages = with pkgs; [
-              nil
-              nixd
-              statix
-              nixfmt
-            ];
-          };
-        }
-      );
-    };
+      lib = import ./lib args;
+    in
+    with lib;
+    nixos.mkFlake inputs {
+      systems = [ "x86_64-linux" ];
+      inherit lib;
 
+      hosts = nixos.mapHosts ./hosts;
+      modules.default = import ./modules;
+      devShells.default = import ./shell.nix;
+      overlays = modules.mapModules ./overlays (path: import path inputs);
+      packages = modules.mapModules ./packages import;
+    };
 }

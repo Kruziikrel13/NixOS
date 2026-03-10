@@ -1,14 +1,13 @@
 {
+  self,
   lib,
-  lib',
   config,
   pkgs,
   ...
 }:
 let
-  inherit (lib'.options) mkBoolOpt;
+  inherit (self.lib.options) mkBoolOpt;
   inherit (lib) mkMerge mkIf;
-  inherit (lib.lists) optionals;
   cfg = config.modules.desktop.apps;
 in
 {

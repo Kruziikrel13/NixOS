@@ -1,12 +1,12 @@
 {
+  self,
   lib,
-  lib',
   config,
   options,
   ...
 }:
 let
-  inherit (lib'.options) mkOpt;
+  inherit (self.lib.options) mkOpt;
   inherit (lib.modules) mkAliasDefinitions;
 in
 {

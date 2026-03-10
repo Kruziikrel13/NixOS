@@ -1,11 +1,11 @@
 {
-  lib',
+  self,
   lib,
   config,
   ...
 }:
 let
-  inherit (lib'.options) mkBoolOpt;
+  inherit (self.lib.options) mkBoolOpt;
   cfg = config.modules.shell.zoxide;
   inherit (config.programs.zoxide) package;
 in

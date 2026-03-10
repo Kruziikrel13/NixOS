@@ -1,11 +1,11 @@
 {
-  lib',
+  self,
   lib,
   config,
   ...
 }:
 let
-  inherit (lib'.options) mkBoolOpt;
+  inherit (self.lib.options) mkBoolOpt;
   cfg = config.modules.shell.bat;
   inherit (config.programs.bat) package;
 in

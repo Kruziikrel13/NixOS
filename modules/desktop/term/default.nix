@@ -1,11 +1,11 @@
 {
+  self,
   lib,
-  lib',
   config,
   ...
 }:
 let
-  inherit (lib'.options) mkOpt;
+  inherit (self.lib.options) mkOpt;
   cfg = config.modules.desktop.term;
 in
 {

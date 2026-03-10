@@ -1,8 +1,8 @@
 {
+  self,
   lib,
   config,
   pkgs,
-  lanzaboote,
   ...
 }:
 let
@@ -10,7 +10,7 @@ let
   inherit (lib.modules) mkIf;
 in
 {
-  imports = [ lanzaboote.nixosModules.lanzaboote ];
+  imports = [ self.modules.lanzaboote.lanzaboote ];
 
   # NOTE: Don't enable until keys have been setup
   config = mkIf (elem "secureboot" config.modules.profiles.hardware) {

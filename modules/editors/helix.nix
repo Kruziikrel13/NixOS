@@ -1,12 +1,12 @@
 {
+  self,
   lib,
-  lib',
   config,
   pkgs,
   ...
 }:
 let
-  inherit (lib'.options) mkBoolOpt;
+  inherit (self.lib.options) mkBoolOpt;
   cfg = config.modules.editors.helix;
 in
 {

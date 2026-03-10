@@ -1,6 +1,6 @@
 {
+  self,
   lib,
-  lib',
   config,
   ...
 }:
@@ -8,7 +8,7 @@ let
   cfg = config.modules.desktop.hyprland;
   inherit (lib) findFirst optionalString;
   inherit (lib.lists) imap1 flatten;
-  inherit (lib'.options) mkOpt mkBoolOpt;
+  inherit (self.lib.options) mkOpt mkBoolOpt;
   inherit (cfg) monitors;
   primary_monitor = findFirst (monitor: monitor.primary) { } monitors;
 in
