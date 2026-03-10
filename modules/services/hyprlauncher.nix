@@ -30,7 +30,7 @@ in
     environment.etc."xdg/hypr/hyprlauncher.conf".text = ''
       grab_focus = true
       cache:enabled = true
-      finders:desktop_launch_prefix = "${pkgs.runapp}/bin/runapp --"
+      finders:desktop_launch_prefix = ${pkgs.runapp}/bin/runapp --
       ui:window_size = ${cfg.windowSize}
     '';
     systemd.user.services.hyprlauncher = {
