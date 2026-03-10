@@ -97,7 +97,6 @@ rec {
       };
       hyprlauncher = {
         enable = true;
-        # launchPrefix = "${pkgs.runapp}/bin/runapp --";
         windowSize = "900 620";
       };
       hypridle.enable = true;
