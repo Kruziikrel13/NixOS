@@ -122,7 +122,7 @@ rec {
     {
       # Only applies if audio/realtime is specified
       audio.realtime = {
-        quantum = 256;
+        quantum = 512;
         rate = 384000;
         allowedRates = [
           44100
