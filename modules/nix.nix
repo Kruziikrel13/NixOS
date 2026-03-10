@@ -53,7 +53,7 @@
     dev.enable = true;
   };
   system = {
-    configurationRevision = self.dirtyRev;
+    configurationRevision = self.rev or self.dirtyRev or null;
     stateVersion = lib.mkDefault "24.11";
   };
 }
