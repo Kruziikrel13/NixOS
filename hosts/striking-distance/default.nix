@@ -57,6 +57,7 @@ rec {
           gamemode.enable = true;
           gamescope.enable = true;
         };
+        spotify.enable = true;
         minecraft.enable = true;
         grayjay.enable = true;
         heroic.enable = true;
