@@ -16,7 +16,7 @@ let
     hasPrefix
     ;
   cfg = config.audio.realtime;
-  qr = "${toString cfg.quantum}/${toString cfg.rate}";
+  qr = "256/48000";
 in
 {
   # For setting headphone clock rates
@@ -30,7 +30,7 @@ in
       Use `pw-dump | grep node.name | grep alsa_output` or
       `wpctl status` followed by `wpctl inspect <id>` to find the right names.
     '';
-    allowedRates = mkOpt' (listOf int) [ 48000 ] "Sample rates supported by the audio device";
+    allowedRates = mkOpt' (listOf int) [ ] "Sample rates supported by the audio device";
     alsaFormat = mkOpt' str "S32LE" "Alsa Audio Format (S16_LE, S24_3LE, S32LE)";
   };
 
@@ -57,7 +57,10 @@ in
         extraConfig = {
           pipewire."99-lowlatency" = {
             "context.properties" = {
-              "default.clock.min-quantum" = cfg.quantum;
+              "default.clock.rate" = 48000;
+              "default.clock.quantum" = 1024;
+              "default.clock.min-quantum" = 256;
+              "default.clock.max-quantum" = cfg.quantum;
               "default.clock.allowed-rates" = cfg.allowedRates;
             };
             "context.modules" = [
