@@ -1,11 +1,12 @@
 { self, ... }:
 final: prev:
 let
+  inherit (final.stdenv.hostPlatform) system;
   nixpkgs = import self.inputs.nixpkgs-patched {
     inherit (final) config;
-    inherit (final.stdenv.hostPlatform) system;
+    inherit system;
   };
 in
 {
-  inherit (nixpkgs) antec-flux-pro grayjay;
+  inherit (nixpkgs) antec-flux-pro grayjay electron_39;
 }
