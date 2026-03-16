@@ -11,9 +11,6 @@ let
   inherit (lib)
     mkMerge
     mkDefault
-    filter
-    length
-    attrValues
     ;
   inherit (lib.modules) mkIf;
   inherit (lib.options) mkEnableOption;
@@ -34,23 +31,8 @@ in
 
   config = mkIf cfg.enable (mkMerge [
     {
-      assertions = [
-        {
-          assertion =
-            !config.modules.desktop.hyprland.autoLogin
-            || (
-              length (
-                filter (desktop: desktop ? autoLogin && desktop.autoLogin) (attrValues config.modules.desktop)
-              ) <= 1
-            );
-          message = "Only one desktop module can have autoLogin enabled at a time. Hyprland has autoLogin enabled, but another desktop module also has it enabled.";
-        }
-      ];
-      modules.services.quickshell.enable = mkDefault true;
       modules.services.hyprlauncher.enable = mkDefault true;
-      user.packages = with pkgs; [
-        wl-clipboard
-      ];
+      user.packages = with pkgs; [ wl-clipboard ];
 
       nix.settings = {
         substituters = [ "https://hyprland.cachix.org" ];
