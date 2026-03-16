@@ -80,7 +80,6 @@ rec {
       };
     };
     services = {
-      protonvpn.enable = true;
       quickshell = {
         enable = true;
         systemd.enable = true;
@@ -88,6 +87,7 @@ rec {
         #   qtimageformats
         #   qtmultimedia
         # ];
+      protonvpn.enable = false;
       };
       antec = {
         enable = true;
