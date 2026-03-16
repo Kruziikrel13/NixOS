@@ -15,7 +15,10 @@ let
   inherit (self.lib.options) mkOpt;
 in
 {
-  imports = [ self.modules.hyprland.default ];
+  imports = [
+    self.modules.hyprland.default
+    self.modules.quickshell.default
+  ];
   options.modules.desktop.hyprland = with lib.types; {
     enable = mkEnableOption "hyprland desktop";
     autoLogin = mkEnableOption "auto login";
@@ -51,6 +54,17 @@ in
         settings.exec-once = [ "uwsm finalize" ];
         inherit (cfg) extraConfig;
       };
+
+      programs.quickshell = {
+        enable = true;
+        systemd.enable = true;
+      };
+
+      home.configFiles.quickshell = {
+        target = "quickshell";
+        source = relativeToRoot "config/quickshell";
+      };
+
       security.polkit.enable = true;
     }
     (mkIf cfg.autoLogin {
