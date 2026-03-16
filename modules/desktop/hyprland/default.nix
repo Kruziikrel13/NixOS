@@ -8,11 +8,9 @@
 let
   cfg = config.modules.desktop.hyprland;
 
-  inherit (lib)
-    mkMerge
-    mkDefault
-    ;
-  inherit (lib.modules) mkIf;
+  inherit (lib) mkDefault;
+  inherit (self.lib) relativeToRoot;
+  inherit (lib.modules) mkIf mkMerge;
   inherit (lib.options) mkEnableOption;
   inherit (self.lib.options) mkOpt;
 in
