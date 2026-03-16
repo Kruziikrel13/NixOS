@@ -76,19 +76,6 @@
       ref = "v0.1.2";
     };
 
-    qtengine = {
-      type = "github";
-      owner = "kossLAN";
-      repo = "qtengine";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-
-    quickshell = {
-      type = "git";
-      url = "https://git.outfoxxed.me/outfoxxed/quickshell";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-
     # APPS
     direnv-instant = {
       type = "github";
@@ -108,6 +95,11 @@
     sentinel = {
       type = "path";
       path = "config/sentinel.nvim";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+    quickshell = {
+      type = "path";
+      path = "config/quickshell";
       inputs.nixpkgs.follows = "nixpkgs";
     };
     nix-templates = {

@@ -1385,9 +1385,31 @@
         "type": "github"
       }
     },
+    "qs": {
+      "inputs": {
+        "nixpkgs": [
+          "quickshell",
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1773634415,
+        "narHash": "sha256-zW+3XbhYy5zZg9L6EP+WxoeQzZR7JIRuCvCuUiPxic4=",
+        "ref": "refs/heads/master",
+        "rev": "9e8eecf2b8bfa9dd3eed5712d5856d7b041ea909",
+        "revCount": 760,
+        "type": "git",
+        "url": "https://git.outfoxxed.me/outfoxxed/quickshell"
+      },
+      "original": {
+        "type": "git",
+        "url": "https://git.outfoxxed.me/outfoxxed/quickshell"
+      }
+    },
     "qtengine": {
       "inputs": {
         "nixpkgs": [
+          "quickshell",
           "nixpkgs"
         ]
       },
@@ -1409,21 +1431,19 @@
       "inputs": {
         "nixpkgs": [
           "nixpkgs"
-        ]
+        ],
+        "qs": "qs",
+        "qtengine": "qtengine"
       },
       "locked": {
-        "lastModified": 1773129285,
-        "narHash": "sha256-7G6x33z271v/jhBC5Le7NPOZhv9902+MfCkC9poMwf0=",
-        "ref": "refs/heads/master",
-        "rev": "bd6217927739a79c1c4ff279051f9625cd4b2b5e",
-        "revCount": 752,
-        "type": "git",
-        "url": "https://git.outfoxxed.me/outfoxxed/quickshell"
+        "path": "config/quickshell",
+        "type": "path"
       },
       "original": {
-        "type": "git",
-        "url": "https://git.outfoxxed.me/outfoxxed/quickshell"
-      }
+        "path": "config/quickshell",
+        "type": "path"
+      },
+      "parent": []
     },
     "re2-src": {
       "flake": false,
@@ -1455,7 +1475,6 @@
         "nixos-hardware": "nixos-hardware",
         "nixpkgs": "nixpkgs_4",
         "nixpkgs-patched": "nixpkgs-patched",
-        "qtengine": "qtengine",
         "quickshell": "quickshell",
         "sentinel": "sentinel",
         "zen-browser": "zen-browser"

@@ -4,7 +4,6 @@
   hyprland,
   cachyos,
   gaming-edge,
-  quickshell,
   hyprpwcenter,
   zen-browser,
   ...
@@ -18,6 +17,5 @@ final: prev:
   hyprland.overlays.default
   cachyos.overlays.pinned
   gaming-edge.overlays.default
-  quickshell.overlays.default
   hyprpwcenter.overlays.default
 ] final prev)
