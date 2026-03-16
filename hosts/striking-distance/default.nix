@@ -81,7 +81,6 @@ rec {
     };
     services = {
       protonvpn.enable = false;
-      };
       antec = {
         enable = true;
         cpu-device = "k10temp-pci-00c3";
