@@ -19,6 +19,11 @@ rec {
         "peripherals/keychron"
       ];
     };
+    uni = {
+      winboat.enable = true;
+      slack.enable = true;
+      gdevelop.enable = true;
+    };
     desktop = {
       hyprland = {
         enable = true;
