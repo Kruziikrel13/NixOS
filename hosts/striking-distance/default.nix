@@ -62,6 +62,7 @@ rec {
           gamemode.enable = true;
           gamescope.enable = true;
         };
+        obs.enable = true;
         spotify.enable = true;
         minecraft.enable = true;
         grayjay.enable = true;
