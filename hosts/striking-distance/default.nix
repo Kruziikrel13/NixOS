@@ -20,7 +20,6 @@ rec {
       ];
     };
     uni = {
-      winboat.enable = true;
       slack.enable = true;
       gdevelop.enable = true;
     };
@@ -86,7 +85,10 @@ rec {
       };
     };
     services = {
-      protonvpn.enable = false;
+      protonvpn = {
+        enable = true;
+        conf = "/root/secrets/sdgeneral.conf";
+      };
       antec = {
         enable = true;
         cpu-device = "k10temp-pci-00c3";
