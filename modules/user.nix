@@ -18,7 +18,6 @@ in
   config = {
     user = {
       name = config.modules.profiles.user;
-      description = lib.mkDefault "The primary user account";
       extraGroups = [ "wheel" ];
       isNormalUser = true;
       home = "/home/${config.user.name}";
