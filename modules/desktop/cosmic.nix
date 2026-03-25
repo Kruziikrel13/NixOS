@@ -14,7 +14,10 @@ in
   };
 
   config = mkIf config.modules.desktop.cosmic.enable {
-    services.displayManager.cosmic-greeter.enable = true;
-    services.desktopManager.cosmic.enable = true;
+    services = {
+      displayManager.cosmic-greeter.enable = true;
+      desktopManager.cosmic.enable = true;
+      system76-scheduler.enable = true;
+    };
   };
 }
