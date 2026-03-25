@@ -17,7 +17,7 @@ rec {
       ];
     };
     desktop = {
-      cosmic.enable = true;
+      gnome.enable = true;
       browsers.zen.enable = true;
       apps = {
         protonmail.enable = true;
