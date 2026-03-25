@@ -36,7 +36,7 @@ rec {
       git = {
         enable = true;
         email = "dev@michaelpetersen.io";
-        signingKey = "3A09074BE3F6C7BC8FC98B56E5593E0B417618A8";
+        signingKey = "FD6B6BACF0957FF5E5C06BD4741AB4A1DF4006DD";
       };
     };
   };
