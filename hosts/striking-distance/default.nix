@@ -87,7 +87,7 @@ rec {
     services = {
       protonvpn = {
         enable = true;
-        conf = "/root/secrets/sdgeneral.conf";
+        conf = "/secrets/general.conf";
       };
       antec = {
         enable = true;
