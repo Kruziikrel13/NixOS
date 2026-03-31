@@ -20,7 +20,7 @@ in
 
     environment.shellAliases = {
       search = "${exe} search";
-      nixos-edit = "cd ${root}; direnv exec . nvim; cd -";
+      nixos-edit = "cd ${root}; direnv-instant start . nvim; cd -";
       nixos-build = "${exe} os switch";
       nixos-upgrade = "${exe} os switch --update";
       nixos-clean = "${exe} clean all --nogcroots";
