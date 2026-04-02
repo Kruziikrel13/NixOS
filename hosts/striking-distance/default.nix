@@ -107,6 +107,10 @@ rec {
   config =
     { pkgs, ... }:
     {
+      user.packages = with pkgs; [
+        mpv
+        yt-dlp
+      ];
       time.hardwareClockInLocalTime = true;
       # Disable Rhode Microphone as an audio source / output and fix silent audio on startup
       boot.kernelModules = [ "snd-aloop" ];
