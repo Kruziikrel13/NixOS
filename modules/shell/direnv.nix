@@ -12,6 +12,7 @@ in
   imports = [ self.modules.direnv-instant.direnv-instant ];
   options.modules.shell.direnv.enable = mkBoolOpt false;
   config = lib.mkIf cfg.enable {
+    programs.direnv.nix-direnv.enable = true;
     programs.direnv-instant.enable = true;
   };
 }
