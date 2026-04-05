@@ -45,13 +45,9 @@ in
 
         # Master Binds
         "$mod SHIFT, M, layoutmsg, swapwithmaster"
-        "$mod SHIFT, H, layoutmsg, swapprev"
-        "$mod SHIFT, L, layoutmsg, swapnext"
-        "$mod, TAB, layoutmsg, cyclenext"
-        "$mod SHIFT, TAB, cyclenext"
-
-        "CTRL SHIFT, M, pass, class:^(vesktop)$"
-        "CTRL SHIFT, D, pass, class:^(vesktop)$"
+        "$mod SHIFT, H, swapnext, prev"
+        "$mod SHIFT, L, swapnext"
+        "$mod, TAB, cyclenext"
       ];
 
       bindl = [
