@@ -45,7 +45,6 @@ in
         "$mod SHIFT, bracketright, focusmonitor, r"
 
         # Master Binds
-        "$mod SHIFT, M, layoutmsg, swapwithmaster"
         "$mod SHIFT, H, swapnext, prev"
         "$mod SHIFT, L, swapnext"
         "$mod, TAB, cyclenext"
