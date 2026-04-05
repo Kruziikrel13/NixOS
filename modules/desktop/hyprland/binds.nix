@@ -1,6 +1,7 @@
 { lib, pkgs, ... }:
 let
   inherit (lib.meta) getExe;
+  playerctl = getExe pkgs.playerctl;
 in
 {
   programs.hyprland = {
@@ -51,9 +52,9 @@ in
       ];
 
       bindl = [
-        ", XF86AudioNext, exec, playerctl next"
-        ", XF86AudioPlay, exec, playerctl play-pause"
-        ", XF86AudioPrev, exec, playerctl previous"
+        ", XF86AudioNext, exec, ${playerctl} next"
+        ", XF86AudioPlay, exec, ${playerctl} play-pause"
+        ", XF86AudioPrev, exec, ${playerctl} previous"
 
         ", XF86AudioMute, exec, wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"
         ", XF86AudioMicMute, exec, wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle"
