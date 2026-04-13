@@ -28,7 +28,6 @@ in
     })) [ { } ];
 
   config = {
-
     programs.hyprland.settings = {
       cursor.default_monitor = primary_monitor.output;
       monitor = builtins.map (

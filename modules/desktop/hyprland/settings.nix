@@ -107,6 +107,7 @@ mkMerge [
       export HYPRCURSOR_SIZE=${toString 16}
     '';
   })
+
   (mkIf (!config.programs.hyprland.withUWSM) {
     programs.hyprland.settings.env = [
       "QT_WAYLAND_DISABLE_WINDOWDECORATION,1"
