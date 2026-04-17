@@ -34,7 +34,7 @@ in
         mon:
         let
           disable = optionalString mon.disable ",disable";
-          hdr = optionalString mon.hdr ",bitdepth,10";
+          hdr = optionalString mon.hdr ", bitdepth, 10";
         in
         "${mon.output},${mon.mode},${mon.position},${toString mon.scale}" + disable + hdr
       ) monitors;
