@@ -36,7 +36,7 @@ in
           disable = optionalString mon.disable ",disable";
           hdr = optionalString mon.hdr ", bitdepth, 10";
         in
-        "${mon.output},${mon.mode},${mon.position},${toString mon.scale}" + disable + hdr
+        "${mon.output},${mon.mode},${mon.position},${toString mon.scale}, cm, auto" + hdr + disable
       ) monitors;
 
       # Maps monitors to number keys from left to right (i.e. 1 is leftmost monitor)
