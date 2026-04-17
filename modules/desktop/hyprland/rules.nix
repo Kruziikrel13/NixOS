@@ -2,7 +2,7 @@
   programs.hyprland.settings.windowrule = [
     "match:xwayland false, match:float true, center on"
     "match:tag gaming, workspace name:gaming"
-    "match:tag game, idle_inhibit always, immediate on, fullscreen on, float on, decorate off, rounding off, keep_aspect_ratio on, render_unfocused on"
+    "match:tag game, idle_inhibit always, immediate on, fullscreen on, float on, decorate off, rounding off, keep_aspect_ratio on, render_unfocused on, no_vrr on"
     "match:tag video, content video, idle_inhibit on, fullscreen on, render_unfocused on, sync_fullscreen on, keep_aspect_ratio on"
     "match:tag email, workspace name:email"
     "match:tag chat, workspace name:chat"
