@@ -51,8 +51,11 @@ mkMerge [
           scale = 0.97;
         };
       };
-      render.direct_scanout = 2;
-      render.new_render_scheduling = true;
+      render = {
+        direct_scanout = 2;
+        new_render_scheduling = true;
+        cm_fs_passthrough = true;
+      };
       binds.scroll_event_delay = 10;
       animation = [
         "border, 1, 2, default"
