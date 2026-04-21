@@ -18,7 +18,7 @@ in
   config = mkIf cfg.enable {
     system.nixos.tags = [ "cachyos" ];
     boot.kernelPackages = pkgs.linuxKernel.packagesFor (
-      pkgs.cachyosKernels.linux-cachyos-rt-bore-lto.override {
+      pkgs.cachyosKernels.linux-cachyos-bore-lto.override {
         processorOpt = "zen4";
       }
     );
