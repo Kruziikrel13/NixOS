@@ -58,7 +58,6 @@ rec {
       apps = {
         steam = {
           enable = true;
-          gamemode.enable = true;
           gamescope.enable = true;
         };
         obs.enable = true;
