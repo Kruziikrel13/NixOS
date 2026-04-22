@@ -60,7 +60,7 @@ in
       ananicy = {
         enable = true;
         package = pkgs.ananicy-cpp;
-        rulesProvider = pkgs.ananicy-rules-cachyos.overrideAttrs (prevAttrs: {
+        rulesProvider = pkgs.ananicy-rules-cachyos.overrideAttrs {
           patches = [
             (pkgs.fetchpatch {
               # Revert removal of compiler rules
@@ -69,7 +69,7 @@ in
               hash = "sha256-vc6FDwsAA6p5S6fR1FSdIRC1kCx3wGoeNarG8uEY2xM=";
             })
           ];
-        });
+        };
       };
     };
   };
