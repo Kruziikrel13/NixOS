@@ -27,7 +27,6 @@ in
           package = pkgs.steam.override {
             extraEnv = {
               PROTON_ENABLE_HDR = "1";
-              PROTON_ENABLE_WAYLAND = "1";
               PROTON_FSR4_UPGRADE = "1";
             };
           };
@@ -47,7 +46,6 @@ in
           env = {
             WLR_RENDERER = "vulkan";
             ENABLE_GAMESCOPE_WSI = "1";
-            PROTON_ENABLE_WAYLAND = "0";
           };
           args = [
             "--rt"
