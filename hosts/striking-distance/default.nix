@@ -107,6 +107,7 @@ rec {
     {
       user.packages = with pkgs; [
         mpv
+        gale
         yt-dlp
       ];
       time.hardwareClockInLocalTime = true;
