@@ -18,6 +18,7 @@
     "match:title ^(Picture-in-Picture)$, tag +video"
     "match:class ^(\.blueman)$, float on"
     "match:class ^(.*\.exe)$, match:title .*([Ee]rror).*, float on, stay_focused on"
+    "match:class ^(GDevelop 5)$, float on"
     "match:title ^(Barnacle)$, float on"
   ];
 }
