@@ -20,7 +20,6 @@ rec {
       ];
     };
     uni = {
-      slack.enable = true;
       gdevelop.enable = true;
     };
     desktop = {

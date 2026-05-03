@@ -14,7 +14,6 @@ in
   options.modules.uni = {
     winboat.enable = mkBoolOpt false;
     gdevelop.enable = mkBoolOpt false;
-    slack.enable = mkBoolOpt false;
   };
 
   config = mkMerge [
@@ -26,10 +25,6 @@ in
 
     (mkIf cfg.gdevelop.enable {
       user.packages = [ pkgs.gdevelop ];
-    })
-
-    (mkIf cfg.slack.enable {
-      user.packages = [ pkgs.slack ];
     })
   ];
 }
