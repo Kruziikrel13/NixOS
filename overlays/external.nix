@@ -13,7 +13,7 @@ final: prev:
 }
 // (nixpkgs.lib.composeManyExtensions [
   hyprland.overlays.default
-  cachyos.overlays.pinned
+  cachyos.overlays.default
   gaming-edge.overlays.default
   hyprpwcenter.overlays.default
 ] final prev)
