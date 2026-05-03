@@ -26,15 +26,11 @@ in
     nix.settings = {
       substituters = [
         "https://attic.xuyh0120.win/lantian"
-        "https://nix-gaming.cachix.org"
-      ];
-      trusted-substituters = [
-        "https://attic.xuyh0120.win/lantian"
-        "https://nix-gaming.cachix.org"
+        "https://nix-cache.tokidoki.dev/tokidoki"
       ];
       trusted-public-keys = [
         "lantian:EeAUQ+W+6r7EtwnmYjeVwx5kOGEBpjlBfPlzGlTNvHc="
-        "nix-gaming.cachix.org-1:nbjlureqMbRAxR1gJ/f3hxemL9svXaZF/Ees8vCUUs4="
+        "tokidoki:MD4VWt3kK8Fmz3jkiGoNRJIW31/QAm7l1Dcgz2Xa4hk="
       ];
     };
 
