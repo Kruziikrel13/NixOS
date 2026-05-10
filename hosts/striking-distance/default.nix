@@ -45,11 +45,6 @@ rec {
             position = "3840x849";
           }
         ];
-        idle = {
-          time = 0;
-          autodpms = 360;
-          autosleep = 520;
-        };
       };
       term.default = "ghostty";
       gaming.enable = true;
@@ -90,11 +85,6 @@ rec {
         gpu-device = "amdgpu-pci-7700";
         gpu-temp-type = "edge";
       };
-      hyprlauncher = {
-        enable = true;
-        windowSize = "900 620";
-      };
-      hypridle.enable = true;
     };
   };
 
