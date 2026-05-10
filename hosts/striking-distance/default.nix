@@ -83,10 +83,6 @@ rec {
       };
     };
     services = {
-      protonvpn = {
-        enable = true;
-        conf = "/secrets/general.conf";
-      };
       antec = {
         enable = true;
         cpu-device = "k10temp-pci-00c3";
