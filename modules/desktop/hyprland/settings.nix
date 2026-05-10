@@ -44,7 +44,6 @@ mkMerge [
 
         shadow = {
           color = "rgb(000000)";
-          ignore_window = true;
           offset = "20 20";
           range = 100;
           render_power = 2;
@@ -54,7 +53,7 @@ mkMerge [
       render = {
         direct_scanout = 2;
         new_render_scheduling = true;
-        cm_fs_passthrough = true;
+        cm_auto_hdr = true;
       };
       binds.scroll_event_delay = 10;
       animation = [
@@ -77,7 +76,6 @@ mkMerge [
       dwindle = {
         force_split = 2;
         preserve_split = true;
-        pseudotile = true;
       };
 
       input = {

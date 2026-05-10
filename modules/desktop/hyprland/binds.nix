@@ -25,7 +25,6 @@ in
         "$mod, D, exec, $dmenu" # Launcher
 
         "$mod, F, fullscreen"
-        "$mod, R, togglesplit"
         "$mod, T, togglefloating"
         "$mod, C, centerwindow"
 
