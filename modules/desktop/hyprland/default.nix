@@ -26,13 +26,20 @@ in
 
   config = mkIf cfg.enable (mkMerge [
     {
-      user.packages = with pkgs; [ wl-clipboard ];
-
-      nix.settings = {
-        substituters = [ "https://hyprland.cachix.org" ];
-        trusted-substituters = [ "https://hyprland.cachix.org" ];
-        trusted-public-keys = [ "hyprland.cachix.org-1:a7pgxzMz7+chwVL3/pzj6jIBMioiJM7ypFP8PwtkuGc=" ];
+      programs = {
+        hyprland = {
+          enable = true;
+          withUWSM = true;
+          settings.exec-once = [ "uwsm finalize" ];
+          inherit (cfg) extraConfig;
+        };
+        quickshell = {
+          enable = true;
+          systemd.enable = true;
+        };
       };
+      user.packages = with pkgs; [ wl-clipboard ];
+      security.polkit.enable = true;
 
       environment.sessionVariables = {
         ELECTRON_OZONE_PLATFORM_HINT = "wayland";
@@ -41,24 +48,16 @@ in
         MOZ_ENABLE_WAYLAND = "1";
       };
 
-      programs.hyprland = {
-        enable = true;
-        withUWSM = true;
-        settings.exec-once = [ "uwsm finalize" ];
-        inherit (cfg) extraConfig;
-      };
-
-      programs.quickshell = {
-        enable = true;
-        systemd.enable = true;
-      };
-
       home.configFiles.quickshell = {
         target = "quickshell";
         source = relativeToRoot "config/quickshell";
       };
 
-      security.polkit.enable = true;
+      nix.settings = {
+        substituters = [ "https://hyprland.cachix.org" ];
+        trusted-substituters = [ "https://hyprland.cachix.org" ];
+        trusted-public-keys = [ "hyprland.cachix.org-1:a7pgxzMz7+chwVL3/pzj6jIBMioiJM7ypFP8PwtkuGc=" ];
+      };
     }
     (mkIf cfg.autoLogin {
       services.getty = {
