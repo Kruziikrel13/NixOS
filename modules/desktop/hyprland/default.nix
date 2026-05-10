@@ -8,7 +8,6 @@
 let
   cfg = config.modules.desktop.hyprland;
 
-  inherit (lib) mkDefault;
   inherit (self.lib) relativeToRoot;
   inherit (lib.modules) mkIf mkMerge;
   inherit (lib.options) mkEnableOption;
@@ -23,16 +22,10 @@ in
     enable = mkEnableOption "hyprland desktop";
     autoLogin = mkEnableOption "auto login";
     extraConfig = mkOpt lines "";
-    idle = {
-      time = mkOpt int 300;
-      autodpms = mkOpt int 600;
-      autosleep = mkOpt int 900;
-    };
   };
 
   config = mkIf cfg.enable (mkMerge [
     {
-      modules.services.hyprlauncher.enable = mkDefault true;
       user.packages = with pkgs; [ wl-clipboard ];
 
       nix.settings = {
