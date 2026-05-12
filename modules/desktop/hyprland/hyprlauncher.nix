@@ -13,7 +13,6 @@ let
 in
 mkIf cfg.enable {
   environment.systemPackages = [ pkgs.hyprlauncher ];
-  programs.hyprland.settings."$dmenu" = "${exe}";
 
   environment.etc."${file}".text = ''
     grab_focus = true
