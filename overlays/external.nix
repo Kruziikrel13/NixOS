@@ -4,6 +4,7 @@
   cachyos,
   gaming-edge,
   hyprpwcenter,
+  hyprshutdown,
   zen-browser,
   ...
 }:
@@ -16,4 +17,5 @@ final: prev:
   cachyos.overlays.default
   gaming-edge.overlays.default
   hyprpwcenter.overlays.default
+  hyprshutdown.overlays.default
 ] final prev)

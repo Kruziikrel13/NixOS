@@ -70,6 +70,13 @@
       ref = "v0.55.0";
     };
 
+    hyprshutdown = {
+      type = "github";
+      owner = "hyprwm";
+      repo = "hyprshutdown";
+      ref = "v0.1.1";
+    };
+
     hyprpwcenter = {
       type = "github";
       owner = "hyprwm";
