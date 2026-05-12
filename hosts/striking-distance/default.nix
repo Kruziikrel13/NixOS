@@ -29,20 +29,20 @@ rec {
         monitors = [
           {
             output = "desc:AOC 24G1WG4 0x0004A33C";
-            mode = "1920x1080@144.0";
-            position = "-1920x344";
+            mode = "1920x1080@144.00";
+            position = "-1920x345";
           }
           {
             output = "desc:GIGA-BYTE TECHNOLOGY CO. LTD. AORUS FI32U 21440B000115";
-            mode = "3840x2160@144.0";
+            mode = "3840x2160@144.00";
             position = "0x0";
             hdr = true;
             primary = true;
           }
           {
             output = "desc:ViewSonic Corporation VX2758-C-MH V9M184500179";
-            mode = "1920x1080@144.0";
-            position = "3840x849";
+            mode = "1920x1080@144.00";
+            position = "3840x850";
           }
         ];
       };
