@@ -1,24 +1,23 @@
 local window_rule = hl.window_rule
 window_rule({
 	match = { class = "^(steam_app.*|.*\\.exe|gamescope|\\.gamescope-wrapped|.*minecraft.*)$" },
-	tag = "+gaming",
-	content = "game",
+	tag = "+game",
 })
 
 window_rule({
 	match = {
 		title = "^([Ww]ine.*|REDlauncher|Rockstar Games Launcher)$",
-		content = "game",
+		tag = "game",
 	},
-	content = "none",
+	tag = "-game",
 })
 
 window_rule({
 	match = {
 		title = "^(explorer.exe|socialclubhelper.exe|snakebite.exe)$",
-		content = "game",
+		tag = "game",
 	},
-	content = "none",
+	tag = "-game",
 })
 
 window_rule({
@@ -44,4 +43,9 @@ window_rule({
 window_rule({
 	match = { class = "vesktop" },
 	tag = "+chat",
+})
+
+window_rule({
+	match = { class = "^(zen)$", title = "^(.*)(Watch)(.*)$", fullscreen = true },
+	tag = "+video",
 })

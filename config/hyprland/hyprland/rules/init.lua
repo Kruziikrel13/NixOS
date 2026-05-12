@@ -15,7 +15,7 @@ window_rule({
 })
 
 window_rule({
-	match = { content = "game" },
+	match = { tag = "game" },
 	tag = "+gaming",
 	decorate = false,
 	idle_inhibit = "always",
@@ -29,7 +29,7 @@ window_rule({
 })
 
 window_rule({
-	match = { content = "video" },
+	match = { tag = "video" },
 	decorate = false,
 	idle_inhibit = "fullscreen",
 	keep_aspect_ratio = true,
@@ -44,7 +44,7 @@ window_rule({
 
 window_rule({
 	match = { title = "^(Picture-in-Picture)$" },
-	content = "video",
+	tag = "+video",
 	float = true,
 	pin = true,
 	keep_aspect_ratio = true,
