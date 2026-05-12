@@ -46,7 +46,7 @@ in
         };
 
       # Generate outputs for each supported system
-      perSystem = builtins.map (
+      perSystem = map (
         system:
         let
           # Exclude self packages if they don't support the system
