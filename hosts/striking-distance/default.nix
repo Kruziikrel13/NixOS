@@ -19,9 +19,6 @@ rec {
         "peripherals/keychron"
       ];
     };
-    uni = {
-      gdevelop.enable = true;
-    };
     desktop = {
       hyprland = {
         enable = true;
