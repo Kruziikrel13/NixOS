@@ -8,7 +8,7 @@ for i, mon in ipairs(monitors) do
 		mode = mon.mode,
 		position = mon.position,
 		bitdepth = mon.hdr and 10,
-		cm = mon.hdr and "auto",
+		cm = mon.hdr and "auto" or nil,
 		disable = mon.disable or nil,
 	})
 
