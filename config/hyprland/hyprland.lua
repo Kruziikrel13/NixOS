@@ -1,8 +1,7 @@
 require("hyprland.variables")
 
-require("hyprland.settings")
 require("hyprland.rules")
-
+require("hyprland.settings")
 require("hyprland.keybinds")
 require("hyprland.patches")
 
