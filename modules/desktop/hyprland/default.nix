@@ -11,17 +11,29 @@ let
   inherit (self.lib) relativeToRoot;
   inherit (lib.modules) mkIf mkMerge;
   inherit (lib.options) mkEnableOption;
-  inherit (self.lib.options) mkOpt;
+  inherit (self.lib.options) mkOpt mkBoolOpt;
 in
 {
   imports = [
-    self.modules.hyprland.default
     self.modules.quickshell.default
+    self.modules.hyprland.default
   ];
   options.modules.desktop.hyprland = with lib.types; {
     enable = mkEnableOption "hyprland desktop";
     autoLogin = mkEnableOption "auto login";
-    extraConfig = mkOpt lines "";
+    monitors =
+      with lib.types;
+      mkOpt (listOf (submodule {
+        options = {
+          output = mkOpt str "";
+          mode = mkOpt str "preferred";
+          position = mkOpt str "auto";
+          scale = mkOpt int 1;
+          hdr = mkBoolOpt false;
+          primary = mkBoolOpt false;
+          disable = mkBoolOpt false;
+        };
+      })) [ { } ];
   };
 
   config = mkIf cfg.enable (mkMerge [
@@ -30,29 +42,33 @@ in
         hyprland = {
           enable = true;
           withUWSM = true;
-          settings.exec-once = [ "uwsm finalize" ];
-          inherit (cfg) extraConfig;
         };
         quickshell = {
           enable = true;
           systemd.enable = true;
         };
       };
-      user.packages = with pkgs; [ wl-clipboard ];
-      security.polkit.enable = true;
-
-      environment.sessionVariables = {
-        ELECTRON_OZONE_PLATFORM_HINT = "wayland";
-        NIXOS_OZONE_WL = "1";
-        QT_QPA_PLATFORM = "wayland";
-        MOZ_ENABLE_WAYLAND = "1";
-      };
-
       home.configFiles.quickshell = {
         target = "quickshell";
         source = relativeToRoot "config/quickshell";
       };
 
+      environment = {
+        systemPackages = [ pkgs.wl-clipboard ];
+        sessionVariables = {
+          ELECTRON_OZONE_PLATFORM_HINT = "wayland";
+          NIXOS_OZONE_WL = "1";
+          QT_QPA_PLATFORM = "wayland";
+          MOZ_ENABLE_WAYLAND = "1";
+        };
+        etc."xdg/uwsm/env".text = ''
+          export QT_WAYLAND_DISABLE_WINDOWDECORATION=1
+          export HYPRCURSOR_THEME=Bibata-Modern-Classic-Hyprcursor
+          export HYPRCURSOR_SIZE=${toString 16}
+        '';
+      };
+
+      security.polkit.enable = true;
       nix.settings = {
         substituters = [ "https://hyprland.cachix.org" ];
         trusted-substituters = [ "https://hyprland.cachix.org" ];
