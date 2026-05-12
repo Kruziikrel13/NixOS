@@ -54,18 +54,19 @@ in
       };
 
       environment = {
-        systemPackages = [ pkgs.wl-clipboard ];
+        systemPackages = [
+          pkgs.wl-clipboard
+          self.packages.bibata-hyprcursor
+        ];
         sessionVariables = {
           ELECTRON_OZONE_PLATFORM_HINT = "wayland";
           NIXOS_OZONE_WL = "1";
           QT_QPA_PLATFORM = "wayland";
           MOZ_ENABLE_WAYLAND = "1";
+          HYPRCURSOR_THEME = "Bibata-Modern-Classic-Hyprcursor";
+          HYPRCURSOR_SIZE = "16";
+          XCURSOR_SIZE = "16";
         };
-        etc."xdg/uwsm/env".text = ''
-          export QT_WAYLAND_DISABLE_WINDOWDECORATION=1
-          export HYPRCURSOR_THEME=Bibata-Modern-Classic-Hyprcursor
-          export HYPRCURSOR_SIZE=${toString 16}
-        '';
       };
 
       security.polkit.enable = true;
