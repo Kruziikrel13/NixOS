@@ -25,7 +25,7 @@ mkIf cfg.enable {
     "xdg/hypr/hyprland/keybinds".source = "${conf}/hyprland/keybinds";
     "xdg/hypr/hyprland/patches.lua".source = "${conf}/hyprland/patches.lua";
     "xdg/hypr/hyprland/variables.lua".source = pkgs.replaceVars ./variables.lua.in {
-      primary = primary.output;
+      primary = if (primary ? output) then primary.output else "";
       monitors = toLua { } (
         map (mon: {
           inherit (mon)
