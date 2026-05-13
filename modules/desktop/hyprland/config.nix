@@ -18,6 +18,7 @@ let
   conf = relativeToRoot "config/hyprland";
   fmap = [
     "hyprland.lua"
+    "hyprlandd.lua"
     "hyprland/patches.lua"
     "hyprland/settings"
     "hyprland/rules"
