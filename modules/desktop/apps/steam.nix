@@ -57,8 +57,6 @@ in
             "--grab"
             "--hdr-enabled"
             "--force-grab-cursor"
-            "--output-width 3840"
-            "--output-height 2160"
           ];
         };
         user.packages = [
