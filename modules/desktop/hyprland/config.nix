@@ -20,6 +20,7 @@ let
     "hyprland.lua"
     "hyprlandd.lua"
     "hyprland/patches.lua"
+    "hyprland/monitors.lua"
     "hyprland/settings"
     "hyprland/rules"
     "hyprland/keybinds"
