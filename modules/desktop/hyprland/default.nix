@@ -14,10 +14,7 @@ let
   inherit (self.lib.options) mkOpt mkBoolOpt;
 in
 {
-  imports = [
-    self.modules.quickshell.default
-    self.modules.hyprland.default
-  ];
+  imports = [ self.modules.quickshell.default ];
   options.modules.desktop.hyprland = with lib.types; {
     enable = mkEnableOption "hyprland desktop";
     autoLogin = mkEnableOption "auto login";
@@ -38,16 +35,23 @@ in
 
   config = mkIf cfg.enable (mkMerge [
     {
-      programs = {
-        hyprland = {
-          enable = true;
-          withUWSM = true;
+      programs =
+        let
+          inherit (pkgs.stdenv.hostPlatform) system;
+        in
+        {
+          hyprland = {
+            enable = true;
+            withUWSM = true;
+            systemd.setPath.enable = true;
+            package = self.inputs.hyprland.packages.${system}.hyprland.override { debug = true; };
+            portalPackage = self.inputs.hyprland.packages.${system}.xdg-desktop-portal-hyprland;
+          };
+          quickshell = {
+            enable = true;
+            systemd.enable = true;
+          };
         };
-        quickshell = {
-          enable = true;
-          systemd.enable = true;
-        };
-      };
       home.configFiles.quickshell = {
         target = "quickshell";
         source = relativeToRoot "config/quickshell";
