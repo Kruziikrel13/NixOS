@@ -56,6 +56,5 @@ window_rule({
 	float = true,
 })
 
-require("hyprland.rules.monitors")
 require("hyprland.rules.workspaces")
 require("hyprland.rules.apps")
