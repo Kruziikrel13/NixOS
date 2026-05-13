@@ -21,6 +21,7 @@ let
     "hyprland/patches.lua"
     "hyprland/settings"
     "hyprland/rules"
+    "hyprland/keybinds"
   ];
 in
 mkIf cfg.enable {
