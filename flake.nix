@@ -56,9 +56,8 @@
 
     gaming-edge = {
       type = "github";
-      owner = "joshsymonds";
+      owner = "powerofthe69";
       repo = "nix-gaming-edge";
-      ref = "josh/fix-fhsenv-override";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
