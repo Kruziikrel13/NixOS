@@ -46,6 +46,11 @@ window_rule({
 })
 
 window_rule({
+	match = { class = "spotify" },
+	tag = "+music",
+})
+
+window_rule({
 	match = { class = "^(zen)$", title = "^(.*)(Watch)(.*)$", fullscreen = true },
 	tag = "+video",
 })
