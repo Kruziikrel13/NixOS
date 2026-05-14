@@ -64,9 +64,9 @@
     # DESKTOP
     hyprland = {
       type = "github";
-      owner = "hyprwm";
+      owner = "kruziikrel13";
       repo = "hyprland";
-      ref = "v0.55.0";
+      ref = "rev";
     };
 
     hyprshutdown = {
