@@ -1,3 +1,7 @@
+local function load(module)
+	return require("hyprland.rules." .. module)
+end
+
 local window_rule = hl.window_rule
 window_rule({
 	match = {
@@ -12,27 +16,6 @@ window_rule({
 	no_dim = true,
 	no_shadow = true,
 	rounding = 0,
-})
-
-window_rule({
-	match = { tag = "game" },
-	tag = "+gaming",
-	decorate = false,
-	idle_inhibit = "always",
-	immediate = true,
-	fullscreen = true,
-	float = true,
-	render_unfocused = true,
-	keep_aspect_ratio = true,
-	confine_pointer = true,
-	no_vrr = true,
-})
-
-window_rule({
-	match = { tag = "video" },
-	decorate = false,
-	idle_inhibit = "fullscreen",
-	keep_aspect_ratio = true,
 })
 
 window_rule({
@@ -56,5 +39,6 @@ window_rule({
 	float = true,
 })
 
-require("hyprland.rules.workspaces")
-require("hyprland.rules.apps")
+load("workspaces").setup()
+load("tags").setup()
+load("apps")
