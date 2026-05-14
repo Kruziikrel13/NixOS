@@ -13,6 +13,10 @@ local map = {
 		monitor = "desc:ViewSonic Corporation VX2758-C-MH V9M184500179",
 		bind = "E",
 	},
+	music = {
+		monitor = "desc:AOC 24G1WG4 0x0004A33C",
+		bind = "M",
+	},
 }
 
 function M.workspaces()
