@@ -25,7 +25,7 @@ function M.setup()
 	-- create tags for all workspaces
 	local workspaces = require("hyprland.rules.workspaces").workspaces()
 	for _, val in ipairs(workspaces) do
-		map[val] = { workspace = val }
+		map[val] = { workspace = "name:" .. val }
 	end
 
 	for key, val in pairs(map) do
