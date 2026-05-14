@@ -44,7 +44,7 @@ in
             enable = true;
             withUWSM = true;
             systemd.setPath.enable = true;
-            package = self.inputs.hyprland.packages.${system}.hyprland.override { debug = true; };
+            package = self.inputs.hyprland.packages.${system}.hyprland;
             portalPackage = self.inputs.hyprland.packages.${system}.xdg-desktop-portal-hyprland;
           };
           quickshell = {
