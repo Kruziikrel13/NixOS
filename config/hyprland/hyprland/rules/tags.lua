@@ -30,7 +30,8 @@ function M.setup()
 
 	for key, val in pairs(map) do
 		-- coerce map into window_rule conformant table NOTE: this will modify map permanently
-		map[key].match = { tag = key }
+		val.match = { tag = key }
+
 		hl.window_rule(val)
 	end
 end
