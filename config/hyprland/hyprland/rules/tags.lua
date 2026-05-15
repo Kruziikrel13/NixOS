@@ -17,6 +17,7 @@ local map = {
 	["video"] = {
 		decorate = false,
 		idle_inhibit = "fullscreen",
+		render_unfocused = true,
 		keep_aspect_ratio = true,
 	},
 }
