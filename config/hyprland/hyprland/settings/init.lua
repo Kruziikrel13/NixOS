@@ -69,7 +69,6 @@ hl.config({
 		disable_splash_rendering = true,
 		force_default_wallpaper = 0,
 		middle_click_paste = false,
-		key_press_enables_dpms = true,
 	},
 })
 
