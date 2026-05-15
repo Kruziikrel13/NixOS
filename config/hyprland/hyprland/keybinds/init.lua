@@ -1,4 +1,6 @@
 local programs = Hyprland.programs
+
+local fns = require("hyprland.keybinds.functions")
 local bind = {
 	["RETURN"] = hl.dsp.exec_raw(programs.runapp .. " -- " .. programs.terminal),
 	["SHIFT + RETURN"] = hl.dsp.exec_raw(programs.runapp .. " -- " .. programs.terminal .. " --class=ghostty.small"),
@@ -7,6 +9,9 @@ local bind = {
 	["F"] = hl.dsp.window.fullscreen(),
 	["T"] = hl.dsp.window.float({ action = "toggle" }),
 	["C"] = hl.dsp.window.center(),
+	["M"] = function()
+		fns.focusmode()
+	end,
 
 	-- Window Focus
 	["L"] = hl.dsp.focus({ direction = "r" }),
