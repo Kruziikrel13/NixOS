@@ -3,6 +3,8 @@ local M = {}
 local focus = false
 local mons = nil
 
+--NOTE: has to be done using disable instead of DPMS due to one of my monitors not handling dpms appropriately
+
 -- Focus Mode, Disables non-primary monitors, toggleable
 function M.focusmode()
 	local monitors = hl.get_monitors()
